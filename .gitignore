@@ -1,0 +1,14 @@
+auto
+*.aux
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.tex~
+*~
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+

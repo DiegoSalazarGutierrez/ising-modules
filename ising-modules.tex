@@ -1,0 +1,1156 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\lm}{lm}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\len}{len}
+
+\newcommand{\vac}{|0\rangle}
+\newcommand{\vachalf}{|1/2\rangle}
+
+\makeindex
+
+\begin{document}
+
+\title{DEFINE TITLE}
+\author{Diego Salazar Gutierrez \\ \href{mailto:diego.salazar@impa.br}{diego.salazar@impa.br}}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+  ADD SOME ABSTRACT
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+
+In \cite{li_vertex_2002} Li introduced an increasing filtration $(G^pV)_{p\in \mathbb{Z}}$ on an arbitrary $\mathbb{N}$-graded vertex algebra $V$.
+The associated graded space $\gr^G(V)$ with respect to this increasing filtration then carries the structure of a $\mathbb{N}$-graded vertex Poisson algebra.
+
+Then in \cite{li_abelianizing_2005} Li introduces a decreasing filtration $(F_pV)_{p\in \mathbb{Z}}$ on an arbitrary vertex algebra $V$, not necessarily $\mathbb{N}$-graded.
+The associated graded space $\gr_F(V)$ with respect to this decreasing filtration again carries the structure of a vertex Poisson algebra.
+Li also introduces a decreasing filtration $(F_pM)_{p\in \mathbb{Z}}$ for modules $M$ over a vertex algebra $V$ and shows that the associated graded space $\gr_F(M)$ is a module over the vertex Poisson algebra $\gr_F(V)$.
+
+In summary, Li constructed three functors
+\begin{align*}
+  \gr^G:\{\text{$\mathbb{N}$-graded vertex algebras}\}&\to \{\text{$\mathbb{N}$-graded vertex Poisson algebras}\} \\
+  \gr_F:\{\text{vertex algebras}\}&\to \{\text{vertex Poisson algebras}\} \\
+  \gr_F:\{\text{$V$-modules}\}&\to \{\text{$\gr_F(V)$-modules}\}
+\end{align*}
+
+Then Arakawa shows in \cite[Proposition 2.6.1]{arakawa_remark_2012} that when $V$ is $\mathbb{N}$-graded, $\gr_F(V)$ and $\gr^G(V)$ are isomorphic.
+
+In this article, we define an increasing filtration $(G^pM)_{p\in \mathbb{Z}}$ for $h+\mathbb{N}$-graded modules $M$ over a $\mathbb{N}$-graded conformal vertex algebra $(V,\omega)$ which wasn't done in \cite{li_vertex_2002}.
+So we construct a functor
+\begin{equation*}
+  \gr^G:\{\text{$h+\mathbb{N}$-graded $(V,\omega)$-modules}\}\to \{\text{$h+\mathbb{N}$-graded $\gr^G(V)$-modules}\}.
+\end{equation*}
+Parallel to what was done \cite{arakawa_remark_2012}, we show that $\gr_F(M)$ and $\gr^G(M)$ are isomorphic.
+However for our purposes, the filtration $(G^pM)_{p\in \mathbb{Z}}$ is better suited.
+
+In \cite{andrews_singular_2022}, two theorems about the Virasoro minimal model $\Vir_{3,4}=L(1/2,0)$, also known as the Ising model are proved
+\begin{theorem}
+  \label{thr:1}
+  The refined character of $\gr^G(\Vir_{3,4})$ is given by
+  \begin{equation*}
+    \ch_{\gr^G(\Vir_{3,4})}(t,q)=\sum_{k_1,k_2\in \mathbb{N}}t^{4k_1+2k_2}\frac{q^{4k_1^2+3k_1k_2+k_2^2}}{(q)_{k_1}(q)_{k_2}}(1-q^{k_1}+q^{k_1+k_2}).
+  \end{equation*}
+\end{theorem}
+Let $Q_0$ be the following set of partitions
+\begin{align*}
+  &[q,q,q],[q+1,q,q],[q+1,q+1,q],[q+2,q+1,q],[q+2,q+2,q], &(q\ge 2) \\
+  &[q+2,q,q], [q+3,q+3,q,q], [q+4,q+3,q,q], &(q\ge 3) \\
+  &[q+3,q+3,q,q], [q+4,q+3,q,q], [q+4,q+3,q+1,q], [q+4,q+4,q+1,q], &(q\ge 2) \\
+  &[q+6,q+5,q+3,q+1,q], &(q\ge 2) \\
+  &[5,4,2,2],[7,6,4,2,2],[7,7,4,2,2],[9,8,6,4,2,2].
+\end{align*}
+Let $P_0$ be the set of partitions $\lambda=[\lambda_1,\dots, \lambda_m]$ that do not contain any partition in $Q_0$ with $\lambda_m\ge 2$.
+\begin{theorem}
+  \label{thr:2}
+  The set
+  \begin{equation*}
+    \{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vac\mid \lambda=[\lambda_1,\dots, \lambda_m]\in P_0\}
+  \end{equation*}
+  is a vector space basis of $\Vir_{3,4}$.
+\end{theorem}
+
+In this article we prove two similar results for $L(1/2,1/2)$.
+\begin{theorem}
+  \label{thr:3}
+  The refined character of $\gr^G(L(1/2,1/2))$ is given by
+  \begin{equation*}
+    \ch_{\gr^G(L(1/2,1/2))}(t,q)=q^{1/2}(f_{3,2,0,0}(t,q)+f_{5,2,1,1}(t,q)+f_{6,3,2,2}(t,q))
+  \end{equation*}
+  (see the Preliminaries and notation section for the definition of the functions $f_{a,b,c,d}(t,q)$)
+\end{theorem}
+
+Let $Q$ be the following set of partitions.
+\begin{align*}
+  &[q,q,q],[q+1,q,q],[q+1,q+1,q],[q+2,q+1,q],[q+2,q+2,q], &(q\ge 3) \\
+  &[q+2,q,q], [q+3,q+3,q,q], [q+4,q+3,q,q], &(q\ge 3) \\
+  &[q+3,q+3,q,q], [q+4,q+3,q,q], [q+4,q+3,q+1,q], [q+4,q+4,q+1,q], &(q\ge 3) \\
+  &[q+6,q+5,q+3,q+1,q], &(q\ge 3) \\
+  &[2],[3,3],[2,1],[4,3,1],[4,4,1],[6,5,3,1],[3,1,1],[5,4,1,1],[1,1,1].
+\end{align*}
+We call the last partitions of this list exceptional partitions and the others involving $q$ are called ordinary partitions.
+Let $P$ be the set of partitions that do not contain any partition in $Q$.
+\begin{theorem}
+  \label{thr:4}
+  The set
+  \begin{equation*}
+    \{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vachalf\mid \lambda=[\lambda_1,\dots,\lambda_m] \in P\}
+  \end{equation*}
+  is a vector space basis of $L(1/2,1/2)$.
+\end{theorem}
+
+The proof given in this article is similar to the proof given in \cite{andrews_singular_2022}.
+However, there are a couple differences.
+
+The similarities are that both this article and \cite{andrews_singular_2022} use Groebner Basis theory as a core element of the proofs, both use recursive equations to find explicit formulas for the characters and the resulting vector space basis is almost the same, differing only in the exceptional partitions.
+
+An important difference of that article with this one is that for $\gr^G(\Vir^{1/2})$ there is a well defined differential operator $\partial$ which is used several times in \cite{andrews_singular_2022}.
+Here, I think it's not possible to define such an operator in a meaningful way, so the problem becomes computationally intense and the exceptional partitions need to be computed with software.
+There is something similar that can be said about a pseudo differential operator, though.
+Another difference is that for $\Vir_{3,4}$, all $L_{-2}$, $L_{-3}$, etc have weight $2$ while here we also have to consider $L_{-1}$ because $L_{-1}\vachalf\neq 0$ and according to our definition of $\gr^G$ for modules, $L_{-1}$ has weight $1$.
+So our filtration is not really the PBW filtration which is a bit strange but seems to work well for our purposes.
+
+This article tries to be a bit more systematic with the notation and frequently uses some series $f_{a,b,c,d}(t,q)\in \mathbb{C}[t,q]$ where $a,b,c,d\in \mathbb{N}$ that appear several times in \cite{andrews_singular_2022}.
+
+
+We can do a similar analysis for $L(1/2,1/16)$ and obtain the following theorems
+
+\begin{theorem}
+  \label{thr:5}
+  SERIES AND BASIS OF $L(1/2,1/16)$
+\end{theorem}
+
+Finally, we give a brief explanation of the Sage program used to compute the exceptional partitions appearing in Theorem \ref{thr:2}.
+
+MAYBE IMPROVE THIS INTRODUCTION WITH RELATIONS WITH OTHER AREAS OF MATH OR SOMETHING
+
+\section{Preliminaries and notation}
+\label{sec:prel-notat}
+All vector spaces are over $\mathbb{C}$, the field of complex numbers.
+The set of natural numbers $\{0,1,\dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$ and the set of positive integers $\{1,2,\dots\}$ is denoted by $\mathbb{Z}_+$.
+
+First, we quickly review some parts of the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
+The \textbf{Virasoro Lie algebra}, denoted $\Vir$, a Lie algebra given by
+\begin{equation*}
+  \Vir=\bigoplus_{m\in \mathbb{Z}}\mathbb{C}L_m\oplus \mathbb{C}C.
+\end{equation*}
+These elements satisfy the following commutation relations
+\begin{align}
+  \label{eq:1}
+  [L_m,L_n]&=(m-n)L_{m+n}+\delta_{m,-n}\frac{m^3-m}{12}C, \\
+  \nonumber
+  [\Vir,C]&=0, 
+\end{align}
+for all $m$, $n\in \mathbb{Z}$.
+Let $c,h\in \mathbb{C}$.
+Set $\Vir_{\ge 0,C}=\bigoplus_{n\in \mathbb{N}}\mathbb{C}L_n\oplus \mathbb{C}C$.
+Then $\Vir_\ge$ is a Lie subalgebra of $\Vir$ and we let it act on $\mathbb{C}$ as follows
+\begin{align*}
+  L_n1&=0, n>0 \\
+  L_01&=h, \\
+  C1&=c.
+\end{align*}
+The \textbf{Verma representation} of $\Vir$ with \textbf{highest weight} $(c,h)$ is defined as 
+\begin{equation*}
+  M(c,h)=\Ind^{\Vir}_{\Vir_{\ge 0,C}}\mathbb{C}=U(\Vir)\otimes_{U(\Vir_{\ge 0,C})}\mathbb{C},
+\end{equation*}
+where $\Vir$ acts by left multiplication.
+Set $|c,h\rangle=1\otimes 1$.
+
+A \textbf{partition} (of $n\in \mathbb{N}$) is a sequence $\lambda=[\lambda_1,\dots, \lambda_m]$ such that $\lambda_i\in \mathbb{Z}_+$ for $i=1,\dots,m$, $\lambda_1\ge\dots\ge\lambda_m$ (and $\lambda_1+\dots+\lambda_m=n$).
+We also consider the \textbf{empty partition} $\emptyset$ which is the unique partition of $0$.
+For a partition $\lambda=[\lambda_1,\dots,\lambda_m]$, define $L_{\lambda}=L_{-\lambda_1}\dots L_{-\lambda_m}\in U(\Vir)$.
+By the PBW theorem, the set
+\begin{equation*}
+  \{L_\lambda|c,h\rangle\mid \lambda\text{ is a partition}\}
+\end{equation*}
+is a vector space basis of $M(c,h)$.
+The representation $M(c,h)$ has a unique maximal subrepresentation $I(c,h)$ and the quotient
+\begin{equation*}
+  L(c,h)=M(c,h)/I(c,h)
+\end{equation*}
+is the \textbf{irreducible highest weight representation} with highest weight $(c,h)$.
+In \cite{andrews_singular_2022}, $\Vir_{3,4}=L(1/2,0)$ was studied.
+In this article, we study $L(1/2,1/2)$ and $L(1/2,1/16)$.
+
+Now we do a short review of filtrations of vertex algebras and their modules.
+For details, see \cite{li_vertex_2002}, \cite{arakawa_remark_2012} and \cite{li_abelianizing_2005}.
+Basic definitions of vertex algebras, their modules and vertex Poisson algebras are assumed.
+The books \cite{kac_vertex_1998} and \cite{frenkel_vertex_2004} are good sources to start studying vertex algebras.
+
+Let $V$ be a vertex algebra and $(a^i)_{i\in I}$ a family of strong generators of $V$.
+For $p\in \mathbb{Z}$, set
+\begin{equation*}
+  F_pV=\vspan \{a^{i_1}_{(-n_1-1)}\dots a^{i_s}_{(-n_s-1)}\vac\mid s,n_1,\dots,n_s\in \mathbb{N}, i_1,\dots, i_s\in I, n_1+\dots +n_s\ge p\}.
+\end{equation*}
+
+\begin{proposition}
+  \label{prp:1}
+  The family $(F_pV)_{p\in \mathbb{Z}}$ satisfy
+  \begin{enumerate}[label={(\alph*)}]
+  \item $F_pV=V$ for $p\le 0$,
+  \item $F_0V\supseteq F_1V\supseteq \dots$,
+  \item $TF_pV\subseteq F_{p+1}V$,
+  \item $a_{(n)}F_qV\subseteq F_{p+q-n-1}V$ for $a\in F_pV$, $n\in \mathbb{Z}$,
+  \item $a_{(n)}F_qV\subseteq F_{p+q-n}V$ for $a\in F_pV$, $n\in \mathbb{N}$.
+  \end{enumerate}
+\end{proposition}
+
+Let
+\begin{equation*}
+  \gr_F(V)=\bigoplus_{p\in \mathbb{N}}F_pV/F_{p+1}V
+\end{equation*}
+be the associated graded vector space.
+The vector space $\gr_F(V)$ is a vertex Poisson algebra with operations given as follows
+\begin{align*}
+  \sigma_p(a)\sigma_q(b)&=\sigma_{p+q}(a_{(-1)}b), \\
+  T\sigma_p(a)&=\sigma_{p+1}(Ta), \\
+  Y_-(\sigma_p(a),z)\sigma_q(b)&=\sum_{n\in \mathbb{N}}\sigma_{p+q-n}(a_{(n)}b)z^{-n-1},
+\end{align*}
+where $\sigma_p:F_pV\to \gr_F(V)$ is the \textbf{principal symbol map} which is the composition of the natural maps $F_pV\to F_pV/F_{p+1}V$ and $F_pV/F_{p+1}V\to \gr_F(V)$.
+The filtration $(F_pV)_{p\in \mathbb{Z}}$ is called the \textbf{Li filtration} of $V$.
+
+Assume that $V$ is a $\mathbb{N}$-graded vertex algebra.
+We now define an increasing filtration $(G^pV)_{p\in \mathbb{Z}}$ called the \textbf{standard filtration}.
+Choose a family $(a^i)_{i\in I}$ of homogeneous strong generators of $V$ and for $p\in \mathbb{Z}$ set
+\begin{equation*}
+  G^pV = \vspan\{a^{i_1}_{(-n_1-1)}\dots a^{i_s}_{(-n_s-1)}\vac\mid i_j\in I, s,n_1,\dots,n_s\in \mathbb{N}, \Delta_{a^{i_1}}+\dots+\Delta_{a^{i_s}}\le p\},
+\end{equation*}
+where $\Delta$ denotes conformal weight.
+
+\begin{proposition}
+  \label{prp:2}
+  The family $(G^pV)_{p\in \mathbb{Z}}$ satisfy
+  \begin{enumerate}[label={(\alph*)}]
+  \item $G^pV=0$ for $p<0$,
+  \item $G^0V\subseteq G^1V\subseteq\dots$,
+  \item $V=\bigcup_pG^pV$,
+  \item $TG^pV\subseteq G^pV$,
+  \item $a_{(n)}G^qV\subseteq G^{p+q}V$, for $a\in G^pV$, $n\in \mathbb{Z}$,
+  \item $a_{(n)}G^qV\subseteq G^{p+q-1}V$, for $a\in G^pV$, $n\in \mathbb{N}$.
+  \end{enumerate}
+\end{proposition}
+Let
+\begin{equation*}
+  \gr^G(V)=\bigoplus_{p\in\mathbb{N}}G^pV/G^{p-1}V
+\end{equation*}
+be the associated graded vector space.
+The vector space $gr^G(V)$ a vertex Poisson algebra with operations given as follows
+\begin{align*}
+  \alpha^p(a)\alpha^q(b)&=\alpha^{p+q}(a_{(-1)}b), \\
+  T\alpha^p(a)&=\alpha^{p}(Ta), \\
+  Y_-(\alpha^p(a),z)\alpha^q(b)&=\sum_{n\in \mathbb{N}}\alpha^{p+q-1}(a_{(n)}b)z^{-n-1},
+\end{align*}
+where $\alpha^p:G^pV\to \gr^G(V)$ is the principal symbol map.
+
+\begin{proposition}[{\cite[Proposition 2.6.1]{arakawa_remark_2012}}]
+  \label{prp:3}
+  We have
+  \begin{equation*}
+    F_pV_n=G^{n-p}V_n
+  \end{equation*}
+  for all $p,n\in \mathbb{N}$.
+  Therefore $\gr_F(V)$ and $\gr^G(V)$ are isomorphic as vertex Poisson algebras.
+\end{proposition}
+Let $V$ be a vertex algebra, $(a^i)_{i\in I}$ a family of strong generators of $V$ and $M$ a $V$-module.
+For $p\in \mathbb{Z}$, we define the following family of subspaces of $M$
+\begin{equation*}
+  F_pM=\vspan \{a^{i_1M}_{(-n_1-1)}\dots a^{i_sM}_{(-n_s-1)}m\mid s,n_1,\dots,n_s\in \mathbb{N}, i_1,\dots, i_s\in I, m\in M, n_1+\dots +n_s\ge p\}.
+\end{equation*}
+The family $(F_pM)_{p\in \mathbb{Z}}$ satisfy
+\begin{enumerate}[label={(\alph*)}]
+\item $M=F_pM$ for $p\le 0$,
+\item $F_0M\supseteq F_1M\supseteq \dots$,
+\item $a_{(n)}F_qM\subseteq F_{p+q-n-1}M$ for $a\in F_pV$, $n\in \mathbb{Z}$,
+\item $a_{(n)}F_qM\subseteq F_{p+q-n}M$ for $a\in F_pV$, $n\in \mathbb{N}$.
+\end{enumerate}
+
+Let
+\begin{equation*}
+  \gr_F(M)=\bigoplus_{p\in \mathbb{N}}F_pM/F_{p+1}M
+\end{equation*}
+be the associated graded vector space.
+The vector space $\gr_F(M)$ is a module over the vertex Poisson algebra $\gr_F(V)$ by setting
+\begin{align*}
+  \sigma_p(a)\sigma^M_q(m)&=\sigma^M_{p+q}(a^M_{(-1)}b), \\
+  Y_-(\sigma_p(a),z)\sigma^M_q(m)&=\sum_{n\in \mathbb{N}}\sigma^M_{p+q-n}(a^M_{(n)}m)z^{-n-1},
+\end{align*}
+where $\sigma^M_p:F_pM\to \gr_F(M)$ is the principal symbol map.
+
+Note that if $V$ were conformal vertex algebra with conformal vector $\omega$ then we don't always have the property $L_{-1}^MF_pM\subseteq F_{p+1}M$ for $p\in \mathbb{Z}$ where $Y(\omega,z)=\sum_{n\in \mathbb{Z}}L^M_nz^{-n-2}$.
+For example for $V=\Vir^{1/2}$ and $M=M(1/2,1/2)$, $\vachalf\in F_0M$ and $L_{-1}\vachalf\notin F_1M$.
+This makes \cite[Lemma 3.1.2]{arakawa_remark_2012} incorrect because the expression $\sigma_{p-1}(\omega_{(0)}m)$ (that should be $\sigma_{p+1}(\omega_{(0)}m)$ but it still doesn't work) not well defined.
+I couldn't fix this problem completely.
+
+Now we introduce a definition not given by Li in \cite{li_vertex_2002}.
+Let $(V,\omega)$ be a $\mathbb{N}$-graded conformal vertex algebra with conformal vector $\omega$, $(a^i)_{i\in I}$ a family of homogeneous strong generators of $V$ and $M$ a $(V,\omega)$-module which means $M$ is a $V$-module and if we write $Y^M(\omega,z)=\sum_{n\in \mathbb{Z}}L^M_nz^{-n-2}$ then $L_0^M$ is diagonalizable and $(L^M_n)_{n\in \mathbb{Z}}$ satisfy the Virasoro relations \eqref{eq:1} for $C=c\Id_M$.
+Let $M_\Delta=\ker(L^M_0-\Delta \Id_{M})$ for $\Delta\in \mathbb{C}$.
+We assume the gradation of $M$ is of the form $M=\bigoplus_{n\in \mathbb{N}}M_{h+n}$ for some $h\in \mathbb{C}$ and that every subspace $M_{h+n}$ is finite dimensional.
+
+The \textbf{standard filtration} $(G^pM)_{p\in \mathbb{Z}}$ of $M$ is defined as
+\begin{equation*}
+  \begin{split}
+    G^pM=\vspan\{a^{i_1 M}_{(-n_1-1)}\dots a^{i_s M}_{(-n_s-1)}m\mid& m\in M_{\Delta_m}, i_j\in I, s,n_1,\dots, n_s\in \mathbb{N}\text{ and }\\
+    &\Delta_{a^{i_1}}+\dots+\Delta_{a^{i_s}}+\Delta_m-h\le p\},
+  \end{split}
+\end{equation*}
+where $\Delta$ denotes conformal weight.
+
+The filtration $(G^pM)_{p\in \mathbb{Z}}$ satisfy
+\begin{enumerate}[label={(\alph*)}]
+\item $G^pM=0$ for $p<0$,
+\item $G^0M\subseteq G^1M\subseteq\dots$,
+\item $M=\bigcup_pG^pM$,
+\item $a^M_{(n)}G^qM\subseteq G^{p+q}M$ for $a\in G^pV$ and $n\in \mathbb{Z}$,
+\item $a^M_{(n)}G^qM\subseteq G^{p+q-1}M$ for $a\in G^pV$ and $n\in \mathbb{N}$,
+\item $L^M_0G^pM\subseteq G^pM$ and $L^M_{-1}G^pM\subseteq G^{p+1}M$.
+\end{enumerate}
+Note that we don't have the property $L_{-1}^MG^pM\subseteq G^pM$ as in the case of vertex algebras.
+Let
+\begin{equation*}
+  \gr^G(M)=\bigoplus_{p\in \mathbb{N}}G^pM/G^{p-1}M
+\end{equation*}
+be the associated graded vector space.
+Then $\gr^G(M)$ is a module over the Poisson vertex algebra $\gr^G(V)$.
+Call $\alpha^p_M:G^pM\to \gr^G(M)$ the principal symbol map for $p\in \mathbb{N}$.
+The operations that make $\gr^G(M)$ into a module are defined by
+\begin{align*}
+  \alpha^p(a)\alpha^q_M(m)&=\alpha^{p+q}_M(a^M_{(-1)}m), \\
+  Y^M_{-}(\alpha^p(a), z)\alpha^q_M(m)&=\sum_{n\in \mathbb{N}}\alpha^{p+q-1}_M(a^M_{(n)}m)z^{-n-1},
+\end{align*}
+where $p,q\in \mathbb{N}$, $a\in G^pV$ and $m\in G^qM$.
+These are well defined by properties (d) and (e) of the filtration $(G^pM)_{p\in \mathbb{Z}}$.
+
+By property (f) of the filtration $(G^pM)_{p\in \mathbb{Z}}$, we can define a diagonalizable operator $H^M\in \End(\gr^G(M))$ by setting $H^M(\alpha^p_M(m))=\alpha^p_M(L^M_0m)$ for $p\in \mathbb{Z}, m\in G^pM$.
+
+For $p,n\in \mathbb{N}$, set $G^pM_{h+n}=G^pM\cap M_{h+n}$, then
+\begin{equation}
+  \label{eq:2}
+  \gr^G(M)=\bigoplus_{n\in \mathbb{N}}\gr^G(M)_{h+n}
+\end{equation}
+where $\gr^G(M)_{h+n}=\bigoplus_{p\in \mathbb{N}}\alpha^p_M(G^pM_{h+n})$ and $\gr^G(M)_{h+n}=\ker(H^M-(h+n)\Id_{\gr^G(M)})$.
+Besides gradation \eqref{eq:2}, we have the refined gradation
+\begin{equation}
+  \label{eq:3}
+  \gr^G(M)=\bigoplus_{p,n\in \mathbb{N}}\alpha^p_M(G^pM_{h+n}).
+\end{equation}
+Define the character and the refined character of $\gr^G(M)$ with respect to gradation \eqref{eq:2} and \eqref{eq:3} as
+\begin{align*}
+  \ch_{\gr^G(M)}(q)&=\sum_{n\in \mathbb{N}}\dim(\gr^G(M)_{h+n})q^{h+n} \in q^h\mathbb{C}[[q]],\\
+  \ch_{\gr^G(M)}(t,q)&=\sum_{p,n\in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h+n}))t^pq^{h+n}\in q^{h}\mathbb{C}[[t,q]].
+\end{align*}
+By property (c) of the filtration $(G^pM)_{p\in \mathbb{Z}}$, we have
+\begin{equation*}
+  \ch_M(q)=\ch_{\gr^G(M)}(q)=\ch_{\gr^G(M)}(1,q).
+\end{equation*}
+
+If $f:M_1\to M_2$ is a homomorphism of $(V,\omega)$-modules, then
+\begin{align*}
+  \gr^G(f):\gr^G(M_1)&\to \gr^G(M_2) \\
+  \alpha^p_{M_1}(m_1)&\mapsto \alpha^p_{M_2}(f(m_1))
+\end{align*}
+for $p\in \mathbb{N}$ and $m_1\in G^pM_1$, defines a homomorphism of graded $\gr^G(V)$-modules.
+Therefore we obtain a functor
+\begin{equation*}
+  \gr^G:\{\text{$h+\mathbb{N}$-graded $(V,\omega)$-modules}\}\to \{\text{$h+\mathbb{N}$-graded $\gr^G(V)$-modules}\}.
+\end{equation*}
+
+Similarly to Proposition \ref{prp:3}, the following Proposition justifies the definition of the filtration $(G^pM)_{p\in \mathbb{Z}}$.
+
+\begin{proposition}
+  \label{prp:4}
+  We have
+  \begin{equation*}
+    F_pM_{h+n}=G^{n-p}M_{h+n}
+  \end{equation*}
+  for all $p,n\in \mathbb{N}$.
+  An explicit isomorphism $\gr_F(M)\xrightarrow{\sim} \gr^G(M)$ of modules over vertex Poisson algebras is defined by extending linearly the isomorphisms of vector spaces
+  \begin{align*}
+    \sigma^M_p(F_pM_{h+n})&\xrightarrow{\sim} \alpha^{n-p}_M(G^{n-p}M_{h+n}) \\
+    \sigma^M_p(m)&\mapsto \alpha^{n-p}_M(m),
+  \end{align*}
+  where $p,n\in \mathbb{N}$ and $m\in F_pM_{h+n}$.
+\end{proposition}
+\begin{proof}
+  We recall three facts
+  \begin{enumerate}[label={(\alph*)}]
+  \item $G^nM\supseteq M_{h+n}$ for $n\in \mathbb{N}$,
+  \item $\Delta_{a^M_{(n)}m}=\Delta_a+\Delta_m-n-1$ for homogeneous $a\in V$, $m\in M$ and $n\in \mathbb{Z}$,
+  \item $F_pM_{h+n}=span\{a^{i_1M}_{(-n_1-1)}m\mid i_1\in I, n_1\in \mathbb{Z}_+\text{ and } m\in F_{p-n_1}M_{\Delta_m} \text{ with }\Delta_{a^{i_1}}+\Delta_m+n_1=h+n\}$ for any $p\in \mathbb{Z}_+$ and $n\in \mathbb{N}$.
+  \end{enumerate}
+  First we prove the inclusion $F_pM_{h+n}\subseteq G^{n-p}M_{h+n}$ for $p,n\in \mathbb{N}$.
+  We do this by induction on $p\in \mathbb{N}$.
+  The base case $p=0$ is true by property (a) above.
+  Now assume $p\ge 1$ and $F_qM_{h+n}\subseteq G^{n-q}M_{h+n}$ for $q<p$ and all $n\in \mathbb{N}$.
+  Pick an element $a^{i_1M}_{(-n_1-1)}m$ from the spanning set of $F_pM_{h+n}$ in (c), with $i_1\in I$, $n_1\in \mathbb{Z}_+$ and $m\in F_{p-n_1}M_{\Delta_m}$.
+  We know that $m\in G^{\Delta_m-h-p+n_1}M_{\Delta_m}$ by the induction hypothesis and also $a\in V_{\Delta_a^{i_1}}\subseteq G^{\Delta_{a^{i_1}}}V$.
+  Therefore by property (d) of the filtration $(G^pM)_{p\in\mathbb{Z}}$, $a^{i_1M}_{(-n_1-1)}m\in G^{\Delta_{a^{i_1}}+\Delta_m-h-p+n_1}M=G^{n-p}M$.
+
+  Now we prove the other inclusion $G^{n-p}M_{h+n}\subseteq F_pM_{h+n}$.
+  Pick an element $a^{i_1 M}_{(-n_1-1)}\dots a^{i_s M}_{(-n_s-1)}m$ from the spanning set of $G^{n-p}M_{h+n}$ where $m\in M_{\Delta_m}, i_j\in I, s,n_1,\dots, n_s\in \mathbb{N}\text{ and }\Delta_{a^{i_1}}+\dots+\Delta_{a^{i_s}}+\Delta_m-h\le n-p$ and we must have $\Delta_{a^{i_1}}+\dots+\Delta_{a^{i_s}}+\Delta_m+n_1+\dots+n_s=h+n$ by property (b).
+  Therefore $p\le n_1+\dots+n_s$, so we get $a^{i_1 M}_{(-n_1-1)}\dots a^{i_s M}_{(-n_s-1)}m\in F_pM$ straight from the definition of $F_pM$.
+
+  The second part of the Theorem is clear.
+\end{proof}
+
+This proposition translates into an identity of refined characters of $\gr_F(M)$ and $\gr^G(M)$
+\begin{proposition}
+  \label{prp:5}
+  Assume $M$ is a $h+\mathbb{N}$-graded module of the $\mathbb{N}$-graded conformal vertex algebra $(V,\omega)$ with gradation $M=\bigoplus_{h\in \mathbb{N}}M_{h+n}$.
+  Then
+  \begin{enumerate}[label={(\alph*)}]
+  \item $\ch_M(q)=\ch_{\gr_F(M)}(q)=\ch_{\gr^G(M)}(q)=\ch_{\gr_F(M)}(1,q)=\ch_{\gr^G(M)}(1,q)$,
+  \item $\ch_{\gr^G(M)}(t^{-1},tq)=t^h\ch_{\gr_F(M)}(t,q)$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \begin{enumerate}[label={(\alph*)}]
+  \item This is clear from the properties and definition of the filtrations.
+  \item This follows from Proposition \ref{prp:4} and replacing $p$ by $n-p$ in the following computation
+    \begin{align*}
+    \ch_{\gr^G(M)}(t^{-1},tq)&=\sum_{p,n\in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h+n}))t^{-p}(tq)^{h+n} \\
+    &=\sum_{p,n\in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h+n}))t^{h+n-p}q^{h+n} \\
+    &=\sum_{p,n\in \mathbb{N}}\dim(\alpha^{n-p}_M(G^{n-p}M_{h+n}))t^{h+p}q^{h+n} \\
+    &=t^h\ch_{\gr_F(M)}(t,q).\qedhere
+  \end{align*}
+  \end{enumerate}
+\end{proof}
+
+In this article, we always take $V=\Vir^{1/2}$ as the base vertex algebra.
+From now on some indexes or subindexes of modules will not be written, so for example $\alpha^p_M$ simplifies to $\alpha^p$.
+Set $M=M(1/1,1/2)$, $L=L(1/2,1/2)$ and $\vachalf=|1/2,1/2\rangle$ until the end of this article.
+The representations $M$ and $L$ can be considered as modules over $V$ because they are smooth representations of $\Vir$ with central charge $1/2$.
+Set $W=I(1/2,1/2)$.
+By definition we have $L=M/W$.
+It can be shown using the results of \cite{feigin_verma_1984} that
+\begin{equation*}
+  W=U(\Vir)\{m_2,m_3\},
+\end{equation*}
+where
+\begin{align*}
+  m_2&= \left(L_{-1}^2-\tfrac{4}{3}L_{-2}\right)\vachalf, \\
+  m_3&= \left(L_{-1}^3-3L_{-2}L_{-1}+\tfrac{3}{4}L_{-3}\right)\vachalf.
+\end{align*}
+are the generating singular vectors.
+
+We have a natural surjective homomorphism of representations of $\Vir$
+\begin{align*}
+  \pi:M&\to L \\
+  L_{\lambda}\vachalf&\mapsto L_\lambda(\vachalf+W),
+\end{align*}
+where $\lambda$ is a partition.
+We can consider $\pi$ as a homomorphism of modules over $V$.
+Applying the functor $\gr^G$ we obtain a surjective homomorphism of modules over $\gr^G(V)$
+\begin{equation*}
+  \gr^G(\pi):\gr^G(M)\to \gr^G(L),
+\end{equation*}
+and this produces a natural isomorphism of modules over $\gr^G(V)$
+\begin{equation*}
+  \gr^G(M)/K\xrightarrow{\sim} \gr^G(L)
+\end{equation*}
+where
+\begin{equation*}
+K=\ker(\gr^G(\pi)).
+\end{equation*}
+
+Let's describe these objects and the isomorphisms explicitly.
+For $V$, $\gr^G(V)$ is isomorphic to $\mathbb{C}[L_{-2},L_{-3},\dots]$, the polynomial ring with infinitely many variables $L_{-2},L_{-3},\dots$ and coefficients in $\mathbb{C}$ because the standard filtration $(G^pV)$ is essentially the ``doubled'' PBW filtration $U_\bullet(\Vir_{\le -2})$ and therefore $\gr^G(V)\cong \gr(U(\Vir_{\le -2}))\cong S(\Vir_{\le -2})\cong \mathbb{C}[L_{-2},L_{-3},\dots]$ (see \cite[Chapter 2]{dixmier_enveloping_1996}).
+A similar argument can be made for $\gr^G(M)$, obtaining that $\gr^G(M)$ is isomorphic to the free module $\bigoplus_{n\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^n$.
+The isomorphism is given by
+\begin{align*}
+  \bigoplus_{k\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^k&\xrightarrow{\sim} \gr^G(M) \\
+  L_{-n_1-2}\dots L_{-n_s-2}L_{-1}^k&\mapsto \alpha^{2s+k}(L_{-n_1-2}^M\dots L_{-n_s-2}^M(L_{-1}^M)^k\vachalf),
+\end{align*}
+where $s,k,n_1,\dots, n_s\in \mathbb{N}$.
+That $+k$ is what makes this filtration different from the PBW filtration where all $L_n$ have the same length.
+With the standard filtration however, $L_{-1}$ has length equal to $1$ while $L_{-2}$, $L_{-3},\dots$ have length equal to $2$.
+
+These observations justify the following definitions.
+For a partition $\lambda=[\lambda_1,\dots, \lambda_m,1,\dots,1]$ with exactly $n$ ones at the end, define $m_\lambda\in \bigoplus_{k\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^k$ as $L_{-\lambda_1}\dots L_{-\lambda_m}L_{-1}^n$ where $L_{-1}^n$ is the $n$-th element of the canonical base.
+For a partition $\lambda=[\lambda_1,\dots, \lambda_m,1,\dots,1]$ with exactly $n$ ones at the end, define the \textbf{length} of $\lambda$ as $\len(\lambda)=2m+n$ and the \textbf{weight} of $\lambda$ as $\Delta(\lambda)=\lambda_1+\dots +\lambda_m+n$.
+Therefore for a partition $\lambda$ we have
+\begin{equation*}
+  L_{\lambda}\vachalf\in G^{\len(\lambda)}M_{1/2+\Delta(\lambda)}.
+\end{equation*}
+
+From the surjective homomorphism of $V$-modules $\pi:M\to L$ we deduce the following four isomorphisms which are going to be used frequently so it is good to have them in mind while reading
+\begin{proposition}
+  \label{prp:6}
+  We have four grading-preserving vector space isomorphisms
+  \begin{align*}
+    M&\xrightarrow{\sim} \gr^G(M) \\
+    L_\lambda\vachalf&\mapsto \alpha^{\len(\lambda)}(L_\lambda\vachalf) \\
+    \gr^G(M)&\xrightarrow{\sim}\bigoplus_{k\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^k \\
+    \alpha^{\len(\lambda)}(L_\lambda\vachalf)&\mapsto m_\lambda \\
+    L&\xrightarrow{\sim} \gr^G(L) \\
+    L_\lambda(\vachalf+W)&\mapsto \alpha^{\len(\lambda)}(L_\lambda(\vachalf+W)) \\
+    \gr^G(L)&\xrightarrow{\sim} \gr^G(M)/K \\
+    \alpha^{\len(\lambda)}(L_\lambda(\vachalf+W))&\mapsto \alpha^{\len(\lambda)}(L_\lambda\vachalf)+K,
+  \end{align*}
+  where $\lambda$ is a partition.
+\end{proposition}
+
+Finally, we review the theory of Groebner bases for polynomial rings and free modules of finite rank over these polynomial rings following \cite{adams_introduction_1994}.
+
+Set $A=\mathbb{C}[x_1,\dots,x_n]$, the polynomial ring in $n\in \mathbb{N}$ variables $x_1,\dots, x_n$.
+The theory of Groebner bases of ideals of polynomial rings generalizes to submodules of $A^m$.
+The free module $A^m$ has a standard basis
+\begin{equation*}
+  e_1=(1,0,\dots,0), e_2=(0,1,0,\dots, 0), \dots, e_m=(0,\dots, 0, 1).
+\end{equation*}
+By a \textbf{monomial} in $A^m$, we mean a vector $X=x^\alpha e_i\in A^m$ where $x^\alpha=x_1^{\alpha_1}\dots x_n^{\alpha_n}\in A$ is a product of the variables with $\alpha_1,\dots,\alpha_n\in \mathbb{N}$ and $1\le i \le m$.
+That is, a monomial is a vector with all coordinates equal to zero except for one which is a power product of $A$.
+Let $f\in A^m$.
+A monomial $X$ in $A^m$ \textbf{appears in} $f$ if the coefficient in front of $X$ in $f$ is nonzero.
+If $X=x^\alpha e_i$ and $Y=x^\beta e_j$ are monomials in $A^m$, we say that $X$ \textbf{divides} $Y$, denoted $X\mid Y$ provided that $i=j$ and $x^\alpha\mid x^\beta$.
+
+By a \textbf{term order} on the monomials of $A^m$ we mean a total order $\le$ on these monomials satisfying the following two conditions
+\begin{enumerate}[label={(\alph*)}]
+\item $X\le x^\alpha X$ for any monomial $X$ of $A^m$ and $x^\alpha$ a power product of $A$,
+\item If $X\le Y$ then $x^\alpha X\le x^\alpha Y$ for all monomials $X,Y\in A^m$ and every power product $x^\alpha\in A$.
+\end{enumerate}
+
+If we are given a term order on $A$, there are two natural ways of obtaining a term order on $A^m$.
+For monomials $X=x^\alpha e_i$ and $Y=x^\beta e_j$ of $A^m$, we say that
+\begin{equation*}
+  X\le Y \iff
+  \begin{cases}
+    x^\alpha<x^\beta \text{ or }\\
+    x^\alpha=y^\beta\text{ and } i\le j.
+  \end{cases}
+\end{equation*}
+We call this order \textbf{TOP} for ``term over position'', since it places more importance on the term order on $A$ than on the position in the vector.
+
+For monomials $X=x^\alpha e_i$ and $Y=x^\beta e_j$ of $A^m$, we say that
+\begin{equation*}
+  X\le Y \iff
+  \begin{cases}
+    i<j \text{ or }\\
+    i=j\text{ and } x^\alpha\le x^\beta.
+  \end{cases}
+\end{equation*}
+We call this order \textbf{POT} for ``position over term'', since it places more importance on the position in the vector than on the term order on $A$.
+
+Fix a term ordering on $A^m$.
+Then for all $f\in A^m$, with $f\neq 0$, we may write
+\begin{equation*}
+  f=a_1X_1+a_2X_2+\dots+a_rX_r,
+\end{equation*}
+where, for $1\le i\le r$, $0\neq a_i$ and $X_i$ is a monomial in $A^m$ satisfying $X_1>X_2>\dots >X_r$.
+We define the \textbf{leading monomial} of $f$ as $\lm(f)=X_1$.
+We set $\lm(0)=0$.
+
+Let $R$ be a submodule of $A^m$.
+A set of non-zero vectors $G$ is called a \textbf{Groebner basis} of $N$ if $G\subseteq R$ and for all $f\in R$, there exists $g\in G$ such that $\lm(g)\mid\lm(f)$.
+Note that this definition depends on the chosen term order.
+
+\begin{proposition}
+  \label{prp:7}
+  Every submodule of $A^m$ has a Groebner basis.
+\end{proposition}
+
+\begin{proposition}
+  \label{prp:8}
+  Let $R=(G)$ be a submodule of $A^m$, where $G$ is a Groebner basis of $R$.
+  Then the following set is a vector space basis of $A^m/R$
+  \begin{equation*}
+    \{X+R\mid X \text{ monomial in } A^m\text{ and } \forall g\in G: \lm(g)\nmid X\}.
+  \end{equation*}
+\end{proposition}
+In this article, we will deal with polynomial rings written as $\mathbb{C}[L_{-2},L_{-3},\dots,L_{-N}]$ and free modules of the form $\bigoplus_{n\le N}\mathbb{C}[L_{-2},L_{-3},\dots,L_{-N}]L_{-1}^n$ for some $N\in \mathbb{N}$.
+We will always use the degree reverse lexicographical ordering with $L_{-2}>L_{-3}>\dots>L_{-N}$ and TOP with $L_{-1}^0<L_{-1}^1<\dots<L_{-1}^N$.
+We can extend the definition of $\lm$ as follows: for any element $a\in \bigoplus_{k\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^k$, pick $N$ large enough so that $a\in \bigoplus_{n\le N}\mathbb{C}[L_{-2},L_{-3},\dots,L_{-N}]L_{-1}^n$.
+Then define $\lm(a)$ as the leading monomial in $\bigoplus_{n\le N}\mathbb{C}[L_{-2},L_{-3},\dots,L_{-N}]L_{-1}^n$ which is naturally a subset of $\bigoplus_{k\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^k$.
+This doesn't depend on the choice of $N$.
+
+When working with $q$-series, the following notation is useful.
+The $q$-Pochhammer symbol is $(q)_n=\prod_{j=1}^n(1-q^j)\in \mathbb{C}[[q]]$ for $n\in\mathbb{N}$.
+The recursive proof of the series identities in \cite{andrews_singular_2022} suggest the following definition: for $a,b,c,d\in \mathbb{N}$, define
+\begin{equation*}
+  f_{a,b,c,d}(t,q)=\sum_{k_1,k_2\in \mathbb{N}}t^{4k_1+2k_2+d}\frac{q^{4k_1^2+3k_1k_2+k_2^2+ak_1+bk_2+c}}{(q)_{k_1}(q)_{k_2}}\in \mathbb{C}[[t,q]]
+\end{equation*}
+The following Lemma will be very useful to verify series identities
+\begin{lemma}
+  \label{lmm:1}
+  The series $f_{a,b,c,d}(t,q)$ satisfy
+  \begin{enumerate}[label={(\alph*)}]
+  \item $t^mq^nf_{a,b,c,d}(t,q)=f_{a,b,c+n,d+m}(t,q)$ for $m,n\in \mathbb{N}$,
+  \item $f_{a,b,c,d}(tq^n,q)=f_{a+4n,b+2n,c+dn,d}(t,q)$ for $n\in \frac{1}{2}\mathbb{N}$,
+  \item $f_{a,b,c,d}(t,q)-f_{a+n,b,c,d}(t,q)=\sum_{k=0}^{n-1}f_{a+8+k,b+3,4+a+c+k,d+4}(t,q)$ for $n\in \mathbb{Z}_+$,
+  \item $f_{a,b,c,d}(t,q)-f_{a,b+n,c,d}(t,q)=\sum_{k=0}^{n-1}f_{a+3,b+2+k,1+b+c+k,d+2}(t,q)$ for $n\in \mathbb{Z}_+$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \begin{enumerate}[label=(\alph*)]
+  \item Clear.
+  \item Clear.
+  \item The key step is replacing $k_1$ by $k_1+1$ in the following computation
+    \begin{align*}
+      f_{a,b,c,d}(t,q)-f_{a+n,b,c,d}(t,q)&=\sum_{k_1,k_2\in\mathbb{N}}t^{4k_1+2k_2+d}\frac{q^{4k_1^2+3k_1k_2+k_2^2+ak_1+bk_2+c}}{(q)_{k_1}(q)_{k_2}}(1-q^{nk_1}) \\
+      &=\sum_{k_1,k_2\in\mathbb{N}}t^{4k_1+2k_2+d}\frac{q^{4k_1^2+3k_1k_2+k_2^2+ak_1+bk_2+c}}{(q)_{k_1}(q)_{k_2}}(1-q^{k_1})\sum_{k=0}^{n-1}q^{kk_1} \\
+      &=\sum_{k=0}^{n-1}\sum_{k_1,k_2\in\mathbb{N}}t^{4k_1+2k_2+d}\frac{q^{4k_1^2+3k_1k_2+k_2^2+(a+k)k_1+bk_2+c}}{(q)_{k_1}(q)_{k_2}}(1-q^{k_1}) \\
+      &=\sum_{k=0}^{n-1}\sum_{k_1,k_2\in\mathbb{N}}t^{4k_1+2k_2+d+4}\frac{q^{4k_1^2+3k_1k_2+k_2^2+(a+8+k)k_1+(b+3)k_2+4+a+c+k}}{(q)_{k_1}(q)_{k_2}} \\
+      &=\sum_{k=0}^{n-1}f_{a+8+k,b+3,4+a+c+k,d+4}(t,q).
+    \end{align*}
+  \item Same trick as (c) but now with $k_2$.
+  \end{enumerate}
+\end{proof}
+
+\section{A combinatorial argument}
+\label{sec:comb-argum}
+
+A partition $\lambda=[\lambda_1,\dots, \lambda_m]$ \textbf{contains} a partition $\eta=[\eta_1,\dots, \eta_n]$, written as $\eta\subseteq \lambda$, if $m\ge n$ and there exist $i$ such that $1\le i\le m-n+1$ and $[\lambda_i,\lambda_{i+1},\dots, \lambda_{i+n-1}]=\eta$.
+
+Define
+\begin{equation*}
+  p(t,q)=\sum_{\lambda\in P}t^{\len(\lambda)}q^{\Delta(\lambda)}\in \mathbb{C}[[t,q]].
+\end{equation*}
+For $n$, $m\in \mathbb{N}$, set
+\begin{align*}
+  P(n)&=\{\lambda\in P\mid \Delta(\lambda)=n\}, \\
+  p(q)&=\sum_{n\in \mathbb{N}}|P(n)|q^n\in \mathbb{C}[[q]], \\
+  P(n,m)&=\{\lambda\in P\mid \len(\lambda)=m \text{ and }\Delta(\lambda)=n\}.
+\end{align*}
+Therefore we have
+\begin{align*}
+  p(t,q)&=\sum_{n,m\in \mathbb{N}}|P(n,m)|t^mq^n, \\
+  p(1,q)&=p(q).
+\end{align*}
+We wish to find an expression of $p(t,q)$ as a sum of functions $f_{a,b,c,d}(t,q)$.
+
+We now define subsets of $P$ which will help in finding an expression for $p(t,q)$.
+Set
+\begin{align*}
+  P_{>2}&=\{[\lambda_1,\dots, \lambda_m]\in P\mid \lambda_m>2 \text{ or } \lambda=\emptyset\} \\
+  P_{2}&=\{[\lambda_1,\dots, \lambda_m]\in P\mid \lambda_m=2\}
+\end{align*}
+and both $p_{>2}(t,q)$ and $P_{>2}(n,m)$ are defined like $p(t,q)$ and $P(n,m)$ were defined.
+We similarly define objects like $P_{>6,5,3}$, $P_{6,5,3}$, $p_{>6,5,3}(t,q)$, $p_{6,5,3}(t,q)$, $P_{>6,5,3}(n,m)$ and $P_{6,5,3}(n,m)$.
+It turns $P$ is made out of the these ``smaller'' objects and we can find recurrence relations between them to find our desired formula for $p(t,q)$.
+
+\begin{lemma}
+  \label{lmm:2}
+  The formal power series $p_{>2}(t,q)$ is given explicitly by
+  \begin{equation*}
+    p_{>2}(t,q)=f_{3,2,0,0}(t,q)
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Consider the disjoint union
+  \begin{equation*}
+    P_{>2}=P_{4,3}\cup P_{6,5,3}\cup P_{>6,5,3}\cup P_{>5,3}\cup P_{4,4}\cup P_{5,4}\cup P_{>5,4}\cup P_{>4}
+  \end{equation*}
+  from which we get the formula
+  \begin{equation*}
+    p_{>2}(t,q)=p_{4,3}(t,q)+p_{6,5,3}(t,q)+p_{>6,5,3}(t,q)+p_{>5,3}(t,q)+p_{4,4}(t,q)+p_{5,4}(t,q)+p_{>5,4}(t,q)+p_{>4}(t,q).
+  \end{equation*}
+  These subseries must satisfy the following recurrences with initial conditions
+  \begin{align*}
+    p_{>4}(t,q)&=p_{4,4}(tq^{1/2},q)+p_{5,4}(tq^{1/2},q)+p_{>5,4}(tq^{1/2},q)+p_{>4}(tq^{1/2},q), &p_{>4}(0,0)&=1, \\
+    p_{>5,4}(t,q)&=p_{6,5,3}(tq^{1/2},q)+p_{>6,5,3}(tq^{1/2},q)+p_{>5,3}(tq^{1/2},q), &p_{>5,4}(0,0)&=0, \\
+    p_{5,4}(t,q)&=p_{4,3}(tq^{1/2},q), &p_{5,4}(0,0)&=0, \\
+    p_{4,4}(t,q)&=t^2q^{3}p_{>6,5,3}(tq^{2/2},q)+t^2q^3p_{>5,3}(tq^{2/2},q), &p_{4,4}(0,0)&=0, \\
+    p_{>5,3}(t,q)&=t^2q^3p_{>4}(tq^{1/2},q), & p_{>5,3}(0,0)&=0, \\
+    p_{>6,5,3}(t,q)&=t^2q^3p_{>5,4}(tq^{1/2},q), & p_{>6,5,3}(0,0)&=0, \\
+    p_{6,5,3}(t,q)&=t^2q^3p_{5,4}(tq^{1/2},q), & p_{6,5,3}(0,0)&=0, \\
+    p_{4,3}(t,q)&=t^2q^3p_{4,4}(tq^{1/2},q)+t^2q^2p_{>5,4}(tq^{1/2},q), & p_{4,3}(0,0)&=0.
+  \end{align*}
+  The solution to these equations is unique if it exists and we can verify using Lemma \ref{lmm:1} that
+  \begin{align*}
+    p_{>4}(t,q)&=f_{6,4,0,0}(t,q), \\
+    p_{>5,4}(t,q)&=f_{9,5,4,2}(t,q), \\
+    p_{5,4}(t,q)&=f_{13,6,9,4}(t,q), \\
+    p_{4,4}(t,q)&=f_{12,6,8,4}(t,q), \\
+    p_{>5,3}(t,q)&=f_{8,5,3,2}(t,q), \\
+    p_{>6,5,3}(t,q)&=f_{11,6,8,4}(t,q), \\
+    p_{6,5,3}(t,q)&=f_{15,7,14,6}(t,q), \\
+    p_{4,3}(t,q)&=f_{11,5,7,4}(t,q),
+  \end{align*}
+  is a solution to these equations.
+  We derive the formula $p_{>2}(t,q)=f_{3,2,0,0}(t,q)$ again from Lemma \ref{lmm:1}.
+  
+  The recurrences follow from the bijections for $n,m\in \mathbb{N}$
+  \begin{align*}
+    P_{>4}(n,2m)&\xrightarrow{\sim} P_{4,4}(n-m,2m)\cup P_{5,4}(n-m,2m)\cup P_{>5,4}(n-m,2m)\cup P_{>4}(n-m,2m) \\
+    \lambda&\mapsto
+             \begin{cases}
+               [\lambda_1-1, \dots, \lambda_{m-2}-1, 4, 4] & \text{if } [\lambda_{m-1},\lambda_m]=[5, 5] \\
+               [\lambda_1-1, \dots, \lambda_{m-2}-1, 5, 4] & \text{if } [\lambda_{m-1},\lambda_m]=[6, 5] \\
+               [\lambda_1-1, \dots, \lambda_{m-1}-1, 4] & \text{if } [\lambda_m]=[5] \text{ and } \lambda_{m-1}>6 \\
+               [\lambda_1-1, \dots, \lambda_m-1] & \text{if } \lambda_m>5,
+             \end{cases}
+  \end{align*}
+  that can be verified directly from the definition of $P$ as we now show.
+  Note that the operation on $\lambda$ is always ``subtract 1 from each entry of $\lambda$''.
+  For example, a partition $[\lambda_1,\dots,\lambda_m]\in P_{>4}(n,m)$ satisfies exactly one of the following conditions:
+  \begin{equation*}
+    [\lambda_{m-1},\lambda_m]=[5,5], [\lambda_{m-1},\lambda_m]=[6,5], [\lambda_m]=[5] \text{ and } \lambda_{m-1}>6, \lambda_m>5.
+  \end{equation*}
+  Say $\lambda$ satisfies $[\lambda_{m-1},\lambda_m]=[5,5]$.
+  Now, $[\lambda_1-1, \dots, \lambda_{m-2}-1, 4, 4]$ belongs to $P$ because it can't not belong to the ordinary partitions (otherwise $\lambda$ itself would belong to the ordinary partitions) and the exceptional partitions can be verified one by one.
+  Actually, we have $[\lambda_1-1, \dots, \lambda_{m-2}-1, 4, 4]\in P_{4,4}(n-m,2m)$ as we easily see, so we get the first part of our bijection.
+  The other parts follow a similar reasoning and an explicit inverse of this function can be written if desired.
+  Note that $[5]\mapsto [4]$ and $\emptyset\mapsto \emptyset$.
+  Now we verify that this bijection implies our first recurrence.
+  One key step is replacing $n$ by $n-m$
+  \begin{align*}
+    &p_{4,4}(tq^{1/2},q)+p_{5,4}(tq^{1/2},q)+p_{>5,4}(tq^{1/2},q)+p_{>4}(tq^{1/2},q) \\
+    &=\sum_{n,m\in \mathbb{N}}(|P_{4,4}(n,m)|+|P_{5,4}(n,m)|+|P_{>5,4}(n,m)|+|P_{>4}(n,m)|)(tq^{1/2})^mq^n \\
+    &=\sum_{n,m\in \mathbb{N}}(|P_{4,4}(n,2m)|+|P_{5,4}(n,2m)|+|P_{>5,4}(n,2m)|+|P_{>4}(n,2m)|)(tq^{1/2})^{2m}q^n \\
+    &=\sum_{n,m\in \mathbb{N}}(|P_{4,4}(n-m,2m)|+|P_{5,4}(n-m,2m)|+|P_{>5,4}(n-m,2m)|+|P_{>4}(n-m,2m)|)t^{2m}q^n \\
+    &=\sum_{n,m\in \mathbb{N}}|P_{>4}(n,2m)|t^{2m}q^n \\
+    &=p_{>4}(t,q).
+  \end{align*}
+  
+  In the next bijections, similar observations are done, although in some cases the operation on $\lambda$ is ``subtract 2 from each entry of $\lambda$'' and sometimes we need to change the tail of the result after doing this operation to get something in $P$.
+  The next two lemmas also employ very similar arguments.
+  \begin{align*}
+    P_{>5,4}(n,2m)&\xrightarrow{\sim} P_{6, 5, 3}(n-m,2m)\cup P_{>6, 5, 3}(n-m,2m)\cup P_{>5, 3}(n-m,2m) \\
+    \lambda&\mapsto
+             \begin{cases}
+               [\lambda_1-1, \dots, \lambda_{m-3}-1, 6, 5, 3] & \text{if } [\lambda_{m-2},\lambda_{m-1}, \lambda_m]=[7, 6, 4] \\
+               [\lambda_1-1, \dots, \lambda_{m-2}-1, 5, 3] & \text{if } [\lambda_{m-1},\lambda_m]=[6, 4]\text{ and } \lambda_{m-2}>7 \\
+               [\lambda_1-1, \dots, \lambda_{m-1}-1, 3] & \text{if } [\lambda_m]=[4] \text{ and } \lambda_{m-1}>6
+             \end{cases}
+  \end{align*}
+  \begin{align*}
+    P_{5, 4}(n,2m)&\xrightarrow{\sim} P_{4, 3}(n-m,2m) \\
+    \lambda&\mapsto [\lambda_1-1, \dots, \lambda_{m-2}-1, 4, 3]
+  \end{align*}
+  \begin{align*}
+    P_{4, 4}(n,2m)&\xrightarrow{\sim} P_{>6, 5, 3}(n-2m-1,2(m-1))\cup P_{>5, 3}(n-2m-1,2(m-1)) \\
+    \lambda&\mapsto
+             \begin{cases}
+               [\lambda_1-2, \dots, \lambda_{m-3}-2, 5, 3] & \text{if } [\lambda_{m-2},\lambda_{m-1}, \lambda_m]=[7, 4, 4] \\
+               [\lambda_1-2, \dots, \lambda_{m-2}-2, 3] & \text{if } [\lambda_{m-1},\lambda_m]=[4, 4]\text{ and } \lambda_{m-2}>7
+             \end{cases}
+  \end{align*}
+  \begin{align*}
+    P_{>5, 3}(n,2m)&\xrightarrow{\sim} P_{>4}(n-m-2,2(m-1)) \\
+    \lambda&\mapsto [\lambda_1-1, \dots, \lambda_{m-1}-1]
+  \end{align*}
+  \begin{align*}
+    P_{>6,5,3}(n,2m)&\xrightarrow{\sim} P_{>5,4}(n-m-2,2(m-1)) \\
+    \lambda&\mapsto [\lambda_1-1, \dots, \lambda_{m-2}-1,4]
+  \end{align*}
+  \begin{align*}
+    P_{6,5,3}(n,2m)&\xrightarrow{\sim} P_{5,4}(n-m-2,2(m-1)) \\
+    \lambda&\mapsto [\lambda_1-1, \dots, \lambda_{m-3}-1,5,4]
+  \end{align*}
+  \begin{align*}
+    P_{4, 3}(n,2m)&\xrightarrow{\sim} P_{4, 4}(n-m-2,2(m-1))\cup P_{>5, 4}(n-m-1,2(m-1)) \\
+    \lambda&\mapsto
+             \begin{cases}
+               [\lambda_1-1, \dots, \lambda_{m-3}-1, 4, 4] & \text{if } [\lambda_{m-2},\lambda_{m-1}, \lambda_m]=[6, 4, 3] \\
+               [\lambda_1-1, \dots, \lambda_{m-2}-1, 4] & \text{if } [\lambda_{m-1},\lambda_m]=[4, 3]\text{ and } \lambda_{m-2}>6
+             \end{cases}
+  \end{align*}
+\end{proof}
+
+\begin{lemma}
+  \label{lmm:3}
+  The formal power series $p_1(t,q)$ is given by
+  \begin{equation*}
+    p_1(t,q)=f_{5,2,1,1}(t,q).
+  \end{equation*}
+  \begin{proof}
+    Consider the disjoint union
+    \begin{equation*}
+      P_1=P_{5,3,1}\cup P_{>5,3,1}\cup P_{5,4,1}\cup P_{>5,4,1}\cup P_{>4,1}
+    \end{equation*}
+    from which we get the formula
+    \begin{equation*}
+      p_1(t,q)=p_{5,3,1}(t,q)+p_{>5,3,1}(t,q)+p_{5,4,1}(t,q)+p_{>5,4,1}(t,q)+p_{>4,1}(t,q).
+    \end{equation*}
+    We have bijections
+    \begin{align*}
+      P_{>4,1}(n,2m+1)&\xrightarrow{\sim} P_{>4}(n-1,2m) \\
+      \lambda&\mapsto [\lambda_1,\dots, \lambda_m]
+    \end{align*}
+    \begin{align*}
+      P_{>5,4,1}(n,2m+1)&\xrightarrow{\sim} P_{>5,4}(n-1,2m) \\
+      \lambda&\mapsto [\lambda_1,\dots, \lambda_m]
+    \end{align*}
+    \begin{align*}
+      P_{5,4,1}(n,2m+1)&\xrightarrow{\sim} P_{5,4}(n-1,2m) \\
+      \lambda&\mapsto [\lambda_1,\dots, \lambda_m]
+    \end{align*}
+    \begin{align*}
+      P_{>5,3,1}(n,2m+1)&\xrightarrow{\sim} P_{>5,3}(n-1,2m) \\
+      \lambda&\mapsto [\lambda_1,\dots, \lambda_m]
+    \end{align*}
+    \begin{align*}
+      P_{5,3,1}(n,2m+1)&\xrightarrow{\sim} P_{>6,5,3}(n-1,2m) \\
+      \lambda&\mapsto [\lambda_1,\dots, \lambda_m]
+    \end{align*}
+    from which together with the proof of Lemma \ref{lmm:2} we get
+    \begin{align*}
+      p_{>4,1}(t,q)&=tqp_{>4}(t,q)=f_{6,4,1,1}(t,q), \\
+      p_{>5,4,1}(t,q)&=tqp_{>5,4}(t,q)=f_{9,5,5,3}(t,q), \\
+      p_{5,4,1}(t,q)&=tqp_{5,4}(t,q)=f_{13,6,10,5}(t,q), \\
+      p_{>5,3,1}(t,q)&=tqp_{>5,3}(t,q)=f_{8,5,4,3}(t,q), \\
+      p_{5,3,1}(t,q)&=tqp_{>6,5,3}(t,q)=f_{11,6,9,5}(t,q).
+    \end{align*}
+    The formula for $p_1(t,q)$ then follows from Lemma \ref{lmm:1}.
+  \end{proof}
+\end{lemma}
+\begin{lemma}
+  \label{lmm:4}
+  The formal power series $p_{1,1}(t,q)$ is given by
+  \begin{equation*}
+    p_{1,1}(t,q)=f_{6,3,2,2}(t,q).
+  \end{equation*}
+  \begin{proof}
+    Consider the disjoint union
+    \begin{equation*}
+      P_{1,1}=P_{4,1,1}\cup P_{>4,1,1}
+    \end{equation*}
+    from which we get the formula
+    \begin{equation*}
+      p_{1,1}(t,q)=p_{4,1,1}(t,q)+p_{>4,1,1}(t,q)
+    \end{equation*}
+    We have bijections
+    \begin{align*}
+      P_{>4,1,1}(n,2m+2)&\xrightarrow{\sim} P_{>4,1}(n-1,2m+1) \\
+      \lambda&\mapsto [\lambda_1,\dots, \lambda_m,1]
+    \end{align*}
+    \begin{align*}
+      P_{4,1,1}(n,2m+2)&\xrightarrow{\sim} P_{>5,4,1}(n-1,2m+1) \\
+      \lambda&\mapsto [\lambda_1,\dots, \lambda_m,1]
+    \end{align*}
+    from which together with the proof of Lemma \ref{lmm:3} we get
+    \begin{align*}
+      p_{>4,1,1}(t,q)&=tqp_{>4,1}(t,q)=f_{6,4,2,2}(t,q) \\
+      p_{4,1,1}(t,q)&=tqp_{>5,4,1}(t,q)=f_{9,5,6,4}(t,q).
+    \end{align*}
+    The formula for $p_{1,1}(t,q)$ then follows from Lemma \ref{lmm:1}.
+  \end{proof}
+\end{lemma}
+
+\begin{lemma}
+  \label{lmm:5}
+  The formal power series $p(t,q)$ is given by
+  \begin{equation*}
+    p(t,q)=f_{3,2,0,0}(t,q)+f_{5,2,1,1}(t,q)+f_{6,3,2,2}(t,q).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  This follows from the disjoint union
+  \begin{equation*}
+    P=P_{>2}\cup P_{1}\cup P_{1,1}
+  \end{equation*}
+  together with Lemmas \ref{lmm:2}, \ref{lmm:3} and \ref{lmm:4}.
+\end{proof}
+\begin{lemma}
+  \label{lmm:6}
+  The formal power series $p(q)$ is given by
+  \begin{equation*}
+    \ch_{L}(q)=q^{1/2}p(q).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  This follows from Lemma \ref{lmm:5} by setting $t=1$ and using \cite[Theorem 4]{andrews_singular_2022} together with Lemma \ref{lmm:1}.
+\end{proof}
+
+\section{Computing leading monomials}
+\label{sec:comp-lead-monom}
+
+\begin{lemma}
+  \label{lmm:7}
+  Let $U$ be a vector space.
+  Consider $s$ fields $a^1(z),\dots,a^s(z)\in \mathcal{F}(U)$ with $s\ge 2$ and $u\in U$.
+  Then for $l\in \mathbb{Z}$ we have
+  \begin{equation*}
+    :a^1(z)a^2(z)\dots a^s(z):_{(l)}u=\sum_{n_1,\dots,n_{s-1}\in \mathbb{N}}\sum_{k=0}^{s-1}R^{l,k}_{n_1,\dots,n_{s-1}}(a^1(z),\dots,a^s(z))u
+  \end{equation*}
+  where
+  \begin{align*}
+    &R^{l,k}_{n_1,\dots,n_{s-1}}(a^1(z),\dots,a^s(z))=\\
+    &\sum_{\substack{1\le i_1<\dots<i_k\le s-1\\1\le j_1<\dots<j_{s-1-k}\le s-1\\\{i_1,\dots,i_k\}\cup\{j_1,\dots,j_{s-1-k}\}=\{1,\dots,s-1\}}}a^{j_1}_{(-n_{j_1}-1)}\dots a^{j_{s-1-k}}_{(-n_{j_{s-1-k}}-1)}a^s_{(l-k-\sum_{r=1}^k n_{i_r}+\sum_{r=1}^{s-1-k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}.
+  \end{align*}
+\end{lemma}
+\begin{proof}
+  This follows from the following formula
+  \begin{align*}
+    :a(z)b(z):_{(l)}u&=\sum_{n\le -1}a_{(n)}b_{(l-n-1)}u+\sum_{n\ge 0}b_{(l-n-1)}a_{(n)}u \\
+    &=\sum_{n\in \mathbb{N}}a_{(-n-1)}b_{(l+n)}u+b_{(l-n-1)}a_{(n)}u.
+  \end{align*}
+  and induction on $s$.
+\end{proof}
+
+\begin{lemma}
+  \label{lmm:8}
+  Let $\lambda=[\lambda_1,\dots, \lambda_s]$ be a partition with $\lambda=\emptyset$ or $\lambda_s\ge 2$ and consider $M$ as a module over $\Vir^{1/2}$.
+  Then
+  \begin{equation*}
+    (L_\lambda\vac)_{(-1)}\vachalf=L_\lambda\vachalf+m
+  \end{equation*}
+  for some $m\in G^{2s-1}M$.
+\end{lemma}
+\begin{proof}
+  If $s=0$ or $s=1$, the lemma is clear.
+  Assume $s\ge 2$.
+  We have
+  \begin{align*}
+    (L_\lambda\vac)_{(-1)}\vachalf&=\left( \frac{:\partial^{\lambda_1-2}L(z)\dots\partial^{\lambda_s-2}L(z):}{(\lambda_1-2)!\dots(\lambda_s-2)!} \right)_{(-1)}\vachalf \\
+    &=\frac{1}{T}(:\partial^{\lambda_1-2}L(z)\dots\partial^{\lambda_s-2}L(z):)_{(-1)}\vachalf
+  \end{align*}
+  where $L(z)=\sum_{n\in \mathbb{Z}}L_nz^{-n-2}\in \mathcal{F}(M)$ and $T=(\lambda_1-2)!\dots(\lambda_s-2)!$.
+  Now we use Lemma \ref{lmm:7} with $U=M$, $a^k(z)=\partial^{\lambda_k-2}L(z)$ for $k=1,\dots,s$ and $u=\vachalf$.
+  First, note that
+  \begin{align*}
+    a^k(z)&=\partial^{\lambda_k-2}L(z) \\
+    &=\sum_{n\in \mathbb{Z}}(-n-2)\dots(-n-2-(\lambda_k-3))L_nz^{-n-2-(\lambda_k-2)} \\
+    &=\sum_{n\in \mathbb{Z}}(-n+\lambda_k-3)\dots(-n)L_{n+1-\lambda_k}z^{-n-1},
+  \end{align*}
+  which says that
+  \begin{equation*}
+    a^k_{(n)}=(-n+\lambda_k-3)\dots(-n)L_{n+1-\lambda_k},
+  \end{equation*}
+  for all $k=1,\dots, s$ and $n\in \mathbb{Z}$.
+
+  Note that each expression $R^{-1,k}_{n_1,\dots,n_{s-1}}\vachalf$ in Lemma \ref{lmm:7} (where we omitted the fields $a^k(z)$ from the notation) is the sum of elements of the form
+  \begin{equation*}
+    \text{scalar}\cdot L_{\eta_1}\dots L_{\eta_s}\vachalf
+  \end{equation*}
+  where $\eta_k\in \mathbb{Z}$ for $k=1,\dots,s$.
+  Note that if $\eta_k\ge -1$ for some $k=1,\dots,s$ then $L_{\eta_1}\dots L_{\eta_s}\vachalf\in G^{2s-1}M$.
+  Now we study these expressions $R^{-1,k}_{n_1,\dots,n_{s-1}}\vachalf$ by considering the elements that appear in the sum defining it.
+  We consider several disjoint cases
+  \begin{enumerate}[label={(\alph*)}]
+  \item $k>0$. If $n_{i_1}\ge \lambda_{i_1}-2$ then $n_{i_1}+1-\lambda_{i_1}\ge -1$, so we get
+    \begin{equation*}
+      a^{j_1}_{(-n_{j_1}-1)}\dots a^{j_{s-1-k}}_{(-n_{j_{s-1-k}}-1)}a^s_{(l-k-\sum_{r=1}^k n_{i_r}+\sum_{r=1}^{s-1-k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}\vachalf\in G^{2s-1}M.
+    \end{equation*}
+    If $n_{i_1}\le \lambda_{i_1}-3$ then $a^{i_1}(z)_{(n_{i_1})}\vachalf=0$ because $(-n+\lambda_k-3)\dots(-n)=0$, so we get
+    \begin{equation*}
+      a^{j_1}_{(-n_{j_1}-1)}\dots a^{j_{s-1-k}}_{(-n_{j_{s-1-k}}-1)}a^s_{(l-k-\sum_{r=1}^k n_{i_r}+\sum_{r=1}^{s-1-k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}\vachalf=0.
+    \end{equation*}
+    Therefore we obtain
+    \begin{equation*}
+      R^{-1,k}_{n_1,\dots,n_{s-1}}\vachalf\in G^{2s-1}M.
+    \end{equation*}
+  \item $k=0$ and there exists some $j=1,\dots,s-1$ such that $n_j>0$.
+    In this case we get
+    \begin{equation*}
+      R^{-1,0}_{n_1,\dots,n_{s-1}}\vachalf=a^1_{(-n_1-1)}\dots a^{s-1}_{(-n_{s-1}-1)}a^s_{(-1+\sum_{r=1}^{s-1}n_r)}\vachalf\in G^{2s-1}M
+    \end{equation*}
+    because we can repeat the reasoning of (a) with $-1+\sum_{r=1}^{s-1}n_r$ instead of $n_{i_1}$.
+  \item $k=0$ and $n_1=\dots=n_{s-1}=0$. In this case we get
+    \begin{equation*}
+      R^{-1,0}_{0,\dots,0}=a^1_{(-1)}\dots a^{s-1}_{(-1)}a^s_{(-1)}\vachalf=TL_\lambda\vachalf.
+    \end{equation*}
+  \end{enumerate}
+  From these three cases we obtain the lemma.
+\end{proof}
+
+We know $\gr^G(M)$ is a free module over $\gr^G(\Vir^{1/2})$:
+\begin{equation*}
+  \gr^G(M)=\bigoplus_{n\in \mathbb{N}}\gr^G(\Vir^{1/2})L_{-1}^n.
+\end{equation*}
+For $n\in \mathbb{N}$ call
+\begin{equation*}
+  \iota_n:\gr^G(\Vir^{1/2})\to\gr^G(M)
+\end{equation*}
+the insertion of $\gr^G(\Vir^{1/2})$ into the $n$-th component.
+\begin{lemma}
+  \label{lmm:9}
+  Let $v\in G^p\Vir^{1/2}$ for some $p\in \mathbb{N}$.
+  Then $v_{(-1)}\vachalf\in G^pM$ and
+  \begin{equation*}
+    \iota_0(\alpha^p(v))=\alpha^p(v_{(-1)}\vachalf).
+  \end{equation*}
+\end{lemma}
+
+\begin{proof}
+  Follows immediately from Lemma \ref{lmm:8}.
+\end{proof}
+
+We have a natural quotient map
+\begin{align*}
+  \pi_0:\Vir^{1/2}&\to\Vir_{3,4} \\
+ v&\mapsto v+U(\Vir)\{v_{3,4}\},
+\end{align*}
+where $v_{3,4}=(L_{-2}^3+\frac{93}{64}L_{-3}^2-\frac{27}{16}L_{-6}-\frac{33}{8}L_{-4}L_{-2})\vac$ is the singular vector of $\Vir^{1/2}$ that generates its maximal subrepresentation as in \cite{andrews_singular_2022}.
+Applying the functor $\gr^G$ we obtain a surjective homomorphism of $\mathbb{N}$-graded Poisson vertex algebras:
+\begin{equation*}
+  \gr^G(\pi_0):\gr^G(\Vir^{1/2})\to \gr^G(\Vir_{3,4}).
+\end{equation*}
+Set $I=\ker(\gr^G(\pi_0))$ following the notation of \cite{andrews_singular_2022}.
+  
+\begin{lemma}
+  \label{lmm:10}
+  We have the inclusion
+  \begin{equation*}
+    \iota_0(I)\subseteq K.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  We can consider $L$ as a module over $\Vir^{1/2}$ with state-field correspondence map $Y^L_{\Vir^{1/2}}:\Vir^{1/2}\to \mathcal{F}(L)$.
+  By \cite[Theorem 4.2.]{wang_rationality_1993}, $L$ is a module over $\Vir_{3,4}$ with state-field correspondence map $Y^L_{\Vir_{3,4}}:\Vir_{3,4}\to \mathcal{F}(L)$ map such that the following diagram commutes
+  \begin{equation*}
+    \begin{tikzcd}
+      \Vir^{1/2} \arrow[r, "\pi_0"] \arrow[rd, "{Y^{L}_{\Vir^{1/2}}}"'] & {\Vir_{3,4}} \arrow[d, "{Y^{L}_{\Vir_{3,4}}}"] \\
+      & {\mathcal{F}(L)}
+    \end{tikzcd}
+  \end{equation*}
+  The commutativity of this diagram implies the following
+  \begin{equation*}
+    \forall v\in U(\Vir)\{v_{3,4}\}:\forall m\in M:\forall n\in \mathbb{Z}:v_{(n)}m\in U(\Vir)\{m_2,m_3\}.
+  \end{equation*}
+  We use this statement in the following form
+  \begin{equation}
+    \label{eq:4}
+    \forall v\in U(\Vir)\{v_{3,4}\}:v_{(-1)}\vachalf\in U(\Vir)\{m_2,m_3\}.
+  \end{equation}
+  
+  Note that
+  \begin{equation*}
+    I=\sum_{p\in \mathbb{N}}\alpha^p(U(\Vir)\{v_{3,4}\}\cap G^p\Vir^{1/2}).
+  \end{equation*}
+  Similarly, we have a formula for $K$
+  \begin{equation*}
+    K=\sum_{p\in \mathbb{N}}\alpha^p(U(\Vir)\{m_2,m_3\}\cap G^pM).
+  \end{equation*}
+  Let $\alpha^p(v)\in I$ with $v\in U(\Vir)\{v_{3,4}\}\cap G^p\Vir^{1/2}$.
+  By Lemma \ref{lmm:9} and statement \eqref{eq:4} we have $v_{(-1)}\vachalf\in U(\Vir)\{m_2,m_3\}\cap G^pM$ and also $\iota_0(\alpha^p(v))=\alpha^p(v_{(-1)}\vachalf)\in K$, finishing the proof.
+  
+\end{proof}
+
+\begin{lemma}
+  \label{lmm:11}
+  For all $\lambda\in Q$ there exists $x\in K$ such that $\lm(x)=m_\lambda$.
+\end{lemma}
+\begin{proof}
+  We prove the lemma for ordinary partitions in $Q$ using Lemma \ref{lmm:10} and \cite[5.1 Proposition]{andrews_singular_2022}.
+  It remains to prove the lemma for exceptional partitions.
+  This is done in the appendix with a Sagemath program. 
+\end{proof}
+
+We get the following homomorphism of short exact sequences of modules over $\gr^G(\Vir^{1/2})$
+\begin{equation*}
+  \begin{tikzcd}
+    0 \arrow[r] & I \arrow[r, hook] \arrow[d, "\iota_0|_I", hook] & \gr^G(\Vir^{1/2}) \arrow[r, "\gr^G(\pi_0)", two heads] \arrow[d, "\iota_0", hook] & {\gr^G(\Vir_{3,4})} \arrow[d, "g"] \arrow[r] & 0 \\
+    0 \arrow[r] & K \arrow[r, hook]                               & \gr^G(M) \arrow[r, "\gr^G(\pi)", two heads]                                      & \gr^G(L) \arrow[r]                          & 0
+  \end{tikzcd}
+\end{equation*}
+where $g$ is defined as
+\begin{equation*}
+  g(\gr^G(\pi_0)(\alpha^p(v)))=\gr^G(\pi)(\iota_0(\alpha^p(v)))
+\end{equation*}
+for $v\in G^p\Vir^{1/2}$.
+A natural question to ask is whether $g$ is injective or surjective.
+The answer is no for both of these questions, see the appendix.
+
+\section{Proofs of the main theorems}
+\label{sec:proofs-main-theorems}
+
+Finally we have all the necessary lemmas to conclude the proofs of Theorem \ref{thr:3} and \ref{thr:4}.
+\begin{proof}[Proof of Theorem \ref{thr:4}]
+  Since we can't apply Groebner basis theory directly on the free module $\bigoplus_{k\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^k$, we need to truncate somehow.
+  This is explained in details below.
+  Also, keep in mind the isomorphisms given in Proposition \ref{prp:6}.
+  For $N\in \mathbb{N}$, define
+  \begin{align*}
+    \gr^G(M)_{\le 1/2+N}&=\sum_{n\le N}\gr^G(M)_{1/2+n},\\
+    \gr^G(L)_{\le 1/2+N}&=\sum_{n\le N}\gr^G(L)_{1/2+n}.
+  \end{align*}
+  In this proof, consider $\gr^G(M)_{\le 1/2+N}$ as a submodule of $\bigoplus_{n\le N}\mathbb{C}[L_{-2},L_{-3},\dots, L_{-N}]L_{-1}^n$ with base ring $\mathbb{C}[L_{-2},L_{-3},\dots, L_{-N}]$.
+  This can be done because a basis for $\gr^G(M)_{1/2+N}$ is given by elements of the form $\alpha^{\len(\lambda)}(L_\lambda\vachalf)$ with all the elements of $\lambda$ being less than $N$ and with $\lambda$ having at most $N$ ones.
+  For each $N\in \mathbb{N}$, we have a natural isomorphism
+  \begin{equation}
+    \label{eq:5}
+    \frac{\gr^G(M)_{\le 1/2+N}}{K\cap \gr^G(M)_{\le 1/2+N}}\xrightarrow{\sim} \gr^G(L)_{1/2+N}.
+  \end{equation}
+  Therefore if we find a basis for each quotient such that each basis is contained in the next one when considering the isomorphism \eqref{eq:5}, we get a basis of $\gr^G(L)$ by taking the union of these bases because we have $\bigcup_{N\in \mathbb{N}}\gr^G(L)_{\le 1/2+N}=\gr^G(L)$.
+  
+  Let $G_N$ be a Groebner basis of $K\cap \gr^G(M)_{\le 1/2+N}$ with considered as a submodule of $\bigoplus_{n\le N}\mathbb{C}[L_{-2},L_{-3},\dots, L_{-N}]L_{-1}^n$.
+  Define
+  \begin{equation*}
+    B_N=\{m_\lambda\mid \Delta(\lambda)\le N\text{ and }\forall x\in G_N:\lm(x)\nmid m_\lambda\}.
+  \end{equation*}
+  By Proposition \ref{prp:8}, we know that
+  \begin{equation}
+    \label{eq:6}
+    \{m_\lambda+K\cap \gr^G(M)_{\le 1/2+N}\mid m_\lambda\in B_N\}
+  \end{equation}
+is a vector space basis of $\gr^G(M)_{\le 1/2+N}/K\cap \gr^G(M)_{\le 1/2+N}$.
+  Therefore by Lemma \ref{lmm:6}, isomorphism \eqref{eq:5} and the isomorphism between $\gr^G(L)_{1/2+n}$ and $L_{1/2+n}$ of Proposition \ref{prp:6} we have
+  \begin{equation*}
+    |B_N|=\sum_{n\le N}\dim(\gr^G(L)_{1/2+n})=\sum_{n\le N}\dim(L_{1/2+n})=\sum_{n\le N}|P(n)|.
+  \end{equation*}
+  Define
+  \begin{equation*}
+    \overline{B_N}=\{m_\lambda\mid \Delta(\lambda)\le N \text{ and } \forall \eta\in Q: m_\eta\nmid m_\lambda\}.
+  \end{equation*}
+  Note from the definition of $Q$ that the condition $\forall \eta\in Q:m_\eta\nmid m_\lambda$ is equivalent to the condition $\forall \eta\in Q:\eta\nsubseteq \lambda$ which is equivalent to the condition $\lambda\in P$.
+  From the definition of $P(n)$ and $\overline{B_N}$, we see that
+  \begin{equation*}
+    |\overline{B_N}|=\sum_{n\le N}|P(n)|.
+  \end{equation*}
+  
+  On the other hand, we have $B_N\subseteq \overline{B_N}$ because if $m_\lambda \in B_N$ and $\eta\in Q$ then we have $m_\eta\nmid m_\lambda$ because if we had $m_\eta\mid m_\lambda$ then by Lemma \ref{lmm:11} there would exist $x\in K\cap \gr^G(M)_{\le 1/2+N}$ such that $\lm(x)=m_\eta$, therefore by our definition of Groebner basis, there would exist $y\in G_N$ such that $\lm(y)\mid \lm(x)$, implying $\lm(y)\mid m_\lambda$, a contradiction.
+  As both $B_N$ and $\overline{B_N}$ are finite sets, we get $B_N=\overline{B_N}$ and considering the union of the bases \eqref{eq:6} under the isomorphism \eqref{eq:5} for $N\in \mathbb{N}$ and the isomorphism between $\gr^G(L)$ and $L$ of Proposition \ref{prp:6}, we conclude the proof of Theorem \ref{thr:4}.
+  This is valid because the basis \eqref{eq:6} for $N$ is contained in the basis \eqref{eq:6} for $N+1$ under the isomorphism \eqref{eq:5} for $N$ and $N+1$, respectively.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thr:3}]
+  Note that the basis of Theorem \ref{thr:4} is also a basis for $\gr^G(L)$ under the isomorphism between $\gr^G(L)$ and $L$ of Proposition \ref{prp:6} and remember that for each $\lambda\in P$ we have $\alpha^{\len(\lambda)}(L_\lambda(\vachalf+W))\in \alpha^{\len(\lambda)}(G^{\len(\lambda)}L_{1/2+\Delta(\lambda)})$ so $\Delta(\lambda)$ is summed with $1/2$.
+  Therefore $\ch_{gr^G(L)}(t,q)=q^{1/2}p(t,q)$ and together with Lemma \ref{lmm:5} we conclude the proof of Theorem \ref{thr:3}.
+\end{proof}
+
+\appendix
+\section{The SageMath program}
+\label{sec:sagem-progr-comp}
+
+We need to compute all leading monomials of elements of $K$.
+To do this we need to order the PBW basis of $U(\Vir_{\le-1})$ first by length, then by degree reverse lexicographic order and finally by position.
+Formally, for any partitions $\lambda$ and $\eta$ define
+\begin{equation*}
+  L_\lambda\le L_\eta \iff
+  \begin{cases}
+    \len(\lambda)<\len(\eta) \text{ or }\\
+    \len(\lambda)=\len(\eta)\text{ and } m_\lambda\le m_\eta.
+  \end{cases}
+\end{equation*}
+For $a\in U(\Vir_{\le -1})$ with $a\neq 0$, we may write
+\begin{equation*}
+  a = c_1L_{\lambda_1}+c_2L_{\lambda_2}+\dots+c_rL_{\lambda_r},
+\end{equation*}
+where for $1\le i\le r$, $0\neq c_i\in \mathbb{C}$ and $L_{\lambda_1}>L_{\lambda_2}>\dots>L_{\lambda_r}$.
+We define the \textbf{leading monomial} of $a$ as $\lm(a)=L_\lambda$.
+We set $\lm(0)=0$.
+% Note that from the definition of our order, if $a\in U(\Vir_{\le -2})$ is such that $\lm(a)=L_\lambda$ then $\lm(\alpha^{\len(a)}(a\vac))=m_\lambda$. ESTO ES NECESARIO? SI, ES EXACTAMENTE LO QUE QUIERO
+We extend the definition of $\lm$ to $\Vir^{1/2}$ and $M$ in the obvious way.
+Note that the definition of our order implies that if $v\in \Vir^{1/2}$ is such that $\lm(v)=L_\lambda\vac$ then $v\in G^{\len(\lambda)}\Vir^{1/2}$ and $\lm(\alpha^{\len(\lambda)}(v))=m_\lambda$.
+A similar observation can be made for $M$.
+
+IMPROVE AND COPY PROGRAM  
+
+\bibliographystyle{plain}
+\bibliography{ising-modules}
+\end{document}
