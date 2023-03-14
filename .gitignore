@@ -13,4 +13,4 @@ auto
 *.ind
 last-commit-message
 .ipynb_checkpoints
-.#.gitignore#
+#.gitignore#
