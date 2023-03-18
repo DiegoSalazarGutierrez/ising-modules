@@ -32,7 +32,7 @@
 
 \begin{document}
 
-\title{DEFINE TITLE}
+\title{PBW basis of irreducible Ising modules}
 \author{Diego Salazar Gutierrez \\ \href{mailto:diego.salazar@impa.br}{diego.salazar@impa.br}}
 \date{\today}
 \maketitle
@@ -460,10 +460,9 @@ are the generating singular vectors.
 We have a natural surjective homomorphism of representations of $\Vir$
 \begin{align*}
   \pi:M&\to L \\
-  L_{\lambda}\vachalf&\mapsto L_\lambda(\vachalf+W),
+  m&\mapsto m+W.
 \end{align*}
-where $\lambda$ is a partition.
-We can consider $\pi$ as a homomorphism of modules over $V$.
+We can consider $\pi$ as a homomorphism of modules over $\Vir^{1/2}$.
 Applying the functor $\gr^G$ we obtain a surjective homomorphism of modules over $\gr^G(V)$
 \begin{equation*}
   \gr^G(\pi):\gr^G(M)\to \gr^G(L),
@@ -497,10 +496,10 @@ Therefore for a partition $\lambda$ we have
   L_{\lambda}\vachalf\in G^{\len(\lambda)}M_{1/2+\Delta(\lambda)}.
 \end{equation*}
 
-From the surjective homomorphism of $V$-modules $\pi:M\to L$ we deduce the following four isomorphisms which are going to be used frequently so it is good to have them in mind while reading
+From the surjective homomorphism of $\Vir^{1/2}$-modules $\pi:M\to L$ we deduce the following four isomorphisms which are going to be used frequently so it is good to have them in mind while reading
 \begin{proposition}
   \label{prp:6}
-  We have four grading-preserving vector space isomorphisms
+  We have four (conformal) weight-preserving vector space isomorphisms
   \begin{align*}
     M&\xrightarrow{\sim} \gr^G(M) \\
     L_\lambda\vachalf&\mapsto \alpha^{\len(\lambda)}(L_\lambda\vachalf) \\
@@ -586,6 +585,7 @@ We will always use the degree reverse lexicographical ordering with $L_{-2}>L_{-
 We can extend the definition of $\lm$ as follows: for any element $a\in \bigoplus_{k\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^k$, pick $N$ large enough so that $a\in \bigoplus_{n\le N}\mathbb{C}[L_{-2},L_{-3},\dots,L_{-N}]L_{-1}^n$.
 Then define $\lm(a)$ as the leading monomial in $\bigoplus_{n\le N}\mathbb{C}[L_{-2},L_{-3},\dots,L_{-N}]L_{-1}^n$ which is naturally a subset of $\bigoplus_{k\in \mathbb{N}}\mathbb{C}[L_{-2},L_{-3},\dots]L_{-1}^k$.
 This doesn't depend on the choice of $N$.
+For example $\lm(L_{-2}-\frac{4}{3}L_{-1}^2)=L_{-2}$.
 
 When working with $q$-series, the following notation is useful.
 The $q$-Pochhammer symbol is $(q)_n=\prod_{j=1}^n(1-q^j)\in \mathbb{C}[[q]]$ for $n\in\mathbb{N}$.
@@ -995,7 +995,11 @@ We have a natural quotient map
   \pi_0:\Vir^{1/2}&\to\Vir_{3,4} \\
  v&\mapsto v+U(\Vir)\{v_{3,4}\},
 \end{align*}
-where $v_{3,4}=(L_{-2}^3+\frac{93}{64}L_{-3}^2-\frac{27}{16}L_{-6}-\frac{33}{8}L_{-4}L_{-2})\vac$ is the singular vector of $\Vir^{1/2}$ that generates its maximal subrepresentation as in \cite{andrews_singular_2022}.
+where
+\begin{equation*}
+  v_{3,4}=(L_{-2}^3+\frac{93}{64}L_{-3}^2-\frac{27}{16}L_{-6}-\frac{33}{8}L_{-4}L_{-2})\vac
+\end{equation*}
+is the singular vector of $\Vir^{1/2}$ that generates its maximal subrepresentation as in \cite{andrews_singular_2022}.
 Applying the functor $\gr^G$ we obtain a surjective homomorphism of $\mathbb{N}$-graded Poisson vertex algebras:
 \begin{equation*}
   \gr^G(\pi_0):\gr^G(\Vir^{1/2})\to \gr^G(\Vir_{3,4}).
@@ -1128,7 +1132,7 @@ is a vector space basis of $\gr^G(M)_{\le 1/2+N}/K\cap \gr^G(M)_{\le 1/2+N}$.
 \label{sec:sagem-progr-comp}
 
 We need to compute all leading monomials of elements of $K$.
-To do this we need to order the PBW basis of $U(\Vir_{\le-1})$ first by length, then by degree reverse lexicographic order and finally by position.
+To do this we need to order the PBW basis of $U(\Vir_{\le-1})=\vspan\{L_\lambda\mid \lambda\text{ is a partition}\}$ first by length, then by degree reverse lexicographic order and finally by position.
 Formally, for any partitions $\lambda$ and $\eta$ define
 \begin{equation*}
   L_\lambda\le L_\eta \iff
@@ -1142,10 +1146,11 @@ For $a\in U(\Vir_{\le -1})$ with $a\neq 0$, we may write
   a = c_1L_{\lambda_1}+c_2L_{\lambda_2}+\dots+c_rL_{\lambda_r},
 \end{equation*}
 where for $1\le i\le r$, $0\neq c_i\in \mathbb{C}$ and $L_{\lambda_1}>L_{\lambda_2}>\dots>L_{\lambda_r}$.
-We define the \textbf{leading monomial} of $a$ as $\lm(a)=L_\lambda$.
+We define the \textbf{leading monomial} of $a$ as $\lm(a)=L_\lambda$. 
 We set $\lm(0)=0$.
-% Note that from the definition of our order, if $a\in U(\Vir_{\le -2})$ is such that $\lm(a)=L_\lambda$ then $\lm(\alpha^{\len(a)}(a\vac))=m_\lambda$. ESTO ES NECESARIO? SI, ES EXACTAMENTE LO QUE QUIERO
 We extend the definition of $\lm$ to $\Vir^{1/2}$ and $M$ in the obvious way.
+For example $L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4}\in K$ and $\lm(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})=L_{-1}^4$.
+If we were using only the degree reverse lexicographical order with TOP, then we would get $L_{-3}L_{-1}$ as leading monomial, which we don't want to happen.
 Note that the definition of our order implies that if $v\in \Vir^{1/2}$ is such that $\lm(v)=L_\lambda\vac$ then $v\in G^{\len(\lambda)}\Vir^{1/2}$ and $\lm(\alpha^{\len(\lambda)}(v))=m_\lambda$.
 A similar observation can be made for $M$.
 
