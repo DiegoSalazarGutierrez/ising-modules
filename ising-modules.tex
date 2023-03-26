@@ -434,31 +434,6 @@ Similarly to \Cref{prp:3}, the following Proposition justifies the definition of
   We verify that we obtain an isomorphism $\gr_F(M) \xrightarrow{\sim} \gr^G(M)$ directly from the definitions.
 \end{proof}
 
-\Cref{prp:6} translates into an identity of refined characters of $\gr_F(M)$ and $\gr^G(M)$.
-
-\begin{proposition}
-  \label{prp:7}
-  Assume $M$ is a $h + \mathbb{N}$-graded module of the $\mathbb{N}$-graded conformal vertex algebra $V$.
-  Then
-  \begin{enumerate}[label={(\alph*)}]
-  \item $\ch_M(q) = \ch_{\gr_F(M)}(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr_F(M)}(1, q) = \ch_{\gr^G(M)}(1, q)$,
-  \item $\ch_{\gr^G(M)}(t^{-1}, tq) = t^h\ch_{\gr_F(M)}(t, q)$.
-  \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-  \begin{enumerate}[label={(\alph*)}]
-  \item This is clear from the properties and definition of the filtrations.
-  \item This follows from \Cref{prp:6} and replacing $p$ by $n - p$ in the following computation
-    \begin{align*}
-    \ch_{\gr^G(M)}(t^{-1}, tq) &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^{-p}(tq)^{h+n} \\
-    &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^{h + n - p}q^{h + n} \\
-    &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^{n - p}_M(G^{n - p}M_{h + n}))t^{h + p}q^{h + n} \\
-    &= t^h\ch_{\gr_F(M)}(t, q).\qedhere
-    \end{align*}
-  \end{enumerate}
-\end{proof}
-
 In this article we always take $V = \Vir^{1/2}$ as the $\mathbb{N}$-graded vertex algebra with conformal vector $\omega = L_{-2}\vac$.
 From now on, some indexes or subindexes of modules will not be written, so for example $\alpha^p_M$ simplifies to $\alpha^p$.
 Set $M = M(1/1, 1/2)$ and $L = L(1/2, 1/2)$.
@@ -545,80 +520,12 @@ From the surjective homomorphism of $V$-modules $\pi: M \to L$, we deduce the fo
   where $\lambda$ is a partition.
 \end{proposition}
 
-Finally, we review the theory of Gr\"{o}bner bases for polynomial rings and free modules of finite rank over these polynomial rings following \cite{adams_introduction_1994}.
-
-Set $A = \mathbb{C}[x_1, \dots, x_n]$, the polynomial ring in $n \in \mathbb{N}$ variables $x_1, \dots, x_n$ until the end of this section.
-The theory of Gr\"{o}bner bases of ideals of polynomial rings generalizes to submodules of $A^m$.
-The free module $A^m$ has a standard basis
-\begin{equation*}
-  e_1 = (1, 0, \dots, 0), e_2 = (0, 1, 0, \dots, 0), \dots, e_m = (0, \dots, 0, 1).
-\end{equation*}
-By a \textbf{monomial} in $A^m$, we mean a vector $X = x^\alpha e_i \in A^m$ where $x^\alpha = x_1^{\alpha_1}\dots x_n^{\alpha_n} \in A$ is a product of the variables with $\alpha_1, \dots, \alpha_n \in \mathbb{N}$ as exponents and $1 \le i \le m$.
-That is, a monomial is a vector with all coordinates equal to zero except for one which is a power product of $A$.
-Let $f\in A^m$.
-A monomial $X$ in $A^m$ \textbf{appears in} $f$ if the coefficient in front of $X$ in $f$ is nonzero.
-If $X = x^\alpha e_i$ and $Y = x^\beta e_j$ are monomials in $A^m$, we say that $X$ \textbf{divides} $Y$, denoted $X \mid Y$ provided that $i = j$ and $x^\alpha \mid x^\beta$.
-
-By a \textbf{term order} on the monomials of $A^m$ we mean a total order $\le$ on these monomials satisfying the following two conditions
-\begin{enumerate}[label={(\alph*)}]
-\item $X \le x^\alpha X$ for any monomial $X$ of $A^m$ and $x^\alpha$ a power product of $A$,
-\item If $X \le Y$ then $x^\alpha X \le x^\alpha Y$ for all monomials $X, Y \in A^m$ and every power product $x^\alpha \in A$.
-\end{enumerate}
-
-If we are given a term order on $A$, there are two natural ways of obtaining a term order on $A^m$.
-For monomials $X = x^\alpha e_i$ and $Y = x^\beta e_j$ of $A^m$, we say that
-\begin{equation*}
-  X \le Y \iff
-  \begin{cases}
-    x^\alpha < x^\beta \text{ or }\\
-    x^\alpha = y^\beta\text{ and } i \le j.
-  \end{cases}
-\end{equation*}
-We call this order \textbf{TOP} for ``term over position'', since it places more importance on the term order on $A$ than on the position in the vector.
-
-For monomials $X = x^\alpha e_i$ and $Y = x^\beta e_j$ of $A^m$, we say that
-\begin{equation*}
-  X\le Y \iff
-  \begin{cases}
-    i<j \text{ or }\\
-    i=j\text{ and } x^\alpha\le x^\beta.
-  \end{cases}
-\end{equation*}
-We call this order \textbf{POT} for ``position over term'', since it places more importance on the position in the vector than on the term order on $A$.
-
-Fix a term ordering on $A^m$.
-Then for all $f \in A^m$, with $f \neq 0$, we may write
-\begin{equation*}
-  f = a_1X_1 + a_2X_2 + \dots + a_rX_r,
-\end{equation*}
-where, for $1 \le i\le r$, $0 \neq a_i$ and $X_i$ is a monomial in $A^m$ satisfying $X_1 > X_2 > \dots > X_r$.
-We define the \textbf{leading monomial} of $f$ as $\lm(f) = X_1$.
-We set $\lm(0)=0$.
-
-Let $R$ be a submodule of $A^m$.
-A set $G$ of nonzero vectors in $A^m$ is called a \textbf{Gr\"{o}bner basis} of $R$ if $G \subseteq R$ and for all $f \in R$, there exists $g \in G$ such that $\lm(g) \mid \lm(f)$.
-Note that this definition depends on the chosen term order.
-
-\begin{proposition}
-  \label{prp:9}
-  Every submodule of $A^m$ has a Gr\"{o}bner basis.
-\end{proposition}
-
-\begin{proposition}
-  \label{prp:10}
-  Let $R=(G)$ be a submodule of $A^m$, where $G$ is a Gr\"{o}bner basis of $R$.
-  Then the following set is a vector space basis of $A^m/R$
-  \begin{equation*}
-    \{X + R \mid X \text{ monomial in } A^m\text{ and } \forall g \in G: \lm(g) \nmid X\}.
-  \end{equation*}
-\end{proposition}
-
 In this article, we will deal with polynomial rings written as $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and free modules of the form $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ for some $N \in \mathbb{N}$.
 We will always use the degree reverse lexicographical ordering with $L_{-2} > L_{-3} > \dots > L_{-N}$ and TOP (term over position) with $L_{-1}^0 < L_{-1}^1 < \dots < L_{-1}^N$.
 We can extend the definition of $\lm$ as follows: for any element $a \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, pick $N$ large enough so that $a \in \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$.
 Then define $\lm(a)$ as the leading monomial in $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ which is naturally a subset of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$.
 This doesn't depend on the choice of $N$.
-For example $\lm(L_{-2} - \frac{3}{4}L_{-1}^2) = L_{-2}$.
+For example, $\lm(L_{-2} - \frac{3}{4}L_{-1}^2) = L_{-2}$.
 
 When working with $q$-series, the following notation is useful.
 The $q$-Pochhammer symbol is $(q)_n = \prod_{j = 1}^n(1 - q^j) \in \mathbb{C}[[q]]$ for $n \in \mathbb{N}$.
@@ -626,7 +533,7 @@ The recursive proof of the series identities in \cite{andrews_singular_2022} sug
 \begin{equation*}
   f_{a, b, c, d}(t, q) = \sum_{k_1, k_2 \in \mathbb{N}}t^{4k_1 + 2k_2 + d}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2 + ak_1 + bk_2 + c}}{(q)_{k_1}(q)_{k_2}} \in \mathbb{C}[[t, q]]
 \end{equation*}
-The following Lemma will be very useful to verify series identities
+The following lemma will be very useful to verify series identities
 
 \begin{lemma}
   \label{lmm:1}
@@ -925,30 +832,7 @@ It turns $P$ is made out of the these ``smaller'' objects and we can find recurr
 
 \section{Computing leading monomials}
 \label{sec:comp-lead-monom}
-
-\begin{lemma}
-  \label{lmm:7}
-  Let $U$ be a vector space.
-  Consider $s$ fields $a^1(z),\dots,a^s(z)\in \mathcal{F}(U)$ with $s\ge 2$ and $u\in U$.
-  Then for $l\in \mathbb{Z}$ we have
-  \begin{equation*}
-    :a^1(z)a^2(z)\dots a^s(z):_{(l)}u=\sum_{n_1,\dots,n_{s-1}\in \mathbb{N}}\sum_{k=0}^{s-1}R^{l,k}_{n_1,\dots,n_{s-1}}(a^1(z),\dots,a^s(z))u
-  \end{equation*}
-  where
-  \begin{align*}
-    &R^{l,k}_{n_1,\dots,n_{s-1}}(a^1(z),\dots,a^s(z))=\\
-    &\sum_{\substack{1\le i_1<\dots<i_k\le s-1\\1\le j_1<\dots<j_{s-1-k}\le s-1\\\{i_1,\dots,i_k\}\cup\{j_1,\dots,j_{s-1-k}\}=\{1,\dots,s-1\}}}a^{j_1}_{(-n_{j_1}-1)}\dots a^{j_{s-1-k}}_{(-n_{j_{s-1-k}}-1)}a^s_{(l-k-\sum_{r=1}^k n_{i_r}+\sum_{r=1}^{s-1-k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}.
-  \end{align*}
-\end{lemma}
-\begin{proof}
-  This follows from the following formula
-  \begin{align*}
-    :a(z)b(z):_{(l)}u&=\sum_{n\le -1}a_{(n)}b_{(l-n-1)}u+\sum_{n\ge 0}b_{(l-n-1)}a_{(n)}u \\
-    &=\sum_{n\in \mathbb{N}}a_{(-n-1)}b_{(l+n)}u+b_{(l-n-1)}a_{(n)}u.
-  \end{align*}
-  and induction on $s$.
-\end{proof}
-
+We recall that we have defined $V = \Vir^{1/2}$ and $M = M(1/2, 1/2)$.
 \begin{lemma}
   \label{lmm:8}
   Let $\lambda=[\lambda_1,\dots, \lambda_s]$ be a partition with $\lambda=\emptyset$ or $\lambda_s\ge 2$ and consider $M$ as a module over $V$.
@@ -959,67 +843,13 @@ It turns $P$ is made out of the these ``smaller'' objects and we can find recurr
   for some $m\in G^{2s-1}M$.
 \end{lemma}
 \begin{proof}
-  If $s=0$ or $s=1$, the lemma is clear.
-  Assume $s\ge 2$.
-  We have
-  \begin{align*}
-    (L_\lambda\vac)_{(-1)}\vachalf&=\left( \frac{:\partial^{\lambda_1-2}L(z)\dots\partial^{\lambda_s-2}L(z):}{(\lambda_1-2)!\dots(\lambda_s-2)!} \right)_{(-1)}\vachalf \\
-    &=\frac{1}{T}(:\partial^{\lambda_1-2}L(z)\dots\partial^{\lambda_s-2}L(z):)_{(-1)}\vachalf
-  \end{align*}
-  where $L(z)=\sum_{n\in \mathbb{Z}}L_nz^{-n-2}\in \mathcal{F}(M)$ and $T=(\lambda_1-2)!\dots(\lambda_s-2)!$.
-  Now we use Lemma \ref{lmm:7} with $U=M$, $a^k(z)=\partial^{\lambda_k-2}L(z)$ for $k=1,\dots,s$ and $u=\vachalf$.
-  First, note that
-  \begin{align*}
-    a^k(z)&=\partial^{\lambda_k-2}L(z) \\
-    &=\sum_{n\in \mathbb{Z}}(-n-2)\dots(-n-2-(\lambda_k-3))L_nz^{-n-2-(\lambda_k-2)} \\
-    &=\sum_{n\in \mathbb{Z}}(-n+\lambda_k-3)\dots(-n)L_{n+1-\lambda_k}z^{-n-1},
-  \end{align*}
-  which says that
-  \begin{equation*}
-    a^k_{(n)}=(-n+\lambda_k-3)\dots(-n)L_{n+1-\lambda_k},
-  \end{equation*}
-  for all $k=1,\dots, s$ and $n\in \mathbb{Z}$.
-
-  Note that each expression $R^{-1,k}_{n_1,\dots,n_{s-1}}\vachalf$ in Lemma \ref{lmm:7} (where we omitted the fields $a^k(z)$ from the notation) is the sum of elements of the form
-  \begin{equation*}
-    \text{scalar}\cdot L_{\eta_1}\dots L_{\eta_s}\vachalf
-  \end{equation*}
-  where $\eta_k\in \mathbb{Z}$ for $k=1,\dots,s$.
-  Note that if $\eta_k\ge -1$ for some $k=1,\dots,s$ then $L_{\eta_1}\dots L_{\eta_s}\vachalf\in G^{2s-1}M$.
-  Now we study these expressions $R^{-1,k}_{n_1,\dots,n_{s-1}}\vachalf$ by considering the elements that appear in the sum defining it.
-  We consider several disjoint cases
-  \begin{enumerate}[label={(\alph*)}]
-  \item $k>0$. If $n_{i_1}\ge \lambda_{i_1}-2$ then $n_{i_1}+1-\lambda_{i_1}\ge -1$, so we get
-    \begin{equation*}
-      a^{j_1}_{(-n_{j_1}-1)}\dots a^{j_{s-1-k}}_{(-n_{j_{s-1-k}}-1)}a^s_{(l-k-\sum_{r=1}^k n_{i_r}+\sum_{r=1}^{s-1-k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}\vachalf\in G^{2s-1}M.
-    \end{equation*}
-    If $n_{i_1}\le \lambda_{i_1}-3$ then $a^{i_1}(z)_{(n_{i_1})}\vachalf=0$ because $(-n+\lambda_k-3)\dots(-n)=0$, so we get
-    \begin{equation*}
-      a^{j_1}_{(-n_{j_1}-1)}\dots a^{j_{s-1-k}}_{(-n_{j_{s-1-k}}-1)}a^s_{(l-k-\sum_{r=1}^k n_{i_r}+\sum_{r=1}^{s-1-k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}\vachalf=0.
-    \end{equation*}
-    Therefore, we obtain
-    \begin{equation*}
-      R^{-1,k}_{n_1,\dots,n_{s-1}}\vachalf\in G^{2s-1}M.
-    \end{equation*}
-  \item $k=0$ and there exists some $j=1,\dots,s-1$ such that $n_j>0$.
-    In this case we get
-    \begin{equation*}
-      R^{-1,0}_{n_1,\dots,n_{s-1}}\vachalf=a^1_{(-n_1-1)}\dots a^{s-1}_{(-n_{s-1}-1)}a^s_{(-1+\sum_{r=1}^{s-1}n_r)}\vachalf\in G^{2s-1}M
-    \end{equation*}
-    because we can repeat the reasoning of (a) with $-1+\sum_{r=1}^{s-1}n_r$ instead of $n_{i_1}$.
-  \item $k=0$ and $n_1=\dots=n_{s-1}=0$. In this case we get
-    \begin{equation*}
-      R^{-1,0}_{0,\dots,0}=a^1_{(-1)}\dots a^{s-1}_{(-1)}a^s_{(-1)}\vachalf=TL_\lambda\vachalf.
-    \end{equation*}
-  \end{enumerate}
-  From these three cases we obtain the lemma.
+  This follows from the isomorphism between $\gr^G(M)$ and $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$ given in \Cref{prp:8}.
 \end{proof}
 
 We know $\gr^G(M)$ is a free module over $\gr^G(V)$:
 \begin{equation*}
-  \gr^G(M) = \bigoplus_{n\in \mathbb{N}}\gr^G(V)L_{-1}^n,
+  \gr^G(M) = \bigoplus_{n\in \mathbb{N}}\gr^G(V)L_{-1}^n.
 \end{equation*}
-where we recall $V = \Vir^{1/2}$ and $M = M(1/2, 1/2)$.
 For $n\in \mathbb{N}$ call
 \begin{equation*}
   \iota_n:\gr^G(V)\to\gr^G(M)
@@ -1065,7 +895,7 @@ Set $I = \ker(\gr^G(\pi_0))$ following the notation of \cite{andrews_singular_20
 
 \begin{proof}
   We can consider $L$ as a module over $V$ with state-field correspondence map $Y^L_{V}: V \to \mathcal{F}(L)$.
-  By \cite[Theorem 4.2.]{wang_rationality_1993}, $L$ is a module over $\Vir_{3,4}$ with state-field correspondence map $Y^L_{\Vir_{3, 4}}: \Vir_{3, 4} \to \mathcal{F}(L)$ map such that the following diagram commutes
+  By \cite[Theorem 4.2]{wang_rationality_1993}, $L$ is a module over $\Vir_{3,4}$ with state-field correspondence map $Y^L_{\Vir_{3, 4}}: \Vir_{3, 4} \to \mathcal{F}(L)$ map such that the following diagram commutes
   \begin{equation*}
     \begin{tikzcd}
       V \arrow[r, "\pi_0"] \arrow[rd, "{Y^{L}_{V}}"'] & {\Vir_{3, 4}} \arrow[d, "{Y^{L}_{\Vir_{3, 4}}}"] \\
@@ -1287,7 +1117,7 @@ If $Q$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
   \begin{equation*}
     B_N = \{m_\lambda \mid \Delta(\lambda) \le N\text{ and for all }x \in G_N, \lm(x) \nmid m_\lambda\}.
   \end{equation*}
-  By \Cref{prp:10},
+  By \cite[Proposition 3.6.4]{adams_introduction_1994},
   \begin{equation}
     \label{eq:8}
     \{m_\lambda + K \cap F_N \mid m_\lambda \in B_N\}
@@ -1317,8 +1147,9 @@ If $Q$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]
-  Note that the basis of \Cref{thr:4} is also a basis of $\gr^G(L)$ under the isomorphism between $\gr^G(L)$ and $L$ of \Cref{prp:8} and we recall that for each $\lambda \in P$, we have $\alpha^{\len(\lambda)}(L_\lambda(\vachalf + W)) \in \alpha^{\len(\lambda)}(G^{\len(\lambda)}L_{1/2 + \Delta(\lambda)})$ so $\Delta(\lambda)$ is summed with $1/2$.
-  Therefore, $\ch_{\gr^G(L)}(t, q) = q^{1/2}p(t,q)$ and together with \Cref{lmm:5} we conclude the proof of \Cref{thr:3}.
+  Note that the basis of \Cref{thr:4} is also a basis of $\gr^G(L)$ under the isomorphism between $\gr^G(L)$ and $L$ of \Cref{prp:8}.
+  For each $\lambda \in P$, we have $\alpha^{\len(\lambda)}(L_\lambda(\vachalf + W)) \in \alpha^{\len(\lambda)}(G^{\len(\lambda)}L_{1/2 + \Delta(\lambda)})$ so $\Delta(\lambda)$ is summed with $1/2$.
+  Therefore, $\ch_{\gr^G(L)}(t, q) = q^{1/2}p(t,q)$ and together with \Cref{lmm:5}, we conclude the proof of \Cref{thr:3}.
 \end{proof}
 
 \begin{corollary}
@@ -1338,7 +1169,7 @@ If $Q$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
   \begin{equation*}
     B'_N = \{m_\lambda \mid \Delta(\lambda) \le N\text{ and for all }x \in G'_N, \lm(x) \nmid m_\lambda\}.
   \end{equation*}
-  By \Cref{prp:10},
+  By \cite[Proposition 3.6.4]{adams_introduction_1994},
   \begin{equation*}
     |B'_N| = \dim\left(\frac{\gr^G(M)_{\le 1/2 + N}}{K' \cap F_N}\right) = \dim\left( \frac{\gr^G(M)_{\le 1/2 + N}}{K' \cap \gr^G(M)_{\le 1/2 + N}} \right).
   \end{equation*}
@@ -1348,136 +1179,39 @@ If $Q$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
   \begin{equation*}
     |B_N| = \dim\left( \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap \gr^G(M)_{\le 1/2 + N}} \right).
   \end{equation*}
-  Therefore $|B'_N| \le |B_N|$ which implies
+  Therefore, $|B'_N| \le |B_N|$ which implies
   \begin{equation*}
     \dim(K' \cap \gr^G(M)_{\le 1/2 + N}) \ge \dim(K \cap \gr^G(M)_{\le 1/2 + N}) \ge \dim(K' \cap \gr^G(M)_{\le 1/2 + N}).
   \end{equation*}
   Then $K' \cap \gr^G(M)_{\le 1/2 + N} = K \cap \gr^G(M)_{\le 1/2 + N}$ for all $N \in \mathbb{N}$.
-  Taking the union of these subspaces we get $K' = K$.
+  Taking the union of these subspaces, we get $K' = K$.
 \end{proof}
 
 \appendix
-\section{The SageMath program}
+\section{An explicit description of $K$}
 \label{sec:sagem-progr-comp}
 
-This program computes $m^W_\lambda$ for all partitions $\lambda$ (if $\lambda$ is not a pivot, it returns $0$).
-\begin{footnotesize}
-\begin{verbatim}
-Vir = lie_algebras.VirasoroAlgebra(QQ)
-M = Vir.verma_module(1/2, 1/2)
-d = Vir.basis()
-v = M.highest_weight_vector()
-m2 = (-4*d[-2] + 3*d[-1]*d[-1])*v
-m3 = (-12*d[-2]*d[-1] + 4*d[-1]*d[-1]*d[-1] + 3*d[-3])*v
-
-def L_partition_vector(partition, vector):
-    for i in range(len(partition)):
-        vector = d[-partition[len(partition) - i - 1]]*vector
-    return vector
-
-def my_coefficient(partition, vector):
-    return vector.monomial_coefficients().get(tuple(-k for k in partition), 0)
-
-def number_of_ones(partition):
-    for i in range(len(partition)):
-        if partition[len(partition) - i - 1] != 1:
-            return i
-    return len(partition)
-
-def my_len(partition):
-    return 2*len(partition) - number_of_ones(partition)
-
-def to_polynomial(partition):
-    polynomial = [0]*(sum(partition) - 1)
-    for i in range(len(partition) - number_of_ones(partition)):
-        polynomial[partition[i] - 2] += 1
-    return polynomial
-
-def to_vector(row, n):
-    list_of_partition = ordered_partitions(n)
-    return sum(row[i]*L_partition_vector(list_of_partition[i], v) for i in range(len(row)))
-
-def my_order(partition):
-    polynomial = to_polynomial(partition)
-    polynomial = [-k for k in polynomial]
-    polynomial.reverse()
-    return ((my_len(partition), len(partition) - number_of_ones(partition), polynomial))
-
-def ordered_partitions(n):
-    if n <= 0:
-        return [[]]
-    list_of_partition = list(Partitions(n))
-    list_of_partition.sort(key = my_order, reverse = True)
-    return list_of_partition
-
-def matrix_UVir_m2_m3(n):
-    list_of_partition = ordered_partitions(n)
-    list_of_partition2 = ordered_partitions(n - 2)
-    list_of_partition3 = ordered_partitions(n - 3)
-    matrix_m2 = matrix({
-        (i, j): my_coefficient(
-            list_of_partition[j], L_partition_vector(list_of_partition2[i], m2))
-        for j in range(len(list_of_partition))
-        for i in range(len(list_of_partition2))}, sparse = False)
-    matrix_m3 = matrix({
-        (i, j): my_coefficient(
-            list_of_partition[j], L_partition_vector(list_of_partition3[i], m3))
-        for j in range(len(list_of_partition))
-        for i in range(len(list_of_partition3))}, sparse = False)
-    matrix_m2 = matrix_m2.stack(matrix_m3)
-    matrix_m2 = matrix_m2.rref()
-    return matrix_m2
-
-def mW_partition(partition):
-    n = sum(partition)
-    k = ordered_partitions(n).index(partition)
-    A_n = matrix_UVir_m2_m3(n)
-    pivots = A_n.pivots()
-    try:
-        return to_vector(A_n.row(pivots.index(k)), n)
-    except ValueError:
-        return 0
-
-def mW_list_of_partition(list_of_partition):
-    return [mW_partition(partition) for partition in list_of_partition]
-
-list_of_partition = [[2], [1, 1, 1], [3, 1, 1], [3, 3], [4, 3, 1], [4, 4, 1], [5, 4, 1, 1],
-                     [6, 5, 3, 1]]
-mW_list_of_partition(list_of_partition)
-
-*******************************************************************************************
-
-[d[-2]*v - 3/4*d[-1]*d[-1]*v,
- -3*d[-3]*v + d[-1]*d[-1]*d[-1]*v,
- -3/2*d[-5]*v - d[-4]*d[-1]*v + d[-3]*d[-1]*d[-1]*v,
- -2*d[-6]*v - 3/2*d[-5]*d[-1]*v + 1/3*d[-4]*d[-1]*d[-1]*v + d[-3]*d[-3]*v,
- -9/2*d[-8]*v - 9/2*d[-7]*d[-1]*v - d[-6]*d[-1]*d[-1]*v + 3/2*d[-5]*d[-3]*v + d[-4]*d[-4]*v
- + d[-4]*d[-3]*d[-1]*v,
- -27/4*d[-9]*v - 63/8*d[-8]*d[-1]*v - 19/8*d[-7]*d[-1]*d[-1]*v + 3/4*d[-6]*d[-3]*v
- + 21/8*d[-5]*d[-4]*v + 9/8*d[-5]*d[-3]*d[-1]*v + d[-4]*d[-4]*d[-1]*v,
- -393/16*d[-11]*v - 117/4*d[-10]*d[-1]*v - 189/16*d[-9]*d[-1]*d[-1]*v - 39/8*d[-8]*d[-3]*v
- + 27/8*d[-7]*d[-4]*v + 9/8*d[-7]*d[-3]*d[-1]*v + 27/4*d[-6]*d[-5]*v
- + 9/2*d[-6]*d[-4]*d[-1]*v + 21/8*d[-5]*d[-5]*d[-1]*v + d[-5]*d[-4]*d[-1]*d[-1]*v,
- -4977/20*d[-15]*v - 12207/40*d[-14]*d[-1]*v - 140449/960*d[-13]*d[-1]*d[-1]*v
- - 19159/160*d[-12]*d[-3]*v - 3973/160*d[-11]*d[-4]*v - 3681/160*d[-11]*d[-3]*d[-1]*v
- + 567/80*d[-10]*d[-5]*v - 1/12*d[-10]*d[-4]*d[-1]*v + 131/5*d[-9]*d[-6]*v
- + 369/20*d[-9]*d[-5]*d[-1]*v + 81/20*d[-9]*d[-4]*d[-1]*d[-1]*v + 5807/160*d[-8]*d[-7]*v
- + 149/5*d[-8]*d[-6]*d[-1]*v + 33/4*d[-8]*d[-5]*d[-1]*d[-1]*v + 13/5*d[-8]*d[-4]*d[-3]*v
- + 2299/120*d[-7]*d[-7]*d[-1]*v + 231/20*d[-7]*d[-6]*d[-1]*d[-1]*v + 4*d[-7]*d[-5]*d[-3]*v
- - 17/30*d[-7]*d[-4]*d[-4]*v + 29/10*d[-6]*d[-6]*d[-3]*v + d[-6]*d[-5]*d[-3]*d[-1]*v]
-\end{verbatim}
-\end{footnotesize}
-
+In \cite[ising-modules.ipynb]{sagemath2}, I wrote a SageMath program to compute $m^W_\lambda$ for all partitions $\lambda$ (if $\lambda$ is not a pivot, it returns $0$).
 From the output, we obtain
 \begin{align*}
-  m^K_{[2]} &= L_{-2} - 3/4L_{-1}^2, \\
+  m^K_{[2]} &= L_{-2} - \tfrac{3}{4}L_{-1}^2, \\
   m^K_{[1, 1, 1]} &= L_{-1}^3, \\
   m^K_{[3, 1, 1]} &= L_{-3}L_{-1}^2, \\
-  m^K_{[3, 3]} &= L_{-3}L_{-3} + 1/3L_{-4}L_{-1}^2, \\
+  m^K_{[3, 3]} &= L_{-3}L_{-3} + \tfrac{1}{3}L_{-4}L_{-1}^2, \\
   m^K_{[4, 3, 1]} &= L_{-4}L_{-3}L_{-1}, \\
-  m^K_{[4, 4, 1]} &= L_{-4}L_{-4}L_{-1} + 9/8L_{-5}L_{-3}L_{-1}, \\
+  m^K_{[4, 4, 1]} &= L_{-4}L_{-4}L_{-1} + \tfrac{9}{8}L_{-5}L_{-3}L_{-1}, \\
   m^K_{[5, 4, 1, 1]} &= L_{-5}L_{-4}L_{-1}^2, \\
   m^K_{[6, 5, 3, 1]} &= L_{-6}L_{-5}L_{-3}L_{-1}.
+\end{align*}
+
+However, it turns out $m^K_{[5, 4, 1, 1]}$ and $m^K_{[6, 5, 3, 1]}$ are redundant, as can be seen from \cite[m11-m15.ipynb]{sagemath2}.
+From \cite[Theorem 2]{andrews_singular_2022}, we obtain the following explicit expression for $K$:
+\begin{equation*}
+  K = (m^K_{[2]}, m^K_{[1, 1, 1]}, m^K_{[3, 1, 1]}, m^K_{[3, 3]}, m^K_{[4, 3, 1]}, m^K_{[4, 4, 1]}, \iota_0((a, b)_\partial))_{\psn},
+\end{equation*}
+where
+\begin{align*}
+  a = L_{-2}^3, b = L_{-2}L_{-3}L_{-4} + \tfrac{1}{6}L_{-5}L_{-2}^2.
 \end{align*}
 
 \bibliographystyle{alpha}
