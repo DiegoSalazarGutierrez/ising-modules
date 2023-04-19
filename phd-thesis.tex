@@ -1,0 +1,230 @@
+\documentclass[a4paper, 12pt, reqno]{amsart}
+
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage[margin = 0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage[nameinlink]{cleveref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{subsection}
+
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\lm}{lm}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\psn}{psn}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Res}{Res}
+
+\newcommand{\vac}{|0\rangle}
+\newcommand{\vachalf}{|1/2\rangle}
+\newcommand{\vacsixteen}{|1/16\rangle}
+\newcommand{\zero}{\overline{0}}
+\newcommand{\one}{\overline{1}}
+
+\makeindex
+
+\begin{document}
+
+\begin{abstract}
+  To every $h + \mathbb{N}$-graded module $M$ over a $\mathbb{N}$-graded conformal vertex algebra $V$ we associate an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$ which is compatible with the filtrations introduced by Haisheng Li.
+  The associated graded vector space $\gr^G(M)$ is naturally a module over the Poisson vertex algebra $\gr^G(V)$.
+  We study $\gr^G(M)$ for the three irreducible modules of the Ising model $\Vir_{3, 4}$, namely $\Vir_{3,4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
+  We obtain an explicit monomial basis for each of these modules and a formula for their refined characters which are related to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$.
+\end{abstract}
+
+\title{PBW bases of irreducible Ising modules}
+\author{Diego Salazar Gutierrez}
+\address{Instituto de Matemática Pura e Aplicada, Rio de Janeiro, RJ, Brazil}
+\email{diego.salazar@impa.br}
+\date{\today}
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+\section{Vertex algebras and their modules}
+\label{sec:vert-algebr-their}
+
+\subsection{Formal calculus}
+\label{sec:formal-calculus}
+
+All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers.
+The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$ and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
+
+The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[X_1^{\pm 1}, \dots, X_n^{\pm 1}]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$ with the natural operations of addition and multiplication by a scalar.
+The field of \index{rational function|emph}\emph{rational functions} in $n$ variables, denoted $R(X_1, \dots, X_n)$, is the field of fractions $\Frac(R[X_1, \dots, X_n])$.
+The field of \index{formal Laurent series|emph}\emph{formal Laurent series} is the subalgebra os elements $f \in \mathbb{C}[[Z^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
+We also have $\mathbb{C}((X)) = \Frac(R[[X]])$.
+The field of \index{joint Laurent series|emph}\emph{joint Laurent series} in $n$ variables, denoted by $\mathbb{C}((X_1, \dots, X_n))$ is $\Frac(R[[X_1, \dots, X_n]])$.
+
+If $V$ is a vector space, we similarly define $V[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$ and $V((X))$ but in this case, $V((X))$ is only a vector space.
+
+Let $V$ be a vector space.
+The \index{Fourier expansion|emph}\emph{Fourier expansion} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$, written as $a = \sum_{n \in \mathbb{Z}} a_nz^n$, is conventionally written in the theory of vertex algebras as
+\begin{equation*}
+  a(z) = \sum_{n \in \mathbb{N}}a_{(n)}z^{-n - 1},
+\end{equation*}
+where
+\begin{equation*}
+  a_{(n)} = a_{-n-1}.
+\end{equation*}
+The \index{formal distribution!residue|emph}\emph{residue} of $a(z)$ is defined as
+\begin{equation*}
+  \Res_z(a(z)) = a_{(0)} = a_{-1}.
+\end{equation*}
+
+If $P\in R[[z_1^{\pm 1},\dots, z_n^{\pm 1}]]$ and $Q\in R[[w_1^{\pm 1},\dots, w_m^{\pm 1}]]$, then $PQ\in R[[z_1^{\pm 1},\dots z_n^{\pm 1},w_1^{\pm 1},\dots w_m^{\pm 1}]]$ is defined in the natural way.
+However, if both $P$ and $Q$ belong to $R[[z_1^{\pm 1},\dots, z_n^{\pm 1}]]$, we may run into trouble because infinite sums may appear.
+
+An important formal distribution in two variables $z, w$ is the \index{formal distribution!delta|emph}\emph{formal delta distribution} which is defined by
+\begin{equation*}
+  \delta(z, w) = \sum_{n \in \mathbb{Z}}z^nw^{-n - 1} \in \mathbb{C}[[z^{\pm 1}, w^{\pm 1}]].
+\end{equation*}
+
+The \emph{expansion in the domain} $|z| > |w|$ is the field homomorphism $i_{z, w}: \mathbb{C}((z, w)) \to \mathbb{C}((z))((w))$ such that the following diagram commutes
+\begin{equation*}
+  \begin{tikzcd}
+    {\mathbb{C}[[z, w]]} \arrow[rd] \arrow[r] & {\mathbb{C}((z, w))} \arrow[d, "{i_{z,w}}"] \\
+    & \mathbb{C}((z))((w))                                          
+  \end{tikzcd}
+\end{equation*}
+where the unlabeled homomorphisms are the natural ones.
+Similarly, \index{expansion in the domain|emph}expansion in the domain $|w| > |z|$ is the field homomorphism $i_{w, z}: \mathbb{C}((z, w)) \to \mathbb{C}((w))((z))$ such that the following diagram commutes
+\begin{equation*}
+  \begin{tikzcd}
+    {\mathbb{C}[[z, w]]} \arrow[rd] \arrow[r] & {\mathbb{C}((z, w))}\arrow[d, "{i_{w, z}}"] \\
+    & \mathbb{C}((w))((z))                                          
+  \end{tikzcd}
+\end{equation*}
+
+We have natural inclusions $\mathbb{C}((z))((w)) \to \mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]$ and $\mathbb{C}((w))((z)) \to \mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]$.
+The diagram
+\begin{equation*}
+  \begin{tikzcd}
+    & {\mathbb{C}((z, w))} \arrow[ld, "{i_{z,w}}"'] \arrow[rd, "{i_{w,z}}"] &                                 \\
+    \mathbb{C}((z))((w)) \arrow[rd] &                                                                      & \mathbb{C}((w))((z)) \arrow[ld] \\
+    & {\mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]}                                  &                                
+  \end{tikzcd}
+\end{equation*}
+doesn't commute. In fact, the formal delta distribution can be expressed as
+\begin{equation*} 
+  \delta(z, w) = i_{z, w}(\tfrac{1}{z - w}) - i_{w, z}(\tfrac{1}{z - w}),
+\end{equation*}
+where we consider $i_{z, w}(\frac{1}{z - w})$ and $i_{w, z}(\frac{1}{z - w})$ as elements of $\mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]$.
+From now on, we will consider $i_{z, w}$ and $i_{w, z}$ as mapped into $\mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]$.
+
+Let $V$ be a vector space.
+A formal distribution $a(z, w) \in V[[z^{\pm 1}, w^{\pm 1}]]$ is \index{formal distribution!local|emph}\emph{local} if there is $N \in \mathbb{N}$ such that
+\begin{equation*}
+  (z - w)^Na(z, w)=0.
+\end{equation*}
+For example, the \index{formal distribution!delta}formal delta distribution $\delta(z, w)$ is local.
+
+\begin{theorem}[{\cite[Proposition 2.2]{kac_vertex_1998}}]
+  \label{thr:1}
+  Let $a(z, w) \in V[[z^{\pm 1}, w^{\pm 1}]]$ be a local formal distribution.
+  Then $a(z, w)$ can be written uniquely as a sum
+  \begin{equation}
+    \label{eq:1}
+    a(z, w) = \sum_{j \in \mathbb{N}}c^j(w)\frac{\partial_w^j\delta(z, w)}{j!}
+  \end{equation}
+  where $c^j(w) \in V[[w^{\pm 1}]]$ are formal distributions given by
+  \begin{equation}
+    \label{eq:2}
+    c^j(w) = \Res_z(z - w)^ja(z, w).
+  \end{equation}
+  In addition, the converse is true.
+\end{theorem}
+
+We now define the notion of Fourier transform in two cases: in one and two variables. Let $V$ be a vector space and let $a(z) \in V[[z^{\pm 1}]]$.
+We define the \index{Fourier transform!in one variable|emph}\emph{Fourier transform in one variable} of $a(z)$ by
+\begin{equation*}
+  F^\lambda_za(z) = \Res_z(e^{\lambda z}a(z)) \in V[[\lambda]].
+\end{equation*}
+\begin{proposition}[{\cite[Proposition 1.5.2]{nozaradan_introduction_2008}}]
+  \label{prp:1}
+  $F^\lambda_z$ satisfies the following properties:
+  \begin{enumerate}[label={(\alph*)}]
+  \item $F^\lambda_z\partial_za(z) = -\lambda F^\lambda_za(z)$;
+  \item $F^\lambda_z(e^{zT}a(z)) = F^{z + T}_z(a(z))$ where $T \in \End(V)$ and $a(z) \in V((z))$.
+  \item $F^\lambda_z(a(-z)) = -F^{-\lambda}_za(z)$
+  \item $F^\lambda_z\partial^n_w\delta(z, w) = e^{\lambda w}\lambda^n$.
+  \end{enumerate}
+\end{proposition}
+
+Now let $a(z, w) \in V[[z^{\pm 1}, w^{\pm 1}]]$.
+We define the \index{Fourier transform!in two variables|emph}\emph{Fourier transform in two variables} of $a(z, w)$ by
+\begin{equation*}
+  F^\lambda_{z, w}a(z, w) = \Res_ze^{\lambda(z - w)}a(z, w) \in V[[w^{\pm 1}]][[\lambda]].
+\end{equation*}
+
+Expanding the definition of $F^\lambda_{z, w}$, we obtain another expression
+\begin{equation*}
+  F^\lambda_{z, w}a(z, w) = \sum_{j \in \mathbb{N}}\frac{\lambda^j}{j!}c^j(w),
+\end{equation*}
+where
+\begin{equation*}
+  c^j(w) = \Res_z(z - w)^ja(z, w).
+\end{equation*}
+\begin{proposition}[{\cite[Proposition 1.5.4]{nozaradan_introduction_2008}}]
+  \label{prp:2}
+  $F^\lambda_{z, w}$ satifies the following properties
+  \begin{enumerate}
+  \item If $a(z, w)$ is local then $F^\lambda_{z, w}a(z, w) \in V[[w^{\pm 1}]][\lambda]$.
+  \item $F^\lambda_{z, w}\partial_za(z, w) = -\lambda F^\lambda_{z, w}a(z, w) = [\partial_w, F^{\lambda}_{z, w}]a(z, w)$.
+  \item If $a(z, w)$ is local, then $F^\lambda_{z, w}a(w, z) = F^{-\lambda - \partial_w}_{z, w}a(z, w)$, where $F^{-\lambda - \partial_w}_{z, w}a(z, w) = F^\mu_{z, w}a(z, w)|_{u = -\lambda - \partial_w}$.
+  \end{enumerate}
+\end{proposition}
+
+\subsection{Lie conformal superalgebras}
+\label{sec:lie-conf-super}
+
+A \index{vector superspace|emph}\emph{vector superspace} is a $\mathbb{Z}_2$-graded vector space $V = V_{\zero} \oplus V_{\one}$ where $\mathbb{Z}_2 = \mathbb{Z}/2\mathbb{Z} = \{\zero, \one\}$, $\zero = 0 + 2\mathbb{Z}$ and $\one = 1 + 2\mathbb{Z}$.
+% Elements of $V_{\zero}$ are called \index{vector superspace!even element of |emph}\emph{even}, elements of $V_{\one}$ are called \index{vector superspace!odd element of|emph}\emph{odd}.
+We call $V_{\zero}$ the \index{vector superspace!even subspace of|emph}\emph{even subspace} of $V$ and $V_{\one}$ the \index{vector superspace!odd subspace of|emph}\emph{odd subspace} of $V$.
+Nonzero elements of $V_{\zero} \cup V_{\one}$ are called \index{homogeneous|emph}\emph{homogeneous}.
+A \index{superalgebra|emph}\emph{superalgebra} is a $\mathbb{Z}_2$-graded algebra $A = A_{\zero} \oplus A_{\one}$.
+This means that $A_iA_j \subseteq A_{i + j}$ for all $i, j \in \mathbb{Z}_2$.
+
+We set $(-1)^{\zero} = 1$, $(-1)^{\one} = -1$ and $p(a, b) = (-1)^{p(a)p(b)}$ for homogeneous elements $a$ and $b$ in a vector superspace.
+A \index{Lie superalgebra|emph}\emph{Lie superalgebra} is a superalgebra $\mathfrak{g} = \mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\one}$ with the product written $[a, b]$ for $a, b \in \mathfrak{g}$ and called \index{Lie superalgebra!Lie superbracket of|emph}Lie superbracket satisfying the following properties:
+\begin{enumerate}
+\item $[\bullet, \bullet]$ is \index{graded antisymmetric|emph}\emph{graded antisymmetric}
+  \begin{equation*}
+    [a, b] = -p(a, b)[b, a].
+  \end{equation*}
+\item $[\bullet, \bullet]$ satisfies the \index{graded Jacobi identity|emph}\emph{graded Jacobi identity}
+  \begin{equation*}
+    p(a, c)[a, [b, c]] + p(b, a)[b, [c, a]] + p(c, b)[c, [a, b]] = 0.
+  \end{equation*}
+\end{enumerate}
+
+In an \index{associative superalgebra}associative superalgebra $A$, we can define the superbracket of homogeneous elements by
+\begin{equation*}
+  [a, b] = ab - p(a, b)ba.
+\end{equation*}
+It can then be extended by linearity to non-homogeneous elements.
+Then $A$ becomes a Lie superalgebra called the \index{associative superalgebra!underlying Lie superalgebra of|emph}\emph{underlying Lie superalgebra} of $A$ and is denoted by $[A]$.
+
+\printindex
+
+\bibliographystyle{alpha}
+\bibliography{ising-modules.bib}
+
+\end{document}
