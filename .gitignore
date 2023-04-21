@@ -11,6 +11,7 @@ auto
 *.idx
 *.ilg
 *.ind
+*.toc
 last-commit-message
 .ipynb_checkpoints
 #.gitignore#

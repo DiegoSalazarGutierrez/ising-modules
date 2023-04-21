@@ -8,7 +8,7 @@
 \usepackage{tikz-cd}
 \usepackage[nameinlink]{cleveref}
 
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -30,12 +30,12 @@
 \DeclareMathOperator{\psn}{psn}
 \DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\Res}{Res}
-
-\newcommand{\vac}{|0\rangle}
-\newcommand{\vachalf}{|1/2\rangle}
-\newcommand{\vacsixteen}{|1/16\rangle}
-\newcommand{\zero}{\overline{0}}
-\newcommand{\one}{\overline{1}}
+\DeclareMathOperator{\vac}{|0\rangle}
+\DeclareMathOperator{\vachalf}{|1/2\rangle}
+\DeclareMathOperator{\vacsixteen}{|1/16\rangle}
+\DeclareMathOperator{\zero}{\overline{0}}
+\DeclareMathOperator{\one}{\overline{1}}
+\DeclareMathOperator{\Der}{Der}
 
 \makeindex
 
@@ -55,6 +55,8 @@
 \date{\today}
 \maketitle
 
+\tableofcontents
+
 \section{Introduction}
 \label{sec:introduction}
 
@@ -67,24 +69,24 @@
 All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers.
 The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$ and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
 
-The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[X_1^{\pm 1}, \dots, X_n^{\pm 1}]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$ with the natural operations of addition and multiplication by a scalar.
-The field of \index{rational function|emph}\emph{rational functions} in $n$ variables, denoted $R(X_1, \dots, X_n)$, is the field of fractions $\Frac(R[X_1, \dots, X_n])$.
-The field of \index{formal Laurent series|emph}\emph{formal Laurent series} is the subalgebra os elements $f \in \mathbb{C}[[Z^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
-We also have $\mathbb{C}((X)) = \Frac(R[[X]])$.
-The field of \index{joint Laurent series|emph}\emph{joint Laurent series} in $n$ variables, denoted by $\mathbb{C}((X_1, \dots, X_n))$ is $\Frac(R[[X_1, \dots, X_n]])$.
+The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$ with the natural operations of addition and multiplication by a scalar.
+The field of \index{rational function|emph}\emph{rational functions} in $n$ variables, denoted by $\mathbb{C}(X_1, \dots, X_n)$, is the field of fractions $\Frac(\mathbb{C}[X_1, \dots, X_n])$.
+The field of \index{formal Laurent series|emph}\emph{formal Laurent series} is the subalgebra of elements $f \in \mathbb{C}[[Z^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
+We also have $\mathbb{C}((X)) = \Frac(\mathbb{C}[[X]])$.
+The field of \index{joint Laurent series|emph}\emph{joint Laurent series} in $n$ variables, denoted by $\mathbb{C}((X_1, \dots, X_n))$, is $\Frac(\mathbb{C}[[X_1, \dots, X_n]])$.
 
 If $V$ is a vector space, we similarly define $V[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$ and $V((X))$ but in this case, $V((X))$ is only a vector space.
 
 Let $V$ be a vector space.
-The \index{Fourier expansion|emph}\emph{Fourier expansion} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$, written as $a = \sum_{n \in \mathbb{Z}} a_nz^n$, is conventionally written in the theory of vertex algebras as
+The \index{formal distribution!Fourier expansion of|emph}\emph{Fourier expansion} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$, written as $a = \sum_{n \in \mathbb{Z}} a_nz^n$, is conventionally written in the theory of vertex algebras as
 \begin{equation*}
-  a(z) = \sum_{n \in \mathbb{N}}a_{(n)}z^{-n - 1},
+  a(z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1},
 \end{equation*}
 where
 \begin{equation*}
   a_{(n)} = a_{-n-1}.
 \end{equation*}
-The \index{formal distribution!residue|emph}\emph{residue} of $a(z)$ is defined as
+The \index{formal distribution!residue of|emph}\emph{residue} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$ is defined as
 \begin{equation*}
   \Res_z(a(z)) = a_{(0)} = a_{-1}.
 \end{equation*}
@@ -160,10 +162,10 @@ We define the \index{Fourier transform!in one variable|emph}\emph{Fourier transf
 \begin{proposition}[{\cite[Proposition 1.5.2]{nozaradan_introduction_2008}}]
   \label{prp:1}
   $F^\lambda_z$ satisfies the following properties:
-  \begin{enumerate}[label={(\alph*)}]
+  \begin{enumerate}[label = (\alph*)]
   \item $F^\lambda_z\partial_za(z) = -\lambda F^\lambda_za(z)$;
-  \item $F^\lambda_z(e^{zT}a(z)) = F^{z + T}_z(a(z))$ where $T \in \End(V)$ and $a(z) \in V((z))$.
-  \item $F^\lambda_z(a(-z)) = -F^{-\lambda}_za(z)$
+  \item $F^\lambda_z(e^{zT}a(z)) = F^{z + T}_z(a(z))$ where $T \in \End(V)$ and $a(z) \in V((z))$;
+  \item $F^\lambda_z(a(-z)) = -F^{-\lambda}_za(z)$;
   \item $F^\lambda_z\partial^n_w\delta(z, w) = e^{\lambda w}\lambda^n$.
   \end{enumerate}
 \end{proposition}
@@ -185,9 +187,9 @@ where
 \begin{proposition}[{\cite[Proposition 1.5.4]{nozaradan_introduction_2008}}]
   \label{prp:2}
   $F^\lambda_{z, w}$ satifies the following properties
-  \begin{enumerate}
-  \item If $a(z, w)$ is local then $F^\lambda_{z, w}a(z, w) \in V[[w^{\pm 1}]][\lambda]$.
-  \item $F^\lambda_{z, w}\partial_za(z, w) = -\lambda F^\lambda_{z, w}a(z, w) = [\partial_w, F^{\lambda}_{z, w}]a(z, w)$.
+  \begin{enumerate}[label = (\alph*)]
+  \item If $a(z, w)$ is local then $F^\lambda_{z, w}a(z, w) \in V[[w^{\pm 1}]][\lambda]$;
+  \item $F^\lambda_{z, w}\partial_za(z, w) = -\lambda F^\lambda_{z, w}a(z, w) = [\partial_w, F^{\lambda}_{z, w}]a(z, w)$;
   \item If $a(z, w)$ is local, then $F^\lambda_{z, w}a(w, z) = F^{-\lambda - \partial_w}_{z, w}a(z, w)$, where $F^{-\lambda - \partial_w}_{z, w}a(z, w) = F^\mu_{z, w}a(z, w)|_{u = -\lambda - \partial_w}$.
   \end{enumerate}
 \end{proposition}
@@ -198,16 +200,18 @@ where
 A \index{vector superspace|emph}\emph{vector superspace} is a $\mathbb{Z}_2$-graded vector space $V = V_{\zero} \oplus V_{\one}$ where $\mathbb{Z}_2 = \mathbb{Z}/2\mathbb{Z} = \{\zero, \one\}$, $\zero = 0 + 2\mathbb{Z}$ and $\one = 1 + 2\mathbb{Z}$.
 % Elements of $V_{\zero}$ are called \index{vector superspace!even element of |emph}\emph{even}, elements of $V_{\one}$ are called \index{vector superspace!odd element of|emph}\emph{odd}.
 We call $V_{\zero}$ the \index{vector superspace!even subspace of|emph}\emph{even subspace} of $V$ and $V_{\one}$ the \index{vector superspace!odd subspace of|emph}\emph{odd subspace} of $V$.
-Nonzero elements of $V_{\zero} \cup V_{\one}$ are called \index{homogeneous|emph}\emph{homogeneous}.
+Nonzero elements of $V_{\zero}\cup V_{\one}$ are called \index{vector superspace!homogeneous element of|emph}\emph{homogeneous}.
 A \index{superalgebra|emph}\emph{superalgebra} is a $\mathbb{Z}_2$-graded algebra $A = A_{\zero} \oplus A_{\one}$.
-This means that $A_iA_j \subseteq A_{i + j}$ for all $i, j \in \mathbb{Z}_2$.
+This means $A_{\alpha}A_{\beta} \subseteq A_{\alpha + \beta}$ for all $\alpha, \beta \in \mathbb{Z}_2$.
 
-We set $(-1)^{\zero} = 1$, $(-1)^{\one} = -1$ and $p(a, b) = (-1)^{p(a)p(b)}$ for homogeneous elements $a$ and $b$ in a vector superspace.
-A \index{Lie superalgebra|emph}\emph{Lie superalgebra} is a superalgebra $\mathfrak{g} = \mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\one}$ with the product written $[a, b]$ for $a, b \in \mathfrak{g}$ and called \index{Lie superalgebra!Lie superbracket of|emph}Lie superbracket satisfying the following properties:
-\begin{enumerate}
+We set $(-1)^{\zero} = 1$, $(-1)^{\one} = -1$.
+If $a\in V_\alpha$, $v\neq 0$ is homogeneous, we set $p(a) = \alpha$ and call it the \index{vector superspace!homogeneous element of!parity of|emph}\emph{parity} of $a$.
+If $a$ and $b$ are homogeneous, we set $p(a, b) = (-1)^{p(a)p(b)}$.
+A \index{Lie superalgebra|emph}\emph{Lie superalgebra} is a superalgebra $\mathfrak{g} = \mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\one}$ with the product written $[a, b]$ for $a, b \in \mathfrak{g}$ and called \index{Lie superalgebra!Lie superbracket of|emph}\emph{Lie superbracket} satisfying the following properties:
+\begin{enumerate}[label = (\alph*)]
 \item $[\bullet, \bullet]$ is \index{graded antisymmetric|emph}\emph{graded antisymmetric}
   \begin{equation*}
-    [a, b] = -p(a, b)[b, a].
+    [a, b] = -p(a, b)[b, a];
   \end{equation*}
 \item $[\bullet, \bullet]$ satisfies the \index{graded Jacobi identity|emph}\emph{graded Jacobi identity}
   \begin{equation*}
@@ -220,8 +224,129 @@ In an \index{associative superalgebra}associative superalgebra $A$, we can defin
   [a, b] = ab - p(a, b)ba.
 \end{equation*}
 It can then be extended by linearity to non-homogeneous elements.
-Then $A$ becomes a Lie superalgebra called the \index{associative superalgebra!underlying Lie superalgebra of|emph}\emph{underlying Lie superalgebra} of $A$ and is denoted by $[A]$.
+With this superbracket, $A$ becomes a Lie superalgebra called the \index{associative superalgebra!underlying Lie superalgebra of|emph}\emph{underlying Lie superalgebra} of $A$ and is denoted by $[A]$.
 
+\begin{remark}
+  \label{rmk:1}
+  The even part $\mathfrak{g}_{\zero}$ of a Lie superalgebra is just a standard Lie algebra.
+  However, unlike superspaces and superalgebras, a Lie superalgebra is not always a Lie algebra.
+  This is why we prefer the term Lie superalgebra instead of $\mathbb{Z}_2$-graded Lie algebra.
+\end{remark}
+
+The most important example of an associative superalgebra is the endomorphism algebra $\End(V)$ of a superspace $V$ with the $\mathbb{Z}_2$-grading given by:
+\begin{equation*}
+  \End(V)_{\alpha} = \{a \in \End(V) \mid \forall \beta \in \mathbb{Z}_2: aV_\beta \subseteq V_{\alpha + \beta}\},
+\end{equation*}
+for $\alpha \in \mathbb{Z}_2$.
+We denote $\mathfrak{gl}(V) = [\End(V)]$.
+
+Let $\mathfrak{g}$ be a Lie superalgebra.
+We first extend the Lie superbracket on $\mathfrak{g}$ to the \index{formal distribution!Lie superbracket of|emph}\emph{Lie superbracket} between two $\mathfrak{g}$-valued formal distributions in one variable. Starting from $a(z) = \sum_{m \in \mathbb{Z}}a_{(m)}z^{-m - 1} \in \mathfrak{g}[[z^{\pm 1}]]$ and $b(w) = \sum_{n \in \mathbb{Z}}b_{(n)}z^{-n - 1} \in \mathfrak{g}[[w^{\pm 1}]]$, we define a new formal distribution in two variables by defining the superbracket
+\begin{equation*}
+  [a(z), b(w)] = \sum_{m, n}[a_{(m)}, b_{(n)}]z^{-m - 1}w^{-n - 1} \in \mathfrak{g}[[z^{\pm 1}, w^{\pm 1}]]
+\end{equation*}
+
+Let $\mathfrak{g}$ be a Lie superalgebra.
+A pair $(a(z), b(z))$ of $\mathfrak{g}$-valued formal distributions is said \index{formal distribution!local pair of|emph}\emph{local} if $[a(z), b(w)]$ is local.
+By \Cref{thr:1}, this means that
+\begin{equation*}
+  [a(z), b(w)] = \sum_{j \in \mathbb{N}}c^j(w)\frac{\partial^j_w\delta(z, w)}{j!}.
+\end{equation*}
+with $c^j(w) = \Res_z(z - w)^j[a(z), b(w)] \in \mathfrak{g}[[w^{\pm 1}]]$.
+Equivalently, we can write this equation as
+\begin{equation}
+  \label{eq:3}
+  [a_{(m)}, b_{(n)}] = \sum_{j \in \mathbb{N}}c^j(w)_{(m + n - j)}.
+\end{equation}
+
+Let $\mathfrak{g}$ be a Lie superalgebra.
+A subset $\mathfrak{F} \subseteq \mathfrak{g}[[z^{\pm 1}]]$ of formal distributions is called a \index{formal distribution!local family of|emph}\emph{local family} if all pairs of its elements are local.
+Let $a(w)$ and $b(w)$ be two $\mathfrak{g}$-valued formal distributions.
+For $j \in \mathbb{N}$, their \index{formal distribution!$j$-product of|emph}\emph{$j$-product} is the $\mathbb{C}$-bilinear map defined by
+\begin{align*}
+  \bullet_{(j)}\bullet: \mathfrak{g}[[w^{\pm 1}]]\times\mathfrak{g}[[w^{\pm 1}]] &\to \mathfrak{g}[[w^{\pm 1}]]\\
+  a(w)_{(j)}b(w) &= \Res_z(z - w)^j[a(z), b(w)].
+\end{align*}
+We define $a(w)_{(j)} \in \End(\mathfrak{g}[[z^{\pm 1}]])$ in the natural way.
+If $(a(z), b(z))$ is a local pair, then \eqref{eq:3} becomes
+\begin{equation}
+  \label{eq:4}
+  [a_{(m)}, b_{(n)}] = \sum_{j \in \mathbb{N}}\binom{m}{j}(a(w)_{(j)}b(w))_{(m + n - j)}.
+\end{equation}
+All these identities led us to the define the following new algebraic structure that encodes the relevant information compactly.
+
+Let $\mathfrak{g}$ be a Lie superalgebra.
+The \index{formal distribution!$\lambda$-bracket of|emph}\emph{$\lambda$-bracket} of two $\mathfrak{g}$-valued formal distributions is defined by the $\mathbb{C}$-bilinear map
+\begin{align*}
+  [\bullet_{\lambda}\bullet]: \mathfrak{g}[[w^{\pm 1}]]\times \mathfrak{g}[[w^{\pm 1}]] &\to \mathfrak{g}[[w^{\pm 1}]][[\lambda]] \\
+  [a(w)_{\lambda}b(w)] &= F^{\lambda}_{z, w}[a(z), b(w)]
+\end{align*}
+It can easily be shown that the $\lambda$-bracket is related to the $j$-products by
+\begin{equation*}
+  [a(w)_{\lambda}b(w)] = \sum_{j \in \mathbb{N}}a(w)_{(j)}b(w)\frac{\lambda^j}{j!}.
+\end{equation*}
+This suggest to see the $\lambda$-bracket as the generating function of the $j$-products.
+It allows us to gather all the $j$-products in one product alone, the price to pay being the additional formal variable $\lambda$.
+Note that for a local pair, the sum in the expansion of $[a(w)_{\lambda} b(w)]$ in terms of the $j$-products is finite, i.e.\ $[a(w)_{\lambda}b(w)] \in \mathfrak{g}[[w^{\pm 1}]][\lambda]$.
+
+\begin{theorem}[{\cite[Section 2.3]{nozaradan_introduction_2008}}]
+  \label{thr:2}
+  The $j$-products and the $\lambda$-bracket satisfy the following properties:
+  \begin{enumerate}[label = (\alph*)]
+  \item $(\partial a(w))_{(j)}b = -ja(w)_{(j - 1)}b(w)$;
+  \item $a(w)_{(j)}\partial b(w) = \partial(a(w)_{(j)}b(w)) + ja(w)_{(j - 1)}b(w)$;
+  \item $\partial(a(w)_{(j)}b(w))=(\partial a(w))_{(j)}b(w)+a(w)_{(j)}\partial b(w)$;
+  \item $[\partial a(w)_{\lambda}b(w)] = -\lambda [a(w)_{\lambda}b(w)]$;
+  \item $[a(w)_{\lambda}\partial b(w)] = (\partial + \lambda)[a(w)_{\lambda}b(w)]$;
+  \item $\partial[a(w)_\lambda b(w)]=[\partial a(w)_\lambda b(w)]+[a(w)_\lambda \partial b(w)]$.
+  \end{enumerate}
+\end{theorem}
+\begin{remark}
+  \label{rmk:2}
+  Properties (c) and (f) tell us that $\partial: \mathfrak{g}[[z^{\pm 1}]] \to \mathfrak{g}[[z^{\pm 1}]]$ acts as a derivation on the $j-$products and the $\lambda$-bracket.
+\end{remark}
+
+Let $V$ be vector superspace.
+From now on, all coefficients of a formal distribution are assumed to have the same parity.
+Therefore, we can define the \index{formal distribution!parity of|emph}\emph{parity} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$ as $p(a(z)) = p(a_{(n)})$ for any $n \in \mathbb{Z}$.
+
+\begin{theorem}[{\cite[Section 2.3]{nozaradan_introduction_2008}}]
+  \label{thr:3}
+  Let $\mathfrak{g}$ be a Lie superalgebra
+  The $j$-products and the $\lambda$-brackets between $\mathfrak{g}$-valued formal distributions satisfy the following properties
+  \begin{enumerate}[label = (\alph*)]
+  \item $b(w)_{(j)}a(w) = -p(a(w), b(w))\sum_{l = 0}^{\infty}(-1)^{j + l}\frac{\partial^l(a(w)_{(j + l)}b(w))}{l!}$ if $(a(w), b(w))$ is a local pair;
+  \item $[a(w)_{(p)}, b(w)_{(m)}] = \sum_{k = 0}^p\binom{p}{k}(a(w)_{(k)}b(w))_{(p + m - k)}$;
+  \item $[b(w)_{\lambda}a(w)] = -p(a(w), b(w))[a(w)_{-\lambda - \partial}b(w)]$ if $(a(w), b(w))$ is a local pair;
+  \item $[a(w)_{\lambda}[b(w)_{\mu}c(w)]] = [[a(w)_{\lambda}b(w)]_{\lambda + \mu}c(w)] + p(a(w), b(w))[b(w)_{\mu}[a(w)_{\lambda}c(w)]]$;
+  \item $F^{\lambda + \mu}_z[a(z)_{\lambda}b(z)] = [F^{\lambda}_za(z), F^{\mu}_zb(z)]$.
+  \end{enumerate}
+\end{theorem}
+
+Let $\mathfrak{g}$ be a Lie superalgebra and denote by $\Der(\mathfrak{g})$ the \index{subspace of derivations}subspace of derivations of $\End(\mathfrak{g})$.
+A \index{formal distribution Lie superalgebra|emph}\emph{formal distribution Lie superalgebra} is a pair $(\mathfrak{g}, \mathfrak{F})$ such that $\mathfrak{F}$ is a local family of $\mathfrak{g}$-valued formal distributions, denoted by $\{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$, such that the coefficients $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span the whole $\mathfrak{g}$.
+A \index{formal distribution Lie superalgebra!regular|emph}\emph{regular} formal distribution Lie superalgebra is a triple $(\mathfrak{g}, \mathfrak{F}, T)$ such that
+\begin{enumerate}[label = (\alph*)]
+\item $(\mathfrak{g}, \mathfrak{F})$ is a formal distribution Lie superalgebra;
+\item $\mathbb{C}[\partial_z]\mathfrak{F}$ is closed under all $n$-th products for $n \in \mathbb{N}$;
+\item $T \in \Der(\mathfrak{g})$ satisfies
+  \begin{equation*}
+    T(a^j(z)) = \partial_za^j(z)
+  \end{equation*}
+  which is equivalent to
+  \begin{equation}
+    \label{eq:5}
+    T(a^j_{(n)}) = -na^j_{(n - 1)},
+  \end{equation}
+  for all $j \in J$ and $n \in \mathbb{Z}$. 
+\end{enumerate}
+\begin{remark}
+  \label{rmk:3}
+  Note that \eqref{eq:5} and the fact that $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span $\mathfrak{g}$ imply that if such $T$ exists, it is unique so we could remove $T$ from the notation, but we won't.
+\end{remark}
+
+Let $(\mathfrak{g}, \mathfrak{F}, T)$ be a formal distributions Lie superalgebra.
+The annihilation subalgebra of 
 \printindex
 
 \bibliographystyle{alpha}
