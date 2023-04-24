@@ -4,9 +4,10 @@
 \usepackage{enumerate}
 \usepackage{hyperref}
 \usepackage[margin = 0.8in]{geometry}
-\usepackage{enumitem}
+\usepackage[inline]{enumitem}
 \usepackage{tikz-cd}
 \usepackage[nameinlink]{cleveref}
+\usepackage{stmaryrd}
 
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -15,8 +16,11 @@
 
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 
 \numberwithin{equation}{subsection}
+
+\setenumerate[0]{label = \normalfont(\roman*)}
 
 \DeclareMathOperator{\Vir}{Vir}
 \DeclareMathOperator{\Id}{Id}
@@ -36,6 +40,11 @@
 \DeclareMathOperator{\zero}{\overline{0}}
 \DeclareMathOperator{\one}{\overline{1}}
 \DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Cur}{Cur}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\fs}{fs}
 
 \makeindex
 
@@ -69,7 +78,7 @@
 All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers.
 The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$ and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
 
-The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$ with the natural operations of addition and multiplication by a scalar.
+The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f = \sum_{\upsilon \in \mathbb{Z}^n}f_{\upsilon}X_{\upsilon}$ where $X_{\upsilon} = X^{\upsilon_1}_1\dots X^{\upsilon_n}_n$, with the natural operations of addition and multiplication by a scalar.
 The field of \index{rational function|emph}\emph{rational functions} in $n$ variables, denoted by $\mathbb{C}(X_1, \dots, X_n)$, is the field of fractions $\Frac(\mathbb{C}[X_1, \dots, X_n])$.
 The field of \index{formal Laurent series|emph}\emph{formal Laurent series} is the subalgebra of elements $f \in \mathbb{C}[[Z^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
 We also have $\mathbb{C}((X)) = \Frac(\mathbb{C}[[X]])$.
@@ -126,7 +135,7 @@ The diagram
 \end{equation*}
 doesn't commute. In fact, the formal delta distribution can be expressed as
 \begin{equation*} 
-  \delta(z, w) = i_{z, w}(\tfrac{1}{z - w}) - i_{w, z}(\tfrac{1}{z - w}),
+  \delta(z, w) = i_{z, w}\left(\frac{1}{z - w}\right) - i_{w, z}\left(\frac{1}{z - w}\right),
 \end{equation*}
 where we consider $i_{z, w}(\frac{1}{z - w})$ and $i_{w, z}(\frac{1}{z - w})$ as elements of $\mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]$.
 From now on, we will consider $i_{z, w}$ and $i_{w, z}$ as mapped into $\mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]$.
@@ -154,15 +163,31 @@ For example, the \index{formal distribution!delta}formal delta distribution $\de
   In addition, the converse is true.
 \end{theorem}
 
+Let $V$ be a vector superspace and  $a(z) \in V[[z^{\pm 1}]]$ be a formal distribution.
+Define
+\begin{equation*}
+  i_{z, w}a(z + w) = \sum_{n \in \mathbb{Z}} a_ni_{z, w}(z + w)^n.
+\end{equation*}
+We have a formal version of the usual Taylor series expansion.
+
+\begin{theorem}
+  \label{thr:2}
+  We have
+  \begin{equation*}
+    i_{z, w}a(z + w) = \sum_{j \in \mathbb{N}}\frac{\partial^ja(z)}{j!}w^j.
+  \end{equation*}
+\end{theorem}
+
 We now define the notion of Fourier transform in two cases: in one and two variables. Let $V$ be a vector space and let $a(z) \in V[[z^{\pm 1}]]$.
 We define the \index{Fourier transform!in one variable|emph}\emph{Fourier transform in one variable} of $a(z)$ by
 \begin{equation*}
   F^\lambda_za(z) = \Res_z(e^{\lambda z}a(z)) \in V[[\lambda]].
 \end{equation*}
+
 \begin{proposition}[{\cite[Proposition 1.5.2]{nozaradan_introduction_2008}}]
   \label{prp:1}
   $F^\lambda_z$ satisfies the following properties:
-  \begin{enumerate}[label = (\alph*)]
+  \begin{enumerate}
   \item $F^\lambda_z\partial_za(z) = -\lambda F^\lambda_za(z)$;
   \item $F^\lambda_z(e^{zT}a(z)) = F^{z + T}_z(a(z))$ where $T \in \End(V)$ and $a(z) \in V((z))$;
   \item $F^\lambda_z(a(-z)) = -F^{-\lambda}_za(z)$;
@@ -187,7 +212,7 @@ where
 \begin{proposition}[{\cite[Proposition 1.5.4]{nozaradan_introduction_2008}}]
   \label{prp:2}
   $F^\lambda_{z, w}$ satifies the following properties
-  \begin{enumerate}[label = (\alph*)]
+  \begin{enumerate}
   \item If $a(z, w)$ is local then $F^\lambda_{z, w}a(z, w) \in V[[w^{\pm 1}]][\lambda]$;
   \item $F^\lambda_{z, w}\partial_za(z, w) = -\lambda F^\lambda_{z, w}a(z, w) = [\partial_w, F^{\lambda}_{z, w}]a(z, w)$;
   \item If $a(z, w)$ is local, then $F^\lambda_{z, w}a(w, z) = F^{-\lambda - \partial_w}_{z, w}a(z, w)$, where $F^{-\lambda - \partial_w}_{z, w}a(z, w) = F^\mu_{z, w}a(z, w)|_{u = -\lambda - \partial_w}$.
@@ -205,10 +230,10 @@ A \index{superalgebra|emph}\emph{superalgebra} is a $\mathbb{Z}_2$-graded algebr
 This means $A_{\alpha}A_{\beta} \subseteq A_{\alpha + \beta}$ for all $\alpha, \beta \in \mathbb{Z}_2$.
 
 We set $(-1)^{\zero} = 1$, $(-1)^{\one} = -1$.
-If $a\in V_\alpha$, $v\neq 0$ is homogeneous, we set $p(a) = \alpha$ and call it the \index{vector superspace!homogeneous element of!parity of|emph}\emph{parity} of $a$.
+If $a\in V_\alpha$, $v\neq 0$ is homogeneous, we set $p(a) = \alpha$ and call it the \index{parity!of homogeneous element|emph}\emph{parity} of $a$.
 If $a$ and $b$ are homogeneous, we set $p(a, b) = (-1)^{p(a)p(b)}$.
 A \index{Lie superalgebra|emph}\emph{Lie superalgebra} is a superalgebra $\mathfrak{g} = \mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\one}$ with the product written $[a, b]$ for $a, b \in \mathfrak{g}$ and called \index{Lie superalgebra!Lie superbracket of|emph}\emph{Lie superbracket} satisfying the following properties:
-\begin{enumerate}[label = (\alph*)]
+\begin{enumerate}
 \item $[\bullet, \bullet]$ is \index{graded antisymmetric|emph}\emph{graded antisymmetric}
   \begin{equation*}
     [a, b] = -p(a, b)[b, a];
@@ -223,7 +248,7 @@ In an \index{associative superalgebra}associative superalgebra $A$, we can defin
 \begin{equation*}
   [a, b] = ab - p(a, b)ba.
 \end{equation*}
-It can then be extended by linearity to non-homogeneous elements.
+It can then be extended by linearity to nonhomogeneous elements.
 With this superbracket, $A$ becomes a Lie superalgebra called the \index{associative superalgebra!underlying Lie superalgebra of|emph}\emph{underlying Lie superalgebra} of $A$ and is denoted by $[A]$.
 
 \begin{remark}
@@ -233,12 +258,21 @@ With this superbracket, $A$ becomes a Lie superalgebra called the \index{associa
   This is why we prefer the term Lie superalgebra instead of $\mathbb{Z}_2$-graded Lie algebra.
 \end{remark}
 
-The most important example of an associative superalgebra is the endomorphism algebra $\End(V)$ of a superspace $V$ with the $\mathbb{Z}_2$-grading given by:
+The most important example of an associative superalgebra is the \index{endomorphism superalgebra}endomorphism superalgebra $\End(V)$ of a superspace $V$ with the $\mathbb{Z}_2$-grading given by:
+\index{parity!of endomorphism|emph}
 \begin{equation*}
   \End(V)_{\alpha} = \{a \in \End(V) \mid \forall \beta \in \mathbb{Z}_2: aV_\beta \subseteq V_{\alpha + \beta}\},
 \end{equation*}
 for $\alpha \in \mathbb{Z}_2$.
 We denote $\mathfrak{gl}(V) = [\End(V)]$.
+
+Let $A$ be a not necessarily associative superalgebra.
+A \index{superalgebra!superderivation of|emph}\emph{superderivation} of $A$ is an homogeneous endomorphism $\partial \in \End(A)$ such that
+\begin{equation*}
+  \partial(ab) = \partial(a)b + (-1)^{p(\partial)p(a)}b\partial(c),
+\end{equation*}
+for all $a, b \in A$.
+The \index{superalgebra!subspace of superderivations of|emph}\emph{subspace of superderivations} of $A$ is denoted by $\Der(A)$.
 
 Let $\mathfrak{g}$ be a Lie superalgebra.
 We first extend the Lie superbracket on $\mathfrak{g}$ to the \index{formal distribution!Lie superbracket of|emph}\emph{Lie superbracket} between two $\mathfrak{g}$-valued formal distributions in one variable. Starting from $a(z) = \sum_{m \in \mathbb{Z}}a_{(m)}z^{-m - 1} \in \mathfrak{g}[[z^{\pm 1}]]$ and $b(w) = \sum_{n \in \mathbb{Z}}b_{(n)}z^{-n - 1} \in \mathfrak{g}[[w^{\pm 1}]]$, we define a new formal distribution in two variables by defining the superbracket
@@ -258,27 +292,36 @@ Equivalently, we can write this equation as
   \label{eq:3}
   [a_{(m)}, b_{(n)}] = \sum_{j \in \mathbb{N}}c^j(w)_{(m + n - j)}.
 \end{equation}
+\begin{remark}
+  \label{rmk:2}
+  If $(a(z), b(z))$ is a local pair then $(\partial_za(z), b(z))$ is also a local pair.
+\end{remark}
 
 Let $\mathfrak{g}$ be a Lie superalgebra.
 A subset $\mathfrak{F} \subseteq \mathfrak{g}[[z^{\pm 1}]]$ of formal distributions is called a \index{formal distribution!local family of|emph}\emph{local family} if all pairs of its elements are local.
 Let $a(w)$ and $b(w)$ be two $\mathfrak{g}$-valued formal distributions.
 For $j \in \mathbb{N}$, their \index{formal distribution!$j$-product of|emph}\emph{$j$-product} is the $\mathbb{C}$-bilinear map defined by
-\begin{align*}
-  \bullet_{(j)}\bullet: \mathfrak{g}[[w^{\pm 1}]]\times\mathfrak{g}[[w^{\pm 1}]] &\to \mathfrak{g}[[w^{\pm 1}]]\\
+\begin{align}
+  \nonumber
+  \bullet_{(j)}\bullet: \mathfrak{g}[[w^{\pm 1}]] \times \mathfrak{g}[[w^{\pm 1}]] &\to \mathfrak{g}[[w^{\pm 1}]]\\
+  \label{eq:4}
   a(w)_{(j)}b(w) &= \Res_z(z - w)^j[a(z), b(w)].
-\end{align*}
+\end{align}
 We define $a(w)_{(j)} \in \End(\mathfrak{g}[[z^{\pm 1}]])$ in the natural way.
 If $(a(z), b(z))$ is a local pair, then \eqref{eq:3} becomes
-\begin{equation}
-  \label{eq:4}
+\begin{equation*}
   [a_{(m)}, b_{(n)}] = \sum_{j \in \mathbb{N}}\binom{m}{j}(a(w)_{(j)}b(w))_{(m + n - j)}.
-\end{equation}
+\end{equation*}
+By \Cref{thr:1}, we also have
+\begin{equation*}
+  [a(z),b(w)]=\sum_{j\in \mathbb{N}}(a(w)_{(j)}b(w))\frac{\partial_w^j\delta(z,w)}{j!}.
+\end{equation*}
 All these identities led us to the define the following new algebraic structure that encodes the relevant information compactly.
 
 Let $\mathfrak{g}$ be a Lie superalgebra.
 The \index{formal distribution!$\lambda$-bracket of|emph}\emph{$\lambda$-bracket} of two $\mathfrak{g}$-valued formal distributions is defined by the $\mathbb{C}$-bilinear map
 \begin{align*}
-  [\bullet_{\lambda}\bullet]: \mathfrak{g}[[w^{\pm 1}]]\times \mathfrak{g}[[w^{\pm 1}]] &\to \mathfrak{g}[[w^{\pm 1}]][[\lambda]] \\
+  [\bullet_{\lambda}\bullet]: \mathfrak{g}[[w^{\pm 1}]] \times \mathfrak{g}[[w^{\pm 1}]] &\to \mathfrak{g}[[w^{\pm 1}]][[\lambda]] \\
   [a(w)_{\lambda}b(w)] &= F^{\lambda}_{z, w}[a(z), b(w)]
 \end{align*}
 It can easily be shown that the $\lambda$-bracket is related to the $j$-products by
@@ -290,9 +333,9 @@ It allows us to gather all the $j$-products in one product alone, the price to p
 Note that for a local pair, the sum in the expansion of $[a(w)_{\lambda} b(w)]$ in terms of the $j$-products is finite, i.e.\ $[a(w)_{\lambda}b(w)] \in \mathfrak{g}[[w^{\pm 1}]][\lambda]$.
 
 \begin{theorem}[{\cite[Section 2.3]{nozaradan_introduction_2008}}]
-  \label{thr:2}
+  \label{thr:3}
   The $j$-products and the $\lambda$-bracket satisfy the following properties:
-  \begin{enumerate}[label = (\alph*)]
+  \begin{enumerate}
   \item $(\partial a(w))_{(j)}b = -ja(w)_{(j - 1)}b(w)$;
   \item $a(w)_{(j)}\partial b(w) = \partial(a(w)_{(j)}b(w)) + ja(w)_{(j - 1)}b(w)$;
   \item $\partial(a(w)_{(j)}b(w))=(\partial a(w))_{(j)}b(w)+a(w)_{(j)}\partial b(w)$;
@@ -302,19 +345,19 @@ Note that for a local pair, the sum in the expansion of $[a(w)_{\lambda} b(w)]$ 
   \end{enumerate}
 \end{theorem}
 \begin{remark}
-  \label{rmk:2}
+  \label{rmk:3}
   Properties (c) and (f) tell us that $\partial: \mathfrak{g}[[z^{\pm 1}]] \to \mathfrak{g}[[z^{\pm 1}]]$ acts as a derivation on the $j-$products and the $\lambda$-bracket.
 \end{remark}
 
 Let $V$ be vector superspace.
 From now on, all coefficients of a formal distribution are assumed to have the same parity.
-Therefore, we can define the \index{formal distribution!parity of|emph}\emph{parity} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$ as $p(a(z)) = p(a_{(n)})$ for any $n \in \mathbb{Z}$.
+Therefore, we can define the \index{parity!of formal distribution|emph}\emph{parity} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$ as $p(a(z)) = p(a_{(n)})$ for any $n \in \mathbb{Z}$.
 
 \begin{theorem}[{\cite[Section 2.3]{nozaradan_introduction_2008}}]
-  \label{thr:3}
+  \label{thr:4}
   Let $\mathfrak{g}$ be a Lie superalgebra
   The $j$-products and the $\lambda$-brackets between $\mathfrak{g}$-valued formal distributions satisfy the following properties
-  \begin{enumerate}[label = (\alph*)]
+  \begin{enumerate}
   \item $b(w)_{(j)}a(w) = -p(a(w), b(w))\sum_{l = 0}^{\infty}(-1)^{j + l}\frac{\partial^l(a(w)_{(j + l)}b(w))}{l!}$ if $(a(w), b(w))$ is a local pair;
   \item $[a(w)_{(p)}, b(w)_{(m)}] = \sum_{k = 0}^p\binom{p}{k}(a(w)_{(k)}b(w))_{(p + m - k)}$;
   \item $[b(w)_{\lambda}a(w)] = -p(a(w), b(w))[a(w)_{-\lambda - \partial}b(w)]$ if $(a(w), b(w))$ is a local pair;
@@ -323,10 +366,10 @@ Therefore, we can define the \index{formal distribution!parity of|emph}\emph{par
   \end{enumerate}
 \end{theorem}
 
-Let $\mathfrak{g}$ be a Lie superalgebra and denote by $\Der(\mathfrak{g})$ the \index{subspace of derivations}subspace of derivations of $\End(\mathfrak{g})$.
+Let $\mathfrak{g}$ be a Lie superalgebra.
 A \index{formal distribution Lie superalgebra|emph}\emph{formal distribution Lie superalgebra} is a pair $(\mathfrak{g}, \mathfrak{F})$ such that $\mathfrak{F}$ is a local family of $\mathfrak{g}$-valued formal distributions, denoted by $\{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$, such that the coefficients $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span the whole $\mathfrak{g}$.
 A \index{formal distribution Lie superalgebra!regular|emph}\emph{regular} formal distribution Lie superalgebra is a triple $(\mathfrak{g}, \mathfrak{F}, T)$ such that
-\begin{enumerate}[label = (\alph*)]
+\begin{enumerate}
 \item $(\mathfrak{g}, \mathfrak{F})$ is a formal distribution Lie superalgebra;
 \item $\mathbb{C}[\partial_z]\mathfrak{F}$ is closed under all $n$-th products for $n \in \mathbb{N}$;
 \item $T \in \Der(\mathfrak{g})$ satisfies
@@ -341,12 +384,888 @@ A \index{formal distribution Lie superalgebra!regular|emph}\emph{regular} formal
   for all $j \in J$ and $n \in \mathbb{Z}$. 
 \end{enumerate}
 \begin{remark}
-  \label{rmk:3}
-  Note that \eqref{eq:5} and the fact that $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span $\mathfrak{g}$ imply that if such $T$ exists, it is unique so we could remove $T$ from the notation, but we won't.
+  \label{rmk:4}
+  Note that \eqref{eq:5} and the fact that $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span $\mathfrak{g}$ imply that if such $T$ exists, it is even and unique so we could remove $T$ from the notation, but we won't.
 \end{remark}
 
-Let $(\mathfrak{g}, \mathfrak{F}, T)$ be a formal distributions Lie superalgebra.
-The annihilation subalgebra of 
+Let $(\mathfrak{g}, \mathfrak{F})$ be a formal distribution Lie superalgebra.
+The \index{formal distribution Lie superalgebra!annihilation subalgebra of|emph}\emph{annihilation subalgebra} of $(\mathfrak{g}, \mathfrak{F})$ is
+\begin{equation*}
+  \mathfrak{g}_- = \vspan\{a^j_{(n)} \mid j \in J, n \in \mathbb{N}\},
+\end{equation*}
+the \index{formal distribution Lie superalgebra!creation subalgebra of|emph}\emph{creation subalgebra} of $(\mathfrak{g}, \mathfrak{F})$ is
+\begin{equation*}
+  \mathfrak{g}_+ = \vspan\{a^j_{(-n - 1)} \mid j \in J, n \in \mathbb{N}\},
+\end{equation*}
+and the \index{formal distribution Lie superalgebra!polar decomposition|emph}\emph{polar decomposition} of $(\mathfrak{g}, \mathfrak{F})$ is
+\begin{equation*}
+  \mathfrak{g} = \mathfrak{g}_- \oplus \mathfrak{g}_+.
+\end{equation*}
+
+By \Cref{rmk:2}, if $(\mathfrak{g}, \mathfrak{F})$ is a formal distribution Lie superalgebra then $\mathbb{C}[\partial_z]\mathfrak{F}$ is a local family.
+
+The notions of $j$-products and $\lambda$-bracket were previously defined from $\mathfrak{g}$-valued formal distributions with $\mathfrak{g}$ being a given Lie superalgebra.
+Those products were shown to satisfy several properties, coming either from their definition or from the fact that $\mathfrak{g}$ is a Lie superalgebra.
+Now we take those properties as axioms of a new algebraic structure, defined intrinsically, without any reference either to $\mathfrak{g}$, nor to formal distributions.
+For this reason, we write $\partial$ instead of $\partial_z$ in the following definition.
+
+A $\mathbb{C}[\partial]$-module $\mathcal{R}$ is called a Lie conformal superalgebra if it is endowed with a $\mathbb{C}$-bilinear map called $\lambda$-bracket
+\begin{equation*}
+  [\bullet_{\lambda}\bullet]: \mathcal{R}\times\mathcal{R} \to \mathcal{R}[\lambda]
+\end{equation*}
+and satisfying the following properties for all $a, b, c \in \mathcal{R}$:
+\begin{enumerate}
+\item $[\partial a_{\lambda}b] = -\lambda[a_{\lambda}b]$;
+\item $[b_{\lambda}a] = -p(a, b)[a_{-\lambda - \partial}b]$;
+\item $[a_{\lambda}[b_{\mu}c]] = [[a_{\lambda}b]_{\lambda +\mu}c] + p(a, b)[b_{\mu}[a_{\lambda}c]]$.
+\end{enumerate}
+
+If we write
+\begin{equation*}
+  [a_{\lambda}b] = \sum_{j \in \mathbb{N}}(a_{(j)}b)\frac{\lambda^j}{j!},
+\end{equation*}
+where $a_{(j)} \in \End(\mathcal{R})$, these properties translate in terms of $j$-products as follows
+\begin{enumerate}[label = (\alph*)]
+\item $(\partial a)_{(j)} = -j a_{(j - 1)}$; 
+\item $b_{(j)}a = -p(a,b)\sum_{l = 0}^\infty(-1)^{j + l}\frac{\partial^l(a_{(j + l)}b)}{l!}$;
+\item $[a_{(p)},b_{(m)}] = \sum_{k = 0}^p\binom{p}{k}(a_{(k)}b)_{(p + m - k)}$.
+\end{enumerate}
+
+\begin{proposition}[{\cite[Remark 2.5.3]{nozaradan_introduction_2008}}]
+  \label{prp:3}
+  Let $\mathcal{R}$ be a Lie conformal superalgebra and $a, b \in \mathcal{R}$.
+  Then
+  \begin{equation*}
+    [a_{\lambda}\partial b] = (\partial + \lambda)[a_{\lambda}b],
+  \end{equation*}
+  or equivalently
+  \begin{equation*}
+    a_{(j)}\partial b = \partial(a_{(j)}b) + ja_{(j - 1)}b,
+  \end{equation*}
+  for all $j \in \mathbb{N}$.
+  In particular, $\partial$ is a derivation of the $\lambda$-bracket.
+\end{proposition}
+
+We have previously shown that any regular formal distribution Lie superalgebra $(\mathfrak{g}, \mathfrak{F}, T)$ was given the structure of Lie Conformal superalgebra $\mathcal{R}$ with $\mathcal{R} = \mathbb{C}[\partial_z]\mathfrak{F}$, $\partial = \partial_z$ and $[a_{\lambda}b] = F^{\lambda}_{z, w}([a(z), b(w)])$.
+It turns out that the process can be reverted: to any conformal superalgebra we can associate a regular formal distribution Lie superalgebra.
+According to the definition of a formal distribution Lie superalgebra, we first have to define a Lie superalgebra, denoted by $\Lie(\mathcal{R})$ and then associate to it a conformal family $\mathcal{R}$ of $\Lie(\mathcal{R})$-valued formal distributions, whose coefficients span $\Lie(\mathcal{R})$ so that $(\Lie(\mathcal{R}), \mathcal{R})$ is then the expected formal distribution Lie algebra.
+We proceed in two steps.
+
+We first consider the space $\widetilde{\mathcal{R}} = \mathcal{R}[t, t^{-1}] = \mathcal{R}\otimes\mathbb{C}[t, t^{-1}]$ with $\widetilde{\partial} = \partial \otimes I + I \otimes \partial_t$ where $I$ appearing on the left (resp.\ right) of $\otimes$ is the identity operator acting on $\mathcal{R}$ (resp.\ $\mathbb{C}[t, t^{-1}]$).
+This space is called the affinization of $\mathcal{R}$.
+Its generating elements can be written $a\otimes t^m$, where $a \in \mathcal{R}$ and $m \in \mathbb{Z}$.
+For clarity, we will use the notation $at^m$ for its elements and $\widetilde{\partial} = \partial + \partial_t$.
+Define the commutation relation on $\widetilde{\mathcal{R}}$ as follows:
+\begin{equation*}
+  [at^m, bt^n] = \sum_{j \in \mathbb{N}}\binom{m}{j}(a_{(j)}b)t^{m + n - j},
+\end{equation*}
+which gives $\widetilde{\mathcal{R}}$ the structure of algebra, denoted by $(\widetilde{\mathcal{R}},[\bullet, \bullet])$.
+
+Now the second step. We have to check that the commutator verifies the antisymmetry and Jacobi identities, considering that the terms $a_{(j)}b$ of the definition of $[\bullet, \bullet]$ satisfy the axioms.
+The latter ones are not sufficient.
+Indeed, as we will see, another constraint has to be imposed on elements of $\widetilde{\mathcal{R}}$, namely $\widetilde{\partial}(at^m) = 0$.
+The algebraic formulation of the latter condition is as follows: the space $\widetilde{\mathcal{R}}$ has to be quotiented by the subspace $I$ spanned by the elements of the form $\{(\partial a)t^n + nat^{n - 1} \mid n \in \mathbb{Z}\}$.
+Using $\widetilde{\partial}$, we can write $I = \widetilde{\partial}\widetilde{\mathcal{R}}$.
+This process has two goals: first transferring on $\widetilde{\mathcal{R}}$ the structure of algebra of $(\widetilde{\mathcal{R}}, [\bullet, \bullet])$ and then endowing $(\widetilde{\mathcal{R}}/\widetilde{\partial}\widetilde{\mathcal{R}}, [\bullet, \bullet])$ with the structure of Lie superalgebra.
+The first goal is not direct.
+Indeed, $\widetilde{\partial}\widetilde{\mathcal{R}}$ has to be a two-sided ideal of the algebra $(\widetilde{\mathcal{R}}, [\bullet, \bullet])$, which is the case.
+
+\begin{lemma}[{\cite[Proposition 2.6.1]{nozaradan_introduction_2008}}]
+  \label{lmm:1}
+  $\widetilde{\partial}\widetilde{\mathcal{R}}$ is a two-sided ideal of the algebra $(\widetilde{\mathcal{R}}, [\bullet, \bullet])$.
+\end{lemma}
+
+Define the homomorphism $\phi: \widetilde{\mathcal{R}} \to \widetilde{\mathcal{R}}/\widetilde{\partial}\widetilde{\mathcal{R}}$ as the natural quotient map.
+The commutator between two elements of $\widetilde{\partial}\widetilde{\mathcal{R}}$ is defined by
+\begin{equation}
+  [\phi(at^m), \phi(bt^n)] = \sum_{j \in \mathbb{N}}\binom{m}{j}\phi((a_{(j)}b)t^{m + n - j}),
+\end{equation}
+where $a, b \in \mathcal{R}$.
+
+\begin{proposition}[{\cite[Proposition 2.6.3]{nozaradan_introduction_2008}}]
+  \label{prp:4}
+  $(\widetilde{\mathcal{R}}/\widetilde{\partial}\widetilde{\mathcal{R}}, [\bullet, \bullet])$ is a Lie superalgebra.
+\end{proposition}
+
+We set
+\begin{equation*}
+  \Lie(\mathcal{R}) = \widetilde{\mathcal{R}}/\widetilde{\partial}\widetilde{\mathcal{R}}.
+\end{equation*}
+Abusing notation, we define the family $\mathcal{R}$ of $\Lie(\mathcal{R})$-valued formal distributions, whose coefficients span $\Lie(\mathcal{R})$, by
+\begin{equation*}
+  \mathcal{R} = \left\{\sum_{n \in \mathbb{Z}}\phi(at^n)z^{-n - 1} \mid a \in \mathcal{R}\right\}.
+\end{equation*}
+
+\begin{theorem}[{\cite[Proposition 2.6.4]{nozaradan_introduction_2008}}]
+  \label{thr:5}
+  Let $\mathcal{R}$ be a Lie conformal superalgebra.
+  Then $(\Lie(\mathcal{R}), \mathcal{R},-\partial_t)$ is a regular formal distribution Lie superalgebra. 
+\end{theorem}
+
+\begin{remark}
+  \label{rmk:5}
+  We haven't defined the category of regular formal distribution Lie superalgebras nor the category of Lie conformal superalgebras.
+  But it's clear how they should be and they are equivalent categories:
+  \begin{align*}
+    \{\text{regular formal distribution Lie superalgebra}\} &\leftrightarrow \{\text{Lie conformal superalgebra}\} \\
+    (\mathfrak{g}, \mathfrak{F}, T) &\mapsto (\mathbb{C}[\partial_z]\mathfrak{F}, F^{\lambda}_{z, w}([\bullet, \bullet])) \\
+    (\Lie(\mathcal{R}), \mathcal{R},-\partial_t) &\mapsfrom \mathcal{R}
+  \end{align*}
+\end{remark}
+
+We now show three examples of regular formal distribution Lie superalgebras and their respective Lie conformal superalgebras.
+
+\begin{example}[\index{Virasoro!Lie conformal algebra|emph}\emph{Virasoro Lie conformal algebra}]
+  \label{exa:1}
+  The Virasoro Lie algebra, denoted $\Vir$, is the complex Lie algebra given by
+  \begin{equation*}
+    \Vir = \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_{n} \oplus \mathbb{C}C.
+  \end{equation*}
+  These elements satisfy the following commutation relations:
+  \begin{equation}
+    \label{eq:6}
+    \begin{aligned}
+      [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C, \\
+      [\Vir, C] &= 0,
+    \end{aligned}
+  \end{equation}
+  for all $m, n \in \mathbb{Z}$.
+  We construct a $\Vir$-valued formal distribution by setting
+  
+  \begin{equation*}
+    L(z) = \sum_{n \in \mathbb{Z}}L_{(n)}z^{-n - 1}\text{ with }L_{(n)} = L_{n - 1}.
+  \end{equation*}
+  Hence $L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$.
+  In terms of formal distributions, the commutation relations become:
+  \begin{equation}
+    \label{eq:7}
+    \begin{aligned}
+      [L(z), L(w)] &= \partial_wL(w)\delta(z, w)+2L(w)\partial_w\delta(z,w)+\frac{C}{12}\partial^3_w\delta(z,w) \\
+      [L(z), C] &= 0,
+    \end{aligned}
+  \end{equation}
+  where $C$ denotes the constant formal distribution equal to $C \in \Vir$.
+  In terms of $j$-products, the commutation relations become:
+  \begin{equation}
+    \label{eq:8}
+    \begin{aligned}
+      L(z)_{(0)}L(z) &= \partial_zL(z), \\
+      L(z)_{(1)}L(z) &= 2L(z), \\
+      L(z)_{(3)}L(z) &= \frac{C}{2}, \\
+      L(z)_{(j)}L(z) &= 0 \quad (j \neq 0, 1, 3), \\
+      L(z)_{(j)}C &= 0 \quad (j \in \mathbb{N}).
+    \end{aligned}
+\end{equation}
+  In terms of the $\lambda$-bracket, the commutation relations become:
+  \begin{equation}
+    \label{eq:9}
+    \begin{aligned}
+      [L(z)_{\lambda}L(z)] &= (\partial + 2\lambda)L(z) + \frac{\lambda^3}{12}C \\
+      [L(z)_{\lambda}C] &= 0.
+    \end{aligned}
+\end{equation}
+  By \Cref{thr:1}, $\{L(z), C\}$ is a local family.
+  Therefore, $(\Vir, \{L(z), C\})$ is a formal distribution Lie algebra.
+  Moreover, we can verify directly that $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ is regular.
+  We obtain a Lie conformal algebra $\mathcal{R} = \mathbb{C}[\partial]L + \mathbb{C}C$, with $L = L(z)$, $\partial C = 0$ and $\partial = \partial_z$.
+  This is actually a direct sum and  we get the Virasoro Lie conformal algebra
+  \begin{equation*}
+    \Vir = \mathbb{C}[\partial]L \oplus \mathbb{C}C.
+  \end{equation*}
+\end{example}
+
+\begin{remark}
+  \label{rmk:6}
+  The notation $L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ is contradictory with the notation we wrote in \Cref{sec:formal-calculus}.
+  However, this notation will acquire a meaning when we treat the notion of weight of an eigendistribution.
+  In fact, this notation usually simplifies calculations, as we will see later.
+\end{remark}
+
+Let $\mathfrak{g}$ be a Lie superalgebra and $C \in \mathfrak{g}$.
+A Virasoro formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with central charge $C$ is a $\mathfrak{g}$-valued formal distribution satisfying \eqref{eq:6}, or equivalently, \eqref{eq:7}, \eqref{eq:8} or \eqref{eq:9}.
+
+\begin{example}[Current Lie conformal superalgebra]
+  \label{exa:2}
+  Let $\mathfrak{g} = \mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\one}$ be a Lie superalgebra.
+  A supersymmetric bilinear form is a bilinear map $(\bullet| \bullet): \mathfrak{g} \times \mathfrak{g} \to \mathbb{C}$ such that
+  \begin{equation*}
+    (a| b) = (-1)^{p(a)}(b| a),
+  \end{equation*}
+  where $a$ and $b$ are homogeneous elements of $\mathfrak{g}$.
+  Alternatively, we can define a supersymmetric bilinear form as a bilinear form that vanishes on $\mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\one}$ and $\mathfrak{g}_{\one} \oplus \mathfrak{g}_{\zero}$, symmetric on $\mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\zero}$ and antisymmetric on $\mathfrak{g}_{\one} \oplus \mathfrak{g}_{\one}$.
+  A bilinear form $(\bullet| \bullet): \mathfrak{g} \times \mathfrak{g} \to \mathbb{C}$ is said invariant if
+  \begin{equation*}
+    ([a, b]| c)=(a| [b, c])\quad a, b, c \in \mathfrak{g}.
+  \end{equation*}
+
+  Let $\mathfrak{g}$ be a Lie superalgebra endowed with a supersymmetric, invariant bilinear form $(\bullet| \bullet)$.
+  The associated loop algebra, denoted by $\tilde{\mathfrak{g}}$, is the algebra $\tilde{\mathfrak{g}} = \mathfrak{g} \otimes \mathbb{C}[t, t^{-1}] = \mathfrak{g}[t, t^{-1}]$, endowed with the superbracket defined by
+  \begin{equation*}
+    [a\otimes f(t), b\otimes g(t)] = [a, b] \otimes f(t)g(t),
+  \end{equation*}
+  where $a, b \in \mathfrak{g}$, $f(t), g(t) \in \mathbb{C}[t, t^{-1}]$ and with parity given by $p(a\otimes f(t)) = p(a)$.
+  This makes $\tilde{\mathfrak{g}}$ into a Lie superalgebra.
+  Replacing $a\otimes t^n$ by $at^n$ for brevity, the commutation relations become
+  \begin{equation*}
+    [at^m, bt^n]=[a, b]t^{m + n}.
+  \end{equation*}
+  The central extension of the loop algebra is the algebra $\hat{\mathfrak{g}} = \tilde{\mathfrak{g}} \oplus \mathbb{C}K$ with the superbracket
+  \begin{equation*}
+    \begin{aligned}
+    [at^m, bt^n] &= [a, b]t^{m + n} + m\delta_{m, -n}(a| b)K, \\
+    [\hat{\mathfrak{g}}, K] &= 0
+    \end{aligned}
+  \end{equation*}
+  where $a, b \in \mathfrak{g}$, $n, m \in \mathbb{Z}$ and with parity given by $p(K) = \zero$.
+  This makes $\hat{\mathfrak{g}}$ into a Lie superalgebra called the affinization of $\mathfrak{g}$.
+  If $\mathfrak{g}$ is a finite-dimensional simple Lie superalgebra, then the affinization of $\mathfrak{g}$ leads to a Kac-Moody affinization.
+  We now construct $\hat{\mathfrak{g}}$-valued formal distributions by setting
+  \begin{equation*}
+    a(z) = \sum_{n \in \mathbb{Z}}at^nz^{-n - 1},
+  \end{equation*}
+  for $a \in \mathfrak{g}$.
+  These formal distributions are called currents.
+  In terms of currents, the commutation relations become:
+  \begin{equation*}
+    \begin{aligned}
+    [a(z), b(w)] &= [a, b](w)\delta(z, w) + K(a| b)\partial_w\delta(z, w), \\
+    [a(z), K] &= 0
+    \end{aligned}
+  \end{equation*}
+  In terms of the $\lambda$-bracket, the commutation relations become:
+  \begin{equation*}
+    \begin{aligned}
+    [a(z)_{\lambda}b(z)] &= [a(z), b(z)] + (a| b)K\lambda, \\
+    [a(z)_{\lambda}K] &= 0.
+    \end{aligned}
+  \end{equation*}
+  By \Cref{thr:1}, $\{a(z) \mid a \in \mathfrak{g}\} \cup \{K\}$ is a local family.
+  Therefore, $(\hat{\mathfrak{g}}, \{a(z) \mid a \in \mathfrak{g}\} \cup \{K\})$ is a formal distribution Lie superalgebra.
+  Moreover, we can verify directly that $(\hat{\mathfrak{g}}, \{a(z) \mid a \in \mathfrak{g}\} \cup \{K\}, -\partial_t)$ is regular.
+  In a similar way to the Virasoro Lie conformal algebra, we obtain the current Lie conformal superalgebra
+  \begin{equation*}
+    \Cur(\mathfrak{g}) = \mathbb{C}[\partial]\mathfrak{g} \oplus \mathbb{C}K.
+  \end{equation*}
+  Let $\mathfrak{g}$ be an abelian Lie superalgebra.
+  In that case, $\Cur(\mathfrak{g})$ is known as the conformal algebra of free bosons associated with the free bosons algebra $\hat{\mathfrak{g}}$, the latter being endowed with the relations $[at^m, bt^n] = m(a| b)\delta_{m, -n}K$. 
+\end{example}
+
+\begin{example}[Fermionic Lie conformal superalgebra]
+  \label{exa:3}
+  Let $V = V_{\zero} \oplus V_{\one}$ be a superspace. A bilinear form $\langle\bullet, \bullet\rangle: V\times V \to \mathbb{C}$ is antisupersymmetric if it satisfies the relation
+  \begin{equation*}
+    \langle a, b\rangle = -(-1)^{p(a)}\langle b, a\rangle
+  \end{equation*}
+  for homogeneous elements $a, b\in V$.
+  Alternatively, we can define an antisymmetric bilinear form  as a bilinear form that vanishes on $V_{\zero} \oplus V_{\one}$ and $V_{\one}\oplus V_{\zero}$, is antisymmetric on the even part $V_{\zero}\oplus V_{\zero}$ and symmetric on the odd part $V_{\one}\oplus V_{\one}$.
+
+  The Clifford affinization of $V$ is defined by
+  \begin{equation*}
+    \widehat{V} = V[t, t^{-1}] \oplus \mathbb{C}K
+  \end{equation*}
+  with the superbracket
+  \begin{equation}
+    \label{eq:10}
+    \begin{aligned}
+      [at^m, bt^n] &= \delta_{m, -n - 1}\langle a, b\rangle K, \\
+      [at^m, K] &= 0,
+    \end{aligned}
+  \end{equation}
+  where $a, b\in V$ and with parity given by $p(at^n) = p(a)$ and $p(K) = \zero$.
+  This makes $\widehat{V}$ into a Lie superalgebra.
+  We now construct $\widehat{V}$-valued formal distributions by setting
+  \begin{equation*}
+    a(z) = \sum_{m \in \mathbb{Z}}at^mz^{-m - 1},
+  \end{equation*}
+  for $a \in V$.
+  In terms of formal distributions, the commutation relations become:
+  \begin{equation*}
+    \begin{aligned}
+      [a(z), b(w)] &= \langle a, b\rangle K\delta(z, w), \\
+      [a(z),K] &= 0.
+    \end{aligned}
+  \end{equation*}
+  In terms of the $\lambda$-bracket, the commutation relations become:
+  \begin{equation*}
+    \begin{aligned}
+      [a(z)_{\lambda}b(z)] &= \langle a, b\rangle K, \\
+      [a(z)_{\lambda}K] &= 0.
+    \end{aligned}
+  \end{equation*}
+  As before, we obtain a regular formal distribution Lie superalgebra $(\widehat{V}, \{a(z) \mid a \in V\} \cup \{K\}, -\partial_t)$ from which we obtain the Fermionic Lie conformal superalgebra
+  \begin{equation*}
+    F(V) = \mathbb{C}[\partial]V \oplus \mathbb{C}K.
+  \end{equation*}
+\end{example}
+
+\subsection{Fields over vector spaces}
+\label{sec:fields-over-vector}
+
+In this subsection, we fix a vector superspace $V = V_{\zero} \oplus V_{\one}$ and all formal distributions are $\End(V)$-valued unless otherwise stated.
+Let $a(z)$ be a formal distribution.
+Set
+\begin{align*}
+  a(z)_+&=\sum_{n\le -1}a_{(n)}z^{-n-1} \\
+  a(z)_-&=\sum_{n\ge 0}a_{(n)}z^{-n-1}.
+\end{align*}
+
+Let $a(z)$ and $b(z)$ be two formal distributions.
+We define the normal product between $a(z)$ and $b(z)$ as the following formal distribution in two variables
+\begin{equation*}
+  :a(z)b(w):=a(z)_+b(w)+p(a,b)b(w)a(z)_-.
+\end{equation*}
+
+\begin{theorem}[{\cite[Proposition 3.2.3]{nozaradan_introduction_2008}}]
+  \label{thr:6}
+  Let $(a(z), b(z))$ be a pair of local formal distributions.
+  The following identities are known as the operator product expansion of $a(z)$ and $b(w)$:
+  \begin{align*}
+    a(z)b(w) &= \sum_{j \in \mathbb{N}}a(w)_{(j)}b(w)i_{z, w}\frac{1}{(z - w)^{j + 1}} + :a(z)b(w):, \\
+    p(a, b)b(w)a(z) &= \sum_{j \in \mathbb{N}}a(w)_{(j)}b(w)i_{w, z}\frac{1}{(z - w)^{j + 1}} + :a(z)b(w):.
+  \end{align*}
+\end{theorem}
+
+A formal distribution $a(z)$ is a field if
+\begin{equation*}
+  a(z)b = \sum_{n \in \mathbb{Z}}a_{(n)}bz^{-n - 1} \in V((z))
+\end{equation*}
+for all $b \in V$.
+The set of fields on $V$ is denoted by $\mathcal{F}(V)$.
+Note that
+\begin{equation*}
+  \mathcal{F}(V) = \Hom(V, V((z))).
+\end{equation*}
+Therefore, we can define a field $a(z)$ by defining $a(z)b \in V((z))$ for $b \in V$.
+
+\begin{proposition}[{\cite[Proposition 3.3.2]{nozaradan_introduction_2008}}]
+  \label{prp:5}
+  Let $a(z), b(z)\in \mathcal{F}(V)$ be two fields.
+  Then $:a(z)b(z):\in \End(V)[[z,z^{-1}]]$ is again a field where $:a(z)b(z):$ is defined by
+  \begin{equation*}
+    :a(z)b(z):c = a(z)_+b(z)c + p(a, b)b(z)a(z)_-c,
+  \end{equation*}
+  for $c \in V$.
+\end{proposition}
+
+We thus defined the notion of Normal Ordered Product $:a(z)b(z):$ between fields $a(z), b(z) \in \mathcal{F}(V)$.
+In general, the operation of normal ordered product is neither commutative nor associative. We follow the convention that the normal ordered ordering is read from right to left, so that by definition
+\begin{equation*}
+  :a(z)b(z)c(z): = :a(z)(:b(z)c(z):):.
+\end{equation*}
+The normal ordered product between $a(z)$ and $b(z)$ is explicitly given in the following proposition.
+
+\begin{proposition}[{\cite[Proposition 3.3.3]{nozaradan_introduction_2008}}]
+  \label{prp:6}
+  Let $a(z)$ and $b(z)$ be two fields. Their normal ordered product is written explicitly as
+  \begin{equation*}
+    :a(z)b(z): = \sum_{j \in \mathbb{Z}}:ab:_{(j)}z^{-j - 1},
+  \end{equation*}
+  with
+  \begin{equation*}
+    :ab:_{(j)}c = \sum_{n \le -1}a_{(n)}b_{(j - n - 1)}c + p(a, b)\sum_{n \ge 0}b_{(j - n - 1)}a_{(n)}c,
+  \end{equation*}
+  for $c \in V$.
+\end{proposition}
+
+Now let's extend the $j$-products.
+For $j \in \mathbb{N}$, set
+\begin{equation}
+  \label{eq:11}
+  a(w)_{(-1 - j)}b(w) = \frac{:(\partial^j_wa(w))b(w):}{j!}.
+\end{equation}
+
+\begin{theorem}[{\cite[Proposition 3.4.3]{nozaradan_introduction_2008}}]
+  \label{thr:7}
+  The $j$-products \eqref{eq:4} and \eqref{eq:1} are special cases of the following generalized $j$-product defined by
+  \begin{equation*}
+    a(w)_{(j)}b(w)c = \Res_z(i_{z, w}(z - w)^ja(z)b(w)c - p(a,b)i_{w, z}(z - w)^jb(w)a(z)c),
+  \end{equation*}
+  for $c \in V$.
+\end{theorem}
+
+The usual properties of $j$-products for $j \in \mathbb{N}$ carry over to the generalized $j$-products.
+
+\begin{proposition}[{\cite[Proposition 3.4.4]{nozaradan_introduction_2008}}]
+  \label{prp:7}
+  Let $a(z)$ and $b(z)$ be formal distributions.
+  For all $j \in \mathbb{Z}$, we have:
+  \begin{enumerate}
+  \item $(\partial a(z))_{(j)}b(z) = -ja(z)_{(j - 1)}b(z)$;
+  \item $\partial(a(z)_{(j)}b(z)) = (\partial_za(z))_{(j)}b(z) + a(z)_{(j)}\partial_zb(z)$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{lemma}[Dong's lemma {\cite[LEMMA 3.2]{kac_vertex_1998}}]
+  \label{lmm:2}
+  If $a(z)$, $b(z)$ and $c(z)$ are pairwise mutually local fields, then $(a(z),b(z)_{(n)}c(z))$ is a local pair of fields as well for $n\in \mathbb{Z}$.
+\end{lemma}
+
+Let $L(z)$ be a formal distribution.
+An eigendistribution of weight $\Delta_a$ with respect to $L(z)$ is a formal distribution $a(z)$ satisfying
+\begin{equation}
+  \label{eq:12}
+  [L_{\lambda}a] = (\partial + \Delta_a\lambda)a + O(\lambda^2),
+\end{equation}
+where $O(\lambda^2)$ denotes sums of terms of monomials $s\lambda^j$ with $j \ge 2$.
+If $L$ is a Virasoro formal distribution, $\Delta_a$ is called the conformal weight.
+Clearly, $a(z)$ is an eigendistribution in the sense that it is an eigenvector of the endomorphism $L_{(1)}$ whose action is defined by $L_{(1)}(b) = L_{(1)}b$.
+Indeed, \eqref{eq:12} implies $L_{(1)}a = \Delta_aa$.
+Note that, by definition, a Virasoro formal distribution $L(z)$ is an eigendistribution of conformal weight $2$ with respect to itself.
+
+\begin{theorem}[{\cite[Proposition 3.7.4]{nozaradan_introduction_2008}}]
+  \label{thr:8}
+  If $a(z)$ and $b(z)$ have weights $\Delta_a$ and $\Delta_b$ with an even formal distribution $L$, then $\Delta_{a_{(n)}b} = \Delta_a + \Delta_b - n - 1$ with respect to $L$.
+  In particular, $\Delta_{:ab:} = \Delta_a + \Delta_b$ and $\Delta_{\partial a} = \Delta_a + 1$.
+\end{theorem}
+
+The expansion of an eigendistribution $a(z)$ of weight $\Delta_a$ is often adapted as follows:
+\begin{equation*}
+  a(z) = \sum_{n \in \mathbb{Z} - \Delta_a}a_nz^{-n - \Delta_a}.
+\end{equation*}
+This justifies the way we wrote the Virasoro formal distribution when we defined the Virasoro Lie conformal algebra.
+By comparison with the usual way of writing $a(z) = \sum_{m \in \mathbb{Z}}a_{(m)}z^{-m - 1}$, we must have
+\begin{equation*}
+  a_{(m)} = a_{m - \Delta_a + 1},
+\end{equation*}
+or the other way
+\begin{equation*}
+  a_n = a_{(n + \Delta_a - 1)}.
+\end{equation*}
+One of the interesting features of this change of notation is that it reveals the gradation of the superbracket.
+
+\begin{theorem}[{\cite[Proposition 3.7.6]{nozaradan_introduction_2008}}]
+  \label{thr:9}
+  In the new notation, we can write
+  \begin{equation*}
+    [a_m, b_n] = \sum_{j \in \mathbb{N}}\binom{m + \Delta_a - 1}{j}(a_{(j)}b)_{m + n}.
+  \end{equation*}
+\end{theorem}
+
+An eigendistribution $a(z)$ is called primary of conformal weight $\Delta_a$ if
+\begin{equation*}
+  [L_\lambda a]=(\partial +\Delta_a\lambda)a,
+\end{equation*}
+where $L(z)$ is a Virasoro formal distribution.
+
+Let's fix an operator $T\in \End(V)$.
+A formal distribution $a(z)$ is covariant with respect to $T$ if
+\begin{equation*}
+  [T, a(z)] = \partial_za(z).
+\end{equation*}
+
+\begin{theorem}[{\cite[Lemma 1]{callegaro_introduction_2017}}]
+  \label{thr:10}
+  Assume that $\vac \in V$ is such that $T\vac = 0$.
+  Then
+  \begin{enumerate}
+  \item For any translation covariant field $a(z)$ we have $a(z)\vac \in V[[z]]$.
+  \item Set $a = a_{(-1)}\vac$.
+    Then
+    \begin{equation*}
+      a(z)\vac = e^{Tz}a = \sum_{n = 0}^\infty\frac{T^n(a)}{n!}z^n.
+    \end{equation*}
+  \end{enumerate}
+\end{theorem}
+
+Let
+\begin{equation*}
+  \mathcal{F}_{tc} = \{a(z) \in \mathcal{F}(V) \mid [T, a(z)] = \partial_za(z)\}
+\end{equation*}
+be the subspace of translation covariant fields.
+
+\begin{lemma}[{\cite[Lemma 3]{callegaro_introduction_2017}}]
+  \label{lmm:3}
+  $\mathcal{F}_{tc}$ contains $\Id_V$, it is $\partial_z$-invariant and is closed under all $n$-products, i.e., $\partial_za(z), a(z)_{(n)}b(z) \in \mathcal{F}_{tc}$ for $a(z), b(z) \in \mathcal{F}_{tc}$ and $n \in \mathbb{Z}$.
+\end{lemma}
+
+By \Cref{thr:10}, we can define a linear map
+\begin{align*}
+  \fs: \mathcal{F}_{tc} &\to V \\
+  \fs(a(z)) &= a(z)\vac|_{z = 0},
+\end{align*}
+called the field-state correspondence.
+
+\begin{lemma}[{\cite[Proposition 4.3.2]{nozaradan_introduction_2008}}]
+  \label{lmm:4}
+  Let $A$ be a linear operator on a linear space $V$.
+  The formal differential equation
+  \begin{equation*}
+    \frac{df(z)}{dz} = Af(z) \quad (f(z) \in V[[z]])
+  \end{equation*}
+  admits a unique solution, given an initial condition $f(0)=f_0$.
+\end{lemma}
+
+\begin{theorem}
+  \label{thr:11}
+  Let $a(z), b(z) \in \mathcal{F}_{tc}$, $a = \fs(a(z))$, $b = \fs(b(z))$ and $n \in \mathbb{Z}$.
+  Write $a(z) = \sum_{j \in \mathbb{Z}}a_{(j)}z^{-j - 1}$ and $b(z) = \sum_{j \in \mathbb{Z}}b_{(j)}z^{-j - 1}$.
+  Then
+  \begin{enumerate}
+  \item $\fs(\Id_V) = \vac$;
+  \item $\fs(\partial_za(z)) = Ta$;
+  \item ($n$-product identity) $\fs(a(z)_{(n)}b(z)) = a_{(n)}b$;
+  \item $T(a_{(n)}b) = -na_{(n - 1)}b + a_{(n)}Tb$;
+  \item $e^{Tw}a(z)e^{-Tw} = i_{z, w}a(z + w)$;
+  \item (Borcherds identity). If $a(z)$ and $b(z)$ are local then
+    \begin{equation*}
+      i_{z,w}(z-w)^na(z)b(w)c-p(a,b)i_{w,z}(z-w)^nb(w)a(z)c=\sum_{j\in \mathbb{N}}a(w)_{(n+j)}b(w)\frac{\partial^j_w\delta(z,w)}{j!}c,
+    \end{equation*}
+    for $c\in V$;
+  \item (Skewsymmetry) If $a(z)$ and $b(z)$ are local then
+    \begin{equation*}
+      a(z)b=p(a,b)e^{Tz}b(-z)a.
+    \end{equation*}
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}
+  \item Clear.
+  \item
+    \begin{align*}
+      \fs(\partial_za(z)) &= [T, a(z)]\vac|_{z = 0} \\
+      &= (Ta(z) - p(a(z), T)a(z)T)\vac|_{z = 0} \\
+      &= Ta.
+    \end{align*}
+  \item By definition, we have
+    \begin{equation*}
+      \fs(a(z)_{(n)}b(z)) = a(z)_{(n)}b(z)\vac|_{z = 0},
+    \end{equation*}
+    and the right hand side, by \Cref{thr:7}, is equal to
+    \begin{equation*}
+      \Res_w(a(w)b(z)i_{w, z}(w - z)^n\vac - p(a, b)b(z)a(w)i_{z, w}(w - z)^n\vac)|_{z = 0}.
+    \end{equation*}
+    Now, since $a(w)\vac \in V[[w]]$ and $i_{z, w}(w-z)^n$ has only nonnegative powers of $w$, we have
+    \begin{equation*}
+      \Res_w(b(z)a(w)i_{z, w}(w - z)^n\vac) = 0.
+    \end{equation*}
+    For the first term, since $b(z)\vac \in V[[z]]$, we can let $z = 0$ before we calculate the residue, which gives
+    \begin{equation*}
+      \Res_w(a(w)b(z)i_{w, z}(w - z)^n\vac)|_{z = 0} = \Res_w(a(w)bw^n) = a_{(n)}b.
+    \end{equation*}
+  \item This follows from $[T, a_{(n)}] = -na_{(n - 1)}$ which is equivalent to translation covariance of the field $a(z)$.
+  \item Set $b_1(z, w) = i_{z, w}a(z + w)$ and $b_2(z, w) = e^{Tw}a(z)e^{-Tw}$.
+    By \Cref{thr:2} and translation covariance,
+    \begin{align*}
+      \frac{\partial b_1(z, w)}{\partial w} &= \sum_{j \in \mathbb{N}}\frac{\partial^{j + 1}_za(z)}{j!}w^j = \sum_{j \in \mathbb{N}}\frac{\partial^j[T, a(z)]}{j!} = [T, b_1(z, w)], \\
+      b_1(z, 0) &= a(z), \\
+      \frac{\partial b_1(z, w)}{\partial w} &= Te^{Tw}a(z)e^{-Tw} + e^{Tw}a(z)(-T)e^{-Tw} = [T, b_2(z, w)], \\
+      b_2(z, 0) &= a(z).
+    \end{align*}
+    By \Cref{lmm:4}, $b_1(z, w) = b_2(z, w)$.
+  \item The left hand side of the Borcherds identity is a local formal distribution in $z$ and $w$ applied to $c$.
+    Apply \Cref{thr:1} to it to get that it is equal to
+    \begin{equation*}
+      \sum_{j \in \mathbb{N}} c^j(w)\frac{\partial^j_w\delta(z,w)}{j!}c,
+    \end{equation*}
+    where
+    \begin{align*}
+      c^j(w)c &= (\Res_z(z - w)^j(i_{z, w}(z - w)^na(z)b(w) - p(a, b)i_{w, z}(z - w)^nb(w)a(z)))c \\
+      &= \Res_z(i_{z, w}(z - w)^{n + j}a(z)b(w)c - p(a, b)i_{w, z}(z - w)^{n + j}b(w)a(z)c) \\
+      &= a(w)_{(n + j)}b(w)c.
+    \end{align*}
+  \item By locality, there is $N \in \mathbb{Z}$ such that
+    \begin{equation*}
+      (z - w)^Na(z)b(w) = p(a, b)(z - w)^Nb(w)a(z).
+    \end{equation*}
+    Apply $\vac$ to both sides; by \Cref{thr:10}, we get
+    \begin{equation*}
+      (z - w)^Na(z)e^{Tw}b = p(a, b)(z - w)^Nb(w)e^{Tz}a.
+    \end{equation*}
+    Now use (f) and \Cref{thr:2}:
+    \begin{equation*}
+      RHS = p(a, b)(z - w)^Ne^{Tz}e^{-Tz}b(w)e^{Tz}a = p(a, b)(z - w)^Ne^{Tz}i_{w, z}b(w - z)a.
+    \end{equation*}
+    For $N$ big enough, this is a formal power series in $(z - w)$, so we can set $w = 0$ and get
+    \begin{equation*}
+      LHS = z^Na(z)b = p(a, b)e^{Tz}z^Nb(-z)a = RHS,
+    \end{equation*}
+    which proves the desired formula. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{lemma}[{\cite[Lemma 3]{callegaro_introduction_2017}}]
+  \label{lmm:5}
+  Let $\mathcal{F}' \subseteq \mathcal{F}_{tc}$ and $a(z) \in \mathcal{F}_{tc}$.
+  Assume that
+  \begin{enumerate}
+  \item $\fs(a(z)) = 0$;
+  \item $a(z)$ is local with any element in $\mathcal{F}'$;
+  \item $\fs(\mathcal{F}') = V$.
+  \end{enumerate}
+  Then $a(z) = 0$.
+\end{lemma}
+
+\begin{proof}
+  Let $b(z) \in \mathcal{F}'$.
+  By the locality of $a(z)$ and $b(z)$, we have $(z - w)^N[a(z), b(w)] = 0$, for some $N \in \mathbb{N}$.
+  Apply $\vac$ to both sides to get
+  \begin{equation*}
+    (z - w)^Na(z)b(w)\vac = \pm(z - w)^Nb(w)a(z)\vac.
+  \end{equation*}
+  By the property (i), we have $a_{(-1)}\vac = 0$ and $a(z)$ is translation covariant, hence by \Cref{thr:10}(i), $b(w)\vac \in V[[w]]$, so we can let $w = 0$ and get $z^Na(z)b = 0$, which means $a_{(n)}b = 0$ for any $n \in \mathbb{Z}$.
+  This is true for any $b \in V$ by the property (c).
+  So in fact, we have $a(z) = 0$.
+\end{proof}
+
+\subsection{Vertex algebras}
+\label{sec:vertex-algebras}
+
+A vertex algebra is the data consisting of four elements $(V, \vac, T, Y)$ satisfying the following properties:
+\begin{enumerate}
+\item $V$ is a superspace called the state space;
+\item $\vac \in V_{\zero}$ is called the vacuum vector;
+\item $T \in \End(V)_{\zero}$ is called the translation operator;
+\item $Y: V \to \mathcal{F}(V)$ is a linear and parity preserving map called the state-field correspondence.
+\end{enumerate}
+By parity preserving map we mean that for $a \in V$ homogeneous, $p(a_{(n)}) = p(a)$ for all $n \in \mathbb{Z}$.
+The operator $(a) = Y(a, z) \in \End(V)[[z^{\pm 1}]]$ for $a \in V$ is sometimes called a vertex operator.
+The data must satisfy the following axioms for $a \in V$:
+\begin{enumerate}
+\item (Vacuum axiom)
+  \begin{align*}
+    Y(\vac,z) &= \Id_V, \\
+    Y(a, z)\vac &\in V[[z]], \\
+    Y(a, z)\vac|_{z = 0} &= a, \\
+    T\vac &= 0;
+  \end{align*}
+\item (Translation covariance) $[T, Y(a, z)] = \partial_zY(a, z)$;
+\item (Locality) $\{Y(a, z) \mid a \in V\}$ is a local family of fields.
+\end{enumerate}
+
+\begin{remark}
+  \label{rmk:7}
+  Writing $Y(a, z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1}$ for $a \in V$, the first two vertex algebra axioms imply that for $n \in \mathbb{Z}$:
+  \begin{align*}
+    \vac_{(n)}a &= a_{(n)}\vac = \delta_{n, -1}a, \\  
+    [T, a_{(n)}] &= -na_{(n - 1)}.
+  \end{align*}
+\end{remark}
+
+\begin{remark}
+  \label{rmk:8}
+  The translation covariance axiom together with \Cref{thr:10} permit us to express $T$ by
+  \begin{equation}
+    \label{eq:13}
+    Ta = a_{(-2)}\vac.
+  \end{equation}
+  As a consequence, the data of the translation operator $T$ is redundant.
+  The original definition with $T$ appears to be more natural, though.
+\end{remark}
+
+A vertex algebra homomorphism $f: (V, \vac, T, Y) \to (V', \vac', T', Y')$ is a linear map $f: V \to V'$ such that $f(\vac) = \vac'$ and for $a, b \in V$,
+\begin{equation*}
+  f(Y(a, z)b) = \sum_{n \in \mathbb{Z}}f(a_{(n)}b)z^{-n - 1} = \sum_{n \in \mathbb{Z}}f(a)_{(n)}f(b)z^{-n - 1} = Y'(f(a), z)f(b).
+\end{equation*}
+We obtain the category of vertex algebras.
+
+\begin{remark}
+  \label{rmk:9}
+  It is easy to verify that category of vertex algebras is abelian in a natural way.
+\end{remark}
+
+\begin{example}[Commutative vertex algebras]
+  \label{exa:4}
+  A vertex algebra $V$ is called commutative if all vertex operators $Y(a, z)$, $a \in V$ commute with each other.
+  
+  Suppose we are given a commutative vertex algebra $V$.
+  Then for $a, b \in A$,
+  \begin{equation*}
+    Y(a, z)b = Y(a, z)Y(b, w)\vac|_{w = 0} = Y(b, w)Y(a, z)\vac|_{w = 0}.
+  \end{equation*}
+  But by the vacuum axiom, the last expression has no negative power of $z$.
+  Therefore $Y(a, z)b \in V[[z]]$ for $a, b \in V$ so $Y(a, z) \in \End(V)[[z]]$ for $a \in V$.
+  Conversely, suppose that we are given a vertex algebra $V$ in which $Y(a, z) \in \End(V)[[z]]$ for all $a \in V$.
+  Observe that if the equality $(z - w)^Nf_1(z, w) = (z - w)^Nf_2(z, w)$ holds for $f_1, f_2 \in \mathbb{C}[[z, w]]$ and $N \in \mathbb{N}$, then necessarily $f_1(z, w) = f_w(z, w)$.
+  Therefore we obtain that $[Y(a, z), Y(b, w)] = 0$ for all $a, b \in V$, so $V$ is commutative.
+  
+  Thus, a commutative vertex algebra may be defined as one in which all $Y(a, z)$ belong to $\End(V)[[z]]$.
+
+  Denote by $Y_a$ the endomorphism of a commutative vertex algebra $V$ which is the constant term of $Y(a, z)$ for $a \in V$, and define a bilinear operation $\circ$ on $V$ by setting $a\circ b=Y_ab$.
+  By construction, $Y_aY_b = Y_bY_a$.
+  This implies both commutativity and associativity of $\circ$.
+  Furthermore, the vacuum vector $\vac$ is a unit, and the operator $T$ is a derivation with respect to this product.
+  Thus, we have the structure of a commutative algebra with a derivation on $V$.
+
+  Conversely, let $V$ be an associative and commutative algebra with a unit $1$ and a derivation $T$.
+  We call this object a differential algebra $(V, T)$.
+  Then $V$ can become a vertex algebra.
+  Take $\vac = 1$, and set
+  \begin{equation*}
+    Y(a, z) = e^{Tz}a.
+  \end{equation*}
+  It is straightforward to check that all the axioms of a commutative vertex algebra are satisfied.
+
+  Therefore, we obtain an isomorphism between the category of differential algebras and the category of commutative vertex algebras.
+\end{example}
+
+The theory done in \Cref{sec:formal-calculus} and \Cref{sec:fields-over-vector} translates into the language of vertex algebras.
+
+\begin{theorem}[Properties of vertex algebras]
+  \label{thr:12}
+  Let $V$ be a vertex algebra.
+  For $a, b, c \in V$ and $n, j \in \mathbb{Z}$:
+  \begin{enumerate}
+  \item $Y: V \to \mathcal{F}(V)$ is injective;
+  \item $Y(a, z)\vac \in V[[z]]$ and $Y(a, z)\vac = e^{Tz}a$ so $T^ma = m!a_{(-m - 1)}\vac$ for $m \in \mathbb{N}$;
+  \item $Y(Ta, z) = \partial_zY(a, z)$;
+  \item ($n$-product identity) $Y(a, z)_{(n)}Y(b, z) = Y(a_{(n)}b, z)$;
+  \item ($T$ as an even derivation) $T(Y(a, z)b) = Y(Ta, z)b + Y(a, z)Tb$;
+  \item $e^{Tw}Y(a,z)e^{-Tw}=i_{z,w}Y(a,z+w)$;
+  \item (Borcherds identity)
+    \begin{equation*}
+      i_{z, w}(z - w)^nY(a, z)Y(b, w)c - p(a, b)i_{w, z}(z - w)^nY(b, w)Y(a, z)c = \sum_{j \in \mathbb{N}}Y(a_{(n + j)}b, w)\frac{\partial^j_w\delta(z, w)}{j!}c;
+    \end{equation*}
+  \item (Skew-symmetry)
+    \begin{equation*}
+      Y(a, z)b = p(a, b)e^{Tz}Y(b, -z)a;
+    \end{equation*}
+  \item $(a_{(n)}b)_{(j)}c = \sum_{k \in \mathbb{N}}(-1)^k\binom{n}{k}(a_{(n - k)}b_{(j + k)}c - (-1)^np(a, b)b_{(n + j - k)}a_{(k)}c)$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Original Borcherds identity]
+  \label{thr:13}
+  Let $V$ be a vertex algebra.
+  For $a, b, c \in V$,
+  \begin{equation*}
+    \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}\left(a_{(m + n - j)}(b_{(k + j)}c) - (-1)^np(a, b)b_{(n + k - j)}(a_{(m + j)}c)\right) = \sum_{j \in \mathbb{N}}\binom{m}{j}(a_{(n + j)}b)_{(m + k - j)}c,
+  \end{equation*}
+  or, equivalently, for all $F(z, w) = z^mw(z - w)^k$ where $m, n, k \in \mathbb{Z}$,
+  \begin{equation*}
+    \begin{split}
+      &\Res_{z - w}(Y(Y(a, z - w)b, w)ci_{w, z - w}F(z, w)) = \\
+      &\Res_z(Y(a, z)Y(b, w)ci_{z, w}F(z, w)) - \Res_z(Y(b, w)Y(a, z)ci_{w, z}F(z, w)).
+    \end{split}
+  \end{equation*}
+\end{theorem}
+
+Let $V$ be a vertex algebra.
+A vertex subalgebra of $V$ is a subspace of $W$ of $V$ which contains $\vac$ and such that $Y(a, z)b \in W((z))$ for $a, b\in W$.
+Because $Ta = a_{(-2)}\vac$ and $\vac\in W$, this implies that $TW \subseteq W$.
+Thus, $(W, \vac, T|_{W}: W \to W, Y|_{W}: W \to \mathcal{F}(W))$ is a vertex algebra in its own right.
+Let $S \subseteq V$ be a subset.
+The vertex subalgebra generated by $S$ is the smallest vertex subalgebra containing $S$ which is the intersection of all subalgebras containing $S$.
+It is denoted $\langle S \rangle$ and we can prove that
+\begin{equation*}
+  \langle S \rangle = \vspan \{a^1_{(n_1)}\dots a^s_{(n_s)}\vac \mid s \in \mathbb{N}, a^i \in S, n_1, \dots, n_s \in \mathbb{Z}\}.
+\end{equation*}
+The vertex algebra $V$ is strongly generated by $S \subseteq V$ if
+\begin{equation*}
+  V = \vspan \{a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac \mid s \in \mathbb{N}, a^i \in S, n_1, \dots, n_s \in \mathbb{N}\}.
+\end{equation*}
+
+An ideal of a vertex algebra $V$ is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for all $a \in V$ and $b \in I$.
+For example, the kernel of vertex algebra homomorphism is an ideal.
+Note that a right ideal $I$ is automatically $T$-invariant ($TI \subseteq I$) because of \eqref{eq:13}.
+Also, right ideals and $T$-invariant left ideals are automatically two-sided ideals because of skewsymmetry.
+However, to prove that a subspace is an ideal it is usally easier to check that it is $T$-invariant and a left ideal.
+It follows that for any ideal $I$, $V/I$ inherits a natural quotient vertex algebra structure $(V/I, \vac + I,T_{V/I}: V/I \to V/I, Y_{V/I}: V/I \to \mathcal{F}(V/I))$.
+Let $S \subseteq V$ be a subset.
+The ideal generated by $S$ is the smallest ideal containing $S$ which is the intersection of all ideals containing $S$.
+It is denoted by $(S)$ and we can prove that
+\begin{equation*}
+  (S) = \vspan\{b_{(n)}T^ma \mid b \in V, n \in \mathbb{Z}, m \in \mathbb{N}, a \in S\}.
+\end{equation*}
+
+We don't examples of vertex algebras other than the ones coming from differential algebras.
+It turns out is not an easy task to construct nontrivial vertex algebras.
+We need a preliminary concept to do that task. 
+A pre-vertex algebra is a quadruple $(V, \vac, T, \mathcal{F})$ where $V = V_{\zero} \oplus V_{\one}$ is a vector superspace, $\vac \in V_{\zero}$, $T \in \End(V)_{\zero}$ and $\mathcal{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$ is a collection of $\End(V)$-valued fields such that for $j \in J$, all $a^j_{(n)}$ for $n \in \mathbb{Z}$ have the same parity.
+The above data satisfies the following axioms
+\begin{enumerate}
+\item (Vacuum axiom) $T\vac = 0$;
+\item (Translation covariance) $[T, a^j(z)] = \partial_za^j(z)$ for all $j \in J$;
+\item (Locality) $a^i(z)$ and $a^j(z)$ are mutually local for all $i, j \in J$;
+\item (Completeness) $\vspan\{a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac \mid s \in \mathbb{N}, j_i \in J, n_i \in \mathbb{Z}\} = V$.
+\end{enumerate}
+
+Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra.
+Define the following subspaces of $\mathcal{F}(V)$:
+\begin{align*}
+  \mathcal{F}_{\min} &= \vspan\{a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots(a^{j_s}(z)_{(n_s)}\Id_V)\dots) \mid s \in \mathbb{N}, n_i \in \mathbb{Z}, j_i \in J\}, \\
+  \mathcal{F}_{\max} &= \{a(z) \in \mathcal{F}(V) \mid [T, a(z)] = \partial_za(z)\text{ and for }j \in J, (a(z),a^j(z))\text{ is a local pair}\}.
+\end{align*}
+We have inclusions
+\begin{equation*}
+  \mathcal{F} \subseteq \mathcal{F}_{\min} \subseteq \mathcal{F}_{\max} \subseteq \mathcal{F}_{tc}.
+\end{equation*}
+The first inclusion is because for $a(z) \in \mathcal{F}$, $a(z)_{(-1)}\Id_V = a(z) \in \mathcal{F}_{\min}$.
+The second inclusion is by \Cref{lmm:5} and Dong's Lemma.
+The last inclusion is by definition.
+
+Now we come to a very fundamental theorem, which allows us to construct noncommutative vertex algebras and is the backbone of several of our most important examples of vertex algebras.
+\begin{theorem}[Extension theorem]
+  \label{thr:14}
+  Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra and $\mathcal{F}_{\min}, \mathcal{F}_{\max}$ defined as above.
+  Then:
+  \begin{enumerate}
+  \item $\mathcal{F}_{\min} = \mathcal{F}_{\max}$;
+  \item The linear map
+    \begin{align*}
+      \fs: \mathcal{F}_{\max} &\to V \\
+      \fs(a(z)) &= a(z)\vac|_{z = 0}
+    \end{align*}
+    is well-defined and bijective.
+    Denote by $Y: V \to \mathcal{F}(V)$ the inverse map;
+  \item $(V, \vac, T, Y)$ is a vertex algebra with $Y: V \to \mathcal{F}(V)$ given explicitly by
+    \begin{equation}
+      \label{eq:14}
+      Y(a^{j_1}_{(n_1)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac) = a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots (a^{j_s}(z)_{(n_s)}\Id_V)\dots),
+    \end{equation}
+    for $s \in \mathbb{N}$, $j_1, \dots, j_s \in J$ and $n_1, \dots, n_s \in \mathbb{Z}$;
+  \item The vertex algebra $V$ is generated by $\{a^j_{(-1)}\vac \mid j \in J\}$;
+  \item The only vertex algebra structure on $V$ with $Y(a^j_{(-1)}\vac, z) = a^j(z)$ for $j \in J$ is the one given by \eqref{eq:14}.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  By \Cref{thr:10}, the map $\fs$ is well defined as was noted already in \Cref{sec:fields-over-vector}.
+  By \Cref{thr:11}(i) and \Cref{thr:11}(iii), $\fs|_{\mathcal{F}_{\min}}: \mathcal{F}_{\mathcal{F}_{\min}} \to V$ is given by
+  \begin{equation}
+    \label{eq:15}
+    \fs|_{\mathcal{F}_{\min}}(a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots (a^{j_s}(z)_{(n_s)}\Id_V)\dots)) = a^{j_1}_{(n_1)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac.
+  \end{equation}
+  By the completeness axiom of pre-vertex algebras, $\fs|_{\mathcal{F}_{\min}}$ is surjective.
+
+  The map $\fs: \mathcal{F}_{\max} \to V$ is injective using \Cref{lmm:5} with $\mathcal{F}' = \mathcal{F}_{\min}$.
+  Recall the inclusion $\mathcal{F}_{\min} \subseteq \mathcal{F}_{\max}$.
+  We know that $\fs|_{\mathcal{F}_{\min}}$ is surjective and $\fs$ is injective, so we can conclude that is in fact bijective and $\mathcal{F}_{\min} = \mathcal{F}_{\max}$.
+  This proves (i) and (ii).
+
+  For (iii), we need to show that $Y(a, z)$ is translation covariant for $a \in V$ and that each pair $(Y(a, z), Y(b, w))$ is local for $a, b \in V$.
+  Translation covariance comes from \Cref{lmm:3} and locality comes from Dong's lemma.
+  
+  Note that we have $Y(a^j_{(-1)}\vac, z) = a^j(z)$ for $j \in J$.
+  Therefore, $(a^j_{(-1)}\vac)_{(n)} = a^j_{(n)}$ for $j \in J$ and $n \in \mathbb{Z}$.
+  By the completeness axiom, we get (iv).
+
+  Uniqueness of the vertex algebra structure follows from the completeness axiom of pre-vertex algebras, the $n$-product identity and the fact that $\vac \mapsto \Id_V$ in any vertex algebra.
+  This finishes (v) and the proof of the theorem.
+  
+\end{proof}
+
+\begin{corollary}
+  \label{crl:1}
+  Let $V$ be a vertex algebra, $s \in \mathbb{N}$, $a^1, \dots, a^s \in V$ and $n_1, \dots, n_s \in \mathbb{Z}$.
+  Then 
+  \begin{equation*}
+    Y(a^1_{(n_1)}a^2_{(n_2)}\dots a^s_{(n_s)}\vac, z) = Y(a^j, z)_{(n_1)}(Y(a^2, z)_{(n_2)}\dots (Y(a^s, z)_{(n_s)}\Id_V)\dots).
+  \end{equation*}
+  In particular, for $s, n_1, \dots, n_s \in \mathbb{N}$ and $a^1, \dots, a^s \in V$,
+  \begin{equation}
+    \label{eq:16}
+    Y(a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_zY(a^1,z)\dots \partial^{n_s}_zY(a^s,z):}{n_1!\dots n_s!}.
+  \end{equation}
+  If $V$ is given by a pre-vertex algebra $(V, \vac, T, \mathcal{F})$ where $\mathcal{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$, then for $s, n_1, \dots, n_s \in \mathbb{N}$ and $j_1, \dots, j_s \in J$,
+  \begin{equation}
+    \label{eq:17}
+    Y(a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_za^{j_1}(z)\dots \partial^{n_s}_za^{j_s}(z):}{n_1!\dots n_s!}.
+  \end{equation}
+\end{corollary}
+
+Formulas \eqref{eq:16} and \eqref{eq:17} are used to do explicit computations.
+
 \printindex
 
 \bibliographystyle{alpha}
