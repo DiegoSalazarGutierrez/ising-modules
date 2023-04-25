@@ -45,6 +45,7 @@
 \DeclareMathOperator{\Cur}{Cur}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\fs}{fs}
+\DeclareMathOperator{\tc}{tc}
 
 \makeindex
 
@@ -76,9 +77,9 @@
 \label{sec:formal-calculus}
 
 All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers.
-The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$ and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
+The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$ and the set of negative integers $\{-1, -2, \dots, \}$ is denoted by $\mathbb{Z}_-$.
 
-The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f = \sum_{\upsilon \in \mathbb{Z}^n}f_{\upsilon}X_{\upsilon}$ where $X_{\upsilon} = X^{\upsilon_1}_1\dots X^{\upsilon_n}_n$, with the natural operations of addition and multiplication by a scalar.
+The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}X^{m_1}\dots X^{m_n} $ with the natural operations of addition and multiplication by a scalar.
 The field of \index{rational function|emph}\emph{rational functions} in $n$ variables, denoted by $\mathbb{C}(X_1, \dots, X_n)$, is the field of fractions $\Frac(\mathbb{C}[X_1, \dots, X_n])$.
 The field of \index{formal Laurent series|emph}\emph{formal Laurent series} is the subalgebra of elements $f \in \mathbb{C}[[Z^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
 We also have $\mathbb{C}((X)) = \Frac(\mathbb{C}[[X]])$.
@@ -273,11 +274,20 @@ A \index{superalgebra!superderivation of|emph}\emph{superderivation} of $A$ is a
 \end{equation*}
 for all $a, b \in A$.
 The \index{superalgebra!subspace of superderivations of|emph}\emph{subspace of superderivations} of $A$ is denoted by $\Der(A)$.
+A differential superalgebra is a superalgebra $A$ together with a superderivation $\partial$ of $A$.
+Assume $\mathfrak{g}$ is a Lie superalgebra and $\partial$ is a superderivation of $\mathfrak{g}$.
+We can form the universal enveloping algebra $U(\mathfrak{g})$ which is now an associative superalgebra.
+The derivation $\partial: \mathfrak{g} \to \mathfrak{g}$ can be extended uniquely to a derivation $DU(\partial): U(\mathfrak{g}) \to U(\mathfrak{g})$.
+We have, in fact, constructed a functor
+\begin{align*}
+  DU: \{\text{differential Lie superalgebras}\} &\to \{\text{associative differential superalgebras}\} \\
+  (\mathfrak{g}, \partial) &\mapsto (U(\mathfrak{g}), DU(\partial))
+\end{align*}
 
 Let $\mathfrak{g}$ be a Lie superalgebra.
 We first extend the Lie superbracket on $\mathfrak{g}$ to the \index{formal distribution!Lie superbracket of|emph}\emph{Lie superbracket} between two $\mathfrak{g}$-valued formal distributions in one variable. Starting from $a(z) = \sum_{m \in \mathbb{Z}}a_{(m)}z^{-m - 1} \in \mathfrak{g}[[z^{\pm 1}]]$ and $b(w) = \sum_{n \in \mathbb{Z}}b_{(n)}z^{-n - 1} \in \mathfrak{g}[[w^{\pm 1}]]$, we define a new formal distribution in two variables by defining the superbracket
 \begin{equation*}
-  [a(z), b(w)] = \sum_{m, n}[a_{(m)}, b_{(n)}]z^{-m - 1}w^{-n - 1} \in \mathfrak{g}[[z^{\pm 1}, w^{\pm 1}]]
+  [a(z), b(w)] = \sum_{m, n \in \mathbb{Z}}[a_{(m)}, b_{(n)}]z^{-m - 1}w^{-n - 1} \in \mathfrak{g}[[z^{\pm 1}, w^{\pm 1}]]
 \end{equation*}
 
 Let $\mathfrak{g}$ be a Lie superalgebra.
@@ -309,9 +319,10 @@ For $j \in \mathbb{N}$, their \index{formal distribution!$j$-product of|emph}\em
 \end{align}
 We define $a(w)_{(j)} \in \End(\mathfrak{g}[[z^{\pm 1}]])$ in the natural way.
 If $(a(z), b(z))$ is a local pair, then \eqref{eq:3} becomes
-\begin{equation*}
+\begin{equation}
+  \label{eq:5}
   [a_{(m)}, b_{(n)}] = \sum_{j \in \mathbb{N}}\binom{m}{j}(a(w)_{(j)}b(w))_{(m + n - j)}.
-\end{equation*}
+\end{equation}
 By \Cref{thr:1}, we also have
 \begin{equation*}
   [a(z),b(w)]=\sum_{j\in \mathbb{N}}(a(w)_{(j)}b(w))\frac{\partial_w^j\delta(z,w)}{j!}.
@@ -378,14 +389,14 @@ A \index{formal distribution Lie superalgebra!regular|emph}\emph{regular} formal
   \end{equation*}
   which is equivalent to
   \begin{equation}
-    \label{eq:5}
+    \label{eq:6}
     T(a^j_{(n)}) = -na^j_{(n - 1)},
   \end{equation}
   for all $j \in J$ and $n \in \mathbb{Z}$. 
 \end{enumerate}
 \begin{remark}
   \label{rmk:4}
-  Note that \eqref{eq:5} and the fact that $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span $\mathfrak{g}$ imply that if such $T$ exists, it is even and unique so we could remove $T$ from the notation, but we won't.
+  Note that \eqref{eq:6} and the fact that $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span $\mathfrak{g}$ imply that if such $T$ exists, it is even and unique so we could remove $T$ from the notation, but we won't.
 \end{remark}
 
 Let $(\mathfrak{g}, \mathfrak{F})$ be a formal distribution Lie superalgebra.
@@ -523,7 +534,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   \end{equation*}
   These elements satisfy the following commutation relations:
   \begin{equation}
-    \label{eq:6}
+    \label{eq:7}
     \begin{aligned}
       [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C, \\
       [\Vir, C] &= 0,
@@ -538,7 +549,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   Hence $L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$.
   In terms of formal distributions, the commutation relations become:
   \begin{equation}
-    \label{eq:7}
+    \label{eq:8}
     \begin{aligned}
       [L(z), L(w)] &= \partial_wL(w)\delta(z, w)+2L(w)\partial_w\delta(z,w)+\frac{C}{12}\partial^3_w\delta(z,w) \\
       [L(z), C] &= 0,
@@ -547,7 +558,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   where $C$ denotes the constant formal distribution equal to $C \in \Vir$.
   In terms of $j$-products, the commutation relations become:
   \begin{equation}
-    \label{eq:8}
+    \label{eq:9}
     \begin{aligned}
       L(z)_{(0)}L(z) &= \partial_zL(z), \\
       L(z)_{(1)}L(z) &= 2L(z), \\
@@ -558,7 +569,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
 \end{equation}
   In terms of the $\lambda$-bracket, the commutation relations become:
   \begin{equation}
-    \label{eq:9}
+    \label{eq:10}
     \begin{aligned}
       [L(z)_{\lambda}L(z)] &= (\partial + 2\lambda)L(z) + \frac{\lambda^3}{12}C \\
       [L(z)_{\lambda}C] &= 0.
@@ -582,7 +593,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
 \end{remark}
 
 Let $\mathfrak{g}$ be a Lie superalgebra and $C \in \mathfrak{g}$.
-A Virasoro formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with central charge $C$ is a $\mathfrak{g}$-valued formal distribution satisfying \eqref{eq:6}, or equivalently, \eqref{eq:7}, \eqref{eq:8} or \eqref{eq:9}.
+A Virasoro formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with central charge $C$ is a $\mathfrak{g}$-valued formal distribution satisfying \eqref{eq:7}, or equivalently, \eqref{eq:8}, \eqref{eq:9} or \eqref{eq:10}.
 
 \begin{example}[Current Lie conformal superalgebra]
   \label{exa:2}
@@ -665,7 +676,7 @@ A Virasoro formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with central
   \end{equation*}
   with the superbracket
   \begin{equation}
-    \label{eq:10}
+    \label{eq:11}
     \begin{aligned}
       [at^m, bt^n] &= \delta_{m, -n - 1}\langle a, b\rangle K, \\
       [at^m, K] &= 0,
@@ -770,7 +781,7 @@ The normal ordered product between $a(z)$ and $b(z)$ is explicitly given in the 
 Now let's extend the $j$-products.
 For $j \in \mathbb{N}$, set
 \begin{equation}
-  \label{eq:11}
+  \label{eq:12}
   a(w)_{(-1 - j)}b(w) = \frac{:(\partial^j_wa(w))b(w):}{j!}.
 \end{equation}
 
@@ -803,13 +814,13 @@ The usual properties of $j$-products for $j \in \mathbb{N}$ carry over to the ge
 Let $L(z)$ be a formal distribution.
 An eigendistribution of weight $\Delta_a$ with respect to $L(z)$ is a formal distribution $a(z)$ satisfying
 \begin{equation}
-  \label{eq:12}
+  \label{eq:13}
   [L_{\lambda}a] = (\partial + \Delta_a\lambda)a + O(\lambda^2),
 \end{equation}
 where $O(\lambda^2)$ denotes sums of terms of monomials $s\lambda^j$ with $j \ge 2$.
 If $L$ is a Virasoro formal distribution, $\Delta_a$ is called the conformal weight.
 Clearly, $a(z)$ is an eigendistribution in the sense that it is an eigenvector of the endomorphism $L_{(1)}$ whose action is defined by $L_{(1)}(b) = L_{(1)}b$.
-Indeed, \eqref{eq:12} implies $L_{(1)}a = \Delta_aa$.
+Indeed, \eqref{eq:13} implies $L_{(1)}a = \Delta_aa$.
 Note that, by definition, a Virasoro formal distribution $L(z)$ is an eigendistribution of conformal weight $2$ with respect to itself.
 
 \begin{theorem}[{\cite[Proposition 3.7.4]{nozaradan_introduction_2008}}]
@@ -869,18 +880,18 @@ A formal distribution $a(z)$ is covariant with respect to $T$ if
 
 Let
 \begin{equation*}
-  \mathcal{F}_{tc} = \{a(z) \in \mathcal{F}(V) \mid [T, a(z)] = \partial_za(z)\}
+  \mathcal{F}_{\tc} = \{a(z) \in \mathcal{F}(V) \mid [T, a(z)] = \partial_za(z)\}
 \end{equation*}
 be the subspace of translation covariant fields.
 
 \begin{lemma}[{\cite[Lemma 3]{callegaro_introduction_2017}}]
   \label{lmm:3}
-  $\mathcal{F}_{tc}$ contains $\Id_V$, it is $\partial_z$-invariant and is closed under all $n$-products, i.e., $\partial_za(z), a(z)_{(n)}b(z) \in \mathcal{F}_{tc}$ for $a(z), b(z) \in \mathcal{F}_{tc}$ and $n \in \mathbb{Z}$.
+  $\mathcal{F}_{\tc}$ contains $\Id_V$, it is $\partial_z$-invariant and is closed under all $n$-products, i.e., $\partial_za(z), a(z)_{(n)}b(z) \in \mathcal{F}_{\tc}$ for $a(z), b(z) \in \mathcal{F}_{\tc}$ and $n \in \mathbb{Z}$.
 \end{lemma}
 
 By \Cref{thr:10}, we can define a linear map
 \begin{align*}
-  \fs: \mathcal{F}_{tc} &\to V \\
+  \fs: \mathcal{F}_{\tc} &\to V \\
   \fs(a(z)) &= a(z)\vac|_{z = 0},
 \end{align*}
 called the field-state correspondence.
@@ -897,7 +908,7 @@ called the field-state correspondence.
 
 \begin{theorem}
   \label{thr:11}
-  Let $a(z), b(z) \in \mathcal{F}_{tc}$, $a = \fs(a(z))$, $b = \fs(b(z))$ and $n \in \mathbb{Z}$.
+  Let $a(z), b(z) \in \mathcal{F}_{\tc}$, $a = \fs(a(z))$, $b = \fs(b(z))$ and $n \in \mathbb{Z}$.
   Write $a(z) = \sum_{j \in \mathbb{Z}}a_{(j)}z^{-j - 1}$ and $b(z) = \sum_{j \in \mathbb{Z}}b_{(j)}z^{-j - 1}$.
   Then
   \begin{enumerate}
@@ -986,7 +997,7 @@ called the field-state correspondence.
 
 \begin{lemma}[{\cite[Lemma 3]{callegaro_introduction_2017}}]
   \label{lmm:5}
-  Let $\mathcal{F}' \subseteq \mathcal{F}_{tc}$ and $a(z) \in \mathcal{F}_{tc}$.
+  Let $\mathcal{F}' \subseteq \mathcal{F}_{\tc}$ and $a(z) \in \mathcal{F}_{\tc}$.
   Assume that
   \begin{enumerate}
   \item $\fs(a(z)) = 0$;
@@ -1046,7 +1057,7 @@ The data must satisfy the following axioms for $a \in V$:
   \label{rmk:8}
   The translation covariance axiom together with \Cref{thr:10} permit us to express $T$ by
   \begin{equation}
-    \label{eq:13}
+    \label{eq:14}
     Ta = a_{(-2)}\vac.
   \end{equation}
   As a consequence, the data of the translation operator $T$ is redundant.
@@ -1157,7 +1168,7 @@ The vertex algebra $V$ is strongly generated by $S \subseteq V$ if
 
 An ideal of a vertex algebra $V$ is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for all $a \in V$ and $b \in I$.
 For example, the kernel of vertex algebra homomorphism is an ideal.
-Note that a right ideal $I$ is automatically $T$-invariant ($TI \subseteq I$) because of \eqref{eq:13}.
+Note that a right ideal $I$ is automatically $T$-invariant ($TI \subseteq I$) because of \eqref{eq:14}.
 Also, right ideals and $T$-invariant left ideals are automatically two-sided ideals because of skewsymmetry.
 However, to prove that a subspace is an ideal it is usally easier to check that it is $T$-invariant and a left ideal.
 It follows that for any ideal $I$, $V/I$ inherits a natural quotient vertex algebra structure $(V/I, \vac + I,T_{V/I}: V/I \to V/I, Y_{V/I}: V/I \to \mathcal{F}(V/I))$.
@@ -1188,7 +1199,7 @@ Define the following subspaces of $\mathcal{F}(V)$:
 \end{align*}
 We have inclusions
 \begin{equation*}
-  \mathcal{F} \subseteq \mathcal{F}_{\min} \subseteq \mathcal{F}_{\max} \subseteq \mathcal{F}_{tc}.
+  \mathcal{F} \subseteq \mathcal{F}_{\min} \subseteq \mathcal{F}_{\max} \subseteq \mathcal{F}_{\tc}.
 \end{equation*}
 The first inclusion is because for $a(z) \in \mathcal{F}$, $a(z)_{(-1)}\Id_V = a(z) \in \mathcal{F}_{\min}$.
 The second inclusion is by \Cref{lmm:5} and Dong's Lemma.
@@ -1210,12 +1221,12 @@ Now we come to a very fundamental theorem, which allows us to construct noncommu
     Denote by $Y: V \to \mathcal{F}(V)$ the inverse map;
   \item $(V, \vac, T, Y)$ is a vertex algebra with $Y: V \to \mathcal{F}(V)$ given explicitly by
     \begin{equation}
-      \label{eq:14}
+      \label{eq:15}
       Y(a^{j_1}_{(n_1)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac) = a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots (a^{j_s}(z)_{(n_s)}\Id_V)\dots),
     \end{equation}
     for $s \in \mathbb{N}$, $j_1, \dots, j_s \in J$ and $n_1, \dots, n_s \in \mathbb{Z}$;
   \item The vertex algebra $V$ is generated by $\{a^j_{(-1)}\vac \mid j \in J\}$;
-  \item The only vertex algebra structure on $V$ with $Y(a^j_{(-1)}\vac, z) = a^j(z)$ for $j \in J$ is the one given by \eqref{eq:14}.
+  \item The only vertex algebra structure on $V$ with $Y(a^j_{(-1)}\vac, z) = a^j(z)$ for $j \in J$ is the one given by \eqref{eq:15}.
   \end{enumerate}
 \end{theorem}
 
@@ -1223,7 +1234,7 @@ Now we come to a very fundamental theorem, which allows us to construct noncommu
   By \Cref{thr:10}, the map $\fs$ is well defined as was noted already in \Cref{sec:fields-over-vector}.
   By \Cref{thr:11}(i) and \Cref{thr:11}(iii), $\fs|_{\mathcal{F}_{\min}}: \mathcal{F}_{\mathcal{F}_{\min}} \to V$ is given by
   \begin{equation}
-    \label{eq:15}
+    \label{eq:16}
     \fs|_{\mathcal{F}_{\min}}(a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots (a^{j_s}(z)_{(n_s)}\Id_V)\dots)) = a^{j_1}_{(n_1)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac.
   \end{equation}
   By the completeness axiom of pre-vertex algebras, $\fs|_{\mathcal{F}_{\min}}$ is surjective.
@@ -1254,17 +1265,122 @@ Now we come to a very fundamental theorem, which allows us to construct noncommu
   \end{equation*}
   In particular, for $s, n_1, \dots, n_s \in \mathbb{N}$ and $a^1, \dots, a^s \in V$,
   \begin{equation}
-    \label{eq:16}
+    \label{eq:17}
     Y(a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_zY(a^1,z)\dots \partial^{n_s}_zY(a^s,z):}{n_1!\dots n_s!}.
   \end{equation}
   If $V$ is given by a pre-vertex algebra $(V, \vac, T, \mathcal{F})$ where $\mathcal{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$, then for $s, n_1, \dots, n_s \in \mathbb{N}$ and $j_1, \dots, j_s \in J$,
   \begin{equation}
-    \label{eq:17}
+    \label{eq:18}
     Y(a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_za^{j_1}(z)\dots \partial^{n_s}_za^{j_s}(z):}{n_1!\dots n_s!}.
   \end{equation}
 \end{corollary}
 
-Formulas \eqref{eq:16} and \eqref{eq:17} are used to do explicit computations.
+Formulas \eqref{eq:17} and \eqref{eq:18} are used to do explicit computations.
+Many important vertex algebras are constructed from regular formal distribution Lie superalgebras, as the following theorem states.
+
+\begin{theorem}
+  \label{thr:15}
+  Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie superalgebra with $\mathfrak{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$ and let $\mathfrak{g}_-$ be the annihilation subalgebra.
+  Since $T_0\mathfrak{g}_- \subseteq \mathfrak{g}_-$, $DU(T_0): U(\mathfrak{g}) \to U(\mathfrak{g})$ is a $(U(\mathfrak{g}), U(\mathfrak{g}_-))$-bimodule homomorphism.
+  Consider the trivial representation $0: \mathfrak{g}_- \to \mathfrak{gl}(\mathbb{C})$.
+  We define:
+  \begin{align*}
+    V &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C}) = U(\mathfrak{g}) \otimes_{U(\mathfrak{g}_-)} \mathbb{C}, \\
+    \pi &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(0): \mathfrak{g} \to \mathfrak{gl}(V), \\
+    \vac &= 1\otimes1 \in V, \\
+    T &= DU(T_0) \otimes \Id_{\mathbb{C}} \in \End(V), \\
+    \mathcal{F} &= \{\pi(a^j(z)) = \sum_{n \in \mathbb{Z}}\pi(a^j_{(n)})z^{-n - 1} \mid j \in J\}.
+  \end{align*}
+  Then $\mathcal{F}$ consists of fields and $(V, \vac, T, \mathcal{F})$ is a pre-vertex algebra.
+  By the extension theorem, $V$ is a vertex algebra, denoted by $V(\mathfrak{g}, \mathcal{F}_0, T_0)$, and is explicitly given by
+  \begin{equation}
+    \label{eq:19}
+    V = \vspan\{a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, j_1, \dots, j_s \in J\},
+  \end{equation}
+  which means $V$ is strongly generated by $\{a^j_{(-1)}\vac\}_{j\in J}$,
+  and $Y: V \to \mathcal{F}(V)$ is explicitly given by
+  \begin{equation*}
+    Y(a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_za^{j_1}(z)\dots \partial^{n_s}_za^{j_s}(z):}{n_1!\dots n_s!}
+  \end{equation*}
+  for $s, n_1, \dots, n_s \in \mathbb{N}$ and $j_1, \dots, j_s \in J$.
+\end{theorem}
+
+\begin{proof}
+  Equality \eqref{eq:19} holds by the PBW theorem.
+
+  First, we prove that $\pi(a^j(z))$ is a field for all $j \in J$.
+  We do this by induction on $s$ in $v = a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac$ where $s \in \mathbb{N}$, $n_1, \dots, n_s \in \mathbb{Z}_-$ and $j_1, \dots, j_s \in J$.
+  By \eqref{eq:19}, these elements form a spanning set for $V$.
+  For $s = 0$, we have $v = \vac$ and
+  \begin{equation*}
+    \pi(a^j(z))\vac = \sum_{n \in \mathbb{Z}} a^j_{(n)}\vac z^{-n - 1} = \sum_{n \in \mathbb{Z}_-} a^j_{(n)}\vac z^{-n - 1} \in V((z)).
+  \end{equation*}
+  The last equality is true because $a_{(n)}\vac = 0$ for $n \in \mathbb{N}$.
+  Now we proceed by proving the induction step:
+  \begin{align}
+    \nonumber
+    \pi(a^j(z))v &= \sum_{n \in \mathbb{Z}}a^j_{(n)}a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \\
+    \label{eq:20}
+    &= \sum_{n \in \mathbb{Z}} [a^j_{(n)}, a^{j_1}_{(n_1)}]a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \pm \sum_{n \in \mathbb{Z}}a^{j_1}_{(n_1)}a^j_{(n)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1}.
+  \end{align}
+  By the induction hypothesis, the second sum in \eqref{eq:20} is in $V((z))$, so we only need to show that the first sum is also in $V((z))$.
+  By \eqref{eq:5},
+  \begin{equation}
+    \label{eq:21}
+    [a^j_{(n)}, a^{j_1}_{(n_1)}] = \sum_{k \in \mathbb{N}}\binom{n}{k}(a^j(z)_{(k)}a^{j_1}(z))_{(n + n_1 - k)}.
+  \end{equation}
+  By the regularity property, we know that $a^j(z)_{(k)}a^{j_1}(z) \in \mathbb{C}[\partial_z]\mathfrak{F}$, thus we can assume that
+  \begin{equation*}
+    a^j(z)_{(k)}a^{j_1}(z) = \sum_{l \in J}f^k_l(\partial_z)a^l(z),
+  \end{equation*}
+  for some polynomials $f^k_l$.
+  Since $(a^j(z), a^{j_1}(z))$ is a local pair, there exists $N \in \mathbb{N}$ such that $a^j(z)_{(k)}a^{j_1}(z) = 0$ for $k \ge N$.
+  This allows us to rewrite \eqref{eq:21} as
+  \begin{equation*}
+    [a^j_{(n)}, a^{j_1}_{(n_1)}] = \sum_{0 \le k \le N}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}.
+  \end{equation*}
+  Therefore, we can rewrite the first sum in \eqref{eq:20} as
+  \begin{equation*}
+    \sum_{0 \le k \le N}\sum_{n \in \mathbb{Z}}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1}.
+  \end{equation*}
+  By the induction hypothesis, for each $k$,
+  \begin{equation*}
+    \sum_{n \in \mathbb{Z}}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \in V((z)).
+  \end{equation*}
+  Finally, the first sum in \eqref{eq:20} is also in $V((z))$.
+\end{proof}
+
+Usually we need to quotient the vertex algebra obtained with the previous theorem.
+
+\begin{theorem}
+  \label{thr:16}
+  Let $(\mathfrak{g},\mathcal{F}_0,T_0)$ be a regular formal distribution Lie superalgebra and $\lambda:\mathfrak{h}\to \mathbb{C}$ a linear functional where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}$.
+  Define the ideal
+  \begin{equation*}
+    I^\lambda=((a-\lambda(a))\vac\mid a\in \mathfrak{h}) \subseteq V(\mathfrak{g},F_0,T_0)
+  \end{equation*}
+  where we consider $a-\lambda(a)$ as an element of $U(\mathfrak{g})$.
+  We get a vertex algebra
+  \begin{equation*}
+    V^\lambda(\mathfrak{g},F_0,T_0)=V(\mathfrak{g},F_0,T_0)/I^\lambda
+  \end{equation*}
+  and a vertex algebra homomorphism $\pi:V(\mathfrak{g},F_0,T_0)\to V^\lambda(\mathfrak{g},F_0,T_0)$ that satisfies $\pi(a\vac)=\lambda(a)\vac$ for all $a\in \mathfrak{h}$ and is universal with this property, i.e. if $f:V(\mathfrak{g},F_0,T_0)\to W$ is a vertex algebra homomorphism such that $f(a)\vac=\lambda(a)\vac$ for all $a\in \mathfrak{h}$, then there exist a unique vertex algebra homomorphism $\bar f:V^\lambda(\mathfrak{g},F_0,T_0)\to W$ such that the following diagram commutes
+  \begin{equation*}
+    \begin{tikzcd}
+      {V(\mathfrak{g},F_0,T_0)} \arrow[rd, "f"] \arrow[r, "\pi"] & {V^\lambda(\mathfrak{g},F_0,T_0)} \arrow[d, "\bar f"] \\
+      & W                                                    
+    \end{tikzcd}
+  \end{equation*}
+  If $\mathfrak{h}\subseteq \mathfrak{g}_+$ is central and $T_0(\mathfrak{h})=0$ then
+  \begin{equation*}
+    I^\lambda=\sum_{a\in \mathfrak{h}}(a-\lambda(a))V(\mathfrak{g},F_0,T_0).
+  \end{equation*}
+  and
+  \begin{equation*}
+    V^\lambda(\mathfrak{g},F_0,T_0)\cong U(\mathfrak{g})\otimes_{U(\mathfrak{g}_-\oplus \mathfrak{h})}\mathbb{C}_\lambda
+  \end{equation*}
+  as an $\mathfrak{g}$ module, where $\mathbb{C}_\lambda=\mathbb{C}$ on which $\mathfrak{g}_-$ acts as zero and $a$ acts as $\lambda(a)$ for $a\in \mathfrak{h}$.
+\end{theorem}
 
 \printindex
 
