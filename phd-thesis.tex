@@ -4,7 +4,7 @@
 \usepackage{enumerate}
 \usepackage{hyperref}
 \usepackage[margin = 0.8in]{geometry}
-\usepackage[inline]{enumitem}
+\usepackage{enumitem}
 \usepackage{tikz-cd}
 \usepackage[nameinlink]{cleveref}
 \usepackage{stmaryrd}
@@ -17,6 +17,9 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
+
+\crefformat{section}{\S#2#1#3}
+\crefformat{subsection}{\S#2#1#3}
 
 \numberwithin{equation}{subsection}
 
@@ -46,6 +49,7 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\fs}{fs}
 \DeclareMathOperator{\tc}{tc}
+\DeclareMathOperator{\sdim}{sdim}
 
 \makeindex
 
@@ -164,7 +168,7 @@ For example, the \index{formal distribution!delta}formal delta distribution $\de
   In addition, the converse is true.
 \end{theorem}
 
-Let $V$ be a vector superspace and  $a(z) \in V[[z^{\pm 1}]]$ be a formal distribution.
+Let $V$ be a vector space and  $a(z) \in V[[z^{\pm 1}]]$ be a formal distribution.
 Define
 \begin{equation*}
   i_{z, w}a(z + w) = \sum_{n \in \mathbb{Z}} a_ni_{z, w}(z + w)^n.
@@ -227,6 +231,7 @@ A \index{vector superspace|emph}\emph{vector superspace} is a $\mathbb{Z}_2$-gra
 % Elements of $V_{\zero}$ are called \index{vector superspace!even element of |emph}\emph{even}, elements of $V_{\one}$ are called \index{vector superspace!odd element of|emph}\emph{odd}.
 We call $V_{\zero}$ the \index{vector superspace!even subspace of|emph}\emph{even subspace} of $V$ and $V_{\one}$ the \index{vector superspace!odd subspace of|emph}\emph{odd subspace} of $V$.
 Nonzero elements of $V_{\zero}\cup V_{\one}$ are called \index{vector superspace!homogeneous element of|emph}\emph{homogeneous}.
+If $V$ is finite dimensional, its we define its superdimension by setting $\sdim(V) = \dim(V_{\zero}) - \dim(V_{\one})$.
 A \index{superalgebra|emph}\emph{superalgebra} is a $\mathbb{Z}_2$-graded algebra $A = A_{\zero} \oplus A_{\one}$.
 This means $A_{\alpha}A_{\beta} \subseteq A_{\alpha + \beta}$ for all $\alpha, \beta \in \mathbb{Z}_2$.
 
@@ -262,7 +267,7 @@ With this superbracket, $A$ becomes a Lie superalgebra called the \index{associa
 The most important example of an associative superalgebra is the \index{endomorphism superalgebra}endomorphism superalgebra $\End(V)$ of a superspace $V$ with the $\mathbb{Z}_2$-grading given by:
 \index{parity!of endomorphism|emph}
 \begin{equation*}
-  \End(V)_{\alpha} = \{a \in \End(V) \mid \forall \beta \in \mathbb{Z}_2: aV_\beta \subseteq V_{\alpha + \beta}\},
+  \End(V)_{\alpha} = \{a \in \End(V) \mid \text{For }\beta \in \mathbb{Z}_2, aV_\beta \subseteq V_{\alpha + \beta}\},
 \end{equation*}
 for $\alpha \in \mathbb{Z}_2$.
 We denote $\mathfrak{gl}(V) = [\End(V)]$.
@@ -343,7 +348,7 @@ This suggest to see the $\lambda$-bracket as the generating function of the $j$-
 It allows us to gather all the $j$-products in one product alone, the price to pay being the additional formal variable $\lambda$.
 Note that for a local pair, the sum in the expansion of $[a(w)_{\lambda} b(w)]$ in terms of the $j$-products is finite, i.e.\ $[a(w)_{\lambda}b(w)] \in \mathfrak{g}[[w^{\pm 1}]][\lambda]$.
 
-\begin{theorem}[{\cite[Section 2.3]{nozaradan_introduction_2008}}]
+\begin{theorem}[{\cite[\S2.3]{nozaradan_introduction_2008}}]
   \label{thr:3}
   The $j$-products and the $\lambda$-bracket satisfy the following properties:
   \begin{enumerate}
@@ -364,7 +369,7 @@ Let $V$ be vector superspace.
 From now on, all coefficients of a formal distribution are assumed to have the same parity.
 Therefore, we can define the \index{parity!of formal distribution|emph}\emph{parity} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$ as $p(a(z)) = p(a_{(n)})$ for any $n \in \mathbb{Z}$.
 
-\begin{theorem}[{\cite[Section 2.3]{nozaradan_introduction_2008}}]
+\begin{theorem}[{\cite[\S2.3]{nozaradan_introduction_2008}}]
   \label{thr:4}
   Let $\mathfrak{g}$ be a Lie superalgebra
   The $j$-products and the $\lambda$-brackets between $\mathfrak{g}$-valued formal distributions satisfy the following properties
@@ -587,7 +592,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
 
 \begin{remark}
   \label{rmk:6}
-  The notation $L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ is contradictory with the notation we wrote in \Cref{sec:formal-calculus}.
+  The notation $L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ is contradictory with the notation we wrote in \cref{sec:formal-calculus}.
   However, this notation will acquire a meaning when we treat the notion of weight of an eigendistribution.
   In fact, this notation usually simplifies calculations, as we will see later.
 \end{remark}
@@ -712,7 +717,7 @@ A Virasoro formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with central
 \subsection{Fields over vector spaces}
 \label{sec:fields-over-vector}
 
-In this subsection, we fix a vector superspace $V = V_{\zero} \oplus V_{\one}$ and all formal distributions are $\End(V)$-valued unless otherwise stated.
+In this section, we fix a vector superspace $V = V_{\zero} \oplus V_{\one}$ and all formal distributions are $\End(V)$-valued unless otherwise stated.
 Let $a(z)$ be a formal distribution.
 Set
 \begin{align*}
@@ -1064,6 +1069,11 @@ The data must satisfy the following axioms for $a \in V$:
   The original definition with $T$ appears to be more natural, though.
 \end{remark}
 
+\begin{remark}
+  \label{rmk:9}
+  Even though a vertex algebra might be a superspace, we prefer the term vertex algebra rather than vertex superalgebra.
+\end{remark}
+
 A vertex algebra homomorphism $f: (V, \vac, T, Y) \to (V', \vac', T', Y')$ is a linear map $f: V \to V'$ such that $f(\vac) = \vac'$ and for $a, b \in V$,
 \begin{equation*}
   f(Y(a, z)b) = \sum_{n \in \mathbb{Z}}f(a_{(n)}b)z^{-n - 1} = \sum_{n \in \mathbb{Z}}f(a)_{(n)}f(b)z^{-n - 1} = Y'(f(a), z)f(b).
@@ -1071,7 +1081,7 @@ A vertex algebra homomorphism $f: (V, \vac, T, Y) \to (V', \vac', T', Y')$ is a 
 We obtain the category of vertex algebras.
 
 \begin{remark}
-  \label{rmk:9}
+  \label{rmk:10}
   It is easy to verify that category of vertex algebras is abelian in a natural way.
 \end{remark}
 
@@ -1110,28 +1120,26 @@ We obtain the category of vertex algebras.
   Therefore, we obtain an isomorphism between the category of differential algebras and the category of commutative vertex algebras.
 \end{example}
 
-The theory done in \Cref{sec:formal-calculus} and \Cref{sec:fields-over-vector} translates into the language of vertex algebras.
+The theory done in the previous sections translates into the language of vertex algebras as the following theorem shows.
 
 \begin{theorem}[Properties of vertex algebras]
   \label{thr:12}
   Let $V$ be a vertex algebra.
-  For $a, b, c \in V$ and $n, j \in \mathbb{Z}$:
+  For $a, b, c \in V$ and $m, n \in \mathbb{Z}$:
   \begin{enumerate}
   \item $Y: V \to \mathcal{F}(V)$ is injective;
-  \item $Y(a, z)\vac \in V[[z]]$ and $Y(a, z)\vac = e^{Tz}a$ so $T^ma = m!a_{(-m - 1)}\vac$ for $m \in \mathbb{N}$;
-  \item $Y(Ta, z) = \partial_zY(a, z)$;
+  \item $Y(a, z)\vac \in V[[z]]$ and $Y(a, z)\vac = e^{Tz}a$ so $T^ja = j!a_{(-j - 1)}\vac$ for $j \in \mathbb{N}$;
+  \item $Y(Ta, z) = \partial_zY(a, z)$ or, equivalently, $(Ta)_{(n)} = -na_{(n - 1)}$;
   \item ($n$-product identity) $Y(a, z)_{(n)}Y(b, z) = Y(a_{(n)}b, z)$;
+  \item$ [a_{(m)}, b_{(n)}] = \sum_{j \in \mathbb{N}}\binom{m}{j}(a_{(j)}b)_{(m + n - j)}$;
   \item ($T$ as an even derivation) $T(Y(a, z)b) = Y(Ta, z)b + Y(a, z)Tb$;
   \item $e^{Tw}Y(a,z)e^{-Tw}=i_{z,w}Y(a,z+w)$;
   \item (Borcherds identity)
     \begin{equation*}
       i_{z, w}(z - w)^nY(a, z)Y(b, w)c - p(a, b)i_{w, z}(z - w)^nY(b, w)Y(a, z)c = \sum_{j \in \mathbb{N}}Y(a_{(n + j)}b, w)\frac{\partial^j_w\delta(z, w)}{j!}c;
     \end{equation*}
-  \item (Skew-symmetry)
-    \begin{equation*}
-      Y(a, z)b = p(a, b)e^{Tz}Y(b, -z)a;
-    \end{equation*}
-  \item $(a_{(n)}b)_{(j)}c = \sum_{k \in \mathbb{N}}(-1)^k\binom{n}{k}(a_{(n - k)}b_{(j + k)}c - (-1)^np(a, b)b_{(n + j - k)}a_{(k)}c)$.
+  \item (Skew-symmetry) $Y(a, z)b = p(a, b)e^{Tz}Y(b, -z)a$;
+  \item $(a_{(n)}b)_{(m)}c = \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a_{(n - j)}b_{(m + j)}c - (-1)^np(a, b)b_{(n + m - j)}a_{(j)}c)$.
   \end{enumerate}
 \end{theorem}
 
@@ -1168,9 +1176,14 @@ The vertex algebra $V$ is strongly generated by $S \subseteq V$ if
 
 An ideal of a vertex algebra $V$ is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for all $a \in V$ and $b \in I$.
 For example, the kernel of vertex algebra homomorphism is an ideal.
-Note that a right ideal $I$ is automatically $T$-invariant ($TI \subseteq I$) because of \eqref{eq:14}.
-Also, right ideals and $T$-invariant left ideals are automatically two-sided ideals because of skewsymmetry.
-However, to prove that a subspace is an ideal it is usally easier to check that it is $T$-invariant and a left ideal.
+
+\begin{remark}
+  \label{rmk:11}
+  Note that a right ideal $I$ is automatically $T$-invariant ($TI \subseteq I$) because of \eqref{eq:14}.
+  Also, right ideals and $T$-invariant left ideals are automatically two-sided ideals because of skewsymmetry.
+  However, to prove that a subspace is an ideal, it is usually easier to check that it is $T$-invariant and a left ideal.
+\end{remark}
+
 It follows that for any ideal $I$, $V/I$ inherits a natural quotient vertex algebra structure $(V/I, \vac + I,T_{V/I}: V/I \to V/I, Y_{V/I}: V/I \to \mathcal{F}(V/I))$.
 Let $S \subseteq V$ be a subset.
 The ideal generated by $S$ is the smallest ideal containing $S$ which is the intersection of all ideals containing $S$.
@@ -1275,42 +1288,27 @@ Now we come to a very fundamental theorem, which allows us to construct noncommu
   \end{equation}
 \end{corollary}
 
-Formulas \eqref{eq:17} and \eqref{eq:18} are used to do explicit computations.
-Many important vertex algebras are constructed from regular formal distribution Lie superalgebras, as the following theorem states.
+Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie superalgebra with $\mathfrak{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$ and let $\mathfrak{g}_-$ be the annihilation subalgebra.
+Since $T_0(\mathfrak{g}_-) \subseteq \mathfrak{g}_-$, $DU(T_0): U(\mathfrak{g}) \to U(\mathfrak{g})$ is a $(U(\mathfrak{g}), U(\mathfrak{g}_-))$-bimodule homomorphism.
+Consider the trivial representation $0: \mathfrak{g}_- \to \mathfrak{gl}(\mathbb{C})$.
+We define:
+\begin{align*}
+  V &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C}) = U(\mathfrak{g}) \otimes_{U(\mathfrak{g}_-)} \mathbb{C}, \\
+  \pi &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(0): \mathfrak{g} \to \mathfrak{gl}(V), \\
+  \vac &= 1\otimes1 \in V, \\
+  T &= DU(T_0) \otimes \Id_{\mathbb{C}} \in \End(V), \\
+  \mathcal{F} &= \{\pi(a^j(z)) = \sum_{n \in \mathbb{Z}}\pi(a^j_{(n)})z^{-n - 1} \mid j \in J\}.
+\end{align*}
 
 \begin{theorem}
   \label{thr:15}
-  Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie superalgebra with $\mathfrak{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$ and let $\mathfrak{g}_-$ be the annihilation subalgebra.
-  Since $T_0\mathfrak{g}_- \subseteq \mathfrak{g}_-$, $DU(T_0): U(\mathfrak{g}) \to U(\mathfrak{g})$ is a $(U(\mathfrak{g}), U(\mathfrak{g}_-))$-bimodule homomorphism.
-  Consider the trivial representation $0: \mathfrak{g}_- \to \mathfrak{gl}(\mathbb{C})$.
-  We define:
-  \begin{align*}
-    V &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C}) = U(\mathfrak{g}) \otimes_{U(\mathfrak{g}_-)} \mathbb{C}, \\
-    \pi &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(0): \mathfrak{g} \to \mathfrak{gl}(V), \\
-    \vac &= 1\otimes1 \in V, \\
-    T &= DU(T_0) \otimes \Id_{\mathbb{C}} \in \End(V), \\
-    \mathcal{F} &= \{\pi(a^j(z)) = \sum_{n \in \mathbb{Z}}\pi(a^j_{(n)})z^{-n - 1} \mid j \in J\}.
-  \end{align*}
-  Then $\mathcal{F}$ consists of fields and $(V, \vac, T, \mathcal{F})$ is a pre-vertex algebra.
-  By the extension theorem, $V$ is a vertex algebra, denoted by $V(\mathfrak{g}, \mathcal{F}_0, T_0)$, and is explicitly given by
-  \begin{equation}
-    \label{eq:19}
-    V = \vspan\{a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, j_1, \dots, j_s \in J\},
-  \end{equation}
-  which means $V$ is strongly generated by $\{a^j_{(-1)}\vac\}_{j\in J}$,
-  and $Y: V \to \mathcal{F}(V)$ is explicitly given by
-  \begin{equation*}
-    Y(a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_za^{j_1}(z)\dots \partial^{n_s}_za^{j_s}(z):}{n_1!\dots n_s!}
-  \end{equation*}
-  for $s, n_1, \dots, n_s \in \mathbb{N}$ and $j_1, \dots, j_s \in J$.
+  With the notation above, $\mathcal{F}$ consists of fields and $(V, \vac, T, \mathcal{F})$ is a pre-vertex algebra.
 \end{theorem}
 
 \begin{proof}
-  Equality \eqref{eq:19} holds by the PBW theorem.
-
   First, we prove that $\pi(a^j(z))$ is a field for all $j \in J$.
   We do this by induction on $s$ in $v = a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac$ where $s \in \mathbb{N}$, $n_1, \dots, n_s \in \mathbb{Z}_-$ and $j_1, \dots, j_s \in J$.
-  By \eqref{eq:19}, these elements form a spanning set for $V$.
+  By \eqref{eq:21}, these elements form a spanning set for $V$.
   For $s = 0$, we have $v = \vac$ and
   \begin{equation*}
     \pi(a^j(z))\vac = \sum_{n \in \mathbb{Z}} a^j_{(n)}\vac z^{-n - 1} = \sum_{n \in \mathbb{Z}_-} a^j_{(n)}\vac z^{-n - 1} \in V((z)).
@@ -1320,13 +1318,13 @@ Many important vertex algebras are constructed from regular formal distribution 
   \begin{align}
     \nonumber
     \pi(a^j(z))v &= \sum_{n \in \mathbb{Z}}a^j_{(n)}a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \\
-    \label{eq:20}
+    \label{eq:19}
     &= \sum_{n \in \mathbb{Z}} [a^j_{(n)}, a^{j_1}_{(n_1)}]a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \pm \sum_{n \in \mathbb{Z}}a^{j_1}_{(n_1)}a^j_{(n)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1}.
   \end{align}
-  By the induction hypothesis, the second sum in \eqref{eq:20} is in $V((z))$, so we only need to show that the first sum is also in $V((z))$.
+  By the induction hypothesis, the second sum in \eqref{eq:19} is in $V((z))$, so we only need to show that the first sum is also in $V((z))$.
   By \eqref{eq:5},
   \begin{equation}
-    \label{eq:21}
+    \label{eq:20}
     [a^j_{(n)}, a^{j_1}_{(n_1)}] = \sum_{k \in \mathbb{N}}\binom{n}{k}(a^j(z)_{(k)}a^{j_1}(z))_{(n + n_1 - k)}.
   \end{equation}
   By the regularity property, we know that $a^j(z)_{(k)}a^{j_1}(z) \in \mathbb{C}[\partial_z]\mathfrak{F}$, thus we can assume that
@@ -1335,11 +1333,11 @@ Many important vertex algebras are constructed from regular formal distribution 
   \end{equation*}
   for some polynomials $f^k_l$.
   Since $(a^j(z), a^{j_1}(z))$ is a local pair, there exists $N \in \mathbb{N}$ such that $a^j(z)_{(k)}a^{j_1}(z) = 0$ for $k \ge N$.
-  This allows us to rewrite \eqref{eq:21} as
+  This allows us to rewrite \eqref{eq:20} as
   \begin{equation*}
     [a^j_{(n)}, a^{j_1}_{(n_1)}] = \sum_{0 \le k \le N}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}.
   \end{equation*}
-  Therefore, we can rewrite the first sum in \eqref{eq:20} as
+  Therefore, we can rewrite the first sum in \eqref{eq:19} as
   \begin{equation*}
     \sum_{0 \le k \le N}\sum_{n \in \mathbb{Z}}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1}.
   \end{equation*}
@@ -1347,39 +1345,306 @@ Many important vertex algebras are constructed from regular formal distribution 
   \begin{equation*}
     \sum_{n \in \mathbb{Z}}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \in V((z)).
   \end{equation*}
-  Finally, the first sum in \eqref{eq:20} is also in $V((z))$.
+  Finally, the first sum in \eqref{eq:19} is also in $V((z))$.
+
+  We now verify the four axioms of a pre-vertex algebra.
+  \begin{enumerate}
+  \item $T\vac = DU(T_0)\otimes \Id_{\mathbb{C}}(1\otimes1) = DU(T_0)(1)\otimes1 = 0\otimes1 = 0$.
+  \item Recall that $T$ is an even endomorphism.
+    For $j \in J$,
+    \begin{equation*}
+      [T, \pi(a^j(z))] = \left[T, \sum_{n \in \mathbb{Z}}\pi(a^j_{(n)})z^{-n - 1}\right] = \sum_{n \in \mathbb{Z}}[T, \pi(a^j_{(n)})]z^{-n - 1} = \sum_{n \in \mathbb{Z}}T\pi(a^j_{(n)}) - \pi(a^j_{(n)})T.
+    \end{equation*}
+    For $x \in U(\mathfrak{g})$,
+    \begin{align*}
+      T\pi(a^j_{(n)})(x\otimes1) &= T(a^j_{(n)}x\otimes1) \\
+      &= DU(T_0)(a^j_{(n)}x)\otimes1 \\
+      &= (T_0(a^j_{(n)}) + a^j_{(n)}T_0(x))\otimes1 \\
+      &= (-na^j_{(n - 1)}x + a^j_{(n)}T_0(x))\otimes1 \\
+      &= -na^j_{(n - 1)}(x\otimes1) + \pi(a^j_{(n)})T(x\otimes 1).
+    \end{align*}
+    The last two equalities imply that for all $j \in J$, $[T, \pi(a^j(z))] = \partial_z\pi(a^j(z))$.
+  \item Note that for $i, j \in J$ and $N \in \mathbb{N}$,
+    \begin{equation*}
+      (z - w)^N[\pi(a^i(z)), \pi(a^j(z))] = (z - w)^N\pi([a^i(z), a^j(z)]) = \pi((z - w)^N[a^i(z), a^j(z)]).
+    \end{equation*}
+  \item This was already done. \qedhere
+  \end{enumerate}
 \end{proof}
 
-Usually we need to quotient the vertex algebra obtained with the previous theorem.
+By the Extension theorem and the previous theorem, $V$ is a vertex algebra, denoted by $V(\mathfrak{g}, \mathfrak{F}, T_0)$, and by the PBW theorem, it is explicitly given by
+\begin{equation}
+  \label{eq:21}
+  V = \vspan\{a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, j_1, \dots, j_s \in J\}
+\end{equation}
+which means $V$ is strongly generated by $\{a^j_{(-1)}\vac\}_{j\in J}$.
+The state-field correspondence map $Y: V \to \mathcal{F}(V)$ is explicitly given by
+\begin{equation}
+  \label{eq:22}
+  Y(a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_za^{j_1}(z)\dots \partial^{n_s}_za^{j_s}(z):}{n_1!\dots n_s!}
+\end{equation}
+for $s, n_1, \dots, n_s \in \mathbb{N}$ and $j_1, \dots, j_s \in J$.
 
-\begin{theorem}
-  \label{thr:16}
-  Let $(\mathfrak{g},\mathcal{F}_0,T_0)$ be a regular formal distribution Lie superalgebra and $\lambda:\mathfrak{h}\to \mathbb{C}$ a linear functional where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}$.
-  Define the ideal
+\begin{remark}
+  \label{rmk:12}
+  The PBW theorem for Lie superalgebras is actually more precise than \eqref{eq:21}.
+  Let $\le$ be a total order on $J$.
+  Then
   \begin{equation*}
-    I^\lambda=((a-\lambda(a))\vac\mid a\in \mathfrak{h}) \subseteq V(\mathfrak{g},F_0,T_0)
+    \begin{split}
+      V = \vspan\{a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac &\mid s, n_1, \dots, n_s \in \mathbb{N}, j_1, \dots, j_s \in J\text{ and for } k = 1, \dots, s - 1,\\
+      &\quad \text{if }a^{j_k}_{(n_k)},a^{j_{k + 1}}_{(n_{k + 1})}\in V_{\one},\text{ then }j_k < j_{k + 1}\}.
+    \end{split}
   \end{equation*}
-  where we consider $a-\lambda(a)$ as an element of $U(\mathfrak{g})$.
-  We get a vertex algebra
-  \begin{equation*}
-    V^\lambda(\mathfrak{g},F_0,T_0)=V(\mathfrak{g},F_0,T_0)/I^\lambda
-  \end{equation*}
-  and a vertex algebra homomorphism $\pi:V(\mathfrak{g},F_0,T_0)\to V^\lambda(\mathfrak{g},F_0,T_0)$ that satisfies $\pi(a\vac)=\lambda(a)\vac$ for all $a\in \mathfrak{h}$ and is universal with this property, i.e. if $f:V(\mathfrak{g},F_0,T_0)\to W$ is a vertex algebra homomorphism such that $f(a)\vac=\lambda(a)\vac$ for all $a\in \mathfrak{h}$, then there exist a unique vertex algebra homomorphism $\bar f:V^\lambda(\mathfrak{g},F_0,T_0)\to W$ such that the following diagram commutes
+\end{remark}
+
+\begin{remark}
+  \label{rmk:13}
+  We have constructed a functor
+  \begin{align*}
+    VA: \{\text{regular formal distribution Lie superalgebra}\} &\to \{\text{vertex algebras}\} \\
+    (\mathfrak{g}, \mathfrak{F}, T_0) &\mapsto V(\mathfrak{g}, \mathfrak{F}, T_0).
+  \end{align*}
+  By \Cref{rmk:5}, we could've constructed a functor (see~\cite[Theorem 2.15]{li_vertex_2004})
+  \begin{align*}
+    VA: \{\text{Lie conformal superalgebras}\} &\to \{\text{vertex algebras}\} \\
+    \mathcal{R} &\mapsto VA(\mathcal{R}).
+  \end{align*}
+\end{remark}
+
+Usually we need to quotient the vertex algebras obtained this way.
+Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie superalgebra and $\lambda: \mathfrak{h} \to \mathbb{C}$ a linear functional where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
+Denote by $I^{\lambda}$ the $\mathfrak{g}$-submodule of $V(\mathfrak{g}, \mathfrak{F}, T_0)$ generated by the vectors $(a - \lambda(a))\vac$ for $a \in \mathfrak{h}$.
+For $a \in \mathfrak{h}$ and $x \in U(\mathfrak{g})$,
+\begin{align*}
+  T(x(a - \lambda(a))\vac) &= DU(T_0)(x(a - \lambda(a)))\otimes1 \\
+  &= (DU(T_0)(x)(a - \lambda(a)) + xDU(T_0)(a - \lambda(a)))\otimes1 \\
+  &= DU(T_0)(x)(a - \lambda(a))\otimes1 \\
+  &= DU(T_0)(x)(a - \lambda(a))\vac.
+\end{align*}
+Thus, $I^{\lambda}$ is $T$-invariant.
+By \Cref{thr:15}, $\{a^j_{(-1)}\vac \}_{j \in J}$ strongly generates $V$ and from this we see that $I^{\lambda}$ is a left ideal.
+By \Cref{rmk:11}, $I^{\lambda}$ is an ideal of $V(\mathfrak{g}, \mathfrak{F}, T_0)$.
+We get a vertex algebra denoted by
+\begin{equation*}
+  V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) = V(\mathfrak{g}, \mathfrak{F}, T_0)/I^{\lambda}.
+\end{equation*}
+
+Let $\mathbb{C}_{\lambda}$ be the representation of $\mathfrak{g}_- \oplus \mathfrak{h}$ on which $\mathfrak{g}_-$ acts as $0$ and $a$ acts as $\lambda(a)$ for $a \in \mathfrak{h}$.
+Using the universal property of the induced representation, we find a $\mathfrak{g}$-module homomorphism $\Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C}) \to \Ind^{\mathfrak{g}}_{\mathfrak{g}_- \oplus \mathfrak{h}}(\mathbb{C}_{\lambda})$.
+By the universal property of the quotient, we find a homomorphism of $\mathfrak{g}$-modules $f: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) \to \Ind^{\mathfrak{g}}_{\mathfrak{g}_- \oplus \mathfrak{h}}(\mathbb{C}_{\lambda})$ such that the following diagram commutes
+\begin{equation*}
+  \begin{tikzcd}
+    {\Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C})} \arrow[rd] \arrow[r] & {V^\lambda(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[d, "f"] \\
+    & \Ind^{\mathfrak{g}}_{\mathfrak{g}_- \oplus \mathfrak{h}}(\mathbb{C}_{\lambda})
+  \end{tikzcd}
+\end{equation*}
+Using again the universal property of the induced representation we find a homomorphism $g: \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C}) \to V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$.
+We can verify that $f$ and $g$ are inverses of each other.
+Therefore, it is better to think of $V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ as being $\Ind^{\mathfrak{g}}_{\mathfrak{g}_- \oplus \mathfrak{h}}(\mathbb{C}_{\lambda}) = U(\mathfrak{g})\otimes_{U(\mathfrak{g}_- \oplus \mathfrak{h})}\mathbb{C}$.
+We now use this construction to obtain several important examples of vertex algebras.
+
+\begin{remark}
+  \label{rmk:14}
+  The vertex algebra $V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ comes equipped with a vertex algebra homomorphism $\pi: V(\mathfrak{g}, \mathfrak{F}, T_0) \to V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ that satisfies $\pi(a\vac) = \lambda(a)\vac$ for all $a \in \mathfrak{h}$ and is universal with this property, i.e. if $f: V(\mathfrak{g}, \mathfrak{F}, T_0)\to W$ is a vertex algebra homomorphism such that $f(a)\vac = \lambda(a)\vac$ for all $a \in \mathfrak{h}$, then there exist a unique vertex algebra homomorphism $\bar{f}: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)\to W$ such that the following diagram commutes
   \begin{equation*}
     \begin{tikzcd}
-      {V(\mathfrak{g},F_0,T_0)} \arrow[rd, "f"] \arrow[r, "\pi"] & {V^\lambda(\mathfrak{g},F_0,T_0)} \arrow[d, "\bar f"] \\
+      {V(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[rd, "f"] \arrow[r, "\pi"] & {V^\lambda(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[d, "\bar f"] \\
       & W                                                    
     \end{tikzcd}
   \end{equation*}
-  If $\mathfrak{h}\subseteq \mathfrak{g}_+$ is central and $T_0(\mathfrak{h})=0$ then
+\end{remark}
+
+\begin{example}[Universal Virasoro vertex algebra with central charge $c$]
+  \label{exa:5}
+  Pick $c \in \mathbb{C}$.
+  Take $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ as the regular formal distribution Lie superalgebra as constructed in \Cref{exa:1} and $\lambda: \mathbb{C}C \to \mathbb{C}, \lambda(C) = c$ as the linear functional.
+  The resulting vertex algebra is the Universal Virasoro vertex algebra with central charge $c$, denoted by $\Vir^c$.
+
+  A partition (of $n \in \mathbb{N}$) is a sequence $\lambda = [\lambda_1, \dots, \lambda_m]$ such that $\lambda_i \in \mathbb{Z}_+$ for $i = 1, \dots, m$, $\lambda_1 \ge \dots \ge \lambda_m$ (and $\lambda_1 + \dots + \lambda_m = n$).
+  We also consider the empty partition $\emptyset$ which is the unique partition of $0$.
+  By \Cref{rmk:12}, for any $c \in \mathbb{C}$, a basis for $\Vir^c$ is given by
   \begin{equation*}
-    I^\lambda=\sum_{a\in \mathfrak{h}}(a-\lambda(a))V(\mathfrak{g},F_0,T_0).
+    \{L_{\lambda_1}\dots L_{\lambda_m}\vac \mid [\lambda_1, \dots, \lambda_m]\text{ is a partition}\}.
   \end{equation*}
-  and
+  When we deal with conformal vertex algebras, we will explain why is this vertex algebra called universal.
+\end{example}
+
+\begin{example}[Universal affine vertex algebra of level $k$]
+  \label{exa:6}
+  Pick $k \in \mathbb{C}$.
+  Take $(\hat{\mathfrak{g}}, \{a(z) \mid a \in \mathfrak{g}\} \cup \{K\}, -\partial_t)$ as the regular formal distribution Lie superalgebra as constructed in \Cref{exa:2} and $\lambda: \mathbb{C}K \to \mathbb{C}, \lambda(K) = k$ as the linear functional.
+  The resulting vertex algebra is the Universal affine vertex algebra of level $k$, denoted by $V^k(\mathfrak{g})$.
+\end{example}
+
+\begin{example}[Fermionic vertex algebra]
+  \label{exa:7}
+  Take $(\widehat{V}, \{a(z) \mid a \in V\} \cup \{K\}, -\partial_t)$ as the regular formal distribution Lie superalgebra as constructed in \Cref{exa:3} and $\lambda: \mathbb{C}K \to \mathbb{C}, \lambda(K) = 1$ as the linear functional.
+  The resulting vertex algebra is the fermionic vertex algebra, denoted by $F(V)$.
+\end{example}
+
+\subsection{Graded and conformal vertex algebras}
+\label{sec:grad-conf-vert}
+
+Let $V$ be a vertex algebra.
+A Hamiltonian operator $H$ is a diagonalizable operator on $V$ such that
+\begin{equation}
+  \label{eq:23}
+  [H, Y(a, z)] = z\partial_zY(a, z) + Y(Ha, z) \quad \text{for }a \in V.
+\end{equation}
+A vertex algebra with a Hamiltonian operator is called graded.
+The grading of $V$ is the eigenspace decomposition for $H$:
+\begin{equation*}
+  V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta},
+\end{equation*}
+where
+\begin{equation*}
+  V_{\Delta} = \{v \in V \mid Hv = \Delta v\}.
+\end{equation*}
+If $a$ is an eigenvector of $H$, it is called homogeneous, its eigenvalue is called the conformal weight of $a$ and it is denoted by $\Delta_a$.
+Equation \eqref{eq:23} is equivalent to
+\begin{equation}
+  \label{eq:24}
+  [H,a_{(n)}] = -(n + 1)a_{(n)} + (Ha)_{(n)} \quad \text{for } a \in V\text{ and } n \in \mathbb{Z}
+\end{equation}
+and to
+\begin{equation}
+  \label{eq:25}
+  [H, a_{(n)}] = (\Delta_a - n - 1)a_{(n)} \quad \text{for } a \in V\text{ homogeneous and } n \in \mathbb{Z}.
+\end{equation}
+If we write $Y(a,z)=\sum_{n\in \mathbb{Z}-\Delta}a_nz^{-n-\Delta}$, then due to the equality $a_{(n)} = a_{n - \Delta_a + 1}$ for homogeneous $a$, \eqref{eq:25} is equivalent to
+\begin{equation*}
+  [H, a_n] = -na_n \quad \text{for } a \in V\text{ homogeneous and } n \in \mathbb{Z}.
+\end{equation*}
+
+\begin{theorem}[{\cite[\S4.9]{kac_vertex_1998}}]
+  \label{thr:16}
+  Let $V$ be a vertex algebra with a Hamiltonian $H$ and grading $V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}$.
+  Then:
+  \begin{enumerate}
+  \item $H\vac = 0$ which means that $\Delta_{\vac} = 0$;
+  \item $[H, T] = T$;
+  \item $[T, a_n] = (-n - \Delta_a + 1)a_{n - 1}$ for $a \in V$ homogeneous and $n \in \mathbb{Z} - \Delta_a$;
+  \item $a_nV_{\Delta} \subseteq V_{\Delta - n}$ for $a \in V$ homogeneous, $\Delta \in \mathbb{C}$ and $n \in \mathbb{Z} - \Delta_a$;
+  \item $TV_\Delta \subseteq V_{\Delta + 1}$ or equivalently $\Delta_{Ta} = \Delta_a + 1$ for homogeneous $a \in V$;
+  \item $\Delta_{a_{(n)}b} = \Delta_a + \Delta_b - n - 1$ for $a, b \in V$ homogeneous and $n \in \mathbb{Z}$.
+  \end{enumerate}
+\end{theorem}
+
+A $\mathbb{Z}$, $\mathbb{N}$ or $\frac{1}{m}\mathbb{N}$-graded vertex algebra $V$ ($m \in \mathbb{Z}_+$) is a graded vertex algebra $V$ such that $V_{\Delta} = 0$ for $\Delta \notin \mathbb{Z}$, $\mathbb{N}$ or $\frac{1}{m}\mathbb{N}$, respectively.
+
+Let $V$ be a vertex algebra.
+A conformal vector of central charge $c \in \mathbb{C}$ of $V$ is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
+\begin{enumerate}
+\item $Y(\omega, z)$ is a Virasoro formal distribution with central charge $C = c\Id_V$;
+\item $L_{-1} = T$;
+\item $L_0$ is diagonalizable. 
+\end{enumerate}
+
+A conformal vertex algebra (of central charge $c$) is a vertex algebra $V$ together with a conformal vector $\omega$ (of central charge $c$).
+
+\begin{remark}
+  \label{rmk:16}
+  Because of property (ii), a conformal vector $\omega$ is necessarily even.
+  Note that $\omega_{(n)} = L_{n - 1}$ for $n \in \mathbb{Z}$.
+\end{remark}
+
+\begin{theorem}
+  \label{thr:17}
+  If $\omega$ is a conformal vector for $V$, then $L_0$ is a Hamiltonian for $V$ and for $a \in V$, $Y(a, z)$ is an eigendistribution of conformal weight $\Delta_a$ with respect to $Y(\omega, z)$ if and only if $a$ is homogeneous of conformal weight $\Delta_a$.
+  Moreover, $\omega$ has conformal weight $2$.
+\end{theorem}
+
+\begin{proof}
+  By \Cref{thr:12}(iii) and \Cref{thr:12}(v), for $a \in V$ homogeneous and $n \in \mathbb{Z}$,
+  \begin{align*}
+    [L_0, a_{(n)}] &= [\omega_{(1)}, a_{(n)}] \\
+    &= \sum_{j \in \mathbb{N}}\binom{1}{j}(\omega_{(1)}a)_{1 + n - j} \\
+    &= (\omega_{(0)}a)_{( n + 1)} + (\omega_{(1)}a)_{(n)} \\
+    &= (Ta)_{(n + 1)} + (L_0a)_{(n)} \\
+    &= -(n + 1)a_{(n)} + (L_0a)_{(n)}.
+  \end{align*}
+  By \eqref{eq:24}, this is equivalent to $L_0$ being a Hamiltonian for $V$.
+
+  By the $n$-product identity for vertex algebras and \Cref{thr:12}(iii), for $a \in V$,
+  \begin{align*}
+    [Y(\omega, z)_{\lambda}Y(a, z)] &= \sum_{j \in \mathbb{N}}\frac{Y(\omega, z)_{(j)}Y(a, z)}{j!}\lambda^j \\
+    &= \sum_{j \in \mathbb{N}}\frac{Y(\omega_{(j)}a, z)}{j!}\lambda^j \\
+    &= Y(Ta, z) + Y(L_0a, z)\lambda + O(\lambda^2) \\
+    &= \partial_zY(a, z) + Y(L_0a, z)\lambda + O(\lambda^2).
+  \end{align*}
+  Because $Y: V \to \mathcal{F}(V)$ is injective, this implies that $[Y(\omega, z)_{\lambda}Y(a, z)] = \partial_zY(a, z) + \Delta_aY(a, z)\lambda + O(\lambda^2)$ if and only if $L_0a = \Delta_aa$.
+  As $Y(\omega, z)$ has conformal weight $2$ with respect to itself, $\omega$ has conformal weight $2$.
+\end{proof}
+
+\begin{remark}
+  \label{rmk:15}
+  A conformal vertex algebra can have many different conformal vectors, see \cite[2.5.9. Examples.]{frenkel_vertex_2001}
+\end{remark}
+
+We can naturally endow $V$ with the structure of a Lie conformal superalgebra by taking $\partial = T$ and defining the following $\lambda$-bracket on $V$:
+\begin{align*}
+  [\bullet_{\lambda}\bullet]: V \times V &\to V[\lambda] \\
+  [a_{\lambda}b] &= F^{\lambda}(a(z)b) = \sum_{j \in \mathbb{N}}(a_{(j)}b)\frac{\lambda^j}{j!}.
+\end{align*}
+To verify the Lie conformal superalgebra axioms we do the following:
+Set $\mathcal{G}=\{Y(a,z)\mid a\in V\}$.
+Then $\mathcal{G}\subseteq \mathcal{F}(V)$ is a Lie conformal superalgebra and the following diagram commutes:
+\begin{equation*}
+  \begin{tikzcd}
+    V\times V \arrow[d, "{[\bullet_{\lambda}\bullet]_V}"] \arrow[r, "Y\times Y"] & \mathcal{G}\times\mathcal{G} \arrow[d, "{[\bullet_{\lambda}\bullet]_{\mathcal{G}}}"] \\
+    {V[\lambda]} \arrow[r, "{Y[\lambda]}"]                       & {\mathcal{G}[\lambda]}                                                 
+  \end{tikzcd}
+\end{equation*}
+As $Y: V \to \mathcal{F}(V)$ is injective, we obtain that $V$ itself is a Lie conformal superalgebra.
+We have constructed a functor
+\begin{align*}
+  LCA: \{\text{Vertex algebras}\} &\to \{\text{Lie conformal superalgebras}\} \\
+  V &\mapsto (V, T, [\bullet_{\lambda}\bullet])
+\end{align*}
+
+\begin{remark}
+  \label{rmk:17}
+  Recall the functor $VA: \{\text{Lie conformal superalgebras}\} \to \{\text{Vertex algebras}\}$ constructed in \Cref{rmk:13}.
+  We could prove that $(VA, LCA)$ is an adjoint pair of functors:
   \begin{equation*}
-    V^\lambda(\mathfrak{g},F_0,T_0)\cong U(\mathfrak{g})\otimes_{U(\mathfrak{g}_-\oplus \mathfrak{h})}\mathbb{C}_\lambda
+    \Hom(VA(\mathcal{R}), V) \cong \Hom(\mathcal{R}, LCA(V)).
   \end{equation*}
-  as an $\mathfrak{g}$ module, where $\mathbb{C}_\lambda=\mathbb{C}$ on which $\mathfrak{g}_-$ acts as zero and $a$ acts as $\lambda(a)$ for $a\in \mathfrak{h}$.
+\end{remark}
+
+\begin{example}
+  \label{exa:8}
+  It is straightforward to verify that for any $c \in \mathbb{C}$, $\Vir^c$ is a conformal vertex algebra with conformal vector $\omega = L_{-2}\vac$.
+\end{example}
+
+\begin{example}[Sugawara construction {\cite[Theorem 5.7]{kac_vertex_1998}}]
+  \label{exa:9}
+  Recall the universal affine vertex algebra of level $k$ of \Cref{exa:6} and assume that $\mathfrak{g}$ is simple.
+  Let $(a_i), (b^i)$ be dual bases of $(\bullet| \bullet)$, which means $(a_i| b^j) = \delta_{ij}$.
+  Denote by $c_{\mathfrak{g}} = \sum_ia_ib^i \in U(\mathfrak{g})$ the universal Casimir element of $\mathfrak{g}$.
+  Let $2h^{\wedge}$ be the eigenvalue of $\ad(c_{\mathfrak{g}}) \in \End(\mathfrak{g})$ in the adjoint representation, i.e.\ $\ad(c_{\mathfrak{g}}) = \sum_i\ad(a_i)\ad(b^i) = 2h^{\wedge}\Id_V$. 
+  Assume $k \neq -h^\wedge$.
+  Set
+  \begin{equation*}
+    \omega = \frac{1}{2(k + h^\wedge)}\sum_ia_it^{-1}b^it^{-1}\vac \in V^k(\mathfrak{g}).
+  \end{equation*}
+  Then $\omega$ is a conformal vector with central charge $\frac{k \sdim\mathfrak{g}}{2(k + h^\wedge)}$ and for any $a\in \mathfrak{g}$, $a(z)$ is a primary eigendistribution of weight $1$.
+\end{example}
+
+\begin{example}[{\cite[Proposition 4.10]{kac_vertex_1998}}]
+  \label{exa:10}
+  Recall the fermionic vertex algebra of \Cref{exa:7}.
+  Let $(a_i)_{i \in I}$ and $(b^i)_{i \in I}$ be a pair of dual bases of $V$, i.e.\ $<a_i, b^i> = \delta_{ij}$
+  Set
+  \begin{equation*}
+    \omega = \frac{1}{2}\sum_{i \in I}:(T(b^it^{-1}\vac))a_it^{-1}\vac:\in F(V).
+  \end{equation*}
+  Then $\omega$ is a conformal vector with central charge $-\frac{1}{2}\sdim(V)$ and all fields $a(z)$ where $a \in V$ are primary of comformal weight $1/2$.
+\end{example}
+
+\begin{theorem}[Universal property of $\Vir^c$]
+  \label{thr:18}
+  Let $V$ be a conformal.
 \end{theorem}
 
 \printindex
