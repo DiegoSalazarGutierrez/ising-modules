@@ -81,11 +81,11 @@
 \label{sec:formal-calculus}
 
 All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers.
-The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$ and the set of negative integers $\{-1, -2, \dots, \}$ is denoted by $\mathbb{Z}_-$.
+The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$ and the set of negative integers $\{-1, -2, \dots\}$ is denoted by $\mathbb{Z}_-$.
 
-The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}X^{m_1}\dots X^{m_n} $ with the natural operations of addition and multiplication by a scalar.
+The vector space of \index{formal distribution|emph}\emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f(X_1, \dots, X_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}X_1^{m_1}\dots X_n^{m_n} $ with the natural operations of addition and multiplication by a scalar.
 The field of \index{rational function|emph}\emph{rational functions} in $n$ variables, denoted by $\mathbb{C}(X_1, \dots, X_n)$, is the field of fractions $\Frac(\mathbb{C}[X_1, \dots, X_n])$.
-The field of \index{formal Laurent series|emph}\emph{formal Laurent series} is the subalgebra of elements $f \in \mathbb{C}[[Z^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
+The field of \index{formal Laurent series|emph}\emph{formal Laurent series} is the subalgebra of elements $f(X) \in \mathbb{C}[[X^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
 We also have $\mathbb{C}((X)) = \Frac(\mathbb{C}[[X]])$.
 The field of \index{joint Laurent series|emph}\emph{joint Laurent series} in $n$ variables, denoted by $\mathbb{C}((X_1, \dots, X_n))$, is $\Frac(\mathbb{C}[[X_1, \dots, X_n]])$.
 
@@ -1449,7 +1449,7 @@ We now use this construction to obtain several important examples of vertex alge
   The vertex algebra $V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ comes equipped with a vertex algebra homomorphism $\pi: V(\mathfrak{g}, \mathfrak{F}, T_0) \to V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ that satisfies $\pi(a\vac) = \lambda(a)\vac$ for all $a \in \mathfrak{h}$ and is universal with this property, i.e. if $f: V(\mathfrak{g}, \mathfrak{F}, T_0)\to W$ is a vertex algebra homomorphism such that $f(a)\vac = \lambda(a)\vac$ for all $a \in \mathfrak{h}$, then there exist a unique vertex algebra homomorphism $\bar{f}: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)\to W$ such that the following diagram commutes
   \begin{equation*}
     \begin{tikzcd}
-      {V(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[rd, "f"] \arrow[r, "\pi"] & {V^\lambda(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[d, "\bar f"] \\
+      {V(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[rd, "f"] \arrow[r, "\pi"] & {V^\lambda(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[d, "\bar{f}"] \\
       & W                                                    
     \end{tikzcd}
   \end{equation*}
@@ -1544,7 +1544,7 @@ A conformal vector of central charge $c \in \mathbb{C}$ of $V$ is a vector $\ome
 A conformal vertex algebra (of central charge $c$) is a vertex algebra $V$ together with a conformal vector $\omega$ (of central charge $c$).
 
 \begin{remark}
-  \label{rmk:16}
+  \label{rmk:15}
   Because of property (ii), a conformal vector $\omega$ is necessarily even.
   Note that $\omega_{(n)} = L_{n - 1}$ for $n \in \mathbb{Z}$.
 \end{remark}
@@ -1578,7 +1578,7 @@ A conformal vertex algebra (of central charge $c$) is a vertex algebra $V$ toget
 \end{proof}
 
 \begin{remark}
-  \label{rmk:15}
+  \label{rmk:16}
   A conformal vertex algebra can have many different conformal vectors, see \cite[2.5.9. Examples.]{frenkel_vertex_2001}
 \end{remark}
 
@@ -1642,10 +1642,369 @@ We have constructed a functor
   Then $\omega$ is a conformal vector with central charge $-\frac{1}{2}\sdim(V)$ and all fields $a(z)$ where $a \in V$ are primary of comformal weight $1/2$.
 \end{example}
 
+A homomorphism $(V, \omega) \to (V', \omega')$ of conformal vertex algebras is a homomorphism of vertex algebras such that $\omega \mapsto \omega'$.
+
 \begin{theorem}[Universal property of $\Vir^c$]
   \label{thr:18}
-  Let $V$ be a conformal.
+  Let $V$ be a conformal vertex algebra with conformal vector $\omega$.
+  There exists a unique homomorphism of conformal vertex algebras $\Vir^c \to V$.
 \end{theorem}
+
+\begin{proof}
+  Let $\Vir$ also denote the Virasoro Lie conformal algebra.
+  Because $V$ is conformal, the map
+  \begin{align*}
+    g: \Vir &\to LCA(V) \\
+    g(L) &= \omega \\
+    g(C) &= c\vac
+  \end{align*}
+  gives a homomorphism of Lie conformal superalgebras.
+  By \Cref{rmk:17}, we obtain a homomorphism
+  \begin{align*}
+    f: VA(\Vir) &\to V \\
+    f(L_{-2}\vac) &= \omega \\
+    f(C) &= c\vac.
+  \end{align*}
+  Using the universal property of $\Vir^c$ (cf.\ \Cref{rmk:14}), we obtain our desired homomorphism of vertex algebras $\bar{f}: \Vir^c \to V$ such that $\bar{f}(L_{-2}\vac) = \omega$.
+  As $\{L_{-2}\vac\}$ strongly generates $\Vir^c$ and a homomorphism of conformal vertex algebras is required to send $L_{-2}\vac$ to $\omega$, $\bar{f}$ is the only homomorphism of conformal vertex algebras $\Vir^c \to V$.
+  
+  Alternatively, we could use \Cref{thr:20} ahead to obtain a state-field correspondence $f: \Vir^c \to \mathcal{F}(V)$.
+  Actually, the image of $f$ is contained in the image of the state-field correspondence $Y^V: V \to \mathcal{F}(V)$.
+  Because $Y^V$ is injective, we can simply define $\bar{f} = (Y^V)^{-1}\circ f$.
+\end{proof}
+
+A vertex operator algebra (of central charge $c$) is a $\mathbb{Z}$-graded vertex algebra $V$ (of central charge $c$) such that $\dim(V)_{\Delta} < \infty$ for all $\Delta \in \mathbb{Z}$ and $V_{\Delta} = 0$ for $\Delta$ sufficiently small.
+
+\subsection{Modules over vertex algebras}
+\label{sec:modules-over-vertex}
+
+Let $V$ be a vertex algebra.
+A $V$-module or representation of $V$ is a vector space $M$ together with a linear parity preserving map
+\begin{align*}
+  Y^M(\bullet, z): V &\to \mathcal{F}(M) \\
+  a &\mapsto Y^M(a,z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}
+\end{align*}
+satisfying
+\begin{enumerate}
+\item $Y(\vac,z) = \Id_M$.
+\item (Borcherds identity) For $a, b \in V$, $c \in M$ and $m, n, k\in \mathbb{Z}$,
+  \begin{equation*}
+    \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}\left(a^M_{(m + n - j)}(b^M_{(k + j)}c) - (-1)^np(a, b)b^M_{(n + k - j)}(a^M_{(m + j)}c)\right) = \sum_{j \in \mathbb{N}}\binom{m}{j}(a_{(n + j)}b)^M_{(m + k - j)}c.
+  \end{equation*}
+\end{enumerate}
+The vertex algebra $V$ is clearly a $V$-module and is sometimes called the adjoint representation of $V$.
+A submodule of $M$ is a subspace $U$ of $M$ such that $Y^M(a, z)m \in U((x))$ for $a \in V$ and $m \in U$, i.e.\ $a^M_{(n)} m \in U$ for all $n\in \mathbb{Z}$.
+The quotient module $M/U$ is defined in the usual way.
+A module whose only submodules are $0$ and itself is called simple or irreducible.
+Most of the theorems about vertex algebras and their proofs carry over to modules over vertex algebras (cf. \Cref{thr:12}) as the following theorem shows.
+
+\begin{theorem}
+  \label{thr:19}
+  Let $V$ be a vertex algebra, $Y^M:V\to \mathcal{F}(M)$ a $V$-module, $a, b\in V$, $c \in M$ and $m, n \in \mathbb{Z}$.
+  Then:
+  \begin{enumerate}
+  \item $(\vac)^M_{(n)} = \delta_{n, -1}\Id_M$;
+  \item $Y^M(Ta,z)=\partial_zY^M(a,z)$ or, equivalently, $(Ta)^M_{(n)} = -na^M_{(n - 1)}$;
+  \item All fields $Y^M(a,z)$ are mutually local;
+  \item ($n$-product identity) $Y^M(a,z)_{(n)}Y^M(b,z)=Y^M(a_{(n)}b,z)$;
+  \item $[a^M_{(m)},b^M_{(n)}]=\sum_{j\in \mathbb{N}}(a_{(j)}b)^M_{(m+n-j)}$;
+  \item $e^{Tw}Y^M(a,z)e^{-Tw}=i_{z,w}Y^M(a,z+w)$;
+  \item (Borcherds identity)
+    \begin{equation}
+      \label{eq:26}
+      i_{z,w}(z-w)^nY^M(a,z)Y^M(b,w)c-p(a,b)i_{w,z}(z-w)^nY^M(b,w)Y^M(a,z)c=\sum_{j\in \mathbb{N}}Y^M(a_{(n+j)}b,w)\frac{\partial^j_w\delta(z,w)}{j!}c;
+    \end{equation}
+  \item $(a_{(n)}b)^M_{(m)}c = \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a^M_{(n - j)}b^M_{(m + j)}c - (-1)^np(a, b)b^M_{(n + m - j)}a^M_{(j)}c)$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+  \label{rmk:18}
+  A $V$-module is equivalently a vector space $M$ such that (i), (v) and (viii) in \Cref{thr:19} hold.
+\end{remark}
+
+\begin{remark}
+  \label{rmk:19}
+  In contrast to vertex algebras, the map $Y^M: V \to \mathcal{F}(M)$ is in general not injective for a module $M$ over a vertex algebra $V$.
+\end{remark}
+
+Let $V$ be a vertex algebra and let $M$ a $V$-module.
+We say  $T^M \in \End(M)$ is a differential of $M$ if
+\begin{equation*}
+  [T^M, a^M_{(n)}] = -na^M_{(n - 1)} \text{for } a \in V\text{ and }n \in \mathbb{Z}
+\end{equation*}
+or, equivalently,
+\begin{equation*}
+  [T^M, Y^M(a, z)] = Y^M(Ta,z).
+\end{equation*}
+A differential $V$-module is a $V$-module equipped with a differential.
+
+Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie superalgebra with $\mathfrak{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$.
+A smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module is a $\mathfrak{g}$-module $M$ such for $j \in J$ and $m \in M$, $a^j(z)m \in M((z))$.
+Let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
+We say $\mathfrak{h}$ acts as $\lambda$ if for $h \in \mathfrak{h}$ and $m \in M$, $hm = \lambda(m)m$.
+
+
+\begin{theorem}[{\cite[Theorem 2.15]{li_vertex_2004}}]
+  \label{thr:20}
+  Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie superalgebra with $\mathfrak{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$.
+  Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$ there is a unique module structure $Y^M: V(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that for $j \in J$ and $m \in M$, $Y^M(a^j_{(-1)}\vac)m = a^j(z)m$.
+  Let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
+  Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$ where $h$ acts as $\lambda$ there is a unique module structure $Y^M: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that for $j \in J$ and $m \in M$, $Y^M(a^j_{(-1)}\vac)m = a^j(z)m$.
+\end{theorem}
+
+\begin{remark}
+  \label{rmk:20}
+  We define in a natural way the categories $\{\text{smooth }(\mathfrak{g}, \mathfrak{F}, T_0)\text{-modules}\}$ and $\{\text{smooth }(\mathfrak{g}, \mathfrak{F}, T_0)\text{-modules where }\mathfrak{h}\text{ acts as }\lambda\}$.
+  \Cref{thr:20} constructs a pair of functors
+  \begin{align*}
+    \{\text{smooth }(\mathfrak{g}, \mathfrak{F}, T_0)\text{-modules}\} &\to V(\mathfrak{g}, \mathfrak{F}, T_0)\text{-mod} \\
+    \{\text{smooth }(\mathfrak{g}, \mathfrak{F}, T_0)\text{-modules where }\mathfrak{h}\text{ acts as }\lambda\} &\to V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)\text{-mod}
+  \end{align*}
+\end{remark}
+
+Let $M$ be a module of a graded vertex algebra $V$ with Hamiltonian operator $H$. 
+A Hamiltonian operator of $M$ is a diagonalizable operator $H^M \in \End(M)$ such that
+\begin{equation}
+  \label{eq:27}
+  [H^M, Y^M(a, z)] = z\partial_zY^M(a, z) + Y^M(Ha, z) \quad \text{for }a \in V.
+\end{equation}
+A $V$-module together with a Hamiltonian operator is called graded.
+The grading of $M$ is the eigenspace decomposition for $H^M$:
+\begin{equation*}
+  M = \bigoplus_{\Delta \in \mathbb{C}}M_{\Delta},
+\end{equation*}
+where
+\begin{equation*}
+  M_{\Delta} = \{m \in M \mid H^Mm = \Delta m\}.
+\end{equation*}
+
+\begin{theorem}
+  \label{thr:21}
+  Let $V$ be a graded vertex algebra with Hamiltonian $H$ and $M$ a graded $V$-module with Hamiltonian $H^M$.
+  Then:
+  \begin{enumerate}
+  \item $a^M_nM_\Delta\subseteq M_{\Delta - n}$ for $a$ homogeneous and $n \in \mathbb{Z}-\Delta_a$;
+  \item $\Delta_{a^M_{(n)}m}=\Delta_a+\Delta_m-n-1$ for homogeneous $a\in V$, $m\in M$ and $n\in \mathbb{Z}$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  The proof for \Cref{thr:16} also works here.
+\end{proof}
+
+\begin{theorem}[{\cite[Proposition 4.1.5 and (4.1.18)]{lepowsky_introduction_2004}}]
+  \label{thr:22}
+  Let $V$ be a conformal vertex algebra of central charge $c$ with conformal vector $\omega$ and $M$ a $V$-module.
+  Write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 2}$.
+  For $a \in V$ and $m, n \in \mathbb{Z}$,
+  \begin{align*}
+    [L^M_{-1}, Y^M(a, z)] &= Y^M(L_{-1}a, z) = \partial_zY^M(a, z), \\
+    [L^M_m, L^M_n] &=(m - n)L^M_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}c\Id_M, \\
+    [L^M_0, Y^M(a, z)] &= z\partial_zY^M(a, z) + Y^M(L_0a, z).
+  \end{align*}
+  In particular, $M$ is a differential $V$-module with $L_{-1}^M $ and $M$ is a smooth $\Vir$-module with central charge $c$.
+  If $L^M_0$ is diagonalizable, then $M$ is graded by $L_0^M$ and
+  \begin{align*}
+    [L_0^M,L_{-1}^M]&=L_{-1}^M, \\
+    L^M_{-1}M_\Delta&\subseteq M_{\Delta+1} \quad \text{for }\Delta \in \mathbb{C}.
+  \end{align*}
+\end{theorem}
+
+\begin{remark}
+  \label{rmk:21}
+  \Cref{thr:22} is analogous to \Cref{thr:16} with $L_{-1}^M$ in place of $T$ and $L_0^M$ in place of $H$.
+\end{remark}
+
+Let $V$ be a conformal vertex algebra with conformal vector $\omega$.
+By \Cref{thr:22}, the following definition makes sense.
+A $V$-module as a conformal vertex algebra is a $V$-module $M$ as a vertex algebra such that $L^M_0$ is diagonalizable where we write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 2}$.
+In particular, $M$ is differential by $L^M_{-1}$ and graded by $L^M_0$.
+The $V$-module $M$ is called a positive energy representation of $V$ if $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$ for some $h \in \mathbb{C}$.
+The subspace $M_h$ is called the top degree of $M$.
+A positive energy representation $M$ of $V$ is called ordinary if for $n \in \mathbb{N}$, $\dim(M_{h + n}) < \infty$.
+For an ordinary representation $M$, the character of $M$ is defined as
+\begin{equation*}
+  \ch_M(q) = \sum_{n \in \mathbb{N}}\dim(M_{h + n})q^{h + n} \in q^h\mathbb{C}[[q]].
+\end{equation*}
+
+\section{Highest weight representations of the Virasoro Lie algebra}
+\label{sec:high-weight-repr}
+
+\subsection{Unitary and contravariant representations of Lie algebras}
+\label{sec:unit-contr-repr}
+
+The following linear algebra lemma appears several times in the theory of vertex algebras, so we state it here.
+
+\begin{lemma}[{\cite[Corollary 1.1]{kac_bombay_2013}}]
+  \label{lmm:6}
+  Let $V$ be a vector space (not necessarily a vertex algebra) and $H \in \End(V)$ a diagonalizable operator with $H$-grading $V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}$.
+  Let $U$ be a $H$-invariant subspace of $V$, this means $H(U) \subseteq U$.
+  Then $U$ is also $H$-graded:
+  \begin{equation*}
+    U = \sum_{\Delta \in \mathbb{C}}U \cap V_{\Delta}.
+  \end{equation*}
+\end{lemma}
+
+Let $V$ be a  vector space.
+We say that a function $\omega: V \to V$ is antilinear if for all $u, v \in V$ and $a \in \mathbb{C}$,
+\begin{align*}
+  \omega(u + v) &= \omega(u) + \omega(v), \\
+  \omega(au) &= \overline{a}\omega(u).
+\end{align*}
+Let $\mathfrak{g}$ be a lie algebra over $\mathbb{C}$.
+We say that a function $\omega: \mathfrak{g} \to \mathfrak{g}$ is an antilinear anti-involution if $\omega$ is antilinear and for all $x, y \in \mathfrak{g}$,
+\begin{align*}
+  \omega([x, y]) &= [\omega(y), \omega(x)], \\
+  \omega(\omega(x)) &= x.
+\end{align*}
+Note that this means we can extend $\omega$ to the universal enveloping algebra $U(\mathfrak{g})$ of $\mathfrak{g}$ obtaining a function $\omega: U(\mathfrak{g}) \to U(\mathfrak{g})$ that is still an antilinear anti-involution, i.e.\ for $x, y \in U(\mathfrak{g})$,
+\begin{align*}
+  \omega(xy) &= \omega(y)\omega(x), \\
+  \omega(\omega(x)) &= x.
+\end{align*}
+
+We shall be mostly interested in the Virasoro Lie algebra $\Vir$ which has the following antilinear anti-involution:
+\begin{align*}
+  \omega: \Vir &\to \Vir \\
+  \omega(L_n) &= L_{-n} \quad \text{for }n \in \mathbb{Z} \\
+  \omega(C) &= C,
+\end{align*}
+which is extended by antilinearity.
+
+Let $\mathfrak{g}$ be a Lie algebra with an antilinear anti-involution $\omega: \mathfrak{g} \to \mathfrak{g}$ and $V$ a $\mathfrak{g}$-module with an Hermitian form $\langle \bullet, \bullet \rangle$.
+We say $\langle \bullet, \bullet \rangle$ is contravariant if,
+\begin{equation*}
+  \langle xu| v \rangle = \langle u| \omega(x)v\rangle \quad \text{for }x \in \mathfrak{g}\text{ and }u, v \in V.
+\end{equation*}
+We further say that this representation is unitary if in addition it is positive-definite.
+
+Let $V$ be a $\Vir$-module.
+We say $V$ is smooth if $L(z) = \sum_{n \in \mathbb{Z}}L_{n}z^{-n - 2} \in \End(V)[[z^{\pm 1}]]$ is a field.
+We say $V$ is of central charge $c\in \mathbb{C}$ if the central element $C$ acts as multiplication by $c$.
+
+A highest weight representation of $\Vir$ is a $\Vir$-module $V$ which has a nonzero vector $v$ such that there exists complex numbers $c, h \in \mathbb{C}$ such that:
+\begin{enumerate}
+  \item $Cv = cv$; 
+  \item $L_0v = hv$;
+  \item $V = \vspan\{L_{-i_k}\dots L_{-i_1}v \mid i_k \ge \dots \ge i_1 > 0\}$.
+\end{enumerate}
+The numbers $c$ and $h$ are uniquely determined and the pair $(c, h)$ is called the highest weight of $V$.
+The vector $v$ is not uinquely determined and can be replaced by any nonzero scalar multiple of it and is called a highest weight vector of $V$.
+
+For $\Delta \in \mathbb{C}$, set $V_{\Delta} = \ker(L_0 - \Delta\Id_V)$.
+We observe that all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ and a fixed value of $j = i_1+\dots+i_k$ belong to $V_{h + j}$.
+By axiom (iii), $V = \sum_{j \in \mathbb{N}}V_{h + j}$ and this is in fact a direct sum:
+\begin{equation*}
+  V = \bigoplus_{j \in \mathbb{N}}V_{h + j}.
+\end{equation*}
+Note that, for $n \in \mathbb{Z}$ and $j \in \mathbb{N}$,
+\begin{equation}
+  \label{eq:28}
+  L_nV_{h + j}\subseteq V_{h + j - n}.
+\end{equation}
+In particular we have
+\begin{equation*}
+  L_nv = 0 \quad \text{for } n \in \mathbb{Z}_+.
+\end{equation*}
+
+We must have $V_h = \mathbb{C}v$.
+For $j \in \mathbb{N}$, let $p(j)$ denote the number of partitions of $j$ into a sum of positive integers $j = i_1 + \dots + i_k$ with $i_k \ge \dots \ge i_1 > 0$.
+It is clear that
+\begin{equation}
+  \label{eq:29}
+  \dim(V_{h + j}) \le p(j)
+\end{equation}
+with equality if and only if all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k\ge \dots \ge i_1>0$ and $j=i_1+\dots+i_k$ are linearly independent.
+Note that $C$ acts on $V$ as multiplication by $c$ because it commutes with every $L_n$ for $n \in \mathbb{Z}$.
+Thus, a highest weight representation of $\Vir$ with highest weight $(c, h)$ is necessarily smooth and of central charge $c$.
+
+\begin{lemma}
+  \label{lmm:7}
+  Let $V$ be a highest weight representation of $\Vir$ with highest weight $(c, h)$, highest weight vector $v$ and decomposition $V = \bigoplus_{j \in \mathbb{N}}V_{h + j}$.
+  Then:
+  \begin{enumerate}
+  \item Any subrepresentation $U$ of $V$ is graded:
+    \begin{equation*}
+      U = \bigoplus_{j \in \mathbb{N}}U \cap V_{h + j}.
+    \end{equation*}
+  \item $V$ is indecomposable, i.e.\ we can't find nontrivial subrepresentations $U, W$ such that
+    \begin{equation*}
+      V = U \oplus W.
+    \end{equation*}
+  \item $V$ has a unique maximal proper subrepresentation $J_{\max}$ and $V/J_{\max}$ is the unique irreducible quotient of $V$ and it is also a highest weight representation with highest weight $(c, h)$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}\leavevmode
+  \begin{enumerate}
+  \item This is Theorem \ref{lmm:6} with $H = L_0$.
+  \item Assume we find such a decomposition.
+    Both $U$ and $W$ are graded subrepresentations and therefore we must have either $v \in U$ or $v \in W$ which implies either $U = V$ or $W = V$.
+  \item Just take $J_{\max}$ as the sum of all proper subrepresentations of $V$.\qedhere
+  \end{enumerate}
+\end{proof}
+
+Let $V$ be an highest weight representation of $\Vir$ with highest weight $(c, h)$.
+The formal power series
+\begin{equation*}
+  \ch_V(q) = \sum_{j \in \mathbb{N}}\dim(V_{h + j})q^{h + j} \in q^h\mathbb{C}[[q]]
+\end{equation*}
+is called the character of $V$.
+The character of $V$ satisfies the inequality
+\begin{equation*}
+  \chi_V(q) \le \frac{q^h}{\varphi(q)},
+\end{equation*}
+where $\varphi(q) = \prod_{j \in \mathbb{N}}(1 - q^j)$.
+
+A Verma representation is a highest weight representation of $\Vir$ in which all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ are linearly independent.
+
+Since all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ in a Verma representation $V$ of highest weight $(c, h)$ are linearly independent, it follows that they form a basis of $V$ and that there is a homomorphism from $V$ to any other highest weight representation of $\Vir$ with the same highest weight $(c, h)$ mapping a highest weight vector to a highest weight vector.
+In particular, for any pair $(c, h)$ of complex numbers, there is at most one Verma representation having $(c, h)$ as its highest weight.
+We now show we do have a Verma representation for each pair $(c, h)$ of complex numbers using standard Lie algebra techniques.
+Consider the subalgebra $\Vir_{\ge 0, C} = \bigoplus_{n \in \mathbb{N}}\mathbb{C}L_n\oplus \mathbb{C}C$ of $\Vir$ acting on $\mathbb{C}$ as follows
+\begin{align*}
+  L_n1 &= 0 \quad \text{for }n \in \mathbb{Z}_+, \\
+  L_01 &= h, \\
+  C1 &= c.
+\end{align*}
+Then
+\begin{equation*}
+  M(c, h) = \Ind^{\Vir}_{\Vir_{\ge 0, C}}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge 0, C})} \mathbb{C},
+\end{equation*}
+is a $\Vir$-module where $\Vir$ acts by left multiplication.
+By the PBW theorem, $M(c, h)$ is a Verma representation of $\Vir$ with highest weight $(c, h)$ and highest weight vector $|c, h\rangle = 1\otimes1$.
+As in \eqref{eq:29}, the character of a Verma representation is given by
+\begin{equation*}
+  \ch_{M(c, h)}(q) = \frac{q^h}{\varphi(q)}.
+\end{equation*}
+
+Any other highest weight representation $V$ with highest weight $(c, h)$ is a quotient of $M(c, h)$, just map $v$ to a highest weight vector of $V$, the resulting homomorphism is surjective and $V$ is isomorphic to $M(c, h)$ quotiented by the kernel of this homomorphism.
+
+By \Cref{lmm:7}(iii), $M(c, h)$ has a unique maximal subrepresentation $J(c, h)$.
+The quotient
+\begin{equation*}
+  L(c, h) = M(c, h)/J(c, h)
+\end{equation*}
+is an irreducible highest weight representation with highest weight $(c, h)$.
+Actually, this is the unique irreducible highest weight representation with highest weight $(c, h)$ because if $V$ is such a representation, then $V$ is isomorphic to $M(c, h)/U$ for some subrepresentation $U$ of $M(c, h)$ which is maximal, then $U = J(c, h)$.
+We wish to determine when is $L(c, h)$ equal to $M(c,h)$.
+
+A vector $u$ in $\Vir$-module is called singular if it is nonzero and
+\begin{equation}
+  \label{eq:30}
+  L_nu = 0 \quad \text{for }n > 0.
+\end{equation}
+
+\begin{lemma}
+  \label{lmm:8}
+  Let $V$ be a $\Vir$-module.
+  If $u \in V$ is nonzero and $L_1u = L_2u = 0$ then $u$ is a singular vector. 
+\end{lemma}
+
+\begin{proof}
+  The condition $L_1u = L_2u = 0$ implies, using induction, that $L_nu = 0$ for $n \ge 3$.
+\end{proof}
 
 \printindex
 
