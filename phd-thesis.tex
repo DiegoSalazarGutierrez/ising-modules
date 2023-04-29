@@ -1487,7 +1487,7 @@ We now use this construction to obtain several important examples of vertex alge
 \label{sec:grad-conf-vert}
 
 Let $V$ be a vertex algebra.
-A Hamiltonian operator $H$ is a diagonalizable operator on $V$ such that
+A Hamiltonian operator of $V$ is a diagonalizable operator $H \in \End(V)$ such that
 \begin{equation}
   \label{eq:23}
   [H, Y(a, z)] = z\partial_zY(a, z) + Y(Ha, z) \quad \text{for }a \in V.
@@ -1499,22 +1499,27 @@ The grading of $V$ is the eigenspace decomposition for $H$:
 \end{equation*}
 where
 \begin{equation*}
-  V_{\Delta} = \{v \in V \mid Hv = \Delta v\}.
+  V_{\Delta} = \ker(H - \Delta\Id_V) \quad \text{for }\Delta \in \mathbb{C}.
 \end{equation*}
 If $a$ is an eigenvector of $H$, it is called homogeneous, its eigenvalue is called the conformal weight of $a$ and it is denoted by $\Delta_a$.
-Equation \eqref{eq:23} is equivalent to
+Condition \eqref{eq:23} is equivalent to
 \begin{equation}
   \label{eq:24}
-  [H,a_{(n)}] = -(n + 1)a_{(n)} + (Ha)_{(n)} \quad \text{for } a \in V\text{ and } n \in \mathbb{Z}
+  [H,a_{(n)}] = -(n + 1)a_{(n)} + (Ha)_{(n)} \quad \text{for }a \in V\text{ and }n \in \mathbb{Z}
 \end{equation}
 and to
 \begin{equation}
   \label{eq:25}
-  [H, a_{(n)}] = (\Delta_a - n - 1)a_{(n)} \quad \text{for } a \in V\text{ homogeneous and } n \in \mathbb{Z}.
+  [H, a_{(n)}] = (\Delta_a - n - 1)a_{(n)} \quad \text{for }a \in V\text{ homogeneous and }n \in \mathbb{Z} - \Delta_a.
 \end{equation}
-If we write $Y(a,z)=\sum_{n\in \mathbb{Z}-\Delta}a_nz^{-n-\Delta}$, then due to the equality $a_{(n)} = a_{n - \Delta_a + 1}$ for homogeneous $a$, \eqref{eq:25} is equivalent to
+
+For $a \in V$ homogeneous with conformal weight $\Delta_a$, we write, as was done with eigendistributions, $Y(a,z) = \sum_{n \in \mathbb{Z} - \Delta_a}a_nz^{-n - \Delta_a}$ which is equivalent to
 \begin{equation*}
-  [H, a_n] = -na_n \quad \text{for } a \in V\text{ homogeneous and } n \in \mathbb{Z}.
+  a_{(n)} = a_{n - \Delta_a + 1} \quad \text{for }n \in \mathbb{Z}.
+\end{equation*}
+With this notation, \eqref{eq:25} is equivalent to
+\begin{equation*}
+  [H, a_n] = -na_n \quad \text{for } a \in V\text{ homogeneous and }n \in \mathbb{Z} - \Delta_a.
 \end{equation*}
 
 \begin{theorem}[{\cite[\S4.9]{kac_vertex_1998}}]
@@ -1879,6 +1884,9 @@ We say $\langle \bullet, \bullet \rangle$ is contravariant if,
 \end{equation*}
 We further say that this representation is unitary if in addition it is positive-definite.
 
+\subsection{Verma modules}
+\label{sec:verma-modules}
+
 Let $V$ be a $\Vir$-module.
 We say $V$ is smooth if $L(z) = \sum_{n \in \mathbb{Z}}L_{n}z^{-n - 2} \in \End(V)[[z^{\pm 1}]]$ is a field.
 We say $V$ is of central charge $c\in \mathbb{C}$ if the central element $C$ acts as multiplication by $c$.
@@ -1893,30 +1901,36 @@ The numbers $c$ and $h$ are uniquely determined and the pair $(c, h)$ is called 
 The vector $v$ is not uinquely determined and can be replaced by any nonzero scalar multiple of it and is called a highest weight vector of $V$.
 
 For $\Delta \in \mathbb{C}$, set $V_{\Delta} = \ker(L_0 - \Delta\Id_V)$.
-We observe that all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ and a fixed value of $j = i_1+\dots+i_k$ belong to $V_{h + j}$.
+We observe that all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ and a fixed value of $j = i_1 + \dots + i_k$ belong to $V_{h + j}$.
 By axiom (iii), $V = \sum_{j \in \mathbb{N}}V_{h + j}$ and this is in fact a direct sum:
-\begin{equation*}
-  V = \bigoplus_{j \in \mathbb{N}}V_{h + j}.
-\end{equation*}
-Note that, for $n \in \mathbb{Z}$ and $j \in \mathbb{N}$,
 \begin{equation}
   \label{eq:28}
-  L_nV_{h + j}\subseteq V_{h + j - n}.
+  V = \bigoplus_{j \in \mathbb{N}}V_{h + j}.
+\end{equation}
+By axiom (ii),
+\begin{equation}
+  \label{eq:29}
+  V_h = \mathbb{C}v
+\end{equation}
+Note that
+\begin{equation}
+  \label{eq:30}
+  L_nV_{h + j}\subseteq V_{h + j - n} \quad \text{for }n \in \mathbb{Z}\text{ and }j \in \mathbb{N}.
 \end{equation}
 In particular we have
-\begin{equation*}
+\begin{equation}
+  \label{eq:31}
   L_nv = 0 \quad \text{for } n \in \mathbb{Z}_+.
-\end{equation*}
+\end{equation}
 
-We must have $V_h = \mathbb{C}v$.
 For $j \in \mathbb{N}$, let $p(j)$ denote the number of partitions of $j$ into a sum of positive integers $j = i_1 + \dots + i_k$ with $i_k \ge \dots \ge i_1 > 0$.
 It is clear that
 \begin{equation}
-  \label{eq:29}
+  \label{eq:32}
   \dim(V_{h + j}) \le p(j)
 \end{equation}
-with equality if and only if all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k\ge \dots \ge i_1>0$ and $j=i_1+\dots+i_k$ are linearly independent.
-Note that $C$ acts on $V$ as multiplication by $c$ because it commutes with every $L_n$ for $n \in \mathbb{Z}$.
+with equality if and only if all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ and $j = i_1 + \dots + i_k$ are linearly independent.
+By axiom (i), $C$ acts on $V$ as multiplication by $c$ because it commutes with every $L_n$ for $n \in \mathbb{Z}$.
 Thus, a highest weight representation of $\Vir$ with highest weight $(c, h)$ is necessarily smooth and of central charge $c$.
 
 \begin{lemma}
@@ -1938,7 +1952,7 @@ Thus, a highest weight representation of $\Vir$ with highest weight $(c, h)$ is 
 
 \begin{proof}\leavevmode
   \begin{enumerate}
-  \item This is Theorem \ref{lmm:6} with $H = L_0$.
+  \item This is \Cref{lmm:6} with $H = L_0$.
   \item Assume we find such a decomposition.
     Both $U$ and $W$ are graded subrepresentations and therefore we must have either $v \in U$ or $v \in W$ which implies either $U = V$ or $W = V$.
   \item Just take $J_{\max}$ as the sum of all proper subrepresentations of $V$.\qedhere
@@ -1946,20 +1960,18 @@ Thus, a highest weight representation of $\Vir$ with highest weight $(c, h)$ is 
 \end{proof}
 
 Let $V$ be an highest weight representation of $\Vir$ with highest weight $(c, h)$.
-The formal power series
+The character of $V$, denoted by $\ch_V(q)$, is formal power series given by
 \begin{equation*}
-  \ch_V(q) = \sum_{j \in \mathbb{N}}\dim(V_{h + j})q^{h + j} \in q^h\mathbb{C}[[q]]
+  \ch_V(q) = \sum_{j \in \mathbb{N}}\dim(V_{h + j})q^{h + j} \in q^h\mathbb{C}[[q]].
 \end{equation*}
-is called the character of $V$.
 The character of $V$ satisfies the inequality
 \begin{equation*}
-  \chi_V(q) \le \frac{q^h}{\varphi(q)},
+  \ch_V(q) \le \frac{q^h}{\prod_{j \in \mathbb{N}}(1 - q^j)}.
 \end{equation*}
-where $\varphi(q) = \prod_{j \in \mathbb{N}}(1 - q^j)$.
 
 A Verma representation is a highest weight representation of $\Vir$ in which all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ are linearly independent.
 
-Since all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ in a Verma representation $V$ of highest weight $(c, h)$ are linearly independent, it follows that they form a basis of $V$ and that there is a homomorphism from $V$ to any other highest weight representation of $\Vir$ with the same highest weight $(c, h)$ mapping a highest weight vector to a highest weight vector.
+Since all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ in a Verma representation $V$ with highest weight $(c, h)$ are linearly independent, it follows that they form a basis of $V$ and that there is a homomorphism from $V$ to any other highest weight representation of $\Vir$ with the same highest weight $(c, h)$ mapping a highest weight vector to a highest weight vector.
 In particular, for any pair $(c, h)$ of complex numbers, there is at most one Verma representation having $(c, h)$ as its highest weight.
 We now show we do have a Verma representation for each pair $(c, h)$ of complex numbers using standard Lie algebra techniques.
 Consider the subalgebra $\Vir_{\ge 0, C} = \bigoplus_{n \in \mathbb{N}}\mathbb{C}L_n\oplus \mathbb{C}C$ of $\Vir$ acting on $\mathbb{C}$ as follows
@@ -1974,9 +1986,9 @@ Then
 \end{equation*}
 is a $\Vir$-module where $\Vir$ acts by left multiplication.
 By the PBW theorem, $M(c, h)$ is a Verma representation of $\Vir$ with highest weight $(c, h)$ and highest weight vector $|c, h\rangle = 1\otimes1$.
-As in \eqref{eq:29}, the character of a Verma representation is given by
+As in \eqref{eq:32}, the character of a Verma representation is given by
 \begin{equation*}
-  \ch_{M(c, h)}(q) = \frac{q^h}{\varphi(q)}.
+  \ch_{M(c, h)}(q) = \frac{q^h}{\prod_{j \in \mathbb{N}}(1 - q^j)}.
 \end{equation*}
 
 Any other highest weight representation $V$ with highest weight $(c, h)$ is a quotient of $M(c, h)$, just map $v$ to a highest weight vector of $V$, the resulting homomorphism is surjective and $V$ is isomorphic to $M(c, h)$ quotiented by the kernel of this homomorphism.
@@ -1988,12 +2000,12 @@ The quotient
 \end{equation*}
 is an irreducible highest weight representation with highest weight $(c, h)$.
 Actually, this is the unique irreducible highest weight representation with highest weight $(c, h)$ because if $V$ is such a representation, then $V$ is isomorphic to $M(c, h)/U$ for some subrepresentation $U$ of $M(c, h)$ which is maximal, then $U = J(c, h)$.
-We wish to determine when is $L(c, h)$ equal to $M(c,h)$.
+We wish to determine when is $L(c, h)$ equal to $M(c, h)$.
 
 A vector $u$ in $\Vir$-module is called singular if it is nonzero and
 \begin{equation}
-  \label{eq:30}
-  L_nu = 0 \quad \text{for }n > 0.
+  \label{eq:33}
+  L_nu = 0 \quad \text{for }n \in \mathbb{Z}_+.
 \end{equation}
 
 \begin{lemma}
@@ -2005,6 +2017,170 @@ A vector $u$ in $\Vir$-module is called singular if it is nonzero and
 \begin{proof}
   The condition $L_1u = L_2u = 0$ implies, using induction, that $L_nu = 0$ for $n \ge 3$.
 \end{proof}
+
+\begin{remark}
+  \label{rmk:22}
+  By \eqref{eq:31}, a highest weight vector is singular. 
+  By \eqref{eq:28}, we can  write a singular vector $u$ as $u = \sum_{j \in \mathbb{N}}u_{h + j}$ where $u_{h + j} \in V_{h + j}$.
+  Then all the nonzero vectors $u_{h + j}$ are also singular vectors.
+  Therefore, we can focus on homogeneous singular vectors.
+\end{remark}
+
+\begin{lemma}
+  \label{lmm:9}
+  A highest weight representation is irreducible if and only if it has no singular vectors other than nonzero scalar multiples of a highest weight vector.
+\end{lemma}
+
+\begin{theorem}
+  \label{thr:23}
+  Let $V$ be a highest weight representation of $\Vir$ with a contravariant form $\langle \bullet, \bullet\rangle$.
+  Then all eigenspaces of $L_0$ are pairwise orthogonal.
+  Let $U$ be a subrepresentation of $V$.
+  Then $U^\perp$ is a subrepresentation of $V$.
+  Moreover, if $\langle \bullet, \bullet\rangle$ is unitary, then $U\oplus U^\perp=V$.
+\end{theorem}
+
+\begin{proof}
+  Let $(c, h)$ be the highest weight of $V$ and let $v$ be a highest weight vector in $V$.
+  We have the decomposition $V = \bigoplus_{j \in \mathbb{N}}V_{h + j}$.
+  First, we note that if $j_1 \neq j_2$, then $\langle V_{h + j_1}| V_{h + j_2}\rangle = 0$.
+  This is because if $u \in V_{h + j_1}$ and $w \in V_{h + j_2}$, then
+  \begin{equation*}
+    (\overline{h} + j_1)\langle u| w\rangle = \langle L_0u| w\rangle = \langle u| L_0w\rangle = (h + j_2)\langle u| w\rangle
+  \end{equation*}
+  which implies $(h - \overline{h} + j_2 - j_1)\langle u| w\rangle = 0$ and $\langle u| w\rangle = 0$.
+  We know $\langle U| U^{\perp}\rangle = 0$ and $L_jU \subseteq U$ for $j \in \mathbb{Z}$.
+  Then $0 = \langle L_jU| U^{\perp}\rangle = \langle U| L_{-j}U^{\perp}\rangle$ which implies $L_jU^{\perp} \subseteq U^{\perp}$ for $j \in \mathbb{Z}$, so $U^{\perp}$ is a subrepresentation of $V$.
+  By \Cref{lmm:7},
+  \begin{equation*}
+     U^{\perp} = \bigoplus_{j \in \mathbb{N}}U^{\perp} \cap V_{h + j} = \bigoplus_{j \in \mathbb{N}}(U \cap V_{h + j})^{\perp|V_{h + j}},
+  \end{equation*}
+  where $(U \cap V_{h + j})^{\perp|V_{h + j}}$ denotes the orthogonal subspace of $U \cap V_{h + j}$ in $V_{h + j}$.
+  If $\langle \bullet| \bullet\rangle$ is unitary, we know $U \cap V_{h + j} \oplus (U \cap V_{h + j})^{\perp|V_{h + j}} = V_{h + j}$ for $j \in \mathbb{N}$ because all the vector spaces $V_{h + j}$ are finite dimensional.
+  It is now clear that $U \oplus U^{\perp} = V$.
+\end{proof}
+
+\begin{corollary}
+  \label{crl:3}
+  A highest weight representation $V$ with a unitary form is irreducible.
+\end{corollary}
+
+\begin{proof}
+  Let $U$ be a subrepresentation of $V$.
+  By \Cref{thr:23}, $U^{\perp}$ is a subrepresentation of $V$ and $U\oplus U^{\perp} = V$.
+  By \Cref{lmm:7}(ii), either $U = V$ or $U = 0$.
+  We conclude that $V$ is irreducible.
+\end{proof}
+
+\subsection{Kac determinant formula}
+\label{sec:kac-dete-form}
+
+Let $V$ be a highest weight representation with highest weight $(c, h)$ and pick a highest weight vector $v$.
+We wish to define a contravariant form $\langle \bullet| \bullet\rangle$ on $V$ such that $\langle v| v\rangle = 1$.
+We now show we don't have much choice.
+Since $V_h = \mathbb{C}v$, it makes sense to define for $u \in V$, its expectation value $\langle u\rangle$ as the coefficient of $v$ with respect to the direct sum $V = \bigoplus_{j \in \mathbb{N}}V_{h + j}$, i.e.\ as the unique $t \in \mathbb{C}$ such that $u - tv \in \bigoplus_{j \in \mathbb{Z}_+}V_{h + j}$.
+Let $P = L_{-i_t}\dots L_{-i_1} \in U(\Vir)$ with $i_t \ge \dots \ge i_1 > 0$ and $u \in V$.
+By contravariance, we must have $\langle Pv| u\rangle = \langle v| \omega(P)u\rangle$.
+But $\langle v| \omega(P)u\rangle = \langle \omega(P)u\rangle$ because all eigenspaces of $L_0$ are pairwise orthogonal by \Cref{thr:23}.
+Therefore, if $\langle \bullet| \bullet\rangle$ is a contravariant Hermitian nonzero form on $V$ such that $\langle v| v\rangle = 1$, we are forced to have
+\begin{equation}
+  \label{eq:34}
+  \langle Pv| u\rangle = \langle \omega(P)u\rangle,
+\end{equation}
+for $P = L_{-i_t} \dots L_{-i_1} \in U(\Vir)$ with $i_t \ge \dots \ge i_1 > 0$ and $u \in V$.
+
+Contravariance of $\langle \bullet| \bullet\rangle$ and \eqref{eq:34} imposes conditions on the highest weight $(c, h)$.
+Let $R\in U(\Vir)$.
+Then
+\begin{equation*}
+  \overline{\langle Rv\rangle} = \overline{\langle \omega(\omega(R))v\rangle} = \overline{\langle \omega(R)v| v\rangle} = \langle v| \omega(R)v\rangle = \langle Rv| v\rangle = \langle \omega(R)v\rangle.
+\end{equation*}
+Taking $R = C$ and $R = L_0$, we obtain $c, h \in \mathbb{R}$.
+
+Note, however, that initially we cannot define the form using \eqref{eq:34} for a general highest weight representation because there may be linear dependences between terms of the form $L_{-i_t}\dots L_{-i_1}v$ with $i_t \ge \dots \ge i_1 > 0$ so we may ask if it is well defined in the first place.
+That is only possible for $M(c, h)$ and later we will see that is also possible for any highest weight representation.
+
+\begin{theorem}[{\cite[Proposition 3.4]{kac_bombay_2013}}]
+  \label{thr:41}
+  Let $M(c, h)$ be the Verma representation of $\Vir$ with highest weight $(c, h)$ where $c, h \in \mathbb{R}$.
+  Pick a highest weight vector $v$ and define the form $\langle \bullet| \bullet\rangle$ on $M(c, h)$ using equation \eqref{eq:34}.
+  Then:
+  \begin{enumerate}
+  \item $\langle \bullet| \bullet\rangle$ is a contravariant Hermitian form on $M(c, h)$ such that $\langle v| v\rangle = 1$;
+  \item The eigenspaces of $L_0$ are pairwise orthogonal;
+  \item $M(c, h)^{\perp} = J(c, h)$;
+  \item Every highest weight representation $V$ of $\Vir$ with highest weight $(c, h)$ and highest weight vector $v'$ carries a contravariant form such that $\langle v'| v'\rangle = 1$.
+    This form on $V$ is defined by \eqref{eq:34} with $v'$ in place of $v$ and satisfies all of the properties of this Theorem.
+    In particular, for $L(c, h)$, this form is nondegenerate;
+  \item Let $V$ be a highest weight representation with highest weight vector $v$.
+    There is a unique contravariant form $\langle \bullet| \bullet\rangle$ on $V$ such that $\langle v| v\rangle = 1$ and is defined by equation \eqref{eq:34}.
+    If we pick other highest weight vector, the resulting contravariant form is the previously defined form times a positive constant.
+  \end{enumerate}
+\end{theorem}
+
+Let $V$ be a highest weight representation with highest weight $(c, h)$ and pick a highest weight vector $v$.
+Let $\langle \bullet| \bullet\rangle$ be the contravariant form on $V$ defined by \eqref{eq:34}.
+We say that $V$ is unitary if this form is unitary.
+By \Cref{thr:41}, this is independent of the choice of the highest weight vector $v$ and there is essentially one form.
+By \Cref{clr:3}, a unitary highest weight representation is necessarily irreducible, therefore it is of the form $L(c, h)$ for some real numbers $c, h \in \mathbb{R}$.
+
+We wish to study when is $L(c,h)$ unitary.
+A simple necessary condition is given by the next theorem.
+
+\begin{theorem}
+  \label{thr:42}
+  If $L(c, h)$ is unitary then $c \ge 0$ and $h \ge 0$.
+\end{theorem}
+
+\begin{proof}
+  Pick a highest weight vector $v$ and assume $\langle v| v\rangle=1$.
+  A necessary condition for unitarity is that
+  \begin{equation*}
+    c_n = \langle L_{-n}v| L_{-n}v\rangle > 0 \quad \text{for } n \in \mathbb{N}.
+  \end{equation*}
+  But contravariance and the commutation rules of Virasoro show that
+  \begin{equation}
+    \label{eq:35}
+    c_n = 2nh + c(n^3 - n)/12.
+  \end{equation}
+  Putting $n = 1$ we get $c_1 = 2h$ so that we must have $h \ge 0$.
+  Moreover, \eqref{eq:35} shows that $c_n$ is dominated by $cn^3$ for large $n$, so that $c \ge 0$ is also necessary.
+\end{proof}
+
+Let $M(c, h)$ be the Verma representation with highest weight $(c, h)$.
+For $n \in \mathbb{N}$, the subspace $M(c, h)_{h + n}$ is finite dimensional.
+Therefore, we can consider the determinant $\det_n(c, h)$ of the contravariant Hermitian form $\langle \bullet| \bullet\rangle$ restricted to $M(c, h)_{h + n}$.
+This is well defined up to a nonzero constant.
+
+\begin{theorem}
+  \label{thr:43}
+  The Verma representation $M(c, h)$ is irreducible if and only if for $n \in \mathbb{Z}_+$, $\det_n(c, h) \neq 0$.
+\end{theorem}
+
+\begin{proof}
+  By Theorem \ref{thr:41}, $M(c, h)$ is irreducible if and only if $M(c, h)^{\perp} = 0$.
+  By Theorem \ref{thr:23}, $M(c, h)^{\perp} = \bigoplus_{j \in \mathbb{N}}M(c, h)^{\perp} \cap M(c, h)_{h + j} = \bigoplus_{j \in \mathbb{N}}M(c, h)_{h + j}^{\perp}$.
+  Therefore, $M(c, h)$ is irreducible if and only if for $j \in \mathbb{N}$, $M(c, h)_{h + j}^{\perp} = 0$ which is equivalent to for $n \in \mathbb{Z}_+$, $\det_n(c, h) \neq 0$.
+\end{proof}
+
+Thus, to determine when $=M(c, h)$ is irreducible, it is worthwhile to study the number $\det_n(c, h)$ for $n \in \mathbb{N}$.
+Fortunately, there is a formula for this.
+
+\begin{theorem}[Kac's determinant formula{}]
+  \label{thr:44}
+  For $n \in \mathbb{N}$,
+  \begin{equation*}
+    \textstyle\det_n(c, h) = \displaystyle\text{constant}\cdot \prod_{\substack{k, l \in \mathbb{Z}_+\\k \ge l\\ 1 \le kl \le n}} \phi_{k, l}(c, h)^{p(n - kl)}
+  \end{equation*}
+  where
+  \begin{equation*}
+    \phi_{k, l}(c, h)=
+    \begin{cases}
+      (h + \frac{(k^2 - 1)(c - 13)}{24} + \frac{kl - 1}{2})(h + \frac{(l^2 - 1)(c - 13)}{24} + \frac{kl - 1}{2}) + \frac{(k^2 - l^2)^2}{16} & \text{if }k \neq l\\
+      h + \frac{(k^2 - 1)(c - 13)}{24} + \frac{k^2 - 1}{2} & \text{if }k = l
+    \end{cases}
+  \end{equation*}
+\end{theorem}
 
 \printindex
 
