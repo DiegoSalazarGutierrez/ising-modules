@@ -50,6 +50,7 @@
 \DeclareMathOperator{\fs}{fs}
 \DeclareMathOperator{\tc}{tc}
 \DeclareMathOperator{\sdim}{sdim}
+\DeclareMathOperator{\Sing}{Sing}
 
 \makeindex
 
@@ -322,10 +323,15 @@ For $j \in \mathbb{N}$, their \index{formal distribution!$j$-product of|emph}\em
   \label{eq:4}
   a(w)_{(j)}b(w) &= \Res_z(z - w)^j[a(z), b(w)].
 \end{align}
+Expanding the right hand side we get
+\begin{equation}
+  \label{eq:5}
+  (a(w)_{(j)}b(w))_{(m)} = \sum_{k = 0}^j\binom{j}{k}(-1)^k[a_{(j - k)},b_{(m + k)}].
+\end{equation}
 We define $a(w)_{(j)} \in \End(\mathfrak{g}[[z^{\pm 1}]])$ in the natural way.
 If $(a(z), b(z))$ is a local pair, then \eqref{eq:3} becomes
 \begin{equation}
-  \label{eq:5}
+  \label{eq:6}
   [a_{(m)}, b_{(n)}] = \sum_{j \in \mathbb{N}}\binom{m}{j}(a(w)_{(j)}b(w))_{(m + n - j)}.
 \end{equation}
 By \Cref{thr:1}, we also have
@@ -371,7 +377,7 @@ Therefore, we can define the \index{parity!of formal distribution|emph}\emph{par
 
 \begin{theorem}[{\cite[\S2.3]{nozaradan_introduction_2008}}]
   \label{thr:4}
-  Let $\mathfrak{g}$ be a Lie superalgebra
+  Let $\mathfrak{g}$ be a Lie superalgebra.
   The $j$-products and the $\lambda$-brackets between $\mathfrak{g}$-valued formal distributions satisfy the following properties
   \begin{enumerate}
   \item $b(w)_{(j)}a(w) = -p(a(w), b(w))\sum_{l = 0}^{\infty}(-1)^{j + l}\frac{\partial^l(a(w)_{(j + l)}b(w))}{l!}$ if $(a(w), b(w))$ is a local pair;
@@ -394,14 +400,14 @@ A \index{formal distribution Lie superalgebra!regular|emph}\emph{regular} formal
   \end{equation*}
   which is equivalent to
   \begin{equation}
-    \label{eq:6}
+    \label{eq:7}
     T(a^j_{(n)}) = -na^j_{(n - 1)},
   \end{equation}
   for all $j \in J$ and $n \in \mathbb{Z}$. 
 \end{enumerate}
 \begin{remark}
   \label{rmk:4}
-  Note that \eqref{eq:6} and the fact that $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span $\mathfrak{g}$ imply that if such $T$ exists, it is even and unique so we could remove $T$ from the notation, but we won't.
+  Note that \eqref{eq:7} and the fact that $\{a^j_{(n)} \mid j \in J, n \in \mathbb{Z}\}$ span $\mathfrak{g}$ imply that if such $T$ exists, it is even and unique so we could remove $T$ from the notation, but we won't.
 \end{remark}
 
 Let $(\mathfrak{g}, \mathfrak{F})$ be a formal distribution Lie superalgebra.
@@ -529,6 +535,19 @@ Abusing notation, we define the family $\mathcal{R}$ of $\Lie(\mathcal{R})$-valu
   \end{align*}
 \end{remark}
 
+\begin{theorem}
+  \label{thr:6}
+  Let $\mathcal{R}$ be a Lie conformal superalgebra, $a, b \in R$ and $j, m \in \mathbb{N}$.
+  Then
+  \begin{equation*}
+    (a_{(j)}b)_{(m)} = \sum_{k = 0}^j\binom{j}{k}(-1)^k[a_{(j - k)},b_{(m + k)}].
+  \end{equation*}
+\end{theorem}
+
+\begin{proof}
+  This is just \eqref{eq:5} in the language of Lie conformal suprealgebras.
+\end{proof}
+
 We now show three examples of regular formal distribution Lie superalgebras and their respective Lie conformal superalgebras.
 
 \begin{example}[\index{Virasoro!Lie conformal algebra|emph}\emph{Virasoro Lie conformal algebra}]
@@ -539,7 +558,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   \end{equation*}
   These elements satisfy the following commutation relations:
   \begin{equation}
-    \label{eq:7}
+    \label{eq:8}
     \begin{aligned}
       [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C, \\
       [\Vir, C] &= 0,
@@ -554,7 +573,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   Hence $L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$.
   In terms of formal distributions, the commutation relations become:
   \begin{equation}
-    \label{eq:8}
+    \label{eq:9}
     \begin{aligned}
       [L(z), L(w)] &= \partial_wL(w)\delta(z, w)+2L(w)\partial_w\delta(z,w)+\frac{C}{12}\partial^3_w\delta(z,w) \\
       [L(z), C] &= 0,
@@ -563,7 +582,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   where $C$ denotes the constant formal distribution equal to $C \in \Vir$.
   In terms of $j$-products, the commutation relations become:
   \begin{equation}
-    \label{eq:9}
+    \label{eq:10}
     \begin{aligned}
       L(z)_{(0)}L(z) &= \partial_zL(z), \\
       L(z)_{(1)}L(z) &= 2L(z), \\
@@ -574,7 +593,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
 \end{equation}
   In terms of the $\lambda$-bracket, the commutation relations become:
   \begin{equation}
-    \label{eq:10}
+    \label{eq:11}
     \begin{aligned}
       [L(z)_{\lambda}L(z)] &= (\partial + 2\lambda)L(z) + \frac{\lambda^3}{12}C \\
       [L(z)_{\lambda}C] &= 0.
@@ -598,7 +617,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
 \end{remark}
 
 Let $\mathfrak{g}$ be a Lie superalgebra and $C \in \mathfrak{g}$.
-A Virasoro formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with central charge $C$ is a $\mathfrak{g}$-valued formal distribution satisfying \eqref{eq:7}, or equivalently, \eqref{eq:8}, \eqref{eq:9} or \eqref{eq:10}.
+A Virasoro formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with central charge $C$ is a $\mathfrak{g}$-valued formal distribution satisfying \eqref{eq:8}, or equivalently, \eqref{eq:9}, \eqref{eq:10} or \eqref{eq:11}.
 
 \begin{example}[Current Lie conformal superalgebra]
   \label{exa:2}
@@ -681,7 +700,7 @@ A Virasoro formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with central
   \end{equation*}
   with the superbracket
   \begin{equation}
-    \label{eq:11}
+    \label{eq:12}
     \begin{aligned}
       [at^m, bt^n] &= \delta_{m, -n - 1}\langle a, b\rangle K, \\
       [at^m, K] &= 0,
@@ -732,7 +751,7 @@ We define the normal product between $a(z)$ and $b(z)$ as the following formal d
 \end{equation*}
 
 \begin{theorem}[{\cite[Proposition 3.2.3]{nozaradan_introduction_2008}}]
-  \label{thr:6}
+  \label{thr:7}
   Let $(a(z), b(z))$ be a pair of local formal distributions.
   The following identities are known as the operator product expansion of $a(z)$ and $b(w)$:
   \begin{align*}
@@ -786,12 +805,12 @@ The normal ordered product between $a(z)$ and $b(z)$ is explicitly given in the 
 Now let's extend the $j$-products.
 For $j \in \mathbb{N}$, set
 \begin{equation}
-  \label{eq:12}
+  \label{eq:13}
   a(w)_{(-1 - j)}b(w) = \frac{:(\partial^j_wa(w))b(w):}{j!}.
 \end{equation}
 
 \begin{theorem}[{\cite[Proposition 3.4.3]{nozaradan_introduction_2008}}]
-  \label{thr:7}
+  \label{thr:8}
   The $j$-products \eqref{eq:4} and \eqref{eq:1} are special cases of the following generalized $j$-product defined by
   \begin{equation*}
     a(w)_{(j)}b(w)c = \Res_z(i_{z, w}(z - w)^ja(z)b(w)c - p(a,b)i_{w, z}(z - w)^jb(w)a(z)c),
@@ -819,17 +838,17 @@ The usual properties of $j$-products for $j \in \mathbb{N}$ carry over to the ge
 Let $L(z)$ be a formal distribution.
 An eigendistribution of weight $\Delta_a$ with respect to $L(z)$ is a formal distribution $a(z)$ satisfying
 \begin{equation}
-  \label{eq:13}
+  \label{eq:14}
   [L_{\lambda}a] = (\partial + \Delta_a\lambda)a + O(\lambda^2),
 \end{equation}
 where $O(\lambda^2)$ denotes sums of terms of monomials $s\lambda^j$ with $j \ge 2$.
 If $L$ is a Virasoro formal distribution, $\Delta_a$ is called the conformal weight.
 Clearly, $a(z)$ is an eigendistribution in the sense that it is an eigenvector of the endomorphism $L_{(1)}$ whose action is defined by $L_{(1)}(b) = L_{(1)}b$.
-Indeed, \eqref{eq:13} implies $L_{(1)}a = \Delta_aa$.
+Indeed, \eqref{eq:14} implies $L_{(1)}a = \Delta_aa$.
 Note that, by definition, a Virasoro formal distribution $L(z)$ is an eigendistribution of conformal weight $2$ with respect to itself.
 
 \begin{theorem}[{\cite[Proposition 3.7.4]{nozaradan_introduction_2008}}]
-  \label{thr:8}
+  \label{thr:9}
   If $a(z)$ and $b(z)$ have weights $\Delta_a$ and $\Delta_b$ with an even formal distribution $L$, then $\Delta_{a_{(n)}b} = \Delta_a + \Delta_b - n - 1$ with respect to $L$.
   In particular, $\Delta_{:ab:} = \Delta_a + \Delta_b$ and $\Delta_{\partial a} = \Delta_a + 1$.
 \end{theorem}
@@ -850,7 +869,7 @@ or the other way
 One of the interesting features of this change of notation is that it reveals the gradation of the superbracket.
 
 \begin{theorem}[{\cite[Proposition 3.7.6]{nozaradan_introduction_2008}}]
-  \label{thr:9}
+  \label{thr:10}
   In the new notation, we can write
   \begin{equation*}
     [a_m, b_n] = \sum_{j \in \mathbb{N}}\binom{m + \Delta_a - 1}{j}(a_{(j)}b)_{m + n}.
@@ -870,7 +889,7 @@ A formal distribution $a(z)$ is covariant with respect to $T$ if
 \end{equation*}
 
 \begin{theorem}[{\cite[Lemma 1]{callegaro_introduction_2017}}]
-  \label{thr:10}
+  \label{thr:11}
   Assume that $\vac \in V$ is such that $T\vac = 0$.
   Then
   \begin{enumerate}
@@ -894,7 +913,7 @@ be the subspace of translation covariant fields.
   $\mathcal{F}_{\tc}$ contains $\Id_V$, it is $\partial_z$-invariant and is closed under all $n$-products, i.e., $\partial_za(z), a(z)_{(n)}b(z) \in \mathcal{F}_{\tc}$ for $a(z), b(z) \in \mathcal{F}_{\tc}$ and $n \in \mathbb{Z}$.
 \end{lemma}
 
-By \Cref{thr:10}, we can define a linear map
+By \Cref{thr:11}, we can define a linear map
 \begin{align*}
   \fs: \mathcal{F}_{\tc} &\to V \\
   \fs(a(z)) &= a(z)\vac|_{z = 0},
@@ -912,7 +931,7 @@ called the field-state correspondence.
 \end{lemma}
 
 \begin{theorem}
-  \label{thr:11}
+  \label{thr:12}
   Let $a(z), b(z) \in \mathcal{F}_{\tc}$, $a = \fs(a(z))$, $b = \fs(b(z))$ and $n \in \mathbb{Z}$.
   Write $a(z) = \sum_{j \in \mathbb{Z}}a_{(j)}z^{-j - 1}$ and $b(z) = \sum_{j \in \mathbb{Z}}b_{(j)}z^{-j - 1}$.
   Then
@@ -947,7 +966,7 @@ called the field-state correspondence.
     \begin{equation*}
       \fs(a(z)_{(n)}b(z)) = a(z)_{(n)}b(z)\vac|_{z = 0},
     \end{equation*}
-    and the right hand side, by \Cref{thr:7}, is equal to
+    and the right hand side, by \Cref{thr:8}, is equal to
     \begin{equation*}
       \Res_w(a(w)b(z)i_{w, z}(w - z)^n\vac - p(a, b)b(z)a(w)i_{z, w}(w - z)^n\vac)|_{z = 0}.
     \end{equation*}
@@ -984,7 +1003,7 @@ called the field-state correspondence.
     \begin{equation*}
       (z - w)^Na(z)b(w) = p(a, b)(z - w)^Nb(w)a(z).
     \end{equation*}
-    Apply $\vac$ to both sides; by \Cref{thr:10}, we get
+    Apply $\vac$ to both sides; by \Cref{thr:11}, we get
     \begin{equation*}
       (z - w)^Na(z)e^{Tw}b = p(a, b)(z - w)^Nb(w)e^{Tz}a.
     \end{equation*}
@@ -1019,7 +1038,7 @@ called the field-state correspondence.
   \begin{equation*}
     (z - w)^Na(z)b(w)\vac = \pm(z - w)^Nb(w)a(z)\vac.
   \end{equation*}
-  By the property (i), we have $a_{(-1)}\vac = 0$ and $a(z)$ is translation covariant, hence by \Cref{thr:10}(i), $b(w)\vac \in V[[w]]$, so we can let $w = 0$ and get $z^Na(z)b = 0$, which means $a_{(n)}b = 0$ for any $n \in \mathbb{Z}$.
+  By the property (i), we have $a_{(-1)}\vac = 0$ and $a(z)$ is translation covariant, hence by \Cref{thr:11}(i), $b(w)\vac \in V[[w]]$, so we can let $w = 0$ and get $z^Na(z)b = 0$, which means $a_{(n)}b = 0$ for any $n \in \mathbb{Z}$.
   This is true for any $b \in V$ by the property (c).
   So in fact, we have $a(z) = 0$.
 \end{proof}
@@ -1060,9 +1079,9 @@ The data must satisfy the following axioms for $a \in V$:
 
 \begin{remark}
   \label{rmk:8}
-  The translation covariance axiom together with \Cref{thr:10} permit us to express $T$ by
+  The translation covariance axiom together with \Cref{thr:11} permit us to express $T$ by
   \begin{equation}
-    \label{eq:14}
+    \label{eq:15}
     Ta = a_{(-2)}\vac.
   \end{equation}
   As a consequence, the data of the translation operator $T$ is redundant.
@@ -1123,7 +1142,7 @@ We obtain the category of vertex algebras.
 The theory done in the previous sections translates into the language of vertex algebras as the following theorem shows.
 
 \begin{theorem}[Properties of vertex algebras]
-  \label{thr:12}
+  \label{thr:13}
   Let $V$ be a vertex algebra.
   For $a, b, c \in V$ and $m, n \in \mathbb{Z}$:
   \begin{enumerate}
@@ -1144,7 +1163,7 @@ The theory done in the previous sections translates into the language of vertex 
 \end{theorem}
 
 \begin{theorem}[Original Borcherds identity]
-  \label{thr:13}
+  \label{thr:14}
   Let $V$ be a vertex algebra.
   For $a, b, c \in V$,
   \begin{equation*}
@@ -1179,7 +1198,7 @@ For example, the kernel of vertex algebra homomorphism is an ideal.
 
 \begin{remark}
   \label{rmk:11}
-  Note that a right ideal $I$ is automatically $T$-invariant ($TI \subseteq I$) because of \eqref{eq:14}.
+  Note that a right ideal $I$ is automatically $T$-invariant ($TI \subseteq I$) because of \eqref{eq:15}.
   Also, right ideals and $T$-invariant left ideals are automatically two-sided ideals because of skewsymmetry.
   However, to prove that a subspace is an ideal, it is usually easier to check that it is $T$-invariant and a left ideal.
 \end{remark}
@@ -1220,7 +1239,7 @@ The last inclusion is by definition.
 
 Now we come to a very fundamental theorem, which allows us to construct noncommutative vertex algebras and is the backbone of several of our most important examples of vertex algebras.
 \begin{theorem}[Extension theorem]
-  \label{thr:14}
+  \label{thr:15}
   Let $(V, \vac, T, \mathcal{F})$ be a pre-vertex algebra and $\mathcal{F}_{\min}, \mathcal{F}_{\max}$ defined as above.
   Then:
   \begin{enumerate}
@@ -1234,20 +1253,20 @@ Now we come to a very fundamental theorem, which allows us to construct noncommu
     Denote by $Y: V \to \mathcal{F}(V)$ the inverse map;
   \item $(V, \vac, T, Y)$ is a vertex algebra with $Y: V \to \mathcal{F}(V)$ given explicitly by
     \begin{equation}
-      \label{eq:15}
+      \label{eq:16}
       Y(a^{j_1}_{(n_1)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac) = a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots (a^{j_s}(z)_{(n_s)}\Id_V)\dots),
     \end{equation}
     for $s \in \mathbb{N}$, $j_1, \dots, j_s \in J$ and $n_1, \dots, n_s \in \mathbb{Z}$;
   \item The vertex algebra $V$ is generated by $\{a^j_{(-1)}\vac \mid j \in J\}$;
-  \item The only vertex algebra structure on $V$ with $Y(a^j_{(-1)}\vac, z) = a^j(z)$ for $j \in J$ is the one given by \eqref{eq:15}.
+  \item The only vertex algebra structure on $V$ with $Y(a^j_{(-1)}\vac, z) = a^j(z)$ for $j \in J$ is the one given by \eqref{eq:16}.
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  By \Cref{thr:10}, the map $\fs$ is well defined as was noted already in \Cref{sec:fields-over-vector}.
-  By \Cref{thr:11}(i) and \Cref{thr:11}(iii), $\fs|_{\mathcal{F}_{\min}}: \mathcal{F}_{\mathcal{F}_{\min}} \to V$ is given by
+  By \Cref{thr:11}, the map $\fs$ is well defined as was noted already in \Cref{sec:fields-over-vector}.
+  By \Cref{thr:12}(i) and \Cref{thr:12}(iii), $\fs|_{\mathcal{F}_{\min}}: \mathcal{F}_{\mathcal{F}_{\min}} \to V$ is given by
   \begin{equation}
-    \label{eq:16}
+    \label{eq:17}
     \fs|_{\mathcal{F}_{\min}}(a^{j_1}(z)_{(n_1)}(a^{j_2}(z)_{(n_2)}\dots (a^{j_s}(z)_{(n_s)}\Id_V)\dots)) = a^{j_1}_{(n_1)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac.
   \end{equation}
   By the completeness axiom of pre-vertex algebras, $\fs|_{\mathcal{F}_{\min}}$ is surjective.
@@ -1278,12 +1297,12 @@ Now we come to a very fundamental theorem, which allows us to construct noncommu
   \end{equation*}
   In particular, for $s, n_1, \dots, n_s \in \mathbb{N}$ and $a^1, \dots, a^s \in V$,
   \begin{equation}
-    \label{eq:17}
+    \label{eq:18}
     Y(a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_zY(a^1,z)\dots \partial^{n_s}_zY(a^s,z):}{n_1!\dots n_s!}.
   \end{equation}
   If $V$ is given by a pre-vertex algebra $(V, \vac, T, \mathcal{F})$ where $\mathcal{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$, then for $s, n_1, \dots, n_s \in \mathbb{N}$ and $j_1, \dots, j_s \in J$,
   \begin{equation}
-    \label{eq:18}
+    \label{eq:19}
     Y(a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_za^{j_1}(z)\dots \partial^{n_s}_za^{j_s}(z):}{n_1!\dots n_s!}.
   \end{equation}
 \end{corollary}
@@ -1301,14 +1320,14 @@ We define:
 \end{align*}
 
 \begin{theorem}
-  \label{thr:15}
+  \label{thr:16}
   With the notation above, $\mathcal{F}$ consists of fields and $(V, \vac, T, \mathcal{F})$ is a pre-vertex algebra.
 \end{theorem}
 
 \begin{proof}
   First, we prove that $\pi(a^j(z))$ is a field for all $j \in J$.
   We do this by induction on $s$ in $v = a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac$ where $s \in \mathbb{N}$, $n_1, \dots, n_s \in \mathbb{Z}_-$ and $j_1, \dots, j_s \in J$.
-  By \eqref{eq:21}, these elements form a spanning set for $V$.
+  By \eqref{eq:22}, these elements form a spanning set for $V$.
   For $s = 0$, we have $v = \vac$ and
   \begin{equation*}
     \pi(a^j(z))\vac = \sum_{n \in \mathbb{Z}} a^j_{(n)}\vac z^{-n - 1} = \sum_{n \in \mathbb{Z}_-} a^j_{(n)}\vac z^{-n - 1} \in V((z)).
@@ -1318,13 +1337,13 @@ We define:
   \begin{align}
     \nonumber
     \pi(a^j(z))v &= \sum_{n \in \mathbb{Z}}a^j_{(n)}a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \\
-    \label{eq:19}
+    \label{eq:20}
     &= \sum_{n \in \mathbb{Z}} [a^j_{(n)}, a^{j_1}_{(n_1)}]a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \pm \sum_{n \in \mathbb{Z}}a^{j_1}_{(n_1)}a^j_{(n)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1}.
   \end{align}
-  By the induction hypothesis, the second sum in \eqref{eq:19} is in $V((z))$, so we only need to show that the first sum is also in $V((z))$.
-  By \eqref{eq:5},
+  By the induction hypothesis, the second sum in \eqref{eq:20} is in $V((z))$, so we only need to show that the first sum is also in $V((z))$.
+  By \eqref{eq:6},
   \begin{equation}
-    \label{eq:20}
+    \label{eq:21}
     [a^j_{(n)}, a^{j_1}_{(n_1)}] = \sum_{k \in \mathbb{N}}\binom{n}{k}(a^j(z)_{(k)}a^{j_1}(z))_{(n + n_1 - k)}.
   \end{equation}
   By the regularity property, we know that $a^j(z)_{(k)}a^{j_1}(z) \in \mathbb{C}[\partial_z]\mathfrak{F}$, thus we can assume that
@@ -1333,11 +1352,11 @@ We define:
   \end{equation*}
   for some polynomials $f^k_l$.
   Since $(a^j(z), a^{j_1}(z))$ is a local pair, there exists $N \in \mathbb{N}$ such that $a^j(z)_{(k)}a^{j_1}(z) = 0$ for $k \ge N$.
-  This allows us to rewrite \eqref{eq:20} as
+  This allows us to rewrite \eqref{eq:21} as
   \begin{equation*}
     [a^j_{(n)}, a^{j_1}_{(n_1)}] = \sum_{0 \le k \le N}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}.
   \end{equation*}
-  Therefore, we can rewrite the first sum in \eqref{eq:19} as
+  Therefore, we can rewrite the first sum in \eqref{eq:20} as
   \begin{equation*}
     \sum_{0 \le k \le N}\sum_{n \in \mathbb{Z}}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1}.
   \end{equation*}
@@ -1345,7 +1364,7 @@ We define:
   \begin{equation*}
     \sum_{n \in \mathbb{Z}}\binom{n}{k}\left(\sum_{l \in J}f^k_l(\partial_z)a^l(z)\right)_{(n + n_1 - k)}a^{j_2}_{(n_2)}\dots a^{j_s}_{(n_s)}\vac z^{-n - 1} \in V((z)).
   \end{equation*}
-  Finally, the first sum in \eqref{eq:19} is also in $V((z))$.
+  Finally, the first sum in \eqref{eq:20} is also in $V((z))$.
 
   We now verify the four axioms of a pre-vertex algebra.
   \begin{enumerate}
@@ -1374,20 +1393,20 @@ We define:
 
 By the Extension theorem and the previous theorem, $V$ is a vertex algebra, denoted by $V(\mathfrak{g}, \mathfrak{F}, T_0)$, and by the PBW theorem, it is explicitly given by
 \begin{equation}
-  \label{eq:21}
+  \label{eq:22}
   V = \vspan\{a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, j_1, \dots, j_s \in J\}
 \end{equation}
 which means $V$ is strongly generated by $\{a^j_{(-1)}\vac\}_{j\in J}$.
 The state-field correspondence map $Y: V \to \mathcal{F}(V)$ is explicitly given by
 \begin{equation}
-  \label{eq:22}
+  \label{eq:23}
   Y(a^{j_1}_{(-n_1 - 1)}\dots a^{j_s}_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_za^{j_1}(z)\dots \partial^{n_s}_za^{j_s}(z):}{n_1!\dots n_s!}
 \end{equation}
 for $s, n_1, \dots, n_s \in \mathbb{N}$ and $j_1, \dots, j_s \in J$.
 
 \begin{remark}
   \label{rmk:12}
-  The PBW theorem for Lie superalgebras is actually more precise than \eqref{eq:21}.
+  The PBW theorem for Lie superalgebras is actually more precise than \eqref{eq:22}.
   Let $\le$ be a total order on $J$.
   Then
   \begin{equation*}
@@ -1423,7 +1442,7 @@ For $a \in \mathfrak{h}$ and $x \in U(\mathfrak{g})$,
   &= DU(T_0)(x)(a - \lambda(a))\vac.
 \end{align*}
 Thus, $I^{\lambda}$ is $T$-invariant.
-By \Cref{thr:15}, $\{a^j_{(-1)}\vac \}_{j \in J}$ strongly generates $V$ and from this we see that $I^{\lambda}$ is a left ideal.
+By \Cref{thr:16}, $\{a^j_{(-1)}\vac \}_{j \in J}$ strongly generates $V$ and from this we see that $I^{\lambda}$ is a left ideal.
 By \Cref{rmk:11}, $I^{\lambda}$ is an ideal of $V(\mathfrak{g}, \mathfrak{F}, T_0)$.
 We get a vertex algebra denoted by
 \begin{equation*}
@@ -1465,7 +1484,7 @@ We now use this construction to obtain several important examples of vertex alge
   We also consider the empty partition $\emptyset$ which is the unique partition of $0$.
   By \Cref{rmk:12}, for any $c \in \mathbb{C}$, a basis for $\Vir^c$ is given by
   \begin{equation*}
-    \{L_{\lambda_1}\dots L_{\lambda_m}\vac \mid [\lambda_1, \dots, \lambda_m]\text{ is a partition}\}.
+    \{L_{-\lambda_1}\dots L_{-\lambda_m}\vac \mid [\lambda_1, \dots, \lambda_m]\text{ is a partition with } \lambda_m \ge 2\}.
   \end{equation*}
   When we deal with conformal vertex algebras, we will explain why is this vertex algebra called universal.
 \end{example}
@@ -1489,7 +1508,7 @@ We now use this construction to obtain several important examples of vertex alge
 Let $V$ be a vertex algebra.
 A Hamiltonian operator of $V$ is a diagonalizable operator $H \in \End(V)$ such that
 \begin{equation}
-  \label{eq:23}
+  \label{eq:24}
   [H, Y(a, z)] = z\partial_zY(a, z) + Y(Ha, z) \quad \text{for }a \in V.
 \end{equation}
 A vertex algebra with a Hamiltonian operator is called graded.
@@ -1502,14 +1521,14 @@ where
   V_{\Delta} = \ker(H - \Delta\Id_V) \quad \text{for }\Delta \in \mathbb{C}.
 \end{equation*}
 If $a$ is an eigenvector of $H$, it is called homogeneous, its eigenvalue is called the conformal weight of $a$ and it is denoted by $\Delta_a$.
-Condition \eqref{eq:23} is equivalent to
+Condition \eqref{eq:24} is equivalent to
 \begin{equation}
-  \label{eq:24}
+  \label{eq:25}
   [H,a_{(n)}] = -(n + 1)a_{(n)} + (Ha)_{(n)} \quad \text{for }a \in V\text{ and }n \in \mathbb{Z}
 \end{equation}
 and to
 \begin{equation}
-  \label{eq:25}
+  \label{eq:26}
   [H, a_{(n)}] = (\Delta_a - n - 1)a_{(n)} \quad \text{for }a \in V\text{ homogeneous and }n \in \mathbb{Z} - \Delta_a.
 \end{equation}
 
@@ -1517,13 +1536,13 @@ For $a \in V$ homogeneous with conformal weight $\Delta_a$, we write, as was don
 \begin{equation*}
   a_{(n)} = a_{n - \Delta_a + 1} \quad \text{for }n \in \mathbb{Z}.
 \end{equation*}
-With this notation, \eqref{eq:25} is equivalent to
+With this notation, \eqref{eq:26} is equivalent to
 \begin{equation*}
   [H, a_n] = -na_n \quad \text{for } a \in V\text{ homogeneous and }n \in \mathbb{Z} - \Delta_a.
 \end{equation*}
 
 \begin{theorem}[{\cite[\S4.9]{kac_vertex_1998}}]
-  \label{thr:16}
+  \label{thr:17}
   Let $V$ be a vertex algebra with a Hamiltonian $H$ and grading $V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}$.
   Then:
   \begin{enumerate}
@@ -1555,13 +1574,13 @@ A conformal vertex algebra (of central charge $c$) is a vertex algebra $V$ toget
 \end{remark}
 
 \begin{theorem}
-  \label{thr:17}
+  \label{thr:18}
   If $\omega$ is a conformal vector for $V$, then $L_0$ is a Hamiltonian for $V$ and for $a \in V$, $Y(a, z)$ is an eigendistribution of conformal weight $\Delta_a$ with respect to $Y(\omega, z)$ if and only if $a$ is homogeneous of conformal weight $\Delta_a$.
   Moreover, $\omega$ has conformal weight $2$.
 \end{theorem}
 
 \begin{proof}
-  By \Cref{thr:12}(iii) and \Cref{thr:12}(v), for $a \in V$ homogeneous and $n \in \mathbb{Z}$,
+  By \Cref{thr:13}(iii) and \Cref{thr:13}(v), for $a \in V$ homogeneous and $n \in \mathbb{Z}$,
   \begin{align*}
     [L_0, a_{(n)}] &= [\omega_{(1)}, a_{(n)}] \\
     &= \sum_{j \in \mathbb{N}}\binom{1}{j}(\omega_{(1)}a)_{1 + n - j} \\
@@ -1569,9 +1588,9 @@ A conformal vertex algebra (of central charge $c$) is a vertex algebra $V$ toget
     &= (Ta)_{(n + 1)} + (L_0a)_{(n)} \\
     &= -(n + 1)a_{(n)} + (L_0a)_{(n)}.
   \end{align*}
-  By \eqref{eq:24}, this is equivalent to $L_0$ being a Hamiltonian for $V$.
+  By \eqref{eq:25}, this is equivalent to $L_0$ being a Hamiltonian for $V$.
 
-  By the $n$-product identity for vertex algebras and \Cref{thr:12}(iii), for $a \in V$,
+  By the $n$-product identity for vertex algebras and \Cref{thr:13}(iii), for $a \in V$,
   \begin{align*}
     [Y(\omega, z)_{\lambda}Y(a, z)] &= \sum_{j \in \mathbb{N}}\frac{Y(\omega, z)_{(j)}Y(a, z)}{j!}\lambda^j \\
     &= \sum_{j \in \mathbb{N}}\frac{Y(\omega_{(j)}a, z)}{j!}\lambda^j \\
@@ -1650,7 +1669,7 @@ We have constructed a functor
 A homomorphism $(V, \omega) \to (V', \omega')$ of conformal vertex algebras is a homomorphism of vertex algebras such that $\omega \mapsto \omega'$.
 
 \begin{theorem}[Universal property of $\Vir^c$]
-  \label{thr:18}
+  \label{thr:19}
   Let $V$ be a conformal vertex algebra with conformal vector $\omega$.
   There exists a unique homomorphism of conformal vertex algebras $\Vir^c \to V$.
 \end{theorem}
@@ -1673,7 +1692,7 @@ A homomorphism $(V, \omega) \to (V', \omega')$ of conformal vertex algebras is a
   Using the universal property of $\Vir^c$ (cf.\ \Cref{rmk:14}), we obtain our desired homomorphism of vertex algebras $\bar{f}: \Vir^c \to V$ such that $\bar{f}(L_{-2}\vac) = \omega$.
   As $\{L_{-2}\vac\}$ strongly generates $\Vir^c$ and a homomorphism of conformal vertex algebras is required to send $L_{-2}\vac$ to $\omega$, $\bar{f}$ is the only homomorphism of conformal vertex algebras $\Vir^c \to V$.
   
-  Alternatively, we could use \Cref{thr:20} ahead to obtain a state-field correspondence $f: \Vir^c \to \mathcal{F}(V)$.
+  Alternatively, we could use \Cref{thr:21} ahead to obtain a state-field correspondence $f: \Vir^c \to \mathcal{F}(V)$.
   Actually, the image of $f$ is contained in the image of the state-field correspondence $Y^V: V \to \mathcal{F}(V)$.
   Because $Y^V$ is injective, we can simply define $\bar{f} = (Y^V)^{-1}\circ f$.
 \end{proof}
@@ -1689,7 +1708,7 @@ A $V$-module or representation of $V$ is a vector space $M$ together with a line
   Y^M(\bullet, z): V &\to \mathcal{F}(M) \\
   a &\mapsto Y^M(a,z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}
 \end{align*}
-satisfying
+satisfying:
 \begin{enumerate}
 \item $Y(\vac,z) = \Id_M$.
 \item (Borcherds identity) For $a, b \in V$, $c \in M$ and $m, n, k\in \mathbb{Z}$,
@@ -1701,10 +1720,10 @@ The vertex algebra $V$ is clearly a $V$-module and is sometimes called the adjoi
 A submodule of $M$ is a subspace $U$ of $M$ such that $Y^M(a, z)m \in U((x))$ for $a \in V$ and $m \in U$, i.e.\ $a^M_{(n)} m \in U$ for all $n\in \mathbb{Z}$.
 The quotient module $M/U$ is defined in the usual way.
 A module whose only submodules are $0$ and itself is called simple or irreducible.
-Most of the theorems about vertex algebras and their proofs carry over to modules over vertex algebras (cf. \Cref{thr:12}) as the following theorem shows.
+Most of the theorems about vertex algebras and their proofs carry over to modules over vertex algebras (cf. \Cref{thr:13}) as the following theorem shows.
 
 \begin{theorem}
-  \label{thr:19}
+  \label{thr:20}
   Let $V$ be a vertex algebra, $Y^M:V\to \mathcal{F}(M)$ a $V$-module, $a, b\in V$, $c \in M$ and $m, n \in \mathbb{Z}$.
   Then:
   \begin{enumerate}
@@ -1716,7 +1735,7 @@ Most of the theorems about vertex algebras and their proofs carry over to module
   \item $e^{Tw}Y^M(a,z)e^{-Tw}=i_{z,w}Y^M(a,z+w)$;
   \item (Borcherds identity)
     \begin{equation}
-      \label{eq:26}
+      \label{eq:27}
       i_{z,w}(z-w)^nY^M(a,z)Y^M(b,w)c-p(a,b)i_{w,z}(z-w)^nY^M(b,w)Y^M(a,z)c=\sum_{j\in \mathbb{N}}Y^M(a_{(n+j)}b,w)\frac{\partial^j_w\delta(z,w)}{j!}c;
     \end{equation}
   \item $(a_{(n)}b)^M_{(m)}c = \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a^M_{(n - j)}b^M_{(m + j)}c - (-1)^np(a, b)b^M_{(n + m - j)}a^M_{(j)}c)$.
@@ -1725,7 +1744,7 @@ Most of the theorems about vertex algebras and their proofs carry over to module
 
 \begin{remark}
   \label{rmk:18}
-  A $V$-module is equivalently a vector space $M$ such that (i), (v) and (viii) in \Cref{thr:19} hold.
+  A $V$-module is equivalently a vector space $M$ such that (i), (v) and (viii) in \Cref{thr:20} hold.
 \end{remark}
 
 \begin{remark}
@@ -1736,11 +1755,11 @@ Most of the theorems about vertex algebras and their proofs carry over to module
 Let $V$ be a vertex algebra and let $M$ a $V$-module.
 We say  $T^M \in \End(M)$ is a differential of $M$ if
 \begin{equation*}
-  [T^M, a^M_{(n)}] = -na^M_{(n - 1)} \text{for } a \in V\text{ and }n \in \mathbb{Z}
+  [T^M, a^M_{(n)}] = -na^M_{(n - 1)} \quad \text{for } a \in V\text{ and }n \in \mathbb{Z}
 \end{equation*}
 or, equivalently,
 \begin{equation*}
-  [T^M, Y^M(a, z)] = Y^M(Ta,z).
+  [T^M, Y^M(a, z)] = Y^M(Ta, z).
 \end{equation*}
 A differential $V$-module is a $V$-module equipped with a differential.
 
@@ -1751,7 +1770,7 @@ We say $\mathfrak{h}$ acts as $\lambda$ if for $h \in \mathfrak{h}$ and $m \in M
 
 
 \begin{theorem}[{\cite[Theorem 2.15]{li_vertex_2004}}]
-  \label{thr:20}
+  \label{thr:21}
   Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie superalgebra with $\mathfrak{F} = \{a^j(z) = \sum_{n \in \mathbb{Z}}a^j_{(n)}z^{-n - 1}\}_{j \in J}$.
   Given a smooth $(\mathfrak{g}, \mathfrak{F}, T_0)$-module $M$ there is a unique module structure $Y^M: V(\mathfrak{g}, \mathfrak{F}, T_0) \to \mathcal{F}(M)$ such that for $j \in J$ and $m \in M$, $Y^M(a^j_{(-1)}\vac)m = a^j(z)m$.
   Let $\lambda: \mathfrak{h} \to \mathbb{C}$ be a linear functional where $\mathfrak{h}$ is a subalgebra of $\mathfrak{g}_+$ with $\mathfrak{h} \subseteq \ker(T_0)$.
@@ -1761,17 +1780,18 @@ We say $\mathfrak{h}$ acts as $\lambda$ if for $h \in \mathfrak{h}$ and $m \in M
 \begin{remark}
   \label{rmk:20}
   We define in a natural way the categories $\{\text{smooth }(\mathfrak{g}, \mathfrak{F}, T_0)\text{-modules}\}$ and $\{\text{smooth }(\mathfrak{g}, \mathfrak{F}, T_0)\text{-modules where }\mathfrak{h}\text{ acts as }\lambda\}$.
-  \Cref{thr:20} constructs a pair of functors
+  \Cref{thr:21} constructs a pair of functors
   \begin{align*}
     \{\text{smooth }(\mathfrak{g}, \mathfrak{F}, T_0)\text{-modules}\} &\to V(\mathfrak{g}, \mathfrak{F}, T_0)\text{-mod} \\
     \{\text{smooth }(\mathfrak{g}, \mathfrak{F}, T_0)\text{-modules where }\mathfrak{h}\text{ acts as }\lambda\} &\to V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)\text{-mod}
   \end{align*}
+  which are actually isomorphisms.
 \end{remark}
 
 Let $M$ be a module of a graded vertex algebra $V$ with Hamiltonian operator $H$. 
 A Hamiltonian operator of $M$ is a diagonalizable operator $H^M \in \End(M)$ such that
 \begin{equation}
-  \label{eq:27}
+  \label{eq:28}
   [H^M, Y^M(a, z)] = z\partial_zY^M(a, z) + Y^M(Ha, z) \quad \text{for }a \in V.
 \end{equation}
 A $V$-module together with a Hamiltonian operator is called graded.
@@ -1785,7 +1805,7 @@ where
 \end{equation*}
 
 \begin{theorem}
-  \label{thr:21}
+  \label{thr:22}
   Let $V$ be a graded vertex algebra with Hamiltonian $H$ and $M$ a graded $V$-module with Hamiltonian $H^M$.
   Then:
   \begin{enumerate}
@@ -1795,11 +1815,11 @@ where
 \end{theorem}
 
 \begin{proof}
-  The proof for \Cref{thr:16} also works here.
+  The proof for \Cref{thr:17} also works here.
 \end{proof}
 
 \begin{theorem}[{\cite[Proposition 4.1.5 and (4.1.18)]{lepowsky_introduction_2004}}]
-  \label{thr:22}
+  \label{thr:23}
   Let $V$ be a conformal vertex algebra of central charge $c$ with conformal vector $\omega$ and $M$ a $V$-module.
   Write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 2}$.
   For $a \in V$ and $m, n \in \mathbb{Z}$,
@@ -1818,11 +1838,11 @@ where
 
 \begin{remark}
   \label{rmk:21}
-  \Cref{thr:22} is analogous to \Cref{thr:16} with $L_{-1}^M$ in place of $T$ and $L_0^M$ in place of $H$.
+  \Cref{thr:23} is analogous to \Cref{thr:17} with $L_{-1}^M$ in place of $T$ and $L_0^M$ in place of $H$.
 \end{remark}
 
 Let $V$ be a conformal vertex algebra with conformal vector $\omega$.
-By \Cref{thr:22}, the following definition makes sense.
+By \Cref{thr:23}, the following definition makes sense.
 A $V$-module as a conformal vertex algebra is a $V$-module $M$ as a vertex algebra such that $L^M_0$ is diagonalizable where we write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 2}$.
 In particular, $M$ is differential by $L^M_{-1}$ and graded by $L^M_0$.
 The $V$-module $M$ is called a positive energy representation of $V$ if $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$ for some $h \in \mathbb{C}$.
@@ -1839,16 +1859,58 @@ For an ordinary representation $M$, the character of $M$ is defined as
 \subsection{Unitary and contravariant representations of Lie algebras}
 \label{sec:unit-contr-repr}
 
-The following linear algebra lemma appears several times in the theory of vertex algebras, so we state it here.
+We start by reviewing some basic facts about linear algebra and forms on vector spaces.
+
+\begin{lemma}[{\cite[\S6.2]{hoffman_linear_1971}}]
+  \label{lmm:6}
+  Let $V$ be a vector space, $H \in \End(V)$ and for $\Delta \in \mathbb{C}$, set $V_{\Delta} = \ker(H - \Delta\Id_V)$.
+  Then the family of vector spaces $(V_{\Delta})_{\Delta \in \mathbb{C}}$ is linearly independent.
+\end{lemma}
 
 \begin{lemma}[{\cite[Corollary 1.1]{kac_bombay_2013}}]
-  \label{lmm:6}
+  \label{lmm:7}
   Let $V$ be a vector space (not necessarily a vertex algebra) and $H \in \End(V)$ a diagonalizable operator with $H$-grading $V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}$.
   Let $U$ be a $H$-invariant subspace of $V$, this means $H(U) \subseteq U$.
   Then $U$ is also $H$-graded:
   \begin{equation*}
     U = \sum_{\Delta \in \mathbb{C}}U \cap V_{\Delta}.
   \end{equation*}
+\end{lemma}
+
+Let $V$ be a vector space.
+A (sesquilinear) form on $V$ is a function
+\begin{align*}
+  \langle \bullet| \bullet\rangle: V \times V &\to \mathbb{C} \\
+  (a, b) &\mapsto \langle a| b\rangle
+\end{align*}
+such that for $u, v, w \in V$ and $a \in \mathbb{C}$:
+\begin{enumerate}
+\item $\langle au + v| w\rangle = \overline{a}\langle u| w\rangle + \langle v| w\rangle$;
+\item $\langle u| av + w\rangle = a\langle u| v\rangle a + \langle u| w\rangle$.
+\end{enumerate}
+All forms are assumed to be sesquilinear.
+
+An Hermitian form on $V$ is a form $\langle \bullet| \bullet\rangle$ satisfying
+\begin{equation*}
+  \langle u| v\rangle = \overline{\langle v| u\rangle} \quad \text{for }u, v \in V.
+\end{equation*}
+
+Let $S \subseteq V$ be a subset of a vector space $V$ equipped with a form $\langle \bullet| \bullet\rangle$.
+Define the orthogonal complement of $S$ as the subspace
+\begin{equation*}
+  S^{\perp} = \{v \in V \mid \text{for }u\in S, \langle u| v\rangle = 0\}.
+\end{equation*}
+
+A form $\langle \bullet| \bullet\rangle$ on $V$ is called nondegenerate if $V^{\perp} = 0$ and it is called positive-definite if it is Hermitian and
+\begin{equation*}
+  \langle v| v\rangle > 0 \quad \text{for }v \in V \text{ with } v \neq 0.
+\end{equation*}
+An inner product space is a vector space $V$ together with a positive-definite form.
+
+\begin{lemma}[{\cite[\S8.2 Theorem 5]{hoffman_linear_1971}}]
+  \label{lmm:8}
+  Let $V$ be an inner product space and $W$ a finite dimensional subspace of $V$.
+  Then $W \oplus W^{\perp}=V$.
 \end{lemma}
 
 Let $V$ be a  vector space.
@@ -1872,7 +1934,7 @@ Note that this means we can extend $\omega$ to the universal enveloping algebra 
 We shall be mostly interested in the Virasoro Lie algebra $\Vir$ which has the following antilinear anti-involution:
 \begin{align*}
   \omega: \Vir &\to \Vir \\
-  \omega(L_n) &= L_{-n} \quad \text{for }n \in \mathbb{Z} \\
+  \omega(L_n) &= L_{-n} \quad \text{for }n \in \mathbb{Z}, \\
   \omega(C) &= C,
 \end{align*}
 which is extended by antilinearity.
@@ -1902,31 +1964,31 @@ The vector $v$ is not uinquely determined and can be replaced by any nonzero sca
 
 For $\Delta \in \mathbb{C}$, set $V_{\Delta} = \ker(L_0 - \Delta\Id_V)$.
 We observe that all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ and a fixed value of $j = i_1 + \dots + i_k$ belong to $V_{h + j}$.
-By axiom (iii), $V = \sum_{j \in \mathbb{N}}V_{h + j}$ and this is in fact a direct sum:
+By axiom (iii), $V = \sum_{j \in \mathbb{N}}V_{h + j}$ and by \Cref{lmm:6}, this is in fact a direct sum:
 \begin{equation}
-  \label{eq:28}
+  \label{eq:29}
   V = \bigoplus_{j \in \mathbb{N}}V_{h + j}.
 \end{equation}
 By axiom (ii),
 \begin{equation}
-  \label{eq:29}
+  \label{eq:30}
   V_h = \mathbb{C}v
 \end{equation}
 Note that
 \begin{equation}
-  \label{eq:30}
+  \label{eq:31}
   L_nV_{h + j}\subseteq V_{h + j - n} \quad \text{for }n \in \mathbb{Z}\text{ and }j \in \mathbb{N}.
 \end{equation}
 In particular we have
 \begin{equation}
-  \label{eq:31}
+  \label{eq:32}
   L_nv = 0 \quad \text{for } n \in \mathbb{Z}_+.
 \end{equation}
 
 For $j \in \mathbb{N}$, let $p(j)$ denote the number of partitions of $j$ into a sum of positive integers $j = i_1 + \dots + i_k$ with $i_k \ge \dots \ge i_1 > 0$.
 It is clear that
 \begin{equation}
-  \label{eq:32}
+  \label{eq:33}
   \dim(V_{h + j}) \le p(j)
 \end{equation}
 with equality if and only if all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ and $j = i_1 + \dots + i_k$ are linearly independent.
@@ -1934,7 +1996,7 @@ By axiom (i), $C$ acts on $V$ as multiplication by $c$ because it commutes with 
 Thus, a highest weight representation of $\Vir$ with highest weight $(c, h)$ is necessarily smooth and of central charge $c$.
 
 \begin{lemma}
-  \label{lmm:7}
+  \label{lmm:9}
   Let $V$ be a highest weight representation of $\Vir$ with highest weight $(c, h)$, highest weight vector $v$ and decomposition $V = \bigoplus_{j \in \mathbb{N}}V_{h + j}$.
   Then:
   \begin{enumerate}
@@ -1952,7 +2014,7 @@ Thus, a highest weight representation of $\Vir$ with highest weight $(c, h)$ is 
 
 \begin{proof}\leavevmode
   \begin{enumerate}
-  \item This is \Cref{lmm:6} with $H = L_0$.
+  \item This is \Cref{lmm:7} with $H = L_0$.
   \item Assume we find such a decomposition.
     Both $U$ and $W$ are graded subrepresentations and therefore we must have either $v \in U$ or $v \in W$ which implies either $U = V$ or $W = V$.
   \item Just take $J_{\max}$ as the sum of all proper subrepresentations of $V$.\qedhere
@@ -1985,15 +2047,23 @@ Then
   M(c, h) = \Ind^{\Vir}_{\Vir_{\ge 0, C}}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge 0, C})} \mathbb{C},
 \end{equation*}
 is a $\Vir$-module where $\Vir$ acts by left multiplication.
-By the PBW theorem, $M(c, h)$ is a Verma representation of $\Vir$ with highest weight $(c, h)$ and highest weight vector $|c, h\rangle = 1\otimes1$.
-As in \eqref{eq:32}, the character of a Verma representation is given by
+
+For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, define $L_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m} \in U(\Vir)$.
+By the PBW theorem, the set
+\begin{equation*}
+  \{L_\lambda|c,h\rangle \mid \lambda\text{ is a partition}\}
+\end{equation*}
+is a vector space basis of $M(c, h)$.
+Therefore, $M(c, h)$ is a Verma representation of $\Vir$ with highest weight $(c, h)$ and highest weight vector $|c, h\rangle = 1\otimes1$.
+We usually simplify $|c, h\rangle$ to just $|h\rangle$ when $c$ is understood.
+By \eqref{eq:33}, the character of a Verma representation is given by
 \begin{equation*}
   \ch_{M(c, h)}(q) = \frac{q^h}{\prod_{j \in \mathbb{N}}(1 - q^j)}.
 \end{equation*}
 
 Any other highest weight representation $V$ with highest weight $(c, h)$ is a quotient of $M(c, h)$, just map $v$ to a highest weight vector of $V$, the resulting homomorphism is surjective and $V$ is isomorphic to $M(c, h)$ quotiented by the kernel of this homomorphism.
 
-By \Cref{lmm:7}(iii), $M(c, h)$ has a unique maximal subrepresentation $J(c, h)$.
+By \Cref{lmm:9}(iii), $M(c, h)$ has a unique maximal subrepresentation $J(c, h)$.
 The quotient
 \begin{equation*}
   L(c, h) = M(c, h)/J(c, h)
@@ -2004,12 +2074,12 @@ We wish to determine when is $L(c, h)$ equal to $M(c, h)$.
 
 A vector $u$ in $\Vir$-module is called singular if it is nonzero and
 \begin{equation}
-  \label{eq:33}
+  \label{eq:34}
   L_nu = 0 \quad \text{for }n \in \mathbb{Z}_+.
 \end{equation}
 
 \begin{lemma}
-  \label{lmm:8}
+  \label{lmm:10}
   Let $V$ be a $\Vir$-module.
   If $u \in V$ is nonzero and $L_1u = L_2u = 0$ then $u$ is a singular vector. 
 \end{lemma}
@@ -2020,19 +2090,19 @@ A vector $u$ in $\Vir$-module is called singular if it is nonzero and
 
 \begin{remark}
   \label{rmk:22}
-  By \eqref{eq:31}, a highest weight vector is singular. 
-  By \eqref{eq:28}, we can  write a singular vector $u$ as $u = \sum_{j \in \mathbb{N}}u_{h + j}$ where $u_{h + j} \in V_{h + j}$.
+  By \eqref{eq:32}, a highest weight vector is singular. 
+  By \eqref{eq:29}, we can  write a singular vector $u$ as $u = \sum_{j \in \mathbb{N}}u_{h + j}$ where $u_{h + j} \in V_{h + j}$.
   Then all the nonzero vectors $u_{h + j}$ are also singular vectors.
   Therefore, we can focus on homogeneous singular vectors.
 \end{remark}
 
 \begin{lemma}
-  \label{lmm:9}
+  \label{lmm:11}
   A highest weight representation is irreducible if and only if it has no singular vectors other than nonzero scalar multiples of a highest weight vector.
 \end{lemma}
 
 \begin{theorem}
-  \label{thr:23}
+  \label{thr:24}
   Let $V$ be a highest weight representation of $\Vir$ with a contravariant form $\langle \bullet, \bullet\rangle$.
   Then all eigenspaces of $L_0$ are pairwise orthogonal.
   Let $U$ be a subrepresentation of $V$.
@@ -2051,28 +2121,28 @@ A vector $u$ in $\Vir$-module is called singular if it is nonzero and
   which implies $(h - \overline{h} + j_2 - j_1)\langle u| w\rangle = 0$ and $\langle u| w\rangle = 0$.
   We know $\langle U| U^{\perp}\rangle = 0$ and $L_jU \subseteq U$ for $j \in \mathbb{Z}$.
   Then $0 = \langle L_jU| U^{\perp}\rangle = \langle U| L_{-j}U^{\perp}\rangle$ which implies $L_jU^{\perp} \subseteq U^{\perp}$ for $j \in \mathbb{Z}$, so $U^{\perp}$ is a subrepresentation of $V$.
-  By \Cref{lmm:7},
+  By \Cref{lmm:9},
   \begin{equation*}
      U^{\perp} = \bigoplus_{j \in \mathbb{N}}U^{\perp} \cap V_{h + j} = \bigoplus_{j \in \mathbb{N}}(U \cap V_{h + j})^{\perp|V_{h + j}},
   \end{equation*}
   where $(U \cap V_{h + j})^{\perp|V_{h + j}}$ denotes the orthogonal subspace of $U \cap V_{h + j}$ in $V_{h + j}$.
-  If $\langle \bullet| \bullet\rangle$ is unitary, we know $U \cap V_{h + j} \oplus (U \cap V_{h + j})^{\perp|V_{h + j}} = V_{h + j}$ for $j \in \mathbb{N}$ because all the vector spaces $V_{h + j}$ are finite dimensional.
+  If $\langle \bullet| \bullet\rangle$ is unitary, then by \Cref{lmm:8}, $U \cap V_{h + j} \oplus (U \cap V_{h + j})^{\perp|V_{h + j}} = V_{h + j}$ for $j \in \mathbb{N}$ because all the vector spaces $V_{h + j}$ are finite dimensional.
   It is now clear that $U \oplus U^{\perp} = V$.
 \end{proof}
 
 \begin{corollary}
-  \label{crl:3}
+  \label{crl:2}
   A highest weight representation $V$ with a unitary form is irreducible.
 \end{corollary}
 
 \begin{proof}
   Let $U$ be a subrepresentation of $V$.
-  By \Cref{thr:23}, $U^{\perp}$ is a subrepresentation of $V$ and $U\oplus U^{\perp} = V$.
-  By \Cref{lmm:7}(ii), either $U = V$ or $U = 0$.
+  By \Cref{thr:24}, $U^{\perp}$ is a subrepresentation of $V$ and $U\oplus U^{\perp} = V$.
+  By \Cref{lmm:9}(ii), either $U = V$ or $U = 0$.
   We conclude that $V$ is irreducible.
 \end{proof}
 
-\subsection{Kac determinant formula}
+\subsection{Kac determinant formula and singular vectors}
 \label{sec:kac-dete-form}
 
 Let $V$ be a highest weight representation with highest weight $(c, h)$ and pick a highest weight vector $v$.
@@ -2081,15 +2151,15 @@ We now show we don't have much choice.
 Since $V_h = \mathbb{C}v$, it makes sense to define for $u \in V$, its expectation value $\langle u\rangle$ as the coefficient of $v$ with respect to the direct sum $V = \bigoplus_{j \in \mathbb{N}}V_{h + j}$, i.e.\ as the unique $t \in \mathbb{C}$ such that $u - tv \in \bigoplus_{j \in \mathbb{Z}_+}V_{h + j}$.
 Let $P = L_{-i_t}\dots L_{-i_1} \in U(\Vir)$ with $i_t \ge \dots \ge i_1 > 0$ and $u \in V$.
 By contravariance, we must have $\langle Pv| u\rangle = \langle v| \omega(P)u\rangle$.
-But $\langle v| \omega(P)u\rangle = \langle \omega(P)u\rangle$ because all eigenspaces of $L_0$ are pairwise orthogonal by \Cref{thr:23}.
+But $\langle v| \omega(P)u\rangle = \langle \omega(P)u\rangle$ because all eigenspaces of $L_0$ are pairwise orthogonal by \Cref{thr:24}.
 Therefore, if $\langle \bullet| \bullet\rangle$ is a contravariant Hermitian nonzero form on $V$ such that $\langle v| v\rangle = 1$, we are forced to have
 \begin{equation}
-  \label{eq:34}
+  \label{eq:35}
   \langle Pv| u\rangle = \langle \omega(P)u\rangle,
 \end{equation}
 for $P = L_{-i_t} \dots L_{-i_1} \in U(\Vir)$ with $i_t \ge \dots \ge i_1 > 0$ and $u \in V$.
 
-Contravariance of $\langle \bullet| \bullet\rangle$ and \eqref{eq:34} imposes conditions on the highest weight $(c, h)$.
+Contravariance of $\langle \bullet| \bullet\rangle$ and \eqref{eq:35} imposes conditions on the highest weight $(c, h)$.
 Let $R\in U(\Vir)$.
 Then
 \begin{equation*}
@@ -2097,38 +2167,38 @@ Then
 \end{equation*}
 Taking $R = C$ and $R = L_0$, we obtain $c, h \in \mathbb{R}$.
 
-Note, however, that initially we cannot define the form using \eqref{eq:34} for a general highest weight representation because there may be linear dependences between terms of the form $L_{-i_t}\dots L_{-i_1}v$ with $i_t \ge \dots \ge i_1 > 0$ so we may ask if it is well defined in the first place.
+Note, however, that initially we cannot define the form using \eqref{eq:35} for a general highest weight representation because there may be linear dependences between terms of the form $L_{-i_t}\dots L_{-i_1}v$ with $i_t \ge \dots \ge i_1 > 0$ so we may ask if it is well defined in the first place.
 That is only possible for $M(c, h)$ and later we will see that is also possible for any highest weight representation.
 
 \begin{theorem}[{\cite[Proposition 3.4]{kac_bombay_2013}}]
-  \label{thr:41}
+  \label{thr:25}
   Let $M(c, h)$ be the Verma representation of $\Vir$ with highest weight $(c, h)$ where $c, h \in \mathbb{R}$.
-  Pick a highest weight vector $v$ and define the form $\langle \bullet| \bullet\rangle$ on $M(c, h)$ using equation \eqref{eq:34}.
+  Pick a highest weight vector $v$ and define the form $\langle \bullet| \bullet\rangle$ on $M(c, h)$ using equation \eqref{eq:35}.
   Then:
   \begin{enumerate}
   \item $\langle \bullet| \bullet\rangle$ is a contravariant Hermitian form on $M(c, h)$ such that $\langle v| v\rangle = 1$;
   \item The eigenspaces of $L_0$ are pairwise orthogonal;
   \item $M(c, h)^{\perp} = J(c, h)$;
   \item Every highest weight representation $V$ of $\Vir$ with highest weight $(c, h)$ and highest weight vector $v'$ carries a contravariant form such that $\langle v'| v'\rangle = 1$.
-    This form on $V$ is defined by \eqref{eq:34} with $v'$ in place of $v$ and satisfies all of the properties of this Theorem.
+    This form on $V$ is defined by \eqref{eq:35} with $v'$ in place of $v$ and satisfies all of the properties of this Theorem.
     In particular, for $L(c, h)$, this form is nondegenerate;
   \item Let $V$ be a highest weight representation with highest weight vector $v$.
-    There is a unique contravariant form $\langle \bullet| \bullet\rangle$ on $V$ such that $\langle v| v\rangle = 1$ and is defined by equation \eqref{eq:34}.
+    There is a unique contravariant form $\langle \bullet| \bullet\rangle$ on $V$ such that $\langle v| v\rangle = 1$ and is defined by equation \eqref{eq:35}.
     If we pick other highest weight vector, the resulting contravariant form is the previously defined form times a positive constant.
   \end{enumerate}
 \end{theorem}
 
 Let $V$ be a highest weight representation with highest weight $(c, h)$ and pick a highest weight vector $v$.
-Let $\langle \bullet| \bullet\rangle$ be the contravariant form on $V$ defined by \eqref{eq:34}.
+Let $\langle \bullet| \bullet\rangle$ be the contravariant form on $V$ defined by \eqref{eq:35}.
 We say that $V$ is unitary if this form is unitary.
-By \Cref{thr:41}, this is independent of the choice of the highest weight vector $v$ and there is essentially one form.
-By \Cref{clr:3}, a unitary highest weight representation is necessarily irreducible, therefore it is of the form $L(c, h)$ for some real numbers $c, h \in \mathbb{R}$.
+By \Cref{thr:25}, this is independent of the choice of the highest weight vector $v$ and there is essentially one form.
+By \Cref{crl:2}, a unitary highest weight representation is necessarily irreducible, therefore it is of the form $L(c, h)$ for some real numbers $c, h \in \mathbb{R}$.
 
 We wish to study when is $L(c,h)$ unitary.
 A simple necessary condition is given by the next theorem.
 
 \begin{theorem}
-  \label{thr:42}
+  \label{thr:26}
   If $L(c, h)$ is unitary then $c \ge 0$ and $h \ge 0$.
 \end{theorem}
 
@@ -2140,11 +2210,11 @@ A simple necessary condition is given by the next theorem.
   \end{equation*}
   But contravariance and the commutation rules of Virasoro show that
   \begin{equation}
-    \label{eq:35}
+    \label{eq:36}
     c_n = 2nh + c(n^3 - n)/12.
   \end{equation}
   Putting $n = 1$ we get $c_1 = 2h$ so that we must have $h \ge 0$.
-  Moreover, \eqref{eq:35} shows that $c_n$ is dominated by $cn^3$ for large $n$, so that $c \ge 0$ is also necessary.
+  Moreover, \eqref{eq:36} shows that $c_n$ is dominated by $cn^3$ for large $n$, so that $c \ge 0$ is also necessary.
 \end{proof}
 
 Let $M(c, h)$ be the Verma representation with highest weight $(c, h)$.
@@ -2153,21 +2223,21 @@ Therefore, we can consider the determinant $\det_n(c, h)$ of the contravariant H
 This is well defined up to a nonzero constant.
 
 \begin{theorem}
-  \label{thr:43}
+  \label{thr:27}
   The Verma representation $M(c, h)$ is irreducible if and only if for $n \in \mathbb{Z}_+$, $\det_n(c, h) \neq 0$.
 \end{theorem}
 
 \begin{proof}
-  By Theorem \ref{thr:41}, $M(c, h)$ is irreducible if and only if $M(c, h)^{\perp} = 0$.
-  By Theorem \ref{thr:23}, $M(c, h)^{\perp} = \bigoplus_{j \in \mathbb{N}}M(c, h)^{\perp} \cap M(c, h)_{h + j} = \bigoplus_{j \in \mathbb{N}}M(c, h)_{h + j}^{\perp}$.
+  By Theorem \ref{thr:25}, $M(c, h)$ is irreducible if and only if $M(c, h)^{\perp} = 0$.
+  By Theorem \ref{thr:24}, $M(c, h)^{\perp} = \bigoplus_{j \in \mathbb{N}}M(c, h)^{\perp} \cap M(c, h)_{h + j} = \bigoplus_{j \in \mathbb{N}}M(c, h)_{h + j}^{\perp}$.
   Therefore, $M(c, h)$ is irreducible if and only if for $j \in \mathbb{N}$, $M(c, h)_{h + j}^{\perp} = 0$ which is equivalent to for $n \in \mathbb{Z}_+$, $\det_n(c, h) \neq 0$.
 \end{proof}
 
 Thus, to determine when $=M(c, h)$ is irreducible, it is worthwhile to study the number $\det_n(c, h)$ for $n \in \mathbb{N}$.
 Fortunately, there is a formula for this.
 
-\begin{theorem}[Kac's determinant formula{}]
-  \label{thr:44}
+\begin{theorem}[Kac determinant formula {\cite[Theorem 4.2]{iohara_representation_2011}}]
+  \label{thr:28}
   For $n \in \mathbb{N}$,
   \begin{equation*}
     \textstyle\det_n(c, h) = \displaystyle\text{constant}\cdot \prod_{\substack{k, l \in \mathbb{Z}_+\\k \ge l\\ 1 \le kl \le n}} \phi_{k, l}(c, h)^{p(n - kl)}
@@ -2181,6 +2251,217 @@ Fortunately, there is a formula for this.
     \end{cases}
   \end{equation*}
 \end{theorem}
+
+\begin{remark}
+  \label{rmk:23}
+  Using Kac determinant formula, it is possible to prove that $L(1/2, h)$ unitary implies $h = 0$, $1/2$ or $1/16$ (see \cite[\S3]{kac_bombay_2013}).
+  This is one of the reasons we study $L(1/2, 1/2)$ and $L(1/2, 1/16)$ in this work.
+\end{remark}
+
+We will need to find the maximal submodules of $M(1/2, 1/2)$ and $M(1/2, 1/16)$ explicitly.
+Kac determinant formula also helps with this, allowing us to compute $J(c, h)$ for rational numbers $c$ and $h$.
+
+It turns out $J(c, h)$ is generated by at most two singular vectors which can be computed explicitly for isolated cases.
+It is always possible to write (nonuniquely)
+\begin{equation*}
+  c = \frac{(3p + 2q)(3q + 2p)}{pq}, h = \frac{(p + q)^2 - m^2}{4pq}
+\end{equation*}
+for some $p,q\in \mathbb{C}\setminus\{0\}$ and $m\in \mathbb{C}$.
+Then
+
+\begin{equation*}
+  \phi_{k, l}(c, h) =
+  \begin{cases}
+    \frac{(pk + ql + m)(qk + pl + m)(pk + ql - m)(qk + pl - m)}{pq} & k \neq l\\
+    \frac{(pk + qk + m)(pk + qk - m)}{4pq} & k = l
+  \end{cases}
+\end{equation*}
+
+Therefore, to find singular vectors in $M(c, h)$ we have to study integral solutions to the linear equation $pk + ql + m = 0$.
+Let $l_{c, h}$ denote the real solutions to this linear equation.
+
+\begin{theorem}[{\cite{astashkevich_structure_1997}}]
+  \label{thr:29}
+  The integral points (the points in $\mathbb{Z}^2$) of $l_{c, h}$ determine the maximal subrepresentation of $M(c, h)$ completely according to the following three cases:
+  \begin{description}[leftmargin = !]
+  \item[Case I] The line $l_{c, h}$ contains no integral points.
+    In this case $J(c, h) = 0$
+  \item[Case II] The line $l_{c, h}$ contains exactly one integral point $(k, l)$.
+    We have three subcases:
+    \begin{description}[leftmargin = !]
+    \item [Subcase II$_+$] The product $kl > 0$.
+      Let $u$ be a singular vector in $M_{c, h + kl}$.
+      Then $J(c, h) = U(\Vir)\{u\}$.
+    \item[Subcase II$_0$] The product $kl = 0$.
+      In this subcase, $J(c, h) = 0$.
+    \item[Subcase II$_-$] The product $kl < 0$.
+      In this subcase, $J(c, h) = 0$.
+    \end{description}
+  \item[Case III] The line $l_{c, h}$ contains infinitely many integral points.
+    Let $(k_1, l_1), (k_2, l_2), \dots$ be all integral points on the line $l_{c, h}$ up to equivalence relation $(k, l)\sim(k', l')$ if and only if  $kl = k'l'$ and such that $kl > 0$.
+    We ordered them in such a way that $k_il_i < k_{i + 1}l_{i + 1}$ for $i \in \mathbb{Z}_+$.
+    We have two subcases:
+    \begin{description}[leftmargin = !]
+    \item[Subcase $c\le 1$] We have three subsubcases:
+      \begin{description}[leftmargin = !]
+      \item [Subsubcase III$^{00}_-$] Line $l_{c, h}$ intersects both axes at integral points.
+        Let $u$ be a singular vector in $M_{c, h + k_1l_1}$.
+        Then $J(c, h) = U(\Vir)\{u\}$.
+      \item[Subsubcase III$^0_-$] Line $l_{c, h}$ intersects only one axis at integral point.
+        Let $u$ be a singular vector in $M_{c, h + k_1l_1}$.
+        Then $J(c, h) = U(\Vir)\{u\}$.
+      \item[Subsubcase III$_-$] Line $l_{c, h}$ intersects both axes at nonintegral points.
+        Let $u$ and $w$ be singular vectors in $M_{c, h + k_1l_1}$ and $M_{c, h + k_2l_2}$, respectively.
+        Then $J(c, h) = U(\Vir)\{u, w\}$.
+      \end{description}
+    \item[Subcase $c\ge 25$] We have three subsubcases:
+      \begin{description}[leftmargin = !]
+      \item[Subsubcase III$^{00}_+$] Line $l_{c, h}$ intersects both axes at integral points.
+        Let $u$ be a singular vector in $M_{c, h + k_1l_1}$.
+        Then $J(c, h) = U(\Vir)\{u\}$.
+      \item[Subsubcase III$^0_+$] Line $l_{c, h}$ intersects only one axis at integral point.
+        Let $u$ be a singular vector in $M_{c, h + k_1l_1}$.
+        Then $J(c, h) = U(\Vir)\{u\}$.
+      \item[Subsubcase III$_+$] Line $l_{c, h}$ intersects both axes at nonintegral points.
+        Let $u$ and $w$ be singular vectors in $M_{c, h + k_1l_1}$ and $M_{c, h + k_2l_2}$, respectively.
+        Then $J(c, h) = U(\Vir)\{u, w\}$.
+      \end{description}
+    \end{description}
+  \end{description}
+\end{theorem}
+
+\begin{remark}
+  \label{rmk:24}
+  \Cref{thr:28} gives us an algorithm to find $J(c, h)$ for a given highest weight $(c, h)$.
+  We merely need to find the levels at which the singular vectors that generate $J(c, h)$ lie and then by \Cref{lmm:10}, we have to solve the equation $L_1u = L_2 u = 0$ assuming $u$ lies in the right level to obtain our desired singular vector.
+\end{remark}
+
+One of the objectives of this work is to find a monomial basis for $L(1/2, 1/2)$ and $L(1/2, 1/16)$ similar to what was done for the Ising model $\Vir_{3, 4} = L(1/2, 0)$ in \cite{andrews_singular_2022}.
+The Ising model is also a simple vertex algebra because $\Vir^{1/2} \cong M(1/2, 0)/U(\Vir)\{L_{-1}\vac\}$ as a $\Vir$-module and by \Cref{rmk:20}, the ideals of $\Vir^{1/2}$ are in bijection with the submodules of $M(1/2, 0)/U(\Vir)\{L_{-1}\vac\}$.
+Let $I^{1/2}$ be the maximal ideal of $\Vir^{1/2}$ and by what we just said, to $I^{1/2}$ corresponds the maximal submodule of $M(1/2, 0)/U(\Vir)\{L_{-1}\vac\}$.
+Therefore, $\Vir_{1/2} = \Vir^{1/2}/I^{1/2} \cong L(1/2, 0) = \Vir_{3, 4}$.
+
+In fact, the singular vector $v_{3, 4}$ = ... can be obtained using the algorithm described in remark... See (code) and (section) ahead.
+
+The modules $L(1/2, 1/2)$ and $L(1/2, 1/1/16)$ are not vertex algebras but they are modules (vertex algebra modules) over both $\Vir^{1/2}$ and $\Vir_{3, 4}$, as we will see later.
+
+\begin{remark}
+  \label{rmk:25}
+  The irreducible highest weight representations $L(1/2, 1/2)$ and $L(1/2, 1/16)$ can be constructed explicitly as the even or odd part of some induced representations without using Verma representations and passing to the quotient as was done here (cf.\ \cite[\S3]{kac_bombay_2013}).
+  Moreover, $L(1/2, 1/2)$ is isomorphic to $F_{\one}$ where $F = F(\mathbb{C}\varphi)$ is the fermionic vertex algebra associated to a purely odd one dimensional superspace $\mathbb{C}\varphi$ with an antisupersymmetric form defined by $\langle \varphi| \varphi\rangle = 1$ (cf.\ \Cref{exa:10}).
+\end{remark}
+
+\section{Vertex Poisson modules and filtrations of vertex algebras}
+\label{sec:vert-poiss-modul}
+
+\subsection{Vertex Poisson algebras and their modules}
+\label{sec:vert-poiss-algebr}
+
+Let $V$ be a vector space.
+Given a formal distribution $f(X_1, \dots, X_n) \in V[[X_1^{\pm 1}, \dots, X_n^{\pm 1}]]$, we can write it as
+\begin{equation*}
+  f(X_1, \dots, X_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{(m_1, \dots, m_n)}X_1^{-m_1 - 1}\dots X_n^{-m_n - 1}.
+\end{equation*}
+We set
+\begin{equation*}
+  \Sing f(X_1, \dots, X_n) = \sum_{m_1, \dots, m_n \in \mathbb{N}}f_{(m_1, \dots, m_n)}X_1^{-m_1 - 1}\dots X_n^{-m_n - 1}.
+\end{equation*}
+
+A vertex Lie algebra is the data $(V, T, Y_-)$ where $V$ is a vector superspace, $Y_-: V \to \mathcal{F}(V)$ is a linear parity preserving map such that $Y_-(a,z) = \Sing(Y_-(a, z))$ (i.e.\ $Y_-: V \to \Hom(V, z^{-1}V[z^{-1}])$) for $a\in V$ and $T \in \End(V)$.
+The data must satisfy the following axioms for $a, b \in V$:
+\begin{enumerate}
+\item $Y_-(Ta, z) = \partial_zY_-(a, z)$;
+\item $Y_-(a, z)b = \Sing(p(a, b)(e^{Tz}Y_-(b, -z)a))$;
+\item $[Y_-(a, z),Y_-(b, w)] = \Sing(\sum_{j \in \mathbb{N}}Y_-(a_{(j)}b, w)\frac{\partial^j_w\delta(z, w)}{j!})$ where $Y_-(a, z) = \sum_{n \in \mathbb{N}}a_{(n)}z^{-n - 1}$, $a_{(n)} \in \End(V)$.
+\end{enumerate}
+
+\begin{remark}
+  \label{rmk:26}
+  Axiom (i) of vertex Lie algebras implies that $T \in \End(V)_{\zero}$.
+\end{remark}
+
+Concepts like homomorphism, vertex Lie subalgebras and ideals are defined in the usual way.
+We obtain the category of vertex Lie algebras.
+
+Let $V$ be vertex Lie algebra.
+We can make $V$ into a $C[\partial]$-module by declaring $\partial = T$.
+Then axioms (i) and (ii) are the respective axioms of Lie conformal superalgebras given in \Cref{sec:lie-conf-super}.
+Since
+\begin{equation*}
+  \sum_{j \in \mathbb{N}}Y_-(a_{(j)}b, w)\frac{\partial^j_w\delta(z, w)}{j!} = \sum_{m, n \in \mathbb{Z}}\left(\sum_{j, n \in \mathbb{N}, j + k = m + n}\binom{m}{j}(a_{(j)}b)_{(k)}\right)z^{-m - 1}w^{-n - 1},
+\end{equation*}
+we have
+\begin{equation*}
+  \Sing\left(\sum_{j \in \mathbb{N}}Y_-(a_{(j)}b, w)\frac{\partial^j_w\delta(z, w)}{j!}\right) = \sum_{m, n \in \mathbb{N}}\sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)_{(m + n - j)}z^{-m - 1}w^{-n - 1}.
+\end{equation*}
+On the other hand,
+\begin{equation*}
+  [Y_-(a, z), Y_-(b, w)] = \sum_{m, n \in \mathbb{N}}[a_{(m)}, b_{(n)}]z^{-m - 1}w^{-n - 1}.
+\end{equation*}
+Therefore, axiom (iii) is equivalent to
+\begin{equation*}
+  [a_{(m)}, b_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)_{(m + n - j)} \quad \text{for }a, b \in V\text{ and }m, n \in \mathbb{Z}.
+\end{equation*}
+
+This is just axiom (iii) of Lie conformal superalgebras.
+Thus, the category of vertex Lie algebras and the category of Lie conformal superalgebras are isomorphic.
+So we have three equivalent concepts: vertex Lie algebras, Lie conformal superalgebras y regular formal distribution Lie superalgebras.
+
+\begin{theorem}
+  \label{thr:108}
+  Let $V$ be a vertex Lie algebra.
+  For $a, b \in V$ and $m, j \in \mathbb{N}$:
+  \begin{enumerate}
+  \item $[T, Y_-(a, z)] = Y_-(Ta, z) = \partial_zY_-(a, z)$;
+  \item $(a_{(j)}b)_{(m)} = \sum_{k = 0}^j\binom{j}{k}(-1)^k[a_{(j - k)},b_{(m + k)}]$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+  \begin{enumerate}
+  \item This is \Cref{prp:3}.
+  \item This is \Cref{thr:6}. \qedhere
+  \end{enumerate}
+\end{proof}
+
+Let $V$ be a vertex Lie algebra.
+A Hamiltonian operator of $V$ is a diagonalizable operator $H \in \End(V)$ such that
+\begin{equation}
+  \label{eq:50}
+  [H, Y(a, z)] = z\partial_zY(a, z) + Y(Ha, z) \quad \text{for }a \in V.
+\end{equation}
+A vertex Lie algebra with a Hamiltonian operator is called graded.
+The grading of $V$ is the eigenspace decomposition for $H$:
+\begin{equation*}
+  V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}.
+\end{equation*}
+
+A module for a vertex Lie algebra $V$ is a vector superspace $M$ together with a linear parity preserving map $Y^M_-: V \to \Hom(M, z^{-1}M[z^{-1}])$, written as $Y^M_-(a, z) = \sum_{n \in \mathbb{N}}a^M_{(n)}z^{-n - 1}$, $a^M_{(n)} \in \End(M)$ for $a \in V$, such that for $a, b \in V$ and $m, n \in \mathbb{N}$:
+\begin{enumerate}
+\item $(Ta)^M_{(n)} = -na^M_{(n - 1)}$;
+\item $[a^M_{(m)}, b^M_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)^M_{(m + n - j)}$.
+\end{enumerate}
+
+Let $M$ be a module of a graded vertex Lie algebra $V$ with Hamiltonian operator $H$. 
+A Hamiltonian operator of $M$ is a diagonalizable operator $H^M \in \End(M)$ such that
+\begin{equation}
+  \label{eq:28}
+  [H^M, Y^M_-(a, z)] = z\partial_zY^M_-(a, z) + Y^M_-(Ha, z) \quad \text{for }a \in V.
+\end{equation}
+A $V$-module together with a Hamiltonian operator is called graded.
+The grading of $M$ is the eigenspace decomposition for $H^M$:
+\begin{equation*}
+  M = \bigoplus_{\Delta \in \mathbb{C}}M_{\Delta}.
+\end{equation*}
+
+
+
+Let $V$ be a vertex Lie algebra and $M$ a $V$-module.
+We say $T^M \in \End(M)$ is a differential of $M$ if
+\begin{equation*}
+  [T^M, Y^M_-(a, z)] = Y^M_-(Ta, z) \quad \text{for }a \in V.
+\end{equation*}
+A differential $V$-module is a module equipped with a differential.
 
 \printindex
 
