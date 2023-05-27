@@ -56,7 +56,7 @@
 \begin{document}
 
 \begin{abstract}
-  To every $h + \mathbb{N}$-graded module $M$ over a $\mathbb{N}$-graded conformal vertex algebra $V$, we associate an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$ which is compatible with the filtrations introduced by Haisheng Li.
+  To every $h + \mathbb{N}$-graded module $M$ over an $\mathbb{N}$-graded conformal vertex algebra $V$, we associate an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$ which is compatible with the filtrations introduced by Haisheng Li.
   The associated graded vector space $\gr^G(M)$ is naturally a module over the vertex Poisson algebra $\gr^G(V)$.
   We study $\gr^G(M)$ for the three irreducible modules of the Ising model $\Vir_{3, 4}$, namely $\Vir_{3,4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
   We obtain an explicit monomial basis of each of these modules and a formula for their refined characters which are related to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$.
@@ -75,11 +75,11 @@
 \label{sec:introduction}
 
 In \cite{li_vertex_2004}, Li introduced an increasing filtration $(G^pV)_{p \in \mathbb{Z}}$ on an arbitrary $\mathbb{N}$-graded vertex algebra $V$.
-The associated graded space $\gr^G(V)$ with respect to this increasing filtration then carries the structure of a $\mathbb{N}$-graded vertex Poisson algebra.
+The associated graded space $\gr^G(V)$ with respect to this increasing filtration then carries the structure of an $\mathbb{N}$-graded vertex Poisson algebra.
 
-Then in \cite{li_abelianizing_2005}, Li introduces a decreasing filtration $(F_pV)_{p \in \mathbb{Z}}$ on an arbitrary vertex algebra $V$, not necessarily $\mathbb{N}$-graded.
+Then in \cite{li_abelianizing_2005}, Li introduced a decreasing filtration $(F_pV)_{p \in \mathbb{Z}}$ on an arbitrary vertex algebra $V$, not necessarily $\mathbb{N}$-graded.
 The associated graded space $\gr_F(V)$ with respect to this decreasing filtration again carries the structure of a vertex Poisson algebra.
-Li also introduces a decreasing filtration $(F_pM)_{p \in \mathbb{Z}}$ for modules $M$ over a vertex algebra $V$ and shows that the associated graded space $\gr_F(M)$ is a module over the vertex Poisson algebra $\gr_F(V)$.
+Li also introduced a decreasing filtration $(F_pM)_{p \in \mathbb{Z}}$ for modules $M$ over a vertex algebra $V$ and showed that the associated graded space $\gr_F(M)$ is a module over the vertex Poisson algebra $\gr_F(V)$.
 
 In summary, Li constructed three functors
 \begin{align*}
@@ -90,7 +90,7 @@ In summary, Li constructed three functors
 
 Then Arakawa shows in \cite[Proposition 2.6.1]{arakawa_remark_2012} that when $V$ is $\mathbb{N}$-graded, $\gr_F(V)$ and $\gr^G(V)$ are isomorphic as vertex Poisson algebras.
 
-In this thesis, we define an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$ for $h + \mathbb{N}$-graded modules $M$ over a $\mathbb{N}$-graded conformal vertex algebra $(V, \omega)$ which wasn't done in \cite{li_vertex_2004}.
+In this thesis, we define an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$ for $h + \mathbb{N}$-graded modules $M$ over an $\mathbb{N}$-graded conformal vertex algebra $(V, \omega)$.
 So we construct a functor
 \begin{equation*}
   \gr^G: \{\text{$h + \mathbb{N}$-graded $(V, \omega)$-modules}\} \to \{\text{$h + \mathbb{N}$-graded $\gr^G(V)$-modules}\}.
@@ -116,7 +116,7 @@ Let $R^0$ be the following set of partitions
   &[r + 6, r + 5, r + 3, r + 1, r], &(r \ge 2) \\
   &[5, 4, 2, 2], [7, 6, 4, 2, 2], [7, 7, 4, 2, 2], [9, 8, 6, 4, 2, 2].
 \end{align*}
-Let $P^0$ be the set of partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ that don't contain any partition in $R^0$ with $\lambda_m \ge 2$.
+Let $P^0$ be the set of partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$ that don't contain any partition in $R^0$.
 
 \begin{theorem}
   \label{thr:2}
@@ -138,15 +138,13 @@ In this thesis, we prove two similar results about $L(1/2, 1/2)$.
 \end{theorem}
 
 Let $R$ be the following set of partitions
-\begin{equation*}
-  \begin{aligned}
+\begin{align*}
     &[r, r, r], [r + 1, r, r], [r + 1, r + 1, r], [r + 2, r + 1, r], [r + 2, r + 2, r], &(r \ge 3) \\
     &[r + 2, r, r], &(r \ge 3) \\
     &[r + 3, r + 3, r, r], [r + 4, r + 3, r, r],  [r + 4, r + 3, r + 1, r], [r + 4, r + 4, r + 1, r], &(r \ge 3)\\
     &[r + 6, r + 5, r + 3, r + 1, r], &(r \ge 3) \\
     &[2], [1, 1, 1], [3, 1, 1], [3, 3], [4, 3, 1], [4, 4, 1], [5, 4, 1, 1], [6, 5, 3, 1].
-  \end{aligned}
-\end{equation*}
+\end{align*}
 Let $P$ be the set of partitions that don't contain any partition in $R$.
 
 \begin{theorem}
@@ -169,16 +167,14 @@ We can do a similar argument for $L(1/2, 1/16)$ and obtain the following theorem
     \ch_{\gr^G(L(1/2, 1/16))}(t, q) = q^{1/16}\left(\sum_{k_1, k_2 \in \mathbb{N}}t^{4k_1 + 2k_2}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(q^{k_1 + k_2} + q^{4k_1 + 2k_2 + 1}t + q^{7k_1 + 3k_2 + 3}t^3)\right).
   \end{equation*}
   Let $R^{1/16}$ be the following set of partitions
-  \begin{equation*}
-    \begin{aligned}
+  \begin{align*}
       &[r, r, r], [r + 1, r, r], [r + 1, r + 1, r], [r + 2, r + 1, r], [r + 2, r + 2, r], &(r \ge 3) \\
       &[r + 2, r, r], &(r \ge 3) \\
       &[r + 3, r + 3, r, r], [r + 4, r + 3, r, r],  [r + 4, r + 3, r + 1, r], [r + 4, r + 4, r + 1, r], &(r \ge 3)\\
       &[r + 6, r + 5, r + 3, r + 1, r], &(r \ge 3) \\
       &[2], [1, 1, 1, 1], [3, 1, 1, 1], [3, 3, 1], [4, 3, 1], [4, 4, 1, 1], [5, 4, 1, 1, 1], [5, 5, 1, 1, 1], \\
       &[6, 5, 3, 1, 1], [6, 6, 3, 1, 1], [7, 6, 4, 1, 1, 1], [8, 7, 5, 3, 1, 1].
-    \end{aligned}
-  \end{equation*}
+  \end{align*}
   Let $P^{1/16}$ be the set of partitions that don't contain any partition in $R^{1/16}$.
   The set
   \begin{equation*}
@@ -708,10 +704,10 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   These elements satisfy the following commutation relations:
   \begin{equation}
     \label{eq:6}
-    \begin{aligned}
+    \begin{split}
       [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for }m, n \in \mathbb{Z}, \\
       [\Vir, C] &= 0.
-    \end{aligned}
+    \end{split}
   \end{equation}
   We construct a $\Vir$-valued formal distribution by setting
   \begin{equation*}
@@ -724,10 +720,10 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   In terms of formal distributions, the commutation relations become:
   \begin{equation}
     \label{eq:7}
-    \begin{aligned}
+    \begin{split}
       [L(z), L(w)] &= \delta(z, w)\partial_wL(w) + \partial_w\delta(z, w)2L(w) + \partial^3_w\delta(z, w)\frac{C}{12}, \\
       [L(z), C] &= 0,
-    \end{aligned}
+    \end{split}
   \end{equation}
   where $C$ denotes the constant formal distribution equal to $C \in \Vir$.
   In terms of $j$-products, the commutation relations become:
@@ -744,10 +740,10 @@ We now show three examples of regular formal distribution Lie superalgebras and 
   In terms of the $\lambda$-bracket, the commutation relations become:
   \begin{equation}
     \label{eq:9}
-    \begin{aligned}
+    \begin{split}
       [L(z)_{\lambda}L(z)] &= (\partial + 2\lambda)L(z) + \frac{\lambda^3}{12}C, \\
       [L(z)_{\lambda}C] &= 0.
-    \end{aligned}
+    \end{split}
 \end{equation}
   By \Cref{thr:6}, $\{L(z), C\}$ is a local family.
   Therefore, $(\Vir, \{L(z), C\})$ is a formal distribution Lie algebra.
@@ -796,10 +792,10 @@ A \emph{Virasoro formal distribution} $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with 
   \end{equation*}
   The central extension of the loop algebra is the algebra $\hat{\mathfrak{g}} = \tilde{\mathfrak{g}} \oplus \mathbb{C}K$ with the superbracket:
   \begin{equation*}
-    \begin{aligned}
+    \begin{split}
     [at^m, bt^n] &= [a, b]t^{m + n} + m\delta_{m, -n}(a| b)K \quad \text{for }a, b \in \mathfrak{g}\text{ and }m, n \in \mathbb{Z}, \\
     [\hat{\mathfrak{g}}, K] &= 0
-    \end{aligned}
+    \end{split}
   \end{equation*}
   and with parity given by $p(K) = \zero$.
   This makes $\hat{\mathfrak{g}}$ into a Lie superalgebra called the \emph{affinization} of $\mathfrak{g}$.
@@ -811,17 +807,17 @@ A \emph{Virasoro formal distribution} $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with 
   These formal distributions are called \emph{currents}.
   In terms of currents, the commutation relations become:
   \begin{equation*}
-    \begin{aligned}
+    \begin{split}
     [a(z), b(w)] &= \delta(z, w)[a, b](w) + \partial_w\delta(z, w)K(a| b), \\
     [a(z), K] &= 0.
-    \end{aligned}
+    \end{split}
   \end{equation*}
   In terms of the $\lambda$-bracket, the commutation relations become:
   \begin{equation*}
-    \begin{aligned}
+    \begin{split}
     [a(z)_{\lambda}b(z)] &= [a(z), b(z)] + (a| b)K\lambda, \\
     [a(z)_{\lambda}K] &= 0.
-    \end{aligned}
+    \end{split}
   \end{equation*}
   By \Cref{thr:6}, $\{a(z) \mid a \in \mathfrak{g}\} \cup \{K\}$ is a local family.
   Therefore, $(\hat{\mathfrak{g}}, \{a(z) \mid a \in \mathfrak{g}\} \cup \{K\})$ is a formal distribution Lie superalgebra.
@@ -850,10 +846,10 @@ A \emph{Virasoro formal distribution} $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with 
   \end{equation*}
   with the superbracket:
   \begin{equation*}
-    \begin{aligned}
+    \begin{split}
       [at^m, bt^n] &= \delta_{m, -n - 1}\langle a, b\rangle K \quad \text{for }a, b \in V\text{ and }m, n \in \mathbb{Z}, \\
       [at^m, K] &= 0
-    \end{aligned}
+    \end{split}
   \end{equation*}
   and with parity given by $p(at^n) = p(a)$ and $p(K) = \zero$.
   This makes $\widehat{V}$ into a Lie superalgebra.
@@ -863,17 +859,17 @@ A \emph{Virasoro formal distribution} $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ with 
   \end{equation*}
   In terms of formal distributions, the commutation relations become:
   \begin{equation*}
-    \begin{aligned}
+    \begin{split}
       [a(z), b(w)] &= \delta(z, w)\langle a, b\rangle K, \\
       [a(z), K] &= 0.
-    \end{aligned}
+    \end{split}
   \end{equation*}
   In terms of the $\lambda$-bracket, the commutation relations become:
   \begin{equation*}
-    \begin{aligned}
+    \begin{split}
       [a(z)_{\lambda}b(z)] &= \langle a, b\rangle K, \\
       [a(z)_{\lambda}K] &= 0.
-    \end{aligned}
+    \end{split}
   \end{equation*}
   As before, we obtain a regular formal distribution Lie superalgebra $(\widehat{V}, \{a(z) \mid a \in V\} \cup \{K\}, -\partial_t)$ from which we obtain the fermionic Lie conformal superalgebra
   \begin{equation*}
@@ -1323,7 +1319,7 @@ The theory done in the previous sections translates into the language of vertex 
       i_{z, w}(z - w)^nY(a, z)Y(b, w)c - p(a, b)i_{w, z}(z - w)^nY(b, w)Y(a, z)c = \sum_{j \in \mathbb{N}}Y(a_{(n + j)}b, w)\frac{\partial^j_w\delta(z, w)}{j!}c;
     \end{equation*}
   \item \emph{(Skewsymmetry)} $Y(a, z)b = p(a, b)e^{Tz}Y(b, -z)a$;
-  \item $(a_{(n)}b)_{(m)}c = \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a_{(n - j)}b_{(m + j)}c - (-1)^np(a, b)b_{(n + m - j)}a_{(j)}c)$.
+  \item $(a_{(m)}b)_{(n)}c = \sum_{j \in \mathbb{N}}(-1)^j\binom{m}{j}(a_{(m - j)}b_{(n + j)}c - (-1)^mp(a, b)b_{(m + n - j)}a_{(j)}c)$.
   \end{enumerate}
 \end{theorem}
 
@@ -2107,6 +2103,8 @@ An \emph{admissible} $V$-module is a $V$-module $M$ together with a gradation $M
 \end{equation*}
 The subspace $M(0)$ is called the \emph{top degree component} of $M$.
 
+A \emph{homomorphism of admissible $V$-modules} is a homomorphism of modules that respects gradation.
+
 \begin{example}
   \label{exa:11}
   Let $V$ be a highest weight representation of $\Vir$ with highest weight $(c, h)$ (see \Cref{sec:high-weight-repr} for the definition) and highest weight vector $v$.
@@ -2554,7 +2552,7 @@ That is only possible for $M(c, h)$ and later we will see that is also possible 
   \item The eigenspaces of $L_0$ are pairwise orthogonal;
   \item $M(c, h)^{\perp} = J(c, h)$;
   \item Every highest weight representation $V$ of $\Vir$ with highest weight $(c, h)$ and highest weight vector $v'$ carries a contravariant form such that $\langle v'| v'\rangle = 1$.
-    This form on $V$ is defined by \eqref{eq:26} with $v'$ in place of $v$ and satisfies properties (i)-(iii) of this Theorem.
+    This form on $V$ is defined by \eqref{eq:26} with $v'$ in place of $v$ and satisfies properties \emph{(i)--(iii)} of this Theorem.
     In particular, for $L(c, h)$, this form is nondegenerate;
   \item Let $V$ be a highest weight representation with highest weight vector $v$.
     There is a unique contravariant form $\langle \bullet| \bullet\rangle$ on $V$ such that $\langle v| v\rangle = 1$ and is defined by equation \eqref{eq:26}.
@@ -2564,7 +2562,7 @@ That is only possible for $M(c, h)$ and later we will see that is also possible 
 
 Let $V$ be a highest weight representation with highest weight $(c, h)$ where $c, h \in \mathbb{R}$ and pick a highest weight vector $v$.
 Let $\langle \bullet| \bullet\rangle$ be the contravariant form on $V$ defined by \eqref{eq:26}.
-We say that $V$ is \emph{unitary} if this form is unitary.
+We say $V$ is \emph{unitary} if this form is unitary.
 By \Cref{thr:29}, this is independent of the choice of the highest weight vector $v$ and there is essentially one form.
 By \Cref{crl:2}, a unitary highest weight representation is necessarily irreducible, therefore it is of the form $L(c, h)$ for some real numbers $c, h \in \mathbb{R}$.
 
@@ -2784,7 +2782,7 @@ We have just seen that $\pi_M$ is a representation of $(V, *)$, i.e.\
   \end{enumerate}
 \end{theorem}
 
-By \Cref{thr:34}(i)-(iii), we define the associative unital algebra
+By \Cref{thr:34}(i)--(iii), we define the associative unital algebra
 \begin{equation*}
   \Zhu(V) = V/J(V)
 \end{equation*}
@@ -2800,7 +2798,7 @@ By \eqref{eq:29}, for a $\mathbb{Z}$-graded vertex algebra $V$, we have defined 
 \subsection{The inverse of the restriction functor}
 \label{sec:inverse-restr-funct}
 
-By \Cref{thr:34}(iv)-(v), we have a natural Lie algebra epimorphism $\Lie_0(V) \twoheadrightarrow [\Zhu(V)]$.
+By \Cref{thr:34}(iv)--(v), we have a natural Lie algebra epimorphism $\Lie_0(V) \twoheadrightarrow [\Zhu(V)]$.
 Moreover, we know that $\Lie_0(V)$ is isomorphic to $\Lie(V)_0$.
 Therefore, we have a well-defined epimorphism
 \begin{align*}
@@ -2824,7 +2822,7 @@ We are tempted to define $Y^{M(U)}(a, z) = \sum_{n \in \mathbb{Z}}a_{\{n\}}z^{-n
   Then $L(U) = M(U)/J$ is an admissible $V$-module satisfying $\Omega(L(U)) \cong U$.
   Therefore, we have defined a functor
   \begin{equation*}
-  L: \Zhu(V)\normalfont\text{-Mod} \to \{\text{admissible $V$-modules}\}
+  L: \Zhu(V)\text{\emph{-Mod}} \to \{\text{\emph{admissible }$V$\emph{-modules}}\}
   \end{equation*}
   such that $\Omega \circ L$ is naturally isomorphic to the identity functor.
 \end{theorem}
@@ -3068,7 +3066,7 @@ A \emph{differential} $V$-module is a module equipped with a differential.
 \subsection{Vertex Poisson algebras and their modules}
 \label{sec:vert-poiss-algeb}
 
-A vertex Poisson algebra is a triple $(V, T, Y_-)$ such that:
+A \emph{vertex Poisson algebra} the data $(V, T, Y_-)$ such that:
 \begin{enumerate}
 \item $(V, T)$ is a differential commutative associative algebra with unit $1$;
 \item $(V, T, Y_-)$ is a vertex Lie algebra;
@@ -3117,7 +3115,7 @@ For $p \in \mathbb{Z}$, set
   The filtration $(F_pV)_{p \in \mathbb{Z}}$ satisfies:
   \begin{enumerate}
   \item $F_pV = V$ for $p \le 0$;
-  \item $F_0V \supseteq F_1V \supseteq \dots$;
+  \item $\vac \in F_0V \supseteq F_1V \supseteq \dots$;
   \item $TF_pV \subseteq F_{p + 1}V$ for $p \in \mathbb{Z}$;
   \item $a_{(n)}F_qV \subseteq F_{p + q - n - 1}V$ for $p, q \in \mathbb{Z}$, $a \in F_pV$ and $n \in \mathbb{Z}$;
   \item $a_{(n)}F_qV \subseteq F_{p + q - n}V$ for $p, q \in \mathbb{Z}$, $a \in F_pV$ and $n \in \mathbb{N}$.
@@ -3136,6 +3134,7 @@ By \cite{li_abelianizing_2005}, the vector space $\gr_F(V)$ is a vertex Poisson 
   Y_-(\sigma_p(a), z)\sigma_q(b) &= \sum_{n \in \mathbb{N}}\sigma_{p + q - n}(a_{(n)}b)z^{-n - 1},
 \end{align*}
 where $\sigma_p: F_pV \to \gr_F(V)$ is the \emph{principal symbol map} which is the composition of the natural maps $F_pV \to F_pV/F_{p + 1}V$ and $F_pV/F_{p+1}V \to \gr_F(V)$.
+The unit is $\sigma^0(\vac)$.
 The filtration $(F_pV)_{p \in \mathbb{Z}}$ is called the \emph{Li filtration} of $V$.
 
 \begin{lemma}[{\cite[Lemma 2.9]{li_abelianizing_2005}}]
@@ -3205,7 +3204,7 @@ Therefore, we obtain a functor
   \gr_F: \{\text{(graded) vertex algebras}\} \to \{\text{(graded) vertex Poisson algebras}\}.
 \end{equation*}
 
-Assume that $V$ is a $\mathbb{N}$-graded vertex algebra with Hamiltonian $H$.
+Assume that $V$ is an $\mathbb{N}$-graded vertex algebra with Hamiltonian $H$.
 Let $(a^i)_{i \in I}$ be a family of homogeneous strong generators of $V$.
 For $p \in \mathbb{Z}$, set
 \begin{equation*}
@@ -3217,7 +3216,7 @@ For $p \in \mathbb{Z}$, set
   The filtration $(G^pV)_{p \in \mathbb{Z}}$ satisfies:
   \begin{enumerate}
   \item $G^pV = 0$ for $p < 0$;
-  \item $G^0V \subseteq G^1V \subseteq \dots$;
+  \item $\vac \in G^0V \subseteq G^1V \subseteq \dots$;
   \item $V_n \subseteq G^nV$ for $n \in \mathbb{Z}$;
   \item $V = \bigcup_{p \in \mathbb{N}}G^pV$;
   \item $a_{(n)}G^qV \subseteq G^{p + q}V$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{Z}$;
@@ -3238,6 +3237,7 @@ By \cite{li_vertex_2004}, the vector space $\gr^G(V)$ a vertex Poisson algebra w
   Y_-(\alpha^p(a), z)\alpha^q(b) &= \sum_{n \in \mathbb{N}}\alpha^{p + q - 1}(a_{(n)}b)z^{-n - 1},
 \end{align*}
 where $\alpha^p: G^pV \to \gr^G(V)$ is the \emph{principal symbol map}.
+The unit is $\alpha^0(\vac)$.
 The filtration $(G^pV)_{p \in \mathbb{Z}}$ is called the \emph{standard filtration} of $V$.
 By \Cref{prp:11} ahead, the standard filtration does not depend on the choice of the strong generators of $V$.
 
@@ -3290,7 +3290,7 @@ Therefore, we obtain a functor
 
 \begin{proposition}[{\cite[Proposition 2.6.1]{arakawa_remark_2012}}]
   \label{prp:11}
-  Let $V$ be a $\mathbb{N}$-graded vertex algebra.
+  Let $V$ be an $\mathbb{N}$-graded vertex algebra.
   Then the Li filtration and standard filtration satisfy
   \begin{equation*}
     F_pV_n = G^{n - p}V_n \quad \text{for }p, n \in \mathbb{N}.
@@ -3315,7 +3315,7 @@ Therefore, we obtain a functor
 
 \begin{theorem}
   \label{thr:45}
-  Let $V$ be a $\mathbb{N}$-graded vertex algebra with $\dim(V_n) < \infty$ for $n \in \mathbb{N}$.
+  Let $V$ be an $\mathbb{N}$-graded vertex algebra with $\dim(V_n) < \infty$ for $n \in \mathbb{N}$.
   The refined characters of $V$ are related as follows:
   \begin{enumerate}
   \item $\ch_V(q) = \ch_{\gr_F(V)}(q) = \ch_{\gr^G(V)}(q) = \ch_{\gr_F(V)}(1, q) = \ch_{\gr^G(V)}(1, q)$;
@@ -3330,7 +3330,7 @@ Therefore, we obtain a functor
 \begin{example}[$\gr^G(\Vir^c)$]
   \label{exa:12}
   Pick any $c \in \mathbb{C}$.
-  Define the subalgebra $\Vir_{\le -2} = \bigoplus_{n \le -2}L_{n}$.
+  Define the subalgebra $\Vir_{\le -2} = \bigoplus_{n \le -2}L_{n}$ of $\Vir$.
   By the PBW theorem, a basis of $U(\Vir_{\le -2})^s$ (see \Cref{sec:almost-comm-algebr} for the definition of $U(\Vir_{\le -2})^s$) is given by
   \begin{equation*}
     \{L_{\lambda} \mid t \le s\text{ and }[\lambda_1, \dots, \lambda_t]\text{ is a partition with }\lambda_t \ge 2\}.
@@ -3536,7 +3536,8 @@ Therefore, we obtain a functor
 \end{equation*}
 
 Now we introduce a definition not given by Li in \cite{li_vertex_2004}.
-Let $V$ be a $\mathbb{N}$-graded conformal vertex algebra with conformal vector $\omega$, $(a^i)_{i \in I}$ a family of homogeneous strong generators of $V$ and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module which means $M$ is a $V$-module with $L_0^M$ diagonalizable whose eigenvalues are in the set $h + \mathbb{N}$ for some $h \in \mathbb{C}$.
+Let $V$ be an $\mathbb{N}$-graded conformal vertex algebra with conformal vector $\omega$, $(a^i)_{i \in I}$ a family of homogeneous strong generators of $V$ and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
+This means $M$ is a $V$-module with $L_0^M$ diagonalizable whose eigenvalues are in the set $h + \mathbb{N}$ for some $h \in \mathbb{C}$.
 Set $M_\Delta = \ker(L^M_0 - \Delta\Id_M)$ for $\Delta \in \mathbb{C}$ so we have $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$.
 For $p \in \mathbb{Z}$, set
 
@@ -3633,7 +3634,7 @@ Therefore, we obtain a functor
 
 \begin{proposition}
   \label{prp:14}
-  Let $(V, \omega)$ be a $\mathbb{N}$-graded conformal vertex algebra and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
+  Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then the Li filtration and standard filtration satisfy
   \begin{equation*}
     F_pM_{h + n} = G^{n - p}M_{h + n} \quad \text{for }p, n \in \mathbb{N}.
@@ -3673,7 +3674,7 @@ Therefore, we obtain a functor
 
 \begin{proposition}
   \label{prp:15}
-  Let $(V, \omega)$ be a $\mathbb{N}$-graded conformal vertex algebra and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
+  Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then:
   \begin{enumerate}
   \item $\ch_M(q) = \ch_{\gr_F(M)}(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr_F(M)}(1, q) = \ch_{\gr^G(M)}(1, q)$;
@@ -3826,7 +3827,7 @@ From the epimorphism of $V$-modules $\pi: M \twoheadrightarrow L$, we deduce the
 
 In this thesis, we will deal with polynomial algebras written as $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and free modules of the form $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ for some $N \in \mathbb{N}$.
 We will always use the degree reverse lexicographical ordering with $L_{-2} > L_{-3} > \dots > L_{-N}$ and TOP (term over position) with $L_{-1}^0 < L_{-1}^1 < \dots < L_{-1}^N$.
-We can extend the definition of $\lm$ as follows: for any element $u \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, pick $N$ large enough so that $u \in \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$.
+We can extend the definition of $\lm$ (leading monomial) as follows: for any element $u \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, pick $N$ large enough so that $u \in \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$.
 Then define $\lm(u)$ as the leading monomial in $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ which is naturally a subset of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$.
 This doesn't depend on the choice of $N$.
 For example, $\lm(L_{-2} - \frac{3}{4}L_{-1}^2) = L_{-2}$.
@@ -3869,7 +3870,7 @@ The following lemma will be very useful to verify series identities.
 \subsection{A combinatorial argument}
 \label{sec:comb-argum}
 
-A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains} a partition $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there exist $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
+A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains} a partition $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there exists $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
 
 Define
 \begin{equation*}
@@ -3981,7 +3982,7 @@ It turns $P$ is made out of the these ``smaller'' objects and we can find recurr
     &= p_{>4}(t, q).
   \end{align*}
 
-  In the next bijections, similar observations are done.
+  In the next bijections, we do something similar.
   In some cases the operation on $\lambda$ is ``subtract 2 from each entry of $\lambda$'' and sometimes we need to change the tail of the result after doing this operation to get something in $P$.
   The next two lemmas also employ very similar arguments.
   \begin{align*}
@@ -4495,9 +4496,10 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
 \section{Almost commutative algebras}
 \label{sec:almost-comm-algebr}
 
-Let $A$ be an associative (not necessarily commutative) algebra with a unit and a filtration $(A^p)_{p \in \mathbb{Z}}$ such that:
+Let $A$ be an associative (not necessarily commutative) algebra with a unit $1$ and a filtration $(A^p)_{p \in \mathbb{Z}}$ such that:
 \begin{enumerate}
 \item $A^p = 0$ for $p < 0$;
+\item $1 \in A^0$;
 \item $A^0 \subseteq A^1 \subseteq \dots$;
 \item $A^pA^q \subseteq A^{p + q}$ for $p, q \in \mathbb{Z}$.
 \end{enumerate}
@@ -4511,6 +4513,7 @@ The vector space $\gr(A)$ is an associative algebra with unit and multiplication
   \gamma^p(a)\gamma^q(b) = \gamma^{p + q}(ab),
 \end{equation*}
 where $\gamma^p: A^p \to \gr(A)$  is the \emph{principal symbol map} which is the composition of the natural maps $A^p \to A^p/A^{p - 1}$ and $A^p/A^{p - 1} \to \gr(A)$.
+The unit of $\gr(A)$ is $\gamma^0(1)$.
 
 We say $A$ is \emph{almost commutative} if the filtration $(A^p)_{p \in \mathbb{Z}}$ satisfies the following condition: for $p, q \in \mathbb{Z}$, if $a \in A^p$ and $b \in A^q$, then $ab - ba \in A^{p + q - 1}$.
 If $A$ is almost commutative, then $\gr(A)$ is commutative.
@@ -4520,7 +4523,7 @@ The \emph{PBW filtration} $(U(\mathfrak{g})^p)_{p \in \mathbb{Z}}$ is given by
 \begin{equation*}
   U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for }p \in \mathbb{Z}.
 \end{equation*}
-This filtration clearly satisfy axioms (i)-(iii) above.
+This filtration clearly satisfy axioms (i)--(iii) above.
 Furthermore, $U(\mathfrak{g})^1 = \mathfrak{g}$.
 By \cite[Lemma 2.1.5]{dixmier_enveloping_1996}, $U(\mathfrak{g})$ is almost commutative, so $\gr(U(\mathfrak{g}))$ is commutative.
 Let $S(\mathfrak{g})$ denote the symmetric algebra of $\mathfrak{g}$.
