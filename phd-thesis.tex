@@ -88,7 +88,7 @@ In summary, Li constructed three functors
   \gr_F: \{\text{$V$-modules}\} &\to \{\text{$\gr_F(V)$-modules}\}.
 \end{align*}
 
-Then Arakawa shows in \cite[Proposition 2.6.1]{arakawa_remark_2012} that when $V$ is $\mathbb{N}$-graded, $\gr_F(V)$ and $\gr^G(V)$ are isomorphic as vertex Poisson algebras.
+Then Arakawa showed in \cite[Proposition 2.6.1]{arakawa_remark_2012} that when $V$ is $\mathbb{N}$-graded, $\gr_F(V)$ and $\gr^G(V)$ are isomorphic as vertex Poisson algebras.
 
 In this thesis, we define an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$ for $h + \mathbb{N}$-graded modules $M$ over an $\mathbb{N}$-graded conformal vertex algebra $(V, \omega)$.
 So we construct a functor
@@ -98,7 +98,7 @@ So we construct a functor
 Parallel to what was done in \cite{arakawa_remark_2012}, we show that $\gr_F(M)$ and $\gr^G(M)$ are isomorphic as modules.
 However, for our purposes, the filtration $(G^pM)_{p \in \mathbb{Z}}$ is better suited.
 
-In \cite{andrews_singular_2022}, two theorems about the Virasoro minimal model $\Vir_{3, 4} = L(1/2, 0)$, also known as the Ising model, are proved
+In \cite{andrews_singular_2022}, two theorems about the Virasoro minimal model $\Vir_{3, 4} = L(1/2, 0)$, also known as the Ising model, are proved.
 
 \begin{theorem}
   \label{thr:1}
@@ -139,11 +139,11 @@ In this thesis, we prove two similar results about $L(1/2, 1/2)$.
 
 Let $R$ be the following set of partitions
 \begin{align*}
-    &[r, r, r], [r + 1, r, r], [r + 1, r + 1, r], [r + 2, r + 1, r], [r + 2, r + 2, r], &(r \ge 3) \\
-    &[r + 2, r, r], &(r \ge 3) \\
-    &[r + 3, r + 3, r, r], [r + 4, r + 3, r, r],  [r + 4, r + 3, r + 1, r], [r + 4, r + 4, r + 1, r], &(r \ge 3)\\
-    &[r + 6, r + 5, r + 3, r + 1, r], &(r \ge 3) \\
-    &[2], [1, 1, 1], [3, 1, 1], [3, 3], [4, 3, 1], [4, 4, 1], [5, 4, 1, 1], [6, 5, 3, 1].
+  &[r, r, r], [r + 1, r, r], [r + 1, r + 1, r], [r + 2, r + 1, r], [r + 2, r + 2, r], &(r \ge 3) \\
+  &[r + 2, r, r], &(r \ge 3) \\
+  &[r + 3, r + 3, r, r], [r + 4, r + 3, r, r],  [r + 4, r + 3, r + 1, r], [r + 4, r + 4, r + 1, r], &(r \ge 3)\\
+  &[r + 6, r + 5, r + 3, r + 1, r], &(r \ge 3) \\
+  &[2], [1, 1, 1], [3, 1, 1], [3, 3], [4, 3, 1], [4, 4, 1], [5, 4, 1, 1], [6, 5, 3, 1].
 \end{align*}
 Let $P$ be the set of partitions that don't contain any partition in $R$.
 
@@ -194,10 +194,10 @@ In \Cref{sec:high-weight-repr}, we review the theory of representations of the V
 In \Cref{sec:modules-over-simple}, we quickly review the theory of the Zhu algebra to use it to prove the theorems at hand.
 In \Cref{sec:vert-poiss-supera}, the theory of filtrations of vertex algebras and their modules started by Haisheng Li is presented, we introduce the standard filtration for modules and prove it is compatible with the definitions already given by Li.
 In \Cref{sec:pbw-basis-l12}, we carry out the computations needed to obtain the PBW basis of $L(1/2, 1/2)$ and its refined characters using results from the previous sections.
-In the appendices, we recall a couple results about almost commutative algebras needed to describe $\gr^G(\Vir^c)$, we show the SageMath \cite{sagemath} program used compute a Poisson submodule related to the exceptional partitions appearing in $Q$ and also consider the case $L(1/2, 1/16)$.
+In the appendices, we recall a couple results about almost commutative algebras needed to describe $\gr^G(\Vir^c)$, we show the SageMath \cite{sagemath} program used compute a Poisson submodule related to the exceptional partitions appearing in $R$ and briefly the case $L(1/2, 1/16)$.
 The software systems Mathematica \cite{Mathematica} and Singular \cite{Singular} were also very useful to verify the series identities and compute Gr\"{o}bner bases.
 
-I would like to thank my advisor Reimundo Heluani, Instituto de Matematica Pura e Aplicada (IMPA) and Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) for their support.
+I would like to thank my advisor Reimundo Heluani, Instituto de Matemática Pura e Aplicada (IMPA) and Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) for their support.
 Professor Jethro Van Ekeren made some valuable suggestions as well.
 
 \numberwithin{theorem}{subsection}
@@ -1279,7 +1279,7 @@ We obtain the category of vertex superalgebras.
   Therefore $Y(a, z)b \in V[[z]]$ for $a, b \in V$ so $Y(a, z) \in \End(V)[[z]]$ for $a \in V$.
   Conversely, suppose that we are given a vertex algebra $V$ in which $Y(a, z) \in \End(V)[[z]]$ for $a \in V$.
   Observe that if the equality $(z - w)^Nf_1(z, w) = (z - w)^Nf_2(z, w)$ holds for $f_1(z, w), f_2(z, w) \in \mathbb{C}[[z, w]]$ and $N \in \mathbb{N}$, then necessarily $f_1(z, w) = f_w(z, w)$.
-  Therefore, we obtain that $[Y(a, z), Y(b, w)] = 0$ for all $a, b \in V$, so $V$ is commutative.
+  Therefore, we obtain that $[Y(a, z), Y(b, w)] = 0$ for $a, b \in V$, so $V$ is commutative.
 
   Thus, a commutative vertex algebra may be defined as one in which all $Y(a, z)$ belong to $\End(V)[[z]]$.
 
@@ -1354,7 +1354,7 @@ The vertex superalgebra $V$ is strongly generated by $S \subseteq V$ if
   V = \vspan\{a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac \mid s \in \mathbb{N}, a^1, \dots, a^s \in S, n_1, \dots, n_s \in \mathbb{N}\}.
 \end{equation*}
 
-An \emph{ideal} of a vertex superalgebra $V$ is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for all $a \in V$ and $b \in I$.
+An \emph{ideal} of a vertex superalgebra $V$ is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for $a \in V$ and $b \in I$.
 For example, the kernel of vertex superalgebra homomorphism is an ideal.
 A vertex superalgebra is \emph{simple} or \emph{irreducible} if $0$ is the only proper ideal.
 
@@ -1484,7 +1484,7 @@ We define:
 \end{theorem}
 
 \begin{proof}
-  First, we prove that $\pi(a^j(z))$ is a field for all $j \in J$.
+  First, we prove that $\pi(a^j(z))$ is a field for $j \in J$.
   We do this by induction on $s$ in $v = a^{j_1}_{(n_1)}\dots a^{j_s}_{(n_s)}\vac$ where $s \in \mathbb{N}$, $n_1, \dots, n_s \in \mathbb{Z}_-$ and $j_1, \dots, j_s \in J$.
   By \eqref{eq:16}, these elements form a spanning set for $V$.
   For $s = 0$, we have $v = \vac$ and
@@ -1618,7 +1618,7 @@ We now use this construction to obtain several important examples of vertex supe
 
 \begin{remark}
   \label{rmk:16}
-  The vertex superalgebra $V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ comes equipped with a vertex superalgebra homomorphism $\pi: V(\mathfrak{g}, \mathfrak{F}, T_0) \to V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ that satisfies $\pi(a\vac) = \lambda(a)\vac$ for all $a \in \mathfrak{h}$ and is universal with this property, i.e.\ if $f: V(\mathfrak{g}, \mathfrak{F}, T_0) \to W$ is a vertex superalgebra homomorphism such that $f(a\vac) = \lambda(a)\vac$ for $a \in \mathfrak{h}$, then there exist a unique vertex superalgebra homomorphism $\bar{f}: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) \to W$ such that the following diagram commutes
+  The vertex superalgebra $V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ comes equipped with a vertex superalgebra homomorphism $\pi: V(\mathfrak{g}, \mathfrak{F}, T_0) \to V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)$ that satisfies $\pi(a\vac) = \lambda(a)\vac$ for $a \in \mathfrak{h}$ and is universal with this property, i.e.\ if $f: V(\mathfrak{g}, \mathfrak{F}, T_0) \to W$ is a vertex superalgebra homomorphism such that $f(a\vac) = \lambda(a)\vac$ for $a \in \mathfrak{h}$, then there exist a unique vertex superalgebra homomorphism $\bar{f}: V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0) \to W$ such that the following diagram commutes
   \begin{equation*}
     \begin{tikzcd}
       {V(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[rd, "f"] \arrow[r, "\pi"] & {V^{\lambda}(\mathfrak{g}, \mathfrak{F}, T_0)} \arrow[d, "\bar{f}"] \\
@@ -2427,7 +2427,10 @@ Then
 \end{equation*}
 is a $\Vir$-module where $\Vir$ acts by left multiplication.
 
-For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, define $L_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m} \in U(\Vir)$.
+For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, define
+\begin{equation*}
+  L_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m} \in U(\Vir).
+\end{equation*}
 By the PBW theorem, the set
 \begin{equation*}
   \{L_{\lambda}|c,h\rangle \mid \lambda\text{ is a partition}\}
@@ -3066,7 +3069,7 @@ A \emph{differential} $V$-module is a module equipped with a differential.
 \subsection{Vertex Poisson algebras and their modules}
 \label{sec:vert-poiss-algeb}
 
-A \emph{vertex Poisson algebra} the data $(V, T, Y_-)$ such that:
+A \emph{vertex Poisson algebra} the data consisting of three elements $(V, T, Y_-)$ such that:
 \begin{enumerate}
 \item $(V, T)$ is a differential commutative associative algebra with unit $1$;
 \item $(V, T, Y_-)$ is a vertex Lie algebra;
@@ -3182,7 +3185,7 @@ We have the natural vector space isomorphisms
 \begin{equation*}
   \sigma_p(F_pV_{\Delta}) \cong F_pV_{\Delta}/F_{p + 1}V_{\Delta} \quad \text{for }p \in \mathbb{Z}\text{ and }\Delta \in \mathbb{C}
 \end{equation*}
-and the double gradation
+and the refined gradation
 \begin{equation}
   \label{eq:32}
   \gr_F(V) = \bigoplus_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\sigma_p(F_pV_{\Delta}).
@@ -3230,7 +3233,7 @@ Let
   \gr^G(V) = \bigoplus_{p \in \mathbb{N}}G^pV/G^{p - 1}V
 \end{equation*}
 be the associated graded vector space.
-By \cite{li_vertex_2004}, the vector space $\gr^G(V)$ a vertex Poisson algebra with operations given as follows: for $p, q \in \mathbb{N}$, $a \in G^pV$ and $b \in G^qV$, set
+By \cite{li_vertex_2004}, the vector space $\gr^G(V)$ is a vertex Poisson algebra with operations given as follows: for $p, q \in \mathbb{N}$, $a \in G^pV$ and $b \in G^qV$, set
 \begin{align*}
   \alpha^p(a)\alpha^q(b) &= \alpha^{p + q}(a_{(-1)}b), \\
   T\alpha^p(a) &= \alpha^p(Ta), \\
@@ -3267,7 +3270,7 @@ We have the natural vector space isomorphisms
 \begin{equation*}
   \alpha^p(G^pV_n) \cong G^pV_n/G^{p - 1}V_n \quad \text{for }p \in \mathbb{Z}\text{ and }n \in \mathbb{N}
 \end{equation*}
-and the double gradation
+and the refined gradation
 \begin{equation}
   \label{eq:33}
   \gr^G(V) =\bigoplus_{p, n \in \mathbb{N}}\alpha^p(G^pV_n).
@@ -3452,7 +3455,7 @@ Let
   \gr_F(M) = \bigoplus_{p \in \mathbb{N}}F_pM/F_{p + 1}M
 \end{equation*}
 be the associated graded vector space.
-The vector space $\gr_F(M)$ is a module over the $\gr_F(V)$ with operations given as follows: for $p, q \in \mathbb{N}$, $a \in F_pV$ and $u \in F_pM$, set
+The vector space $\gr_F(M)$ is a module over $\gr_F(V)$ with operations given as follows: for $p, q \in \mathbb{N}$, $a \in F_pV$ and $u \in F_pM$, set
 \begin{align*}
   \sigma_p(a)\sigma^M_q(u) &= \sigma^M_{p + q}(a^M_{(-1)}u), \\
   Y^M_-(\sigma_p(a), z)\sigma^M_q(u) &= \sum_{n \in \mathbb{N}}\sigma^M_{p + q - n}(a^M_{(n)}u)z^{-n - 1},
@@ -3513,7 +3516,7 @@ We have the natural vector space isomorphisms
 \begin{equation*}
   \sigma^M_p(F_pM_{\Delta}) \cong F_pM_{\Delta}/F_{p + 1}M_{\Delta} \quad \text{for }p \in \mathbb{Z}\text{ and }\Delta \in \mathbb{C}
 \end{equation*}
-and the double gradation
+and the refined gradation
 \begin{equation}
   \label{eq:35}
   \gr_F(M) =\bigoplus_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\sigma_p(F_pM_{\Delta}).
@@ -3576,7 +3579,7 @@ Let
   \gr^G(M) = \bigoplus_{p \in \mathbb{N}}G^pM/G^{p - 1}M
 \end{equation*}
 be the associated graded vector space.
-The vector space $\gr^G(M)$ a module over $\gr^G(V)$ with operations given as follows: for $p, q \in \mathbb{N}$, $a \in G^pV$ and $u \in G^qM$, set
+The vector space $\gr^G(M)$ is a module over $\gr^G(V)$ with operations given as follows: for $p, q \in \mathbb{N}$, $a \in G^pV$ and $u \in G^qM$, set
 \begin{align*}
   \alpha^p(a)\alpha_M^q(u) &= \alpha_M^{p + q}(a^M_{(-1)}u), \\
   Y^M_-(\alpha^p(a), z)\alpha_M^q(u) &= \sum_{n \in \mathbb{N}}\alpha_M^{p + q - 1}(a^M_{(n)}u)z^{-n - 1},
@@ -3611,7 +3614,7 @@ We have the natural vector space isomorphisms
 \begin{equation*}
   \alpha_M^p(G^pM_{h + n}) \cong G^pM_{h + n}/G^{p - 1}M_{h + n} \quad \text{for }p \in \mathbb{Z}\text{ and }n \in \mathbb{N}
 \end{equation*}
-and the double gradation
+and the refined gradation
 \begin{equation}
   \label{eq:36}
   \gr^G(M) = \bigoplus_{p, n \in \mathbb{N}}\alpha_M^p(G^pM_{h + n}).
@@ -3715,7 +3718,7 @@ Therefore, we obtain a functor
 \begin{remark}
   \label{rmk:37}
   That $+k$ in the isomorphism above is what makes this filtration different from the PBW filtration (see \Cref{sec:almost-comm-algebr}) where all $L_n$ for $n \le -1$ have the same length.
-  On the other hand, with the standard filtration $L_{-1}$ has length equal to $1$ while $L_{-2}$, $L_{-3}, \dots$ have length equal to $2$.
+  On the other hand, with the standard filtration, $L_{-1}$ has length equal to $1$ while $L_{-2}$, $L_{-3}, \dots$ have length equal to $2$.
 \end{remark}
 
 \begin{remark}
@@ -3751,7 +3754,7 @@ Set
   W &= J(1/2, 1/2).
 \end{align*}
 
-Then $M$ and $L$ are $V$-modules and by definition, $L = M/W$.
+Then $M$ and $L$ are $V$-modules and, by definition, $L = M/W$.
 By \Cref{thr:41},
 \begin{equation}
   \label{eq:37}
@@ -3798,7 +3801,7 @@ and the \emph{weight} of $\lambda$ as
 \begin{equation*}
   \Delta(\lambda) = \lambda_1 + \dots + \lambda_m + n.
 \end{equation*}
-Therefore, for a partition $\lambda$ we have
+Therefore, for a partition $\lambda$, we have
 \begin{equation*}
   L_{\lambda}\vachalf \in G^{\len(\lambda)}M_{1/2 + \Delta(\lambda)}.
 \end{equation*}
@@ -3834,7 +3837,7 @@ For example, $\lm(L_{-2} - \frac{3}{4}L_{-1}^2) = L_{-2}$.
 
 When working with $q$-series, the following notation is useful.
 The \emph{$q$-Pochhammer symbol} is $(q)_n = \prod_{j = 1}^n(1 - q^j) \in \mathbb{C}[[q]]$ for $n \in \mathbb{N}$.
-The recursive proofs of the series identities in \cite{andrews_singular_2022} suggest the following definition: for $a, b, c, d \in \mathbb{N}$, define
+The recursive proofs of the series identities in \cite{andrews_singular_2022} suggests the following definition: for $a, b, c, d \in \mathbb{N}$, define
 \begin{equation*}
   f_{a, b, c, d}(t, q) = \sum_{k_1, k_2 \in \mathbb{N}}t^{4k_1 + 2k_2 + d}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2 + ak_1 + bk_2 + c}}{(q)_{k_1}(q)_{k_2}} \in \mathbb{C}[[t, q]].
 \end{equation*}
@@ -3870,13 +3873,13 @@ The following lemma will be very useful to verify series identities.
 \subsection{A combinatorial argument}
 \label{sec:comb-argum}
 
-A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains} a partition $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there exists $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
+A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains} a partition $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
 
 Define
 \begin{equation*}
   p(t, q) = \sum_{\lambda \in P}t^{\len(\lambda)}q^{\Delta(\lambda)} \in \mathbb{C}[[t, q]],
 \end{equation*}
-where $P$ is the set of partitions that don't contain any partition in $R$ as defined in \Cref{sec:introduction}, i.e.\
+where $P$ is the set of partitions that don't contain any partition in $R$ as defined in \Cref{sec:introduction}, i.e.
 \begin{equation*}
   P = \{\lambda \mid \text{for }\eta \in R, \lambda \nsupseteq \eta\}.
 \end{equation*}
@@ -3902,7 +3905,7 @@ Set
 \end{align*}
 and both $p_{>2}(t, q)$ and $P_{>2}(n, m)$ are defined like $p(t, q)$ and $P(n, m)$ were defined.
 We similarly define objects like $P_{>6, 5, 3}$, $P_{6, 5, 3}$, $p_{>6, 5, 3}(t, q)$, $p_{6, 5, 3}(t, q)$, $P_{>6, 5, 3}(n, m)$ and $P_{6, 5, 3}(n, m)$.
-It turns $P$ is made out of the these ``smaller'' objects and we can find recurrence relations between them to find our desired formula for $p(t, q)$.
+It turns out $P$ is made of the these ``smaller'' objects and we can find recurrence relations between them to find our desired formula for $p(t, q)$.
 
 \begin{lemma}
   \label{lmm:21}
@@ -3919,10 +3922,7 @@ It turns $P$ is made out of the these ``smaller'' objects and we can find recurr
   \end{equation*}
   from which we get the formula
   \begin{equation*}
-    \begin{split}
-      p_{>2}(t, q) &= p_{4, 3}(t, q) + p_{6, 5, 3}(t, q) + p_{>6, 5, 3}(t, q) + p_{>5, 3}(t, q) + p_{4, 4}(t, q) + p_{5, 4}(t, q) + p_{>5, 4}(t, q) \\
-      &\quad + p_{>4}(t, q).
-    \end{split}
+    p_{>2}(t, q) = p_{4, 3}(t, q) + p_{6, 5, 3}(t, q) + p_{>6, 5, 3}(t, q) + p_{>5, 3}(t, q) + p_{4, 4}(t, q) + p_{5, 4}(t, q) + p_{>5, 4}(t, q) + p_{>4}(t, q).
   \end{equation*}
   These subseries must satisfy the following recurrences with initial conditions:
   \begin{align*}
@@ -4272,25 +4272,25 @@ Set $u^K_{\lambda} = \alpha^{\len(\lambda)}(u^W_{\lambda})$ for each pivot $\lam
 \end{remark}
 
 For example, when $n = 4$, the partitions are ordered in the following way
-  \begin{equation*}
-    [[2, 2], [2, 1, 1], [1, 1, 1, 1], [3, 1], [4]],
-  \end{equation*}
-  the matrix $A^W_4$ is given by
-  \begin{equation*}
-    A^W_4=
-    \begin{pmatrix}
-      1 & 0 & 0 & -\frac{3}{16} & -\frac{15}{8} \\
-      0 & 1 & 0 & -\frac{1}{4} & -\frac{5}{2} \\
-      0 & 0 & 1 & -3 & -6
-    \end{pmatrix}
-  \end{equation*}
-  and the pivots are $[2, 2]$, $[2, 1, 1]$ and $[1, 1, 1, 1]$.
-  Therefore,
-  \begin{align*}
-    u^W_{[2, 2]} &= (L_{[2, 2]} - \tfrac{3}{16}L_{[3, 1]} - \tfrac{15}{8}L_{[4]})\vachalf, &u^K_{[2, 2]} &= L_{-2}L_{-2}, \\
-    u^W_{[2, 1, 1]} &= (L_{[2, 1, 1]} - \tfrac{1}{4}L_{[3, 1]} - \tfrac{5}{2}L_{[4]})\vachalf, &u^K_{[2, 1, 1]} &= L_{-2}L_{-1}^2, \\
-    u^W_{[1, 1, 1, 1]} &= (L_{[1, 1, 1, 1]} - 3L_{[3, 1]} - 6L_{[4]})\vachalf, &u^K_{[1, 1, 1, 1]} &= L_{-1}^4.
-  \end{align*}
+\begin{equation*}
+  [[2, 2], [2, 1, 1], [1, 1, 1, 1], [3, 1], [4]],
+\end{equation*}
+the matrix $A^W_4$ is given by
+\begin{equation*}
+  A^W_4=
+  \begin{pmatrix}
+    1 & 0 & 0 & -\frac{3}{16} & -\frac{15}{8} \\
+    0 & 1 & 0 & -\frac{1}{4} & -\frac{5}{2} \\
+    0 & 0 & 1 & -3 & -6
+  \end{pmatrix}
+\end{equation*}
+and the pivots are $[2, 2]$, $[2, 1, 1]$ and $[1, 1, 1, 1]$.
+Therefore,
+\begin{align*}
+  u^W_{[2, 2]} &= (L_{[2, 2]} - \tfrac{3}{16}L_{[3, 1]} - \tfrac{15}{8}L_{[4]})\vachalf, &u^K_{[2, 2]} &= L_{-2}L_{-2}, \\
+  u^W_{[2, 1, 1]} &= (L_{[2, 1, 1]} - \tfrac{1}{4}L_{[3, 1]} - \tfrac{5}{2}L_{[4]})\vachalf, &u^K_{[2, 1, 1]} &= L_{-2}L_{-1}^2, \\
+  u^W_{[1, 1, 1, 1]} &= (L_{[1, 1, 1, 1]} - 3L_{[3, 1]} - 6L_{[4]})\vachalf, &u^K_{[1, 1, 1, 1]} &= L_{-1}^4.
+\end{align*}
 
 The partitions $[2]$, $[1, 1, 1]$, $[3, 1, 1]$, $[3, 3]$, $[4, 3, 1]$, $[4, 4, 1]$, $[5, 4, 1, 1]$ and $[6, 5, 3, 1]$ are pivots of the matrices $A^W_2, A^W_3$, $A^W_5$, $A^W_6$, $A^W_8$, $A^W_9$, $A^W_{11}$ and $A^W_{15}$ respectively, see \cite[ising-modules.ipynb]{sagemath2}.
 Set
@@ -4332,7 +4332,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
 \end{lemma}
 
 \begin{proof}
-  By the definition of $K'$, we know that for any $\lambda \in R$ there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
+  By the definition of $K'$, we know that for any $\lambda \in R$, there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
   Now assume $\lambda \in \overline{R}$, which means there is $\eta \in R$ such that $\lambda \supseteq \eta$.
   Therefore, $\lambda$ is obtained from $\eta$ by adding some integers greater than or equal to two and adding $k$ ones.
   Pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:41} and the fact that $\lm$ is multiplicative).
@@ -4370,7 +4370,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
   Assume $\lambda$ belongs to the right set and $\lambda \supseteq \eta$ for some $\eta \in R$.
   Then $\lambda$ has $k$ more ones than $\eta$ for some $k \in \mathbb{N}$.
   By \Cref{rmk:42}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$ where we added $k$ ones to $\eta$, a contradiction.
-  Therefore, $\lambda \nsupseteq \eta$ for all $\eta \in R$ which means $\lambda$ belongs to the left set.
+  Therefore, $\lambda \nsupseteq \eta$ for $\eta \in R$, which means $\lambda$ belongs to the left set.
 
   Now we prove the inclusion $(\subseteq)$.
   Assume $\lambda$ belongs to the left set.
@@ -4380,8 +4380,8 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
   By \Cref{rmk:42}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
   Assume $\eta = [r + 2, r + 1, r]$ for some $r \ge 3$ and $u_{\eta} \mid u_{\lambda}$.
   Then $\lambda$ contains $[r + 2, r + 1, \dots, r + 1, r]$ where $r + 1$ appears $k \ge 1$ times.
-  If $k \ge 2$, then $\lambda$ contains $[r + 1, r + 1, r]$ which is not possible.
-  If $k = 1$, then $\lambda$ contains $[r + 2, r + 1, r]$ which is not possible.
+  If $k \ge 2$, then $\lambda$ contains $[r + 1, r + 1, r]$, which is not possible.
+  If $k = 1$, then $\lambda$ contains $[r + 2, r + 1, r]$, which is not possible.
   Therefore, we can't have $u_{\eta} \mid u_{\lambda}$.
   Continuing this way we obtain that $u_{\eta} \nmid u_{\lambda}$ for $\eta \in R$ with $0$ ones.
   The same argument can be made when $\lambda$ has $1$ or $2$ ones.
@@ -4444,7 +4444,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
 
   On the other hand, we have $B_N \subseteq \overline{B_N}$ because if $u_{\lambda} \in B_N$ and $\eta \in \overline{R}$, then we have $u_{\eta} \nmid u_{\lambda}$ because if we had $u_{\eta} \mid u_{\lambda}$, then by \Cref{lmm:29}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$, then by the definition of Gr\"{o}bner basis, there would exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
-  We see that the family of bases given by \eqref{eq:41} satisfy the property that one basis is contained in the next one and this concludes the proof of \Cref{thr:4}.
+  We see that the family of bases given by \eqref{eq:41} satisfies the property that one basis is contained in the next one and this concludes the proof of \Cref{thr:4}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]
@@ -4555,14 +4555,14 @@ From the output, we obtain
   u^K_{[6, 5, 3, 1]} &= L_{-6}L_{-5}L_{-3}L_{-1}.
 \end{align*}
 
-However, it turns out $u^K_{[5, 4, 1, 1]}$ and $u^K_{[6, 5, 3, 1]}$ are redundant, as can be seen from \cite[m11-m15.ipynb]{sagemath2}.
-From \cite[Theorem 2]{andrews_singular_2022}, we obtain the following explicit expression for $K$:
+However, it turns out $u^K_{[5, 4, 1, 1]}$ and $u^K_{[6, 5, 3, 1]}$ are redundant, as can be seen in \cite[m11-m15.ipynb]{sagemath2}.
+From \cite[Theorem 2]{andrews_singular_2022}, we obtain the following explicit expression for $K$
 \begin{equation*}
   K = (u^K_{[2]}, u^K_{[1, 1, 1]}, u^K_{[3, 1, 1]}, u^K_{[3, 3]}, u^K_{[4, 3, 1]}, u^K_{[4, 4, 1]}, \iota_0((a, b)_{\partial}))_{\psn},
 \end{equation*}
 where
 \begin{align*}
-  a = L_{-2}^3, b = L_{-2}L_{-3}L_{-4} + \tfrac{1}{6}L_{-5}L_{-2}^2.
+  a = L_{-2}^3, b = L_{-4}L_{-3}L_{-2} + \tfrac{1}{6}L_{-5}L_{-2}^2.
 \end{align*}
 
 \numberwithin{theorem}{section}
