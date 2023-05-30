@@ -63,7 +63,7 @@
 \end{abstract}
 
 \title{PBW bases of irreducible Ising modules}
-\author{Diego Salazar Gutierrez}
+\author{Diego Salazar}
 \address{Instituto de Matemática Pura e Aplicada, Rio de Janeiro, RJ, Brazil}
 \email{diego.salazar@impa.br}
 \date{\today}
@@ -383,7 +383,7 @@ A \emph{superalgebra} is a $\mathbb{Z}_2$-graded algebra $A = A_{\zero} \oplus A
 This means $A_{\alpha}A_{\beta} \subseteq A_{\alpha + \beta}$ for $\alpha, \beta \in \mathbb{Z}_2$.
 
 We set $(-1)^{\zero} = 1$, $(-1)^{\one} = -1$.
-If $a \in V_\alpha$, $v\neq 0$ is homogeneous, we set $p(a) = \alpha$ and call it the \emph{parity} of $a$.
+If $a \in V_{\alpha}$, $v\neq 0$ is homogeneous, we set $p(a) = \alpha$ and call it the \emph{parity} of $a$.
 If $a$ and $b$ are homogeneous, we set $p(a, b) = (-1)^{p(a)p(b)}$.
 A \emph{Lie superalgebra} is a superalgebra $\mathfrak{g} = \mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\one}$ with the a $\mathbb{C}$-bilinear product $[\bullet, \bullet]: \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}$ called \emph{Lie superbracket} satisfying the following properties for $a, b, c \in \mathfrak{g}$ homogeneous:
 \begin{enumerate}
@@ -412,7 +412,7 @@ With this superbracket, $A$ becomes a Lie superalgebra called the \emph{underlyi
 
 Probably the most important example of an associative superalgebra is the \emph{endomorphism superalgebra} $\End(V)$ of a superspace $V$ with the $\mathbb{Z}_2$-grading given by
 \begin{equation*}
-  \End(V)_{\alpha} = \{T \in \End(V) \mid \text{for }\beta \in \mathbb{Z}_2, T(V_\beta) \subseteq V_{\alpha + \beta}\} \quad \text{for }\alpha \in \mathbb{Z}_2.
+  \End(V)_{\alpha} = \{T \in \End(V) \mid \text{for }\beta \in \mathbb{Z}_2, T(V_{\beta}) \subseteq V_{\alpha + \beta}\} \quad \text{for }\alpha \in \mathbb{Z}_2.
 \end{equation*}
 We denote $\mathfrak{gl}(V) = [\End(V)]$.
 
@@ -1739,7 +1739,7 @@ With this notation, \eqref{eq:19} is equivalent to
   \item $[H, T] = T$;
   \item $[T, a_n] = (-n - \Delta_a + 1)a_{n - 1}$ for $a \in V$ homogeneous and $n \in \mathbb{Z} - \Delta_a$;
   \item $a_nV_{\Delta} \subseteq V_{\Delta - n}$ for $a \in V$ homogeneous, $\Delta \in \mathbb{C}$ and $n \in \mathbb{Z} - \Delta_a$;
-  \item $TV_\Delta \subseteq V_{\Delta + 1}$ or, equivalently, $\Delta_{Ta} = \Delta_a + 1$ for homogeneous $a \in V$;
+  \item $TV_{\Delta} \subseteq V_{\Delta + 1}$ or, equivalently, $\Delta_{Ta} = \Delta_a + 1$ for homogeneous $a \in V$;
   \item $\Delta_{a_{(n)}b} = \Delta_a + \Delta_b - n - 1$ for $a, b \in V$ homogeneous and $n \in \mathbb{Z}$.
   \end{enumerate}
 \end{theorem}
@@ -1811,10 +1811,10 @@ A \emph{conformal vertex superalgebra} (of central charge $c$) is a vertex super
   Let $(a_i)_{i \in I}, (a^i)_{i \in I}$ be dual bases of $(\bullet| \bullet)$, which means $(a_i| a^j) = \delta_{ij}$ for $i, j \in I$.
   Denote by $c_{\mathfrak{g}} = \sum_ia^ia_i \in U(\mathfrak{g})$ the universal Casimir element of $\mathfrak{g}$.
   Let $2h^{\wedge}$ be the eigenvalue of $\ad(c_{\mathfrak{g}}) \in \End(\mathfrak{g})$ in the adjoint representation, i.e.\ $\ad(c_{\mathfrak{g}}) = \sum_i\ad(a^i)\ad(a_i) = 2h^{\wedge}\Id_V$.
-  Assume $k \neq -h^\wedge$.
+  Assume $k \neq -h^{\wedge}$.
   Set
   \begin{equation*}
-    \omega = \frac{1}{2(k + h^\wedge)}\sum_ia^i_{(-1)}a_{i(-1)}\vac \in V^k(\mathfrak{g}).
+    \omega = \frac{1}{2(k + h^{\wedge})}\sum_ia^i_{(-1)}a_{i(-1)}\vac \in V^k(\mathfrak{g}).
   \end{equation*}
   Then $\omega$ is a conformal vector with central charge $\frac{k\sdim(\mathfrak{g})}{k + h^{\wedge}}$ and for $a \in \mathfrak{g}$, $a(z)$ is a primary eigendistribution of weight $1$.
 \end{example}
@@ -2952,7 +2952,7 @@ If $c$ is not of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime inte
 \section{Vertex Poisson superalgebras and filtrations of vertex algebras}
 \label{sec:vert-poiss-supera}
 
-In this section we review the theory of filtrations for vertex algebras.
+In this section, we review the theory of filtrations for vertex algebras.
 We can consider either the Li filtration $(F_pV)_{p \in \mathbb{Z}}$ or the standard filtration $(G^pV)_{p \in \mathbb{Z}}$.
 Both of these filtrations lead to a vertex Poisson algebra, namely $\gr_F(V)$ and $\gr^G(V)$, as was shown by Haisheng Li in \cite{li_abelianizing_2005} and \cite{li_vertex_2004}.
 In \cite{arakawa_remark_2012}, it was shown by Arakawa that the resulting vertex Poisson algebra is the same.
@@ -3365,7 +3365,7 @@ Therefore, we obtain a functor
   Assume $s \ge 2$.
   By \Cref{crl:1},
   \begin{align*}
-    (L_\lambda\vac)_{(-1)}(L_{\eta}\vac) &= \left(\frac{:\partial_z^{\lambda_1 - 2}L(z)\dots\partial_z^{\lambda_s - 2}L(z):}{(\lambda_1 - 2)!\dots(\lambda_s - 2)!} \right)_{(-1)}(L_{\eta}\vac) \\
+    (L_{\lambda}\vac)_{(-1)}(L_{\eta}\vac) &= \left(\frac{:\partial_z^{\lambda_1 - 2}L(z)\dots\partial_z^{\lambda_s - 2}L(z):}{(\lambda_1 - 2)!\dots(\lambda_s - 2)!} \right)_{(-1)}(L_{\eta}\vac) \\
     &= \frac{(:\partial_z^{\lambda_1 - 2}L(z)\dots\partial_z^{\lambda_s - 2}L(z):)_{(-1)}(L_{\eta}\vac)}{(\lambda_1 - 2)!\dots(\lambda_s - 2)!},
   \end{align*}
   where $L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2} \in \mathcal{F}(\Vir^c)$.
@@ -3541,7 +3541,7 @@ Therefore, we obtain a functor
 Now we introduce a definition not given by Li in \cite{li_vertex_2004}.
 Let $V$ be an $\mathbb{N}$-graded conformal vertex algebra with conformal vector $\omega$, $(a^i)_{i \in I}$ a family of homogeneous strong generators of $V$ and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
 This means $M$ is a $V$-module with $L_0^M$ diagonalizable whose eigenvalues are in the set $h + \mathbb{N}$ for some $h \in \mathbb{C}$.
-Set $M_\Delta = \ker(L^M_0 - \Delta\Id_M)$ for $\Delta \in \mathbb{C}$ so we have $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$.
+Set $M_{\Delta} = \ker(L^M_0 - \Delta\Id_M)$ for $\Delta \in \mathbb{C}$ so we have $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$.
 For $p \in \mathbb{Z}$, set
 
 \begin{equation*}
@@ -4518,7 +4518,9 @@ The unit of $\gr(A)$ is $\gamma^0(1)$.
 We say $A$ is \emph{almost commutative} if the filtration $(A^p)_{p \in \mathbb{Z}}$ satisfies the following condition: for $p, q \in \mathbb{Z}$, if $a \in A^p$ and $b \in A^q$, then $ab - ba \in A^{p + q - 1}$.
 If $A$ is almost commutative, then $\gr(A)$ is commutative.
 
-Let $\mathfrak{g}$ be a Lie algebra and let $U(\mathfrak{g})$ be its universal enveloping algebra.
+Let $\mathfrak{g}$ be a Lie algebra.
+The \emph{tensor algebra} $T(\mathfrak{g}) = \bigoplus_{n \in \mathbb{N}}\mathfrak{g}^{\otimes n}$ of $\mathfrak{g}$ is an associative algebra with a unit $1$.
+The \emph{universal enveloping algebra} $U(\mathfrak{g}) = T(\mathfrak{g})/(xy - yx - [x, y] \mid x, y \in \mathfrak{g})$ of $\mathfrak{g}$ is also an associative algebra with $1$, but we also have an inclusion $\mathfrak{g} \to U(\mathfrak{g})$ which is a Lie algebra homomorphism.
 The \emph{PBW filtration} $(U(\mathfrak{g})^p)_{p \in \mathbb{Z}}$ is given by
 \begin{equation*}
   U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for }p \in \mathbb{Z}.
@@ -4526,9 +4528,9 @@ The \emph{PBW filtration} $(U(\mathfrak{g})^p)_{p \in \mathbb{Z}}$ is given by
 This filtration clearly satisfy axioms (i)--(iii) above.
 Furthermore, $U(\mathfrak{g})^1 = \mathfrak{g}$.
 By \cite[Lemma 2.1.5]{dixmier_enveloping_1996}, $U(\mathfrak{g})$ is almost commutative, so $\gr(U(\mathfrak{g}))$ is commutative.
-Let $S(\mathfrak{g})$ denote the symmetric algebra of $\mathfrak{g}$.
+The \emph{symmetric algebra} $S(\mathfrak{g}) = T(\mathfrak{g})/(xy - yx \mid x, y \in \mathfrak{g})$ of $\mathfrak{g}$ is a commutative associative algebra with a unit $1$ and we have an inclusion $\mathfrak{g} \to S(\mathfrak{g})$ satisfying an universal property.
 We have two natural inclusions of $\mathfrak{g}$: $\mathfrak{g} \to U(\mathfrak{g})$ and $\mathfrak{g} \to S(\mathfrak{g})$.
-By the universal property of $S(\mathfrak{g})$, there is a homomorphism of commutative algebras $S(\mathfrak{g}) \to \gr(U(\mathfrak{g}))$ such that $1 \mapsto 1$ and the following diagram commutes
+By the universal property of $\mathfrak{g} \to S(\mathfrak{g})$, there is a homomorphism of commutative algebras $S(\mathfrak{g}) \to \gr(U(\mathfrak{g}))$ such that $1 \mapsto 1$ and the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
     \mathfrak{g} \arrow[r] \arrow[rd] & S(\mathfrak{g}) \arrow[d] \\

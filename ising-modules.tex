@@ -45,11 +45,13 @@
 \end{abstract}
 
 \title{PBW bases of irreducible Ising modules}
-\author{Diego Salazar Gutierrez}
+\author{Diego Salazar}
 \address{Instituto de Matemática Pura e Aplicada, Rio de Janeiro, RJ, Brazil}
 \email{diego.salazar@impa.br}
 \date{\today}
 \maketitle
+
+\tableofcontents
 
 \section{Introduction}
 \label{sec:introduction}
@@ -188,7 +190,7 @@ The \emph{Virasoro Lie algebra} is a Lie algebra given by
 These elements satisfy the following commutation relations:
 \begin{align*}
   [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for }m, n \in \mathbb{Z}, \\
-  [\Vir, C] &= 0, 
+  [\Vir, C] &= 0,
 \end{align*}
 Let $c, h \in \mathbb{C}$.
 Set $\Vir_{\ge 0} = \bigoplus_{n \in \mathbb{N}}\mathbb{C}L_n$.
@@ -198,7 +200,7 @@ Then $\Vir_{\ge 0} \oplus \mathbb{C}C$ is a Lie subalgebra of $\Vir$ and we let 
   L_01 &= h, \\
   C1 &= c.
 \end{align*}
-The \emph{Verma representation} of $\Vir$ with \emph{highest weight} $(c, h)$ is defined as 
+The \emph{Verma representation} of $\Vir$ with \emph{highest weight} $(c, h)$ is defined as
 \begin{equation*}
   M(c, h) = \Ind^{\Vir}_{\Vir_{\ge 0} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge 0} \oplus \mathbb{C}C)} \mathbb{C},
 \end{equation*}
@@ -213,7 +215,7 @@ For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, define
 \end{equation*}
 By the PBW theorem, the set
 \begin{equation*}
-  \{L_\lambda|c,h\rangle \mid \lambda\text{ is a partition}\}
+  \{L_{\lambda}|c,h\rangle \mid \lambda\text{ is a partition}\}
 \end{equation*}
 is a vector space basis of $M(c, h)$.
 The representation $M(c, h)$ has a unique maximal subrepresentation $J(c, h)$ and the quotient
@@ -265,7 +267,7 @@ The filtration $(G^pV)_{p \in \mathbb{Z}}$ is called the \emph{standard filtrati
 Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, $(a^i)_{i \in I}$ a family of homogeneous strong generators of $V$ and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
 Write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 1}$.
 This means $M$ is a $V$-module with $L_0^M$ diagonalizable whose eigenvalues are in $h + \mathbb{N}$ for some $h \in \mathbb{C}$.
-Set $M_\Delta = \ker(L^M_0 - \Delta\Id_M)$ for $\Delta \in \mathbb{C}$ so we have $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$.
+Set $M_{\Delta} = \ker(L^M_0 - \Delta\Id_M)$ for $\Delta \in \mathbb{C}$ so we have $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$.
 For $p \in \mathbb{Z}$, set
 
 \begin{equation*}
@@ -294,7 +296,7 @@ For $p \in \mathbb{Z}$, set
 \end{proof}
 
 \begin{remark}
-  \label{rmk:36}
+  \label{rmk:1}
   Note that we don't have the property $L_{-1}^MG^pM \subseteq G^pM$ as in the case of vertex algebras.
 \end{remark}
 
@@ -347,7 +349,7 @@ Therefore, we obtain a functor
 \end{equation*}
 
 \begin{remark}
-  \label{rmk:1}
+  \label{rmk:2}
   It is possible to prove that $\gr^G(M)$ and $\gr_F(M)$ are isomorphic modules.
   The proof is essentially the same as the proof of \cite[Proposition 2.6.1]{arakawa_remark_2012}.
 \end{remark}
@@ -376,7 +378,7 @@ are the generating singular vectors.
 
 We have a natural epimorphism of representations of $\Vir$:
 \begin{align*}
-  \pi: M &\twoheadrightarrow L \\
+  \pi: M &\twoheadrightarrow L, \\
   \pi(u) &= u + W.
 \end{align*}
 We can consider $\pi$ as a homomorphism of modules over $V$.
@@ -395,7 +397,17 @@ where
 \end{equation}
 
 Let us describe these objects and the isomorphisms explicitly.
-For $V$, $\gr^G(V)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$ because $\gr^G(V) \cong \gr(U(\Vir_{\le -2})) \cong S(\Vir_{\le -2})$.
+For $V$, $\gr^G(V)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$ as a differential commutative associative algebra with the derivation given by
+\begin{align*}
+  \partial: \mathbb{C}[L_{-2}, L_{-3}, \dots] &\to \mathbb{C}[L_{-2}, L_{-3}, \dots], \\
+  \partial(L_{-n}) &= (n - 1)L_{-n - 1} \quad \text{for }n \ge 2.
+\end{align*}
+The Poisson structure (i.e.\ the map $Y_-$) is trivial meaning it is $0$.
+This is because
+\begin{equation*}
+  \gr^G(V) \cong \gr(U(\Vir_{\le -2})) \cong S(\Vir_{\le -2}) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots],
+\end{equation*}
+where $\Vir_{\le -2}$ is the subalgebra of $\Vir$ given by $\Vir_{\le -2} = \bigoplus_{n \le -2}L_n$ and $U(\Vir_{\le -2})$ is equipped with the PBW filtration (see \cite[\S2]{dixmier_enveloping_1996}).
 A similar argument can be made for $\gr^G(M)$, obtaining the following isomorphism:
 \begin{align*}
   \gr^G(M) &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k, \\
@@ -560,7 +572,7 @@ It turns out $P$ is made of the these ``smaller'' objects and we can find recurr
   \end{align*}
   is a solution to these equations.
   We derive the formula $p_{>2}(t, q) = f_{3, 2, 0, 0}(t, q)$ again from \Cref{lmm:1}.
-  
+
   The first recurrence follows from the following bijections for $m, n \in \mathbb{N}$:
   \begin{align*}
     P_{>4}(n, 2m) &\xrightarrow{\sim} P_{4, 4}(n - m, 2m) \cup P_{5, 4}(n - m, 2m) \cup P_{>5, 4}(n - m, 2m) \cup P_{>4}(n - m, 2m) \\
@@ -575,7 +587,7 @@ It turns out $P$ is made of the these ``smaller'' objects and we can find recurr
   which can be verified directly from the definition of $P$.
   The other recurrences are proven in a similar way.
 \end{proof}
-  
+
 \begin{lemma}
   \label{lmm:3}
   The formal power series $p_{>2, 1}(t, q)$ is given by
@@ -694,7 +706,7 @@ the insertion of $\gr^G(V)$ into the $k$-th component.
 
 We have a natural quotient map
 \begin{align*}
-  \pi_0: V &\to \Vir_{3, 4} \\
+  \pi_0: V &\to \Vir_{3, 4}, \\
   \pi(a) &= a + U(\Vir)\{a_{3, 4}\},
 \end{align*}
 where
@@ -727,7 +739,7 @@ Set $I = \ker(\gr^G(\pi_0))$ following \cite{andrews_singular_2022} and recall t
   \end{equation*}
   The commutativity of this diagram implies the following statement
   \begin{equation*}
-    \text{for }a \in U(\Vir)\{v_{3, 4}\}, u \in M\text{ and }n \in \mathbb{Z}, a_{(n)}u \in W,
+    \text{for }a \in U(\Vir)\{a_{3, 4}\}, u \in M\text{ and }n \in \mathbb{Z}, a_{(n)}u \in W,
   \end{equation*}
   where $W$ is defined in \eqref{eq:3}.
   We use this statement in the following simplified form
@@ -735,16 +747,16 @@ Set $I = \ker(\gr^G(\pi_0))$ following \cite{andrews_singular_2022} and recall t
     \label{eq:5}
     \text{for }a \in U(\Vir)\{a_{3, 4}\}, a_{(-1)}\vachalf \in W.
   \end{equation}
-  
+
   Note that
   \begin{equation*}
-    I = \sum_{p \in \mathbb{N}}\alpha^p(U(\Vir)\{v_{3, 4}\} \cap G^pV).
+    I = \sum_{p \in \mathbb{N}}\alpha^p(U(\Vir)\{a_{3, 4}\} \cap G^pV).
   \end{equation*}
   Similarly, we have a formula for $K$
   \begin{equation*}
     K = \sum_{p \in \mathbb{N}}\alpha^p(W \cap G^pM).
   \end{equation*}
-  Let $\alpha^p(a) \in I$ with $a \in U(\Vir)\{v_{3, 4}\} \cap G^pV$.
+  Let $\alpha^p(a) \in I$ with $a \in U(\Vir)\{a_{3, 4}\} \cap G^pV$.
   By \Cref{lmm:8} and \eqref{eq:5}, we have $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
 \end{proof}
 
@@ -763,14 +775,14 @@ For $x \in U(\Vir_{\le -1})$ with $x \neq 0$, we may write
   x = c_1L_{\lambda_1} + c_2L_{\lambda_2} + \dots + c_rL_{\lambda_r},
 \end{equation*}
 where for $1 \le i\le r$, $0 \neq c_i \in \mathbb{C}$ and $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_r}$.
-We define the \emph{leading monomial} of $x$ as $\lm(x) = L_{\lambda_1}$. 
+We define the \emph{leading monomial} of $x$ as $\lm(x) = L_{\lambda_1}$.
 We set $\lm(0) = 0$.
 We extend the definition of $\lm$ from $U(\Vir_{\le -1})$ to $V$ and $M$ by considering the isomorphisms of vector spaces: $U(\Vir_{\le -2}) \xrightarrow{\sim} V, L_{\lambda} \mapsto L_{\lambda}\vac$ and $U(\Vir_{\le -1}) \xrightarrow{\sim} M, L_{\lambda} \mapsto L_{\lambda}\vachalf$ where $\lambda$ is a partition and $U(\Vir_{\le -2}) = \{L_{\lambda} \mid \lambda = [\lambda_1, \dots, \lambda_m]\text{ satisfies }\lambda_m \ge 2\}$.
 For example, we have $(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf \in W$ and $\lm((L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf) = L_{-1}^4\vachalf$.
 If we were using only the degree reverse lexicographical order with TOP, then we would get $L_{-3}L_{-1}\vachalf$ as leading monomial and we don't want that.
 
 \begin{remark}
-  \label{rmk:2}
+  \label{rmk:3}
   The definition of the order in the PBW basis of $U(\Vir_{\le -1})$ was made to make the following statements true:
   \begin{enumerate}
   \item For $\lambda$ a partition and $a \in V$, if $\lm(a) = L_{\lambda}\vac$, then $\lm(\alpha^{\len(\lambda)}(a)) = p_{\lambda}$.
@@ -791,8 +803,8 @@ In other words, $u^W_{\lambda} = L_{\lambda}\vachalf + \text{(lower order terms)
 Set $u^K_{\lambda} = \alpha^{\len(\lambda)}(u^W_{\lambda})$ for each pivot $\lambda$ of $A^W_n$.
 
 \begin{remark}
-  \label{rmk:3}
-  By construction and \Cref{rmk:2}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
+  \label{rmk:4}
+  By construction and \Cref{rmk:3}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
 \end{remark}
 
 For example, when $n = 4$, the partitions are ordered in the following way
@@ -822,7 +834,7 @@ Set
   K' = (u^K_{[2]}, u^K_{[1, 1, 1]}, u^K_{[3, 1, 1]}, u^K_{[3, 3]}, u^K_{[4, 3, 1]}, u^K_{[4, 4, 1]}, u^K_{[5, 4, 1, 1]}, u^K_{[6, 5, 3, 1]}, \iota_0(I))_{\psn},
 \end{equation*}
 where $\psn$ denotes the Poisson submodule generated by the given subset.
-By \Cref{lmm:9}, \Cref{rmk:3} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
+By \Cref{lmm:9}, \Cref{rmk:4} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
 \begin{equation*}
 K' \subseteq K.
 \end{equation*}
@@ -837,7 +849,7 @@ We have
 where $\lambda$ is any partition and $[\lambda, 1]$ denotes the partition $\lambda$ with a $1$ appended at the end.
 
 \begin{remark}
-  \label{rmk:4}
+  \label{rmk:5}
   While the Poisson structure of $\gr^G(V)$ is trivial (i.e.\ is zero), the Poisson structure of $\gr^G(M)$ is not.
   In fact, if $u \in \gr^G(M)$ and $\lambda$ is a partition, then
   \begin{equation*}
@@ -859,14 +871,14 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   By the definition of $K'$, we know that for any $\lambda \in R$, there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
   Now assume $\lambda \in \overline{R}$, which means there is $\eta \in R$ such that $\lambda \supseteq \eta$.
   Therefore, $\lambda$ is obtained from $\eta$ by adding some integers greater than or equal to two and adding $k$ ones.
-  Pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:4} and the fact that $\lm$ is multiplicative).
+  Pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:5} and the fact that $\lm$ is multiplicative).
   Thus, we set $u = (L_{-2})^k_{(0)}(p_{\tau}v) \in K'$ to get $\lm(u) = u_{\lambda}$.
   For example, take $\lambda = [3, 2, 1, 1] \in \overline{R}$, $\eta = [2] \in R$.
   In this case, $v = L_{-2}- 3/4L_{-1}^2 \in K'$ is such that $\lm(v) = u_{[2]}$ and we take $u = L_{-3}L_{-2}L_{-1}^2 - 3/4L_{-3}L_{-1}^4 \in K'$.
 \end{proof}
 
 \begin{remark}
-  \label{rmk:5}
+  \label{rmk:6}
   For any partitions $\lambda$ and $\eta$ with the same number of ones, if $\lambda \supseteq \eta$, then $u_{\eta} \mid u_{\lambda}$.
   The converse is not true.
   For example, $u_{[4, 2]} \mid u_{[4, 3, 2]}$ but $[4, 3, 2] \nsupseteq [4, 2]$.
@@ -890,7 +902,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   First we prove the inclusion $(\supseteq)$.
   Assume $\lambda$ belongs to the right set and $\lambda \supseteq \eta$ for some $\eta \in R$.
   Then $\lambda$ has $k$ more ones than $\eta$ for some $k \in \mathbb{N}$.
-  By \Cref{rmk:5}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$ where we added $k$ ones to $\eta$, a contradiction.
+  By \Cref{rmk:6}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$ where we added $k$ ones to $\eta$, a contradiction.
   Therefore, $\lambda \nsupseteq \eta$ for $\eta \in R$, which means $\lambda$ belongs to the left set.
 
   Now we prove the inclusion $(\subseteq)$.
@@ -898,7 +910,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   Then $\lambda$ has $0$, $1$ or $2$ ones.
   Assume $\lambda$ has $0$ ones.
   It is enough to prove that for $\eta \in R$ with $0$ ones, $u_{\eta} \nmid u_{\lambda}$.
-  By \Cref{rmk:5}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
+  By \Cref{rmk:6}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
   Assume $\eta = [r + 2, r + 1, r]$ for some $r \ge 3$ and $u_{\eta} \mid u_{\lambda}$.
   Then $\lambda$ contains $[r + 2, r + 1, \dots, r + 1, r]$ where $r + 1$ appears $k \ge 1$ times.
   If $k \ge 2$, then $\lambda$ contains $[r + 1, r + 1, r]$, which is not possible.
@@ -926,14 +938,14 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   \end{equation*}
   with base ring $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ because a basis of $\gr^G(M)_{\le 1/2 + N}$ is given by elements of the form $u_{\lambda}$ with all the elements of $\lambda$ being less than $N$ and with $\lambda$ having at most $N$ ones.
   We note that $K \cap F_N$ is a submodule of $F_N$ for $N \in \mathbb{N}$.
-  
+
   For $N \in \mathbb{N}$, we have natural vector space isomorphisms
   \begin{equation}
     \label{eq:6}
     \frac{F_N}{K \cap F_N} \supseteq \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap F_N} \xrightarrow{\sim} \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap \gr^G(M)_{\le 1/2 + N}} \xrightarrow{\sim} \gr^G(L)_{1/2 + N}.
   \end{equation}
   Therefore, if we find a basis of each vector space $\gr^G(M)_{\le 1/2 + N}/K \cap F_N \subseteq F_N/K \cap F_N$ such that each basis is contained in the next one when considering the isomorphism \eqref{eq:6}, we get a basis of $\gr^G(L)$ by taking the union of these bases because $\bigcup_{N \in \mathbb{N}}\gr^G(L)_{\le 1/2 + N} = \gr^G(L)$.
-  
+
   Let $G_N$ be a Gr\"{o}bner basis of $K \cap F_N$.
   Define
   \begin{equation*}
@@ -949,7 +961,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   \begin{equation*}
     |B_N| = \sum_{n \le N}\dim(\gr^G(L)_{1/2 + n}) = \sum_{n \le N}\dim(L_{1/2 + n}) = \sum_{n \le N}|P(n)|.
   \end{equation*}
-  
+
   Define
   \begin{equation*}
     \overline{B_N} = \{u_{\lambda} \mid \Delta(\lambda) \le N\text{ and for }\eta \in \overline{R}, u_{\eta} \nmid u_{\lambda}\}.
@@ -962,7 +974,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   \begin{equation*}
     |\overline{B_N}| = \sum_{n \le N}|P(n)|.
   \end{equation*}
-  
+
   On the other hand, we have $B_N \subseteq \overline{B_N}$ because if $u_{\lambda} \in B_N$ and $\eta \in \overline{R}$, then we have $u_{\eta} \nmid u_{\lambda}$ because if we had $u_{\eta} \mid u_{\lambda}$, then by \Cref{lmm:10}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$, then by the definition of Gr\"{o}bner basis, there would exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
   We see that the family of bases given by \eqref{eq:7} satisfies the property that one basis is contained in the next one and this concludes the proof of \Cref{thr:4}.
@@ -989,7 +1001,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
 \begin{proof}
   This proof is a copy of the proof of \Cref{thr:3}.
   We know $K' \subseteq K$.
-  
+
   Let $N \in \mathbb{N}$ and let $G'_N$ be a Gr\"{o}bner basis of $K' \cap F_N$ considered as a submodule of $F_N$.
   Like in the proof of \Cref{thr:3}, set
   \begin{equation*}
