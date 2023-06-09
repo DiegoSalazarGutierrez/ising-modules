@@ -127,7 +127,7 @@ Let $P^0$ be the set of partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ wit
   is a vector space basis of $\Vir_{3, 4}$.
 \end{theorem}
 
-In this thesis, we prove two similar results about $L(1/2, 1/2)$.
+In this thesis, we prove two similar results about $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
 
 \begin{theorem}
   \label{thr:3}
@@ -193,7 +193,8 @@ We develop the theory from scratch.
 In \Cref{sec:high-weight-repr}, we review the theory of representations of the Virasoro Lie algebra with the objective of describing explicitly the maximal subrepresentation of Verma modules.
 In \Cref{sec:modules-over-simple}, we quickly review the theory of the Zhu algebra to use it to prove the theorems at hand.
 In \Cref{sec:vert-poiss-supera}, the theory of filtrations of vertex algebras and their modules started by Haisheng Li is presented, we introduce the standard filtration for modules and prove it is compatible with the definitions already given by Li.
-In \Cref{sec:pbw-basis-l12}, we carry out the computations needed to obtain the PBW basis of $L(1/2, 1/2)$ and its refined characters using results from the previous sections.
+In \Cref{sec:pbw-basis-l12}, we carry out the computations needed to obtain the PBW basis of $L(1/2, 1/2)$ and its refined character using results from the previous sections.
+We also prove \Cref{thr:3} and \Cref{thr:4}.
 In the appendices, we recall a couple results about almost commutative algebras needed to describe $\gr^G(\Vir^c)$, we show the SageMath \cite{sagemath} program used compute a Poisson submodule related to the exceptional partitions appearing in $R$ and briefly the case $L(1/2, 1/16)$.
 The software systems Mathematica \cite{Mathematica} and Singular \cite{Singular} were also very useful to verify the series identities and compute Gr\"{o}bner bases.
 
@@ -1026,7 +1027,7 @@ or the other way
 \begin{equation*}
   a_n = a_{(n + \Delta_a - 1)} \quad \text{for }n \in \mathbb{Z} - \Delta_a.
 \end{equation*}
-One of the interesting features of this change of notation is that it reveals the gradation of the superbracket.
+One of the interesting features of this change of notation is that it reveals the grading of the superbracket.
 
 \begin{proposition}[{\cite[Proposition 3.7.6]{nozaradan_introduction_2008}}]
   \label{prp:8}
@@ -2097,13 +2098,13 @@ For an ordinary representation $M$, the \emph{character} of $M$ is defined as
 \end{equation*}
 
 Let $V$ be a vertex superalgebra.
-An \emph{admissible} $V$-module is a $V$-module $M$ together with a gradation $M = \bigoplus_{n \in \mathbb{N}}M(n)$ such that
+An \emph{admissible} $V$-module is a $V$-module $M$ together with a grading $M = \bigoplus_{n \in \mathbb{N}}M(n)$ such that
 \begin{equation*}
   a_{(n)}M(m) \subseteq M(m + \Delta_a - n - 1) \quad \text{for }a \in V, n \in \mathbb{Z}\text{ and }m \in \mathbb{N}.
 \end{equation*}
 The subspace $M(0)$ is called the \emph{top degree component} of $M$.
 
-A \emph{homomorphism of admissible $V$-modules} is a homomorphism of modules that respects gradation.
+A \emph{homomorphism of admissible $V$-modules} is a homomorphism of modules that respects grading.
 
 \begin{example}
   \label{exa:11}
@@ -2665,7 +2666,7 @@ Let $l_{c, h}$ denote the solutions to this linear equation.
   \item[Case II] The line $l_{c, h}$ contains exactly one integral point $(k, l)$.
     We have three subcases:
     \begin{description}[leftmargin = !]
-    \item [Subcase II$_+$] The product $kl > 0$.
+    \item[Subcase II$_+$] The product $kl > 0$.
       Let $u$ be a singular vector in $M_{c, h + kl}$.
       Then $J(c, h) = U(\Vir)\{u\}$.
     \item[Subcase II$_0$] The product $kl = 0$.
@@ -2680,7 +2681,7 @@ Let $l_{c, h}$ denote the solutions to this linear equation.
     \begin{description}[leftmargin = !]
     \item[Subcase $c\le 1$] We have three subsubcases:
       \begin{description}[leftmargin = !]
-      \item [Subsubcase III$^{00}_-$] Line $l_{c, h}$ intersects both axes at integral points.
+      \item[Subsubcase III$^{00}_-$] Line $l_{c, h}$ intersects both axes at integral points.
         Let $u$ be a singular vector in $M_{c, h + k_1l_1}$.
         Then $J(c, h) = U(\Vir)\{u\}$.
       \item[Subsubcase III$^0_-$] Line $l_{c, h}$ intersects only one axis at integral point.
@@ -2815,7 +2816,7 @@ Let $\Lie(V)_-$ act trivially on $U$ and set
 \begin{equation*}
   M(U) = \Ind^{\Lie(V)}_{\Lie(V)_- \oplus \Lie(V)_0}(U) = U(\Lie(V)) \otimes_{U(\Lie(V)_- \oplus \Lie(V)_0)} U.
 \end{equation*}
-Give $U$ degree $0$ and extend the gradation of $\Lie(V)$ to $M(U)$.
+Give $U$ degree $0$ and extend the grading of $\Lie(V)$ to $M(U)$.
 Then $M(U)$ becomes $\mathbb{N}$-graded with $M(U)(0) = U$.
 We are tempted to define $Y^{M(U)}(a, z) = \sum_{n \in \mathbb{Z}}a_{\{n\}}z^{-n - 1}$ for $a \in V$ but that doesn't necessarily satisfy the Borcherds identity.
 
@@ -3119,7 +3120,7 @@ For $p \in \mathbb{Z}$, set
   \begin{enumerate}
   \item $F_pV = V$ for $p \le 0$;
   \item $\vac \in F_0V \supseteq F_1V \supseteq \dots$;
-  \item $TF_pV \subseteq F_{p + 1}V$ for $p \in \mathbb{Z}$;
+  \item $T(F_pV) \subseteq F_{p + 1}V$ for $p \in \mathbb{Z}$;
   \item $a_{(n)}F_qV \subseteq F_{p + q - n - 1}V$ for $p, q \in \mathbb{Z}$, $a \in F_pV$ and $n \in \mathbb{Z}$;
   \item $a_{(n)}F_qV \subseteq F_{p + q - n}V$ for $p, q \in \mathbb{Z}$, $a \in F_pV$ and $n \in \mathbb{N}$.
   \end{enumerate}
@@ -3185,7 +3186,7 @@ We have the natural vector space isomorphisms
 \begin{equation*}
   \sigma_p(F_pV_{\Delta}) \cong F_pV_{\Delta}/F_{p + 1}V_{\Delta} \quad \text{for }p \in \mathbb{Z}\text{ and }\Delta \in \mathbb{C}
 \end{equation*}
-and the refined gradation
+and the refined grading
 \begin{equation}
   \label{eq:32}
   \gr_F(V) = \bigoplus_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\sigma_p(F_pV_{\Delta}).
@@ -3224,7 +3225,7 @@ For $p \in \mathbb{Z}$, set
   \item $V = \bigcup_{p \in \mathbb{N}}G^pV$;
   \item $a_{(n)}G^qV \subseteq G^{p + q}V$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{Z}$;
   \item $a_{(n)}G^qV \subseteq G^{p + q - 1}V$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{N}$;
-  \item $H(G^pV) \subseteq G^pV$ and $TG^pV \subseteq G^pV$ for $p \in \mathbb{Z}$.
+  \item $H(G^pV) \subseteq G^pV$ and $T(G^pV) \subseteq G^pV$ for $p \in \mathbb{Z}$.
   \end{enumerate}
 \end{proposition}
 
@@ -3270,7 +3271,7 @@ We have the natural vector space isomorphisms
 \begin{equation*}
   \alpha^p(G^pV_n) \cong G^pV_n/G^{p - 1}V_n \quad \text{for }p \in \mathbb{Z}\text{ and }n \in \mathbb{N}
 \end{equation*}
-and the refined gradation
+and the refined grading
 \begin{equation}
   \label{eq:33}
   \gr^G(V) =\bigoplus_{p, n \in \mathbb{N}}\alpha^p(G^pV_n).
@@ -3516,7 +3517,7 @@ We have the natural vector space isomorphisms
 \begin{equation*}
   \sigma^M_p(F_pM_{\Delta}) \cong F_pM_{\Delta}/F_{p + 1}M_{\Delta} \quad \text{for }p \in \mathbb{Z}\text{ and }\Delta \in \mathbb{C}
 \end{equation*}
-and the refined gradation
+and the refined grading
 \begin{equation}
   \label{eq:35}
   \gr_F(M) =\bigoplus_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\sigma_p(F_pM_{\Delta}).
@@ -3561,7 +3562,7 @@ For $p \in \mathbb{Z}$, set
   \item $M = \bigcup_{p \in \mathbb{N}}G^pM$;
   \item $a^M_{(n)}G^qM \subseteq G^{p + q}M$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{Z}$;
   \item $a^M_{(n)}G^qM \subseteq G^{p + q - 1}M$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{N}$;
-  \item $L^M_0G^pM \subseteq G^pM$ and $L^M_{-1}G^pM \subseteq G^{p + 1}M$ for $p \in \mathbb{Z}$.
+  \item $L^M_0(G^pM) \subseteq G^pM$ and $L^M_{-1}(G^pM) \subseteq G^{p + 1}M$ for $p \in \mathbb{Z}$.
   \end{enumerate}
 \end{proposition}
 
@@ -3614,7 +3615,7 @@ We have the natural vector space isomorphisms
 \begin{equation*}
   \alpha_M^p(G^pM_{h + n}) \cong G^pM_{h + n}/G^{p - 1}M_{h + n} \quad \text{for }p \in \mathbb{Z}\text{ and }n \in \mathbb{N}
 \end{equation*}
-and the refined gradation
+and the refined grading
 \begin{equation}
   \label{eq:36}
   \gr^G(M) = \bigoplus_{p, n \in \mathbb{N}}\alpha_M^p(G^pM_{h + n}).
@@ -3724,7 +3725,7 @@ Therefore, we obtain a functor
 \begin{remark}
   \label{rmk:38}
   We could've done the theory of standard filtrations of modules for admissible modules over $\mathbb{N}$-graded vertex algebras (or maybe even over admissible $\mathbb{Z}$-graded vertex algebras like it is done in \cite{li_vertex_2004}).
-  However, if we do it like that, the characters wouldn't have good meanings because one can always shift the gradation in admissible modules and also the term $q^h$ is lost.
+  However, if we do it like that, the characters wouldn't have good meanings because one can always shift the grading in admissible modules and also the term $q^h$ is lost.
 \end{remark}
 
 \section{PBW basis of $L(1/2, 1/2)$ and its refined character}
@@ -3866,7 +3867,7 @@ The following lemma will be very useful to verify series identities.
       &= \sum_{k = 0}^{n - 1}\sum_{k_1, k_2 \in \mathbb{N}}t^{4k_1 + 2k_2 + d + 4}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2 + (a + 8 + k)k_1 + (b + 3)k_2 + a + c + 4 + k}}{(q)_{k_1}(q)_{k_2}} \\
       &= \sum_{k = 0}^{n - 1}f_{a + 8 + k, b + 3, a + c + 4 + k, d + 4}(t, q).
     \end{align*}
-  \item Same trick as (iii) but now with $k_2$. \qedhere
+  \item Same trick as (iii) but with $k_2$ instead of $k_1$. \qedhere
   \end{enumerate}
 \end{proof}
 
@@ -3924,7 +3925,7 @@ It turns out $P$ is made of the these ``smaller'' objects and we can find recurr
   \begin{equation*}
     p_{>2}(t, q) = p_{4, 3}(t, q) + p_{6, 5, 3}(t, q) + p_{>6, 5, 3}(t, q) + p_{>5, 3}(t, q) + p_{4, 4}(t, q) + p_{5, 4}(t, q) + p_{>5, 4}(t, q) + p_{>4}(t, q).
   \end{equation*}
-  These subseries must satisfy the following recurrences with initial conditions:
+  These subseries satisfy the following recurrences with initial conditions:
   \begin{align*}
     p_{>4}(t, q) &= p_{4, 4}(tq^{1/2}, q) + p_{5, 4}(tq^{1/2}, q) + p_{>5, 4}(tq^{1/2}, q) + p_{>4}(tq^{1/2}, q), &p_{>4}(0, 0) &= 1, \\
     p_{>5, 4}(t, q) &= p_{6, 5, 3}(tq^{1/2}, q) + p_{>6, 5, 3}(tq^{1/2}, q) + p_{>5, 3}(tq^{1/2}, q), &p_{>5, 4}(0, 0) &= 0, \\
@@ -4138,17 +4139,17 @@ We recall that we have defined $V = \Vir^{1/2}$, $M = M(1/2, 1/2)$ and $L = L(1/
 
 \begin{lemma}
   \label{lmm:26}
-  Let $\lambda = [\lambda_1, \dots, \lambda_s]$ be a partition with $\lambda_s \ge 2$ or $\lambda = \emptyset$ and consider $M$ as a module over $V$.
+  Let $\lambda = [\lambda_1, \dots, \lambda_m]$ be a partition with $\lambda_m \ge 2$ or $\lambda = \emptyset$ and consider $M$ as a module over $V$.
   Then
   \begin{equation*}
-    (L_{\lambda}\vac)_{(-1)}\vachalf = L_{\lambda}\vachalf + u \quad \text{for some }u \in G^{2s - 1}M.
+    (L_{\lambda}\vac)_{(-1)}\vachalf = L_{\lambda}\vachalf + u \quad \text{for some }u \in G^{2m - 1}M.
   \end{equation*}
 \end{lemma}
 
 \begin{proof}
   The isomorphism $\gr^G(V) \xrightarrow{\sim} \mathbb{C}[L_{-2}, L_{-3}, \dots]$ maps $L_{\lambda}\vac$ to $p_{\lambda}$.
   The isomorphism $\gr^G(M) \xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$ maps $\vachalf$ to $L_{-1}^0$ and $L_{\lambda}\vachalf$ to $u_{\lambda}$.
-  The equality $p_{\lambda}\cdot L_{-1}^0 = u_{\lambda}$ in $\gr^G(M)$ translates to the equality $(L_{\lambda}\vac)_{(-1)}\vachalf = L_{\lambda}\vachalf + u$ in $M$, for some $u \in G^{2s - 1}M$.
+  The equality $p_{\lambda}\cdot L_{-1}^0 = u_{\lambda}$ in $\gr^G(M)$ translates to the equality $(L_{\lambda}\vac)_{(-1)}\vachalf = L_{\lambda}\vachalf + u$ in $M$, for some $u \in G^{2m - 1}M$.
 \end{proof}
 
 We know $\gr^G(M)$ is a free module over $\gr^G(V)$

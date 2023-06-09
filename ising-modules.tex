@@ -109,7 +109,7 @@ Let $P^0$ be the set of partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ wit
   is a vector space basis of $\Vir_{3, 4}$.
 \end{theorem}
 
-In this article, we prove two similar results about $L(1/2,1/2)$.
+In this article, we prove two similar results about $L(1/2,1/2)$ and $L(1/2, 1/16)$.
 
 \begin{theorem}
   \label{thr:3}
@@ -169,8 +169,8 @@ Mathematical terms are typeset with \emph{italics} when they are officially defi
 This article is organized as follows: In \Cref{sec:prel-notat}, we review Verma modules, the standard filtration, Gr\"{o}bner bases and consider Nahm-like sums of two variables.
 In \Cref{sec:comb-argum}, we compute the series $p(t, q)$ related to $P$ using combinatorial arguments.
 In \Cref{sec:comp-lead-monom}, we exhibit the partitions in $P$ using Wang's results in \cite{wang_rationality_1993} and explain how we use software to get the exceptional partitions.
-In \Cref{sec:proofs-main-theorems}, we give formal proofs of the theorems about $L(1/2, 1/2)$.
-In the appendices, we show the SageMath \cite{sagemath} program used compute a Poisson submodule related to the exceptional partitions appearing in $R$ and briefly the case $L(1/2, 1/16)$.
+In \Cref{sec:proofs-main-theorems}, we prove \Cref{thr:3} and \Cref{thr:4}.
+In the appendices, we show the SageMath \cite{sagemath} program used compute a Poisson submodule related to the exceptional partitions appearing in $R$ and briefly explain the case $L(1/2, 1/16)$.
 The software systems Mathematica \cite{Mathematica} and Singular \cite{Singular} were also very useful to verify the series and compute Gr\"{o}bner bases.
 
 I would like to thank my advisor Reimundo Heluani, Instituto de Matemática Pura e Aplicada (IMPA) and Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) for their support.
@@ -182,7 +182,7 @@ Professor Jethro Van Ekeren made some valuable suggestions as well.
 All vector spaces are over $\mathbb{C}$, the field of complex numbers.
 The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$ and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
 
-First, we review some parts of the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
+First, we review the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
 The \emph{Virasoro Lie algebra} is a Lie algebra given by
 \begin{equation*}
   \Vir = \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C.
@@ -226,14 +226,15 @@ is the \emph{irreducible highest weight representation} of $\Vir$ with highest w
 We usually simplify $|c, h\rangle$ to just $|h\rangle$ when $c$ is understood.
 In \cite{andrews_singular_2022}, $\Vir_{3, 4} = L(1/2, 0)$ was studied.
 In this article, we study $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
-These three representations are the only irreducible modules of $\Vir_{3, 4}$ as a vertex algebra (see \cite[Theorem 4.2]{wang_rationality_1993})
+These three representations are the only irreducible modules of $\Vir_{3, 4}$ as a vertex algebra (see \cite[Theorem 4.2]{wang_rationality_1993}).
 
-Let $V$ be an $\mathbb{N}$-graded vertex algebra, meaning it has a Hamiltonian $H \in \End(V)$ whose eigenvalues are natural numbers.
+Let $V$ be an $\mathbb{N}$-graded vertex algebra, meaning it has a Hamiltonian $H \in \End(V)$ whose eigenvalues are natural numbers (see \cite[\S1.6]{de_sole_finite_2006}).
 Let $(a^i)_{i \in I}$ be a family of homogeneous strong generators of $V$.
 For $p \in \mathbb{Z}$, set
 \begin{equation*}
-  G^pV = \vspan\{a^{i_1}_{(-n_1 - 1)}\dots a^{i_s}_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, i_1, \dots, i_s \in I, \Delta_{a^{i_1}} + \dots + \Delta_{a^{i_s}} \le p\}.
+  G^pV = \vspan\{a^{i_1}_{(-n_1 - 1)}\dots a^{i_s}_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, i_1, \dots, i_s \in I, \Delta_{a^{i_1}} + \dots + \Delta_{a^{i_s}} \le p\},
 \end{equation*}
+where $\Delta$ denotes conformal weight.
 
 \begin{proposition}[{\cite{li_vertex_2004}}]
   \label{prp:1}
@@ -245,7 +246,7 @@ For $p \in \mathbb{Z}$, set
   \item $V = \bigcup_{p \in \mathbb{N}}G^pV$;
   \item $a_{(n)}G^qV \subseteq G^{p + q}V$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{Z}$;
   \item $a_{(n)}G^qV \subseteq G^{p + q - 1}V$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{N}$;
-  \item $H(G^pV) \subseteq G^pV$ and $TG^pV \subseteq G^pV$ for $p \in \mathbb{Z}$.
+  \item $H(G^pV) \subseteq G^pV$ and $T(G^pV) \subseteq G^pV$ for $p \in \mathbb{Z}$.
   \end{enumerate}
 \end{proposition}
 
@@ -265,7 +266,7 @@ The unit is $\alpha^0(\vac)$.
 The filtration $(G^pV)_{p \in \mathbb{Z}}$ is called the \emph{standard filtration} of $V$.
 
 Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, $(a^i)_{i \in I}$ a family of homogeneous strong generators of $V$ and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
-Write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 1}$.
+Write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 2}$.
 This means $M$ is a $V$-module with $L_0^M$ diagonalizable whose eigenvalues are in $h + \mathbb{N}$ for some $h \in \mathbb{C}$.
 Set $M_{\Delta} = \ker(L^M_0 - \Delta\Id_M)$ for $\Delta \in \mathbb{C}$ so we have $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$.
 For $p \in \mathbb{Z}$, set
@@ -287,7 +288,7 @@ For $p \in \mathbb{Z}$, set
   \item $M = \bigcup_{p \in \mathbb{N}}G^pM$;
   \item $a^M_{(n)}G^qM \subseteq G^{p + q}M$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{Z}$;
   \item $a^M_{(n)}G^qM \subseteq G^{p + q - 1}M$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{N}$;
-  \item $L^M_0G^pM \subseteq G^pM$ and $L^M_{-1}G^pM \subseteq G^{p + 1}M$ for $p \in \mathbb{Z}$.
+  \item $L^M_0(G^pM) \subseteq G^pM$ and $L^M_{-1}(G^pM) \subseteq G^{p + 1}M$ for $p \in \mathbb{Z}$.
   \end{enumerate}
 \end{proposition}
 
@@ -321,13 +322,13 @@ For $p, n \in \mathbb{N}$, set $G^pM_{h + n} = G^pM \cap M_{h + n}$, then
   \gr^G(M) = \bigoplus_{n \in \mathbb{N}}\gr^G(M)_{h + n},
 \end{equation}
 where $\gr^G(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\alpha^p_M(G^pM_{h + n})$ and $\gr^G(M)_{h + n} = \ker(H^M - (h + n)\Id_{\gr^G(M)})$.
-Besides gradation \eqref{eq:1}, we have the refined gradation
+Besides grading \eqref{eq:1}, we have the refined grading
 \begin{equation}
   \label{eq:2}
   \gr^G(M) = \bigoplus_{p, n \in \mathbb{N}}\alpha^p_M(G^pM_{h + n}).
 \end{equation}
 Assume each subspace $M_{h + n}$ is finite dimensional.
-Define the \emph{character} and the \emph{refined character} of $\gr^G(M)$ (with respect to gradation \eqref{eq:1} and gradation \eqref{eq:2}) as
+Define the \emph{character} and the \emph{refined character} of $\gr^G(M)$ (with respect to grading \eqref{eq:1} and grading \eqref{eq:2}) as
 \begin{align*}
   \ch_{\gr^G(M)}(q) &= \sum_{n \in \mathbb{N}}\dim(\gr^G(M)_{h + n})q^{h + n} \in q^h\mathbb{C}[[q]], \\
   \ch_{\gr^G(M)}(t, q) &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^pq^{h + n} \in q^{h}\mathbb{C}[[t, q]].
@@ -337,7 +338,7 @@ By \Cref{prp:2}(iv), we have
   \ch_M(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr^G(M)}(1, q).
 \end{equation*}
 
-If $f: M_1 \to M_2$ is a homomorphism of $h + \mathbb{N}$-graded $(V, \omega)$-modules, then
+If $f: M_1 \to M_2$ is an homomorphism of $h + \mathbb{N}$-graded $(V, \omega)$-modules, then
 \begin{align*}
   \gr^G(f): \gr^G(M_1) &\to \gr^G(M_2), \\
   \alpha^p_{M_1}(u_1) &\mapsto \alpha^p_{M_2}(f(u_1)) \quad \text{for }p \in \mathbb{N}\text{ and }u_1 \in G^pM_1,
@@ -354,7 +355,7 @@ Therefore, we obtain a functor
   The proof is essentially the same as the proof of \cite[Proposition 2.6.1]{arakawa_remark_2012}.
 \end{remark}
 
-From now on, take $V = \Vir^{1/2}$ as the $\mathbb{N}$-graded vertex algebra with conformal vector $\omega = L_{-2}\vac$.
+From now on, take $V = \Vir^{1/2}$ (the universal Virasoro vertex algebra with central charge $1/2$) as the $\mathbb{N}$-graded vertex algebra with conformal vector $\omega = L_{-2}\vac$.
 Some indexes or subindexes will not be written, so for example $\alpha^p_M$ simplifies to $\alpha^p$.
 Set
 \begin{align*}
@@ -402,7 +403,7 @@ For $V$, $\gr^G(V)$ is isomorphic to $\mathbb{C}[L_{-2}, L_{-3}, \dots]$ as a di
   \partial: \mathbb{C}[L_{-2}, L_{-3}, \dots] &\to \mathbb{C}[L_{-2}, L_{-3}, \dots], \\
   \partial(L_{-n}) &= (n - 1)L_{-n - 1} \quad \text{for }n \ge 2.
 \end{align*}
-The Poisson structure (i.e.\ the map $Y_-$) is trivial meaning it is $0$.
+The Poisson structure (i.e.\ the map $Y_-$) is trivial, meaning it is $0$.
 This is because
 \begin{equation*}
   \gr^G(V) \cong \gr(U(\Vir_{\le -2})) \cong S(\Vir_{\le -2}) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots],
@@ -451,7 +452,7 @@ From the epimorphism of $V$-modules $\pi: M \twoheadrightarrow L$, we deduce the
     L &\xrightarrow{\sim} \gr^G(L), \\
     L_{\lambda}(\vachalf + W) &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)), \\
     \gr^G(L) &\xrightarrow{\sim} \gr^G(M)/K, \\
-    \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)) &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}\vachalf) + K.
+    \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)) &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}\vachalf) + K,
   \end{align*}
   where $\lambda$ is a partition.
 \end{proposition}
@@ -494,7 +495,7 @@ The following lemma will be very useful to verify series identities.
       &= \sum_{k = 0}^{n - 1}\sum_{k_1, k_2 \in \mathbb{N}}t^{4k_1 + 2k_2 + d + 4}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2 + (a + 8 + k)k_1 + (b + 3)k_2 + a + c + 4 + k}}{(q)_{k_1}(q)_{k_2}} \\
       &= \sum_{k = 0}^{n - 1}f_{a + 8 + k, b + 3, a + c + 4 + k, d + 4}(t, q).
     \end{align*}
-  \item Same trick as (iii) but now with $k_2$. \qedhere
+  \item Same trick as (iii) but with $k_2$ instead of $k_1$. \qedhere
   \end{enumerate}
 \end{proof}
 
@@ -552,7 +553,7 @@ It turns out $P$ is made of the these ``smaller'' objects and we can find recurr
   \begin{equation*}
     p_{>2}(t, q) = p_{4, 3}(t, q) + p_{6, 5, 3}(t, q) + p_{>6, 5, 3}(t, q) + p_{>5, 3}(t, q) + p_{4, 4}(t, q) + p_{5, 4}(t, q) + p_{>5, 4}(t, q) + p_{>4}(t, q).
   \end{equation*}
-  These subseries must satisfy the following recurrences with initial conditions:
+  These subseries satisfy the following recurrences with initial conditions:
   \begin{align*}
     p_{>4}(t, q) &= p_{4, 4}(tq^{1/2}, q) + p_{5, 4}(tq^{1/2}, q) + p_{>5, 4}(tq^{1/2}, q) + p_{>4}(tq^{1/2}, q), &p_{>4}(0, 0) &= 1, \\
     p_{>5, 4}(t, q) &= p_{6, 5, 3}(tq^{1/2}, q) + p_{>6, 5, 3}(tq^{1/2}, q) + p_{>5, 3}(tq^{1/2}, q), &p_{>5, 4}(0, 0) &= 0, \\
@@ -668,17 +669,17 @@ We recall that we have defined $V = \Vir^{1/2}$, $M = M(1/2, 1/2)$ and $L = L(1/
 
 \begin{lemma}
   \label{lmm:7}
-  Let $\lambda = [\lambda_1, \dots, \lambda_s]$ be a partition with $\lambda_s \ge 2$ or $\lambda = \emptyset$ and consider $M$ as a module over $V$.
+  Let $\lambda = [\lambda_1, \dots, \lambda_m]$ be a partition with $\lambda_m \ge 2$ or $\lambda = \emptyset$ and consider $M$ as a module over $V$.
   Then
   \begin{equation*}
-    (L_{\lambda}\vac)_{(-1)}\vachalf = L_{\lambda}\vachalf + u \quad \text{for some }u \in G^{2s - 1}M.
+    (L_{\lambda}\vac)_{(-1)}\vachalf = L_{\lambda}\vachalf + u \quad \text{for some }u \in G^{2m - 1}M.
   \end{equation*}
 \end{lemma}
 
 \begin{proof}
   The isomorphism $\gr^G(V) \xrightarrow{\sim} \mathbb{C}[L_{-2}, L_{-3}, \dots]$ maps $L_{\lambda}\vac$ to $p_{\lambda}$.
   The isomorphism $\gr^G(M) \xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$ maps $\vachalf$ to $L_{-1}^0$ and $L_{\lambda}\vachalf$ to $u_{\lambda}$.
-  The equality $p_{\lambda}\cdot L_{-1}^0 = u_{\lambda}$ in $\gr^G(M)$ translates to the equality $(L_{\lambda}\vac)_{(-1)}\vachalf = L_{\lambda}\vachalf + u$ in $M$, for some $u \in G^{2s - 1}M$.
+  The equality $p_{\lambda}\cdot L_{-1}^0 = u_{\lambda}$ in $\gr^G(M)$ translates to the equality $(L_{\lambda}\vac)_{(-1)}\vachalf = L_{\lambda}\vachalf + u$ in $M$, for some $u \in G^{2m - 1}M$.
 \end{proof}
 
 We know $\gr^G(M)$ is a free module over $\gr^G(V)$
