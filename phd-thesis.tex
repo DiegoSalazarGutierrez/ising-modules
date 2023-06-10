@@ -91,7 +91,7 @@ In summary, Li constructed three functors
 Then Arakawa showed in \cite[Proposition 2.6.1]{arakawa_remark_2012} that when $V$ is $\mathbb{N}$-graded, $\gr_F(V)$ and $\gr^G(V)$ are isomorphic as vertex Poisson algebras.
 
 In this thesis, we define an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$ for $h + \mathbb{N}$-graded modules $M$ over an $\mathbb{N}$-graded conformal vertex algebra $(V, \omega)$.
-So we construct a functor
+We construct a functor
 \begin{equation*}
   \gr^G: \{\text{$h + \mathbb{N}$-graded $(V, \omega)$-modules}\} \to \{\text{$h + \mathbb{N}$-graded $\gr^G(V)$-modules}\}.
 \end{equation*}
@@ -137,7 +137,7 @@ In this thesis, we prove two similar results about $L(1/2, 1/2)$ and $L(1/2, 1/1
   \end{equation*}
 \end{theorem}
 
-Let $R$ be the following set of partitions
+Let $R^{1/2}$ be the following set of partitions
 \begin{align*}
   &[r, r, r], [r + 1, r, r], [r + 1, r + 1, r], [r + 2, r + 1, r], [r + 2, r + 2, r], &(r \ge 3) \\
   &[r + 2, r, r], &(r \ge 3) \\
@@ -145,7 +145,7 @@ Let $R$ be the following set of partitions
   &[r + 6, r + 5, r + 3, r + 1, r], &(r \ge 3) \\
   &[2], [1, 1, 1], [3, 1, 1], [3, 3], [4, 3, 1], [4, 4, 1], [5, 4, 1, 1], [6, 5, 3, 1].
 \end{align*}
-Let $P$ be the set of partitions that don't contain any partition in $R$.
+Let $P^{1/2}$ be the set of partitions that don't contain any partition in $R^{1/2}$.
 
 \begin{theorem}
   \label{thr:4}
@@ -195,7 +195,7 @@ In \Cref{sec:modules-over-simple}, we quickly review the theory of the Zhu algeb
 In \Cref{sec:vert-poiss-supera}, the theory of filtrations of vertex algebras and their modules started by Haisheng Li is presented, we introduce the standard filtration for modules and prove it is compatible with the definitions already given by Li.
 In \Cref{sec:pbw-basis-l12}, we carry out the computations needed to obtain the PBW basis of $L(1/2, 1/2)$ and its refined character using results from the previous sections.
 We also prove \Cref{thr:3} and \Cref{thr:4}.
-In the appendices, we recall a couple results about almost commutative algebras needed to describe $\gr^G(\Vir^c)$, we show the SageMath \cite{sagemath} program used compute a Poisson submodule related to the exceptional partitions appearing in $R$ and briefly the case $L(1/2, 1/16)$.
+In the appendices, we recall a couple results about almost commutative algebras needed to describe $\gr^G(\Vir^c)$, we show the SageMath \cite{sagemath} program used compute a Poisson submodule related to the exceptional partitions appearing in $R^{1/2}$ and briefly the case $L(1/2, 1/16)$.
 The software systems Mathematica \cite{Mathematica} and Singular \cite{Singular} were also very useful to verify the series identities and compute Gr\"{o}bner bases.
 
 I would like to thank my advisor Reimundo Heluani, Instituto de Matemática Pura e Aplicada (IMPA) and Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) for their support.
@@ -408,7 +408,7 @@ With this superbracket, $A$ becomes a Lie superalgebra called the \emph{underlyi
 
 \begin{remark}
   \label{rmk:3}
-  When a formula involves $p(a)$ it is assumed that $a$ is an homogeneous with parity $p(a)$ and the formula is extended to arbitrary $a$ by linearity.
+  When a formula involves $p(a)$ it is assumed that $a$ is a homogeneous with parity $p(a)$ and the formula is extended to arbitrary $a$ by linearity.
 \end{remark}
 
 Probably the most important example of an associative superalgebra is the \emph{endomorphism superalgebra} $\End(V)$ of a superspace $V$ with the $\mathbb{Z}_2$-grading given by
@@ -418,7 +418,7 @@ Probably the most important example of an associative superalgebra is the \emph{
 We denote $\mathfrak{gl}(V) = [\End(V)]$.
 
 Let $A$ be a not necessarily associative superalgebra.
-A \emph{superderivation} of $A$ is an homogeneous endomorphism $\partial \in \End(A)$ such that
+A \emph{superderivation} of $A$ is a homogeneous endomorphism $\partial \in \End(A)$ such that
 \begin{equation*}
   \partial(ab) = \partial(a)b + (-1)^{p(\partial)p(a)}b\partial(c) \quad \text{for }a, b \in A.
 \end{equation*}
@@ -1772,7 +1772,7 @@ A \emph{conformal vertex superalgebra} (of central charge $c$) is a vertex super
 \end{theorem}
 
 \begin{proof}
-  By \Cref{thr:16}(iii) and \Cref{thr:16}(v), for $a \in V$ homogeneous and $n \in \mathbb{Z}$,
+  By \Cref{thr:16}(iii) and \Cref{thr:16}(v), for $a \in V$ and $n \in \mathbb{Z}$,
   \begin{align*}
     [L_0, a_{(n)}] &= [\omega_{(1)}, a_{(n)}] \\
     &= \sum_{j \in \mathbb{N}}\binom{1}{j}(\omega_{(j)}a)_{(1 + n - j)} \\
@@ -1874,7 +1874,7 @@ We recall some basic facts about diagonalizable operators.
   \label{lmm:9}
   Let $V$ be a vector space (not necessarily a vertex superalgebra) and $H \in \End(V)$ a diagonalizable operator with eigenspace decomposition $V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}$.
   Let $U$ be a $H$-invariant subspace of $V$, this means $H(U) \subseteq U$.
-  Then $U$ is graded:
+  Then $U$ is graded
   \begin{equation*}
     U = \sum_{\Delta \in \mathbb{C}}U \cap V_{\Delta}.
   \end{equation*}
@@ -1923,7 +1923,11 @@ Let $p, q \ge 2$ be relatively prime integers and set
   Moreover, the maximal ideal of $\Vir^{c_{p, q}}$ is generated by a singular vector of conformal weight $(p - 1)(q - 1)$ (see \Cref{sec:high-weight-repr} ahead for the definition of singular vector).
 \end{theorem}
 
-In this thesis, we mainly deal with the \emph{Ising model} $\Vir_{3, 4} = \Vir_{c_{3, 4}} = \Vir_{1/2}$ and its irreducible modules.
+Assume $p < q$.
+For $p = 2$ and $q = 3$, we have $c_{2, 3} = 0$ and $\Vir_0 = \mathbb{C}\vac$ (the one dimensional vertex algebra) because in this case, $\omega = L_{-2}\vac$ is the singular vector generating the maximal ideal.
+Thus, the smallest case is not very interesting.
+The next case is the \emph{Ising model} $\Vir_{3, 4} = \Vir_{c_{3, 4}} = \Vir_{1/2}$
+In this thesis, we study the Ising model and its irreducible modules called \emph{Ising modules}.
 By \Cref{thr:23}, its maximal ideal is generated by the singular vector
 \begin{equation}
   \label{eq:20}
@@ -3419,7 +3423,7 @@ Therefore, we obtain a functor
   From these three cases we obtain \eqref{eq:34}.
 
   We conclude that we have an algebra isomorphism $\gr^G(\Vir^c) \xrightarrow{\sim} \gr(U(\Vir_{\le -2}))$.
-  Composing this with the inverse of the isomorphism $S(\mathfrak{g}) \to \gr(U(\Vir_{\le -2}))$ in \Cref{sec:almost-comm-algebr} and taking $(L_n)_{n \le -2}$ as the basis of $\Vir_{\le -2}$, we obtain the following isomorphism of commutative associative algebras with unit
+  Composing this with the inverse of the isomorphism $S(\Vir_{\le -2}) \to \gr(U(\Vir_{\le -2}))$ in \Cref{sec:almost-comm-algebr} and taking $(L_n)_{n \le -2}$ as the basis of $\Vir_{\le -2}$, we obtain the following isomorphism of commutative associative algebras with unit
   \begin{align*}
   \gr^G(\Vir^c) &\xrightarrow{\sim} \mathbb{C}[L_{-2}, L_{-3}, \dots], \\
   \alpha^{2s}(L_{-n_1 - 2}\dots L_{-n_s - 2}\vac) &\mapsto L_{-n_1 - 2}\dots L_{-n_s - 2} \quad \text{for }s, n_1, \dots, n_s \in \mathbb{N}.
@@ -3540,7 +3544,7 @@ Therefore, we obtain a functor
 \end{equation*}
 
 Now we introduce a definition not given by Li in \cite{li_vertex_2004}.
-Let $V$ be an $\mathbb{N}$-graded conformal vertex algebra with conformal vector $\omega$, $(a^i)_{i \in I}$ a family of homogeneous strong generators of $V$ and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
+Let $V$ be an $\mathbb{N}$-graded conformal vertex algebra with conformal vector $\omega$, $(a^i)_{i \in I}$ a family of homogeneous strong generators of $V$ and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
 This means $M$ is a $V$-module with $L_0^M$ diagonalizable whose eigenvalues are in the set $h + \mathbb{N}$ for some $h \in \mathbb{C}$.
 Set $M_{\Delta} = \ker(L^M_0 - \Delta\Id_M)$ for $\Delta \in \mathbb{C}$ so we have $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$.
 For $p \in \mathbb{Z}$, set
@@ -3638,7 +3642,7 @@ Therefore, we obtain a functor
 
 \begin{proposition}
   \label{prp:14}
-  Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra and let $M$ be a $h + \mathbb{N}$-graded $(V, \omega)$-module.
+  Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then the Li filtration and standard filtration satisfy
   \begin{equation*}
     F_pM_{h + n} = G^{n - p}M_{h + n} \quad \text{for }p, n \in \mathbb{N}.
@@ -3747,7 +3751,7 @@ Finally, we give formal proofs of the theorems in \Cref{sec:introduction} about 
 \label{sec:conventions-notation}
 
 Throughout this section, $V$ will always denote the vertex algebra $\Vir^{1/2}$.
-From now on, some indexes or subindexes of modules will not be written, so for example, $\alpha^p_M$ simplifies to $\alpha^p$.
+From now on, some indexes or subindexes of modules will be omitted, so for example, $\alpha^p_M$ simplifies to $\alpha^p$.
 Set
 \begin{align*}
   M &= M(1/2, 1/2), \\
@@ -4579,6 +4583,7 @@ These computations will be shown now.
 
 Recall the definitions of $P^{1/16}$ and $R^{1/16}$ given in \Cref{sec:introduction}.
 For the definition of the series $p^{1/16}(t, q)$, the set $P^{1/16}(n, m)$ and other related notation, see \Cref{sec:comb-argum}.
+Again, we omit superindices.
 
 The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vectors
 \begin{align*}
@@ -4588,9 +4593,9 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 
 \begin{lemma}
   \label{lmm:31}
-  The formal power series $p^{1/16}_{>2}(t, q)$ is given by
+  The formal power series $p_{>2}(t, q)$ is given by
   \begin{equation*}
-    p^{1/16}_{>2}(t, q) = f_{2, 2, 0, 0}(t, q).
+    p_{>2}(t, q) = f_{2, 2, 0, 0}(t, q).
   \end{equation*}
 \end{lemma}
 
@@ -4711,9 +4716,9 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 
 \begin{lemma}
   \label{lmm:32}
-  The formal power series $p^{1/16}_{>2, 1}(t, q)$ is given by
+  The formal power series $p_{>2, 1}(t, q)$ is given by
   \begin{equation*}
-    p^{1/16}_{>2, 1}(t, q) = f_{4, 2, 1, 1}(t, q).
+    p_{>2, 1}(t, q) = f_{4, 2, 1, 1}(t, q).
   \end{equation*}
 \end{lemma}
 
@@ -4777,9 +4782,9 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 
 \begin{lemma}
   \label{lmm:33}
-  The formal power series $p^{1/16}_{>2, 1, 1}(t, q)$ is given by
+  The formal power series $p_{>2, 1, 1}(t, q)$ is given by
   \begin{equation*}
-    p^{1/16}_{>2, 1, 1}(t, q) = f_{9, 4, 5, 4}(t, q) + f_{5, 3, 2, 2}(t, q).
+    p_{>2, 1, 1}(t, q) = f_{9, 4, 5, 4}(t, q) + f_{5, 3, 2, 2}(t, q).
   \end{equation*}
 \end{lemma}
 
@@ -4828,9 +4833,9 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 
 \begin{lemma}
   \label{lmm:34}
-  The formal power series $p^{1/16}_{>3, 1, 1, 1}(t, q)$ is given by
+  The formal power series $p_{>3, 1, 1, 1}(t, q)$ is given by
   \begin{equation*}
-    p^{1/16}_{>3, 1, 1, 1}(t, q) = f_{7, 3, 3, 3}(t, q).
+    p_{>3, 1, 1, 1}(t, q) = f_{7, 3, 3, 3}(t, q).
   \end{equation*}
 \end{lemma}
 
@@ -4862,16 +4867,16 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 
 \begin{lemma}
   \label{lmm:35}
-  The formal power series $p^{1/16}(t, q)$ is given by
+  The formal power series $p(t, q)$ is given by
   \begin{equation*}
-    p^{1/16}(t, q) = f_{1, 1, 0, 0}(t, q) + f_{4, 2, 1, 1}(t, q) + f_{7, 3, 3, 3}(t, q).
+    p(t, q) = f_{1, 1, 0, 0}(t, q) + f_{4, 2, 1, 1}(t, q) + f_{7, 3, 3, 3}(t, q).
   \end{equation*}
 \end{lemma}
 
 \begin{proof}
   This follows from the disjoint union
   \begin{equation*}
-    P^{1/16} = P^{1/16}_{>2} \cup P^{1/16}_{>2, 1} \cup P^{1/16}_{>2, 1, 1} \cup P^{1/16}_{>3, 1, 1, 1}
+    p = p_{>2} \cup p_{>2, 1} \cup p_{>2, 1, 1} \cup p_{>3, 1, 1, 1}
   \end{equation*}
   together with \Cref{lmm:31}, \Cref{lmm:32}, \Cref{lmm:33}, \Cref{lmm:34} and \Cref{lmm:20}.
 \end{proof}
