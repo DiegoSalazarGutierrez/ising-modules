@@ -151,7 +151,7 @@ Let $P^{1/2}$ be the set of partitions that don't contain any partition in $R^{1
   \label{thr:4}
   The set
   \begin{equation*}
-    \{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vachalf \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P\}
+    \{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vachalf \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P^{1/2}\}
   \end{equation*}
   is a vector space basis of $L(1/2, 1/2)$.
 \end{theorem}
@@ -199,7 +199,7 @@ In the appendices, we recall a couple results about almost commutative algebras 
 The software systems Mathematica \cite{Mathematica} and Singular \cite{Singular} were also very useful to verify the series identities and compute Gr\"{o}bner bases.
 
 I would like to thank my advisor Reimundo Heluani, Instituto de Matemática Pura e Aplicada (IMPA) and Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) for their support.
-Professor Jethro Van Ekeren made some valuable suggestions as well.
+Jethro Van Ekeren made some valuable suggestions as well.
 
 \numberwithin{theorem}{subsection}
 
@@ -4414,7 +4414,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma wouldn't be true.
   For $N \in \mathbb{N}$, we have natural vector space isomorphisms
   \begin{equation}
     \label{eq:40}
-    \frac{F_N}{K \cap F_N} \supseteq \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap F_N} \xrightarrow{\sim} \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap \gr^G(M)_{\le 1/2 + N}} \xrightarrow{\sim} \gr^G(L)_{1/2 + N}.
+    \frac{F_N}{K \cap F_N} \supseteq \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap F_N} \xrightarrow{\sim} \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap \gr^G(M)_{\le 1/2 + N}} \xrightarrow{\sim} \gr^G(L)_{\le 1/2 + N}.
   \end{equation}
   Therefore, if we find a basis of each vector space $\gr^G(M)_{\le 1/2 + N}/K \cap F_N \subseteq F_N/K \cap F_N$ such that each basis is contained in the next one when considering the isomorphism \eqref{eq:40}, we get a basis of $\gr^G(L)$ by taking the union of these bases because $\bigcup_{N \in \mathbb{N}}\gr^G(L)_{\le 1/2 + N} = \gr^G(L)$.
 
