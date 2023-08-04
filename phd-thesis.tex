@@ -21,8 +21,6 @@
 \crefformat{section}{\S#2#1#3}
 \crefformat{subsection}{\S#2#1#3}
 
-\numberwithin{equation}{subsection}
-
 \setenumerate[0]{label = \normalfont(\roman*)}
 
 \DeclareMathOperator{\Vir}{Vir}
@@ -70,10 +68,12 @@
 
 \begin{document}
 
+\setcounter{section}{-1}
+
 \begin{abstract}
   To every $h + \mathbb{N}$-graded module $M$ over an $\mathbb{N}$-graded conformal vertex algebra $V$, we associate an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$, which is compatible with the filtrations introduced by Haisheng Li.
   The associated graded vector space $\gr^G(M)$ is naturally a module over the vertex Poisson algebra $\gr^G(V)$.
-  We study $\gr^G(M)$ for the three irreducible admissible modules of the Ising model $\Vir_{3, 4}$, namely $\Vir_{3,4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
+  We study $\gr^G(M)$ for the three irreducible modules over the Ising model $\Vir_{3, 4}$, namely $\Vir_{3,4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
   We obtain an explicit monomial basis of each of these modules and a formula for their refined characters, which are related to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$.
 \end{abstract}
 
@@ -88,6 +88,59 @@
 
 \section{Introduction}
 \label{sec:introduction}
+
+A vertex superalgebra can be thought of as a vector superspace $V$ together with a distinguished element $\vac \in V_{\zero}$, called vacuum vector, and $\mathbb{Z}$-many bilinear products
+\begin{align*}
+  \bullet_{(n)}\bullet: V \times V &\to V, \\
+  (a, b) &\mapsto a_{(n)}b,
+\end{align*}
+called $n$-products, such that the generating function
+\begin{align*}
+  [\bullet_{\lambda}\bullet]: V \times V &\to V[\lambda], \\
+  [a_{\lambda}b] &= \sum_{n \in \mathbb{N}}(a_{(n)}b)\frac{\lambda^n}{n!},
+\end{align*}
+called $\lambda$-bracket, satisfy the axioms of a Lie conformal superalgebra, which is very similar to a Lie superalgebra, together with quasicommutativity, quasiassociativity and the noncommutative Wick formula.
+However, a more compact way to define vertex superalgebras is to gather all $n$-products into a single generating function
+\begin{align*}
+  Y(\bullet, z): V &\to \End(V)[[z^{\pm 1}]], \\
+  a &\mapsto Y(a, z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1}
+\end{align*}
+satisfying the vacuum axiom, the translation covariance axiom and the locality axiom.
+Another, even shorter, way to describe vertex algebras is to require the vacuum axiom and the Borcherds identity.
+The equivalence of these definitions is explained in \cite[\S1]{de_sole_finite_2006}.
+
+A common way to create vertex superalgebras is to start from regular formal distribution Lie superalgebras $(\mathfrak{g}, \mathfrak{F}, T)$, which are just Lie superalgebras $\mathfrak{g}$ together with a family of $\mathfrak{g}$-valued formal distributions $\mathfrak{F}$ generating $\mathfrak{g}$ and a derivation $T$.
+As we can see, vertex superalgebras are closely related to traditional Lie superalgebras.
+
+A module $M$ over a vertex superalgebra $V$ can be defined as a vector superspace $M$ together with a linear parity preserving map $Y^M: V \to \End(M)[[z^{\pm 1}]]$ satisfying the vacuum axiom and the Borcherds identity.
+When $V$ is given by a formal distribution Lie superalgebra, modules over $V$ are just smooth modules over the underlying Lie superalgebra.
+We often assume that a $V$-module $M$ has a grading $\bigoplus_{n \in \mathbb{N}}M(n)$, which is compatible with the $n$-products in $V$.
+Such modules are called admissible.
+
+Some of the most common examples of vertex superalgebras encountered in the literature are:
+\begin{enumerate}
+\item The commutative vertex algebras, which are just differential commutative associative algebras with unit;
+\item For $c \in \mathbb{C}$, the universal Virasoro vertex algebra $\Vir^c$ and the simple Virasoro vertex algebra $\Vir_c$;
+\item For a Lie superalgebra $\mathfrak{g}$ with a supersymmetric bilinear form, the universal affine vertex superalgebra $V^k(\mathfrak{g})$ of level $k \in \mathbb{C}$;
+\item For a superspace $V$ with an antisupersymmetric bilinear form, the fermionic vertex superalgebra $F(V)$;
+\item For a lattice $L$ of finite rank equipped with a positive-definite symmetric bilinear form, the lattice vertex algebra $V_L$;
+\item The Moonshine module vertex algebra $V^{\natural}$, whose automorphism group is the Monster sporadic group and started the study of vertex algebras.
+\end{enumerate}
+In this thesis, we will consider examples (i)--(iv).
+The Moonshine module is perhaps the most amazing example of a vertex algebra.
+However, the Virasoro vertex algebras are foundational in the sense that most vertex algebras $V$ are required to be conformal, which means there is a distinguished vector $\omega \in V$ satisfying the Virasoro relations.
+Even more, we usually require vertex algebras to be $\mathbb{Z}$-graded lower truncated or $\mathbb{N}$-graded.
+Thus, we define vertex operator algebras as $\mathbb{Z}$-graded lower truncated conformal vertex algebras, and this is often the object of study, not general vertex algebras.
+
+Vertex algebras are often assumed to be $C_2$-cofinite, which is just a finite dimensionality condition, and rational, which means any admissible module is completely reducible.
+Rational vertex operator algebras have finitely many isomorphism classes of irreducible admissible modules, while $C_2$-cofinite vertex operator algebras have well-behaved modules.
+
+Given a $\mathbb{Z}$-graded vertex algebra $V$, the Zhu algebra $\Zhu(V)$ is a usual associative algebra with unit that describes the irreducible admissible $V$-modules by doing the following: given an irreducible admissible $V$-module $M$, the space of lowest weight vectors $M(0)$ is a $\Zhu(V)$-module.
+It turns out that it is possible to reverse this process, i.e., start with an irreducible $\Zhu(V)$-module and end up with an irreducible admissible $V$-module.
+
+In this thesis, we focus on the Ising model $\Vir_{3, 4} = \Vir_{1/2}$, which is conformal, $\mathbb{N}$-graded, $C_2$-cofinite and rational.
+The irreducible modules over $\Vir_{3,4}$ are $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$, which are irreducible highest weight representations of the Virasoro Lie algebra.
+To do so, we study filtrations of vertex algebras and their modules.
 
 In \cite{li_vertex_2004}, Li introduced an increasing filtration $(G^pV)_{p \in \mathbb{Z}}$ on an arbitrary $\mathbb{N}$-graded vertex algebra $V$.
 The associated graded space $\gr^G(V)$ with respect to this increasing filtration then carries the structure of an $\mathbb{N}$-graded vertex Poisson algebra.
@@ -202,13 +255,14 @@ Mathematical terms are typeset with \emph{italics} when they are officially defi
 There are references to every result used in this thesis.
 
 This thesis is organized as follows: In \Cref{sec:vert-supera-their}, we introduce the notion of vertex superalgebras and their modules while trying to compile several results.
-We develop the theory from scratch.
+We assume only basic knowledge about algebra, commutative algebra, Lie algebras and algebraic geometry.
 In \Cref{sec:high-weight-repr}, we review the theory of representations of the Virasoro Lie algebra with the objective of describing explicitly the maximal subrepresentation of Verma modules.
 In \Cref{sec:modules-over-simple}, we quickly review the theory of the Zhu algebra.
 In \Cref{sec:vert-poiss-algeb}, the theory of filtrations of vertex algebras and their modules started by Haisheng Li is presented, we introduce the standard filtration for modules, and we prove it is compatible with the definitions already given by Li.
+Then, we introduce the Zhu $C_2$-algebra and derive consequences of the $C_2$-cofiniteness condition.
 In \Cref{sec:pbw-basis-l12}, we carry out the computations needed to obtain the PBW basis of $L(1/2, 1/2)$ and its refined character.
 We also prove \Cref{thr:3} and \Cref{thr:4}.
-In the appendices, we recall a couple results about almost commutative algebras needed to describe $\gr^G(\Vir^c)$, we show the SageMath \cite{sagemath} program used to compute a Poisson submodule related to the exceptional partitions appearing in $R^{1/2}$, and we briefly consider the case $L(1/2, 1/16)$.
+In the appendices, we recall some results about almost commutative algebras, Poisson algebras and Jet algebras, we show the SageMath \cite{sagemath} program used to compute a Poisson submodule related to the exceptional partitions appearing in $R^{1/2}$, and we briefly consider the case $L(1/2, 1/16)$.
 The software systems Mathematica \cite{Mathematica} and Singular \cite{Singular} were also very useful to verify the series identities and compute Gr\"{o}bner bases.
 
 I would like to thank my advisor Reimundo Heluani, Instituto de Matemática Pura e Aplicada (IMPA) and Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) for their support.
@@ -226,7 +280,7 @@ This leads to the concept of fields over vector spaces.
 Then, the concept of vertex superalgebra is introduced.
 It is shown how to construct a vertex superalgebra from a Lie conformal superalgebra.
 Later, we introduce Hamiltonians and conformal vectors of vertex superalgebras, which lead to graded and conformal vertex superalgebras, respectively.
-Next, modules over vertex superalgebras are introduced.
+Next, modules over vertex superalgebras are introduced with emphasis on admissible modules.
 Finally, we construct a couple of functors from the category of vertex algebras to the category of Lie algebras.
 
 \subsection{Formal calculus}
@@ -2016,8 +2070,8 @@ satisfying:
 \end{remark}
 
 The vertex superalgebra $V$ is clearly a $V$-module, and it is called the \emph{adjoint representation} of $V$.
-A \emph{submodule} of $M$ is a subspace $U$ of $M$ such that $Y^M(a, z)u \in U((x))$ for $a \in V$ and $u \in U$, i.e., $a^M_{(n)}u \in U$ for $n \in \mathbb{Z}$.
-The \emph{quotient module} $M/U$ is defined in the usual way.
+A \emph{submodule} of $M$ is a subspace $N$ of $M$ such that $Y^M(a, z)u \in N((z))$ for $a \in V$ and $u \in N$, i.e., $a^M_{(n)}u \in N$ for $n \in \mathbb{Z}$.
+The \emph{quotient module} $M/N$ is defined in the usual way.
 A module whose only proper submodule is $0$ is called \emph{simple} or \emph{irreducible}.
 Let $T \subseteq M$ be a subset.
 We say \emph{$M$ is strongly generated over $V$ by $T$} if
@@ -2201,9 +2255,10 @@ It is better to use the notation $(V, \omega)$ for now because of \Cref{rmk:20}.
 By \Cref{thr:27}, the following definition makes sense. A $(V, \omega)$-module is a $V$-module $M$ such that $L^M_0$ is diagonalizable, where we write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 2}$.
 The $(V, \omega)$-modules form a subcategory of $V\text{-Mod}$.
 In particular, $M$ is a differential module with differential $L^M_{-1}$ and is graded by $L^M_0$.
-A $(V, \omega)$-module $M$ is called a \emph{positive energy representation} of $(V, \omega)$ if $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$ for some $h \in \mathbb{C}$.
+A $(V, \omega)$-module $M$ is called a \emph{positive energy representation} of $(V, \omega)$ if $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$ for some $h \in \mathbb{C}$, and in this case, we also say that $M$ is $h + \mathbb{N}$-graded.
 The subspace $M_h$ is called a \emph{top degree component} of $M$.
 We usually require $M_h \neq 0$, and in this case, the top degree component is well defined.
+
 
 \begin{remark}
   \label{rmk:26}
@@ -2217,7 +2272,7 @@ An \emph{admissible} $V$-module is a $V$-module $M$ together with a grading $M =
   \item $M(n) = 0$ for $n < 0$;
   \item $a^M_{(n)}M(m) \subseteq M(m + \Delta_a - n - 1)$ for $a \in V$ homogeneous and $m, n \in \mathbb{Z}$, or, equivalently, $a^M_nM(m) \subseteq M(m - n)$ for $a \in V$ homogeneous, $m \in \mathbb{Z}$ and $n \in \mathbb{Z}$.
 \end{enumerate}
-Thus, an admissible module is a pair $(M, \bigoplus_{n \in \mathbb{Z}}M(n))$ satisfying the above conditions, though we often omit the grading from the notation.
+Thus, an admissible $V$-module is a pair $(M, \bigoplus_{n \in \mathbb{Z}}M(n))$ satisfying the above conditions, though we often omit the grading from the notation.
 If $M \neq 0$, set $n_0 = \min\{n \in \mathbb{N} \mid M(n) \neq 0\}$.
 The subspace $M(n_0)$ is called the \emph{top degree component} of $M$.
 The top degree component of the zero module $0$ is $0$.
@@ -2358,7 +2413,7 @@ We say that $V$ is \emph{regular} if every $V$-module is a direct sum of simple 
 Regularity is a stronger form of complete reducibility of modules.
 
 The definition of ordinary and admissible modules is similar to that of vertex operator algebras (in the sense that we required them to be lower truncated) except that modules are not required to be $\mathbb{Z}$-graded.
-Indeed, one of our objectives is to study $M(1/2, 1/2)$ and $M(1/2, 1/16)$, which are $\mathbb{Q}$-graded.
+Indeed, one of our objectives is to study $L(1/2, 1/2)$ and $L(1/2, 1/16)$, which are $\mathbb{Q}$-graded.
 
 \begin{theorem}[{\cite{dong_twisted_1998}}]
   \label{thr:28}
@@ -2566,7 +2621,7 @@ and we have another functor
 In this section, we start by reviewing some well-known facts about forms on complex vector spaces.
 Then, we consider highest weight representations of the Virasoro Lie algebra with particular interest on the Verma modules $M(c, h)$ and the irreducible representations $L(c, h)$.
 Afterwards, we construct a contravariant form on an arbitrary highest weight representation.
-Next, we present the Kac determinant formula which allows us to determine $L(c, h)$ explicitly by determining the generating singular vectors of the maximal subrepresentation of $M(c, h)$.
+Next, we present the Kac determinant formula, which allows us to determine $L(c, h)$ explicitly by determining the generating singular vectors of the maximal subrepresentation of $M(c, h)$.
 
 \subsection{Unitary and contravariant representations of Lie algebras}
 \label{sec:unit-contr-repr}
@@ -3038,7 +3093,7 @@ The modules $L(1/2, 1/2)$ and $L(1/2, 1/16)$ are not vertex algebras but they ar
 
 In this section, the objective is to study the irreducible modules over $\Vir^c$ and $\Vir_c$.
 To do that, we first study the Zhu algebra $\Zhu(V)$ of a $\mathbb{Z}$-graded vertex algebra $V$.
-This naturally leads to a functor $\Omega: \{\text{admissible $V$-modules}\} \to \Zhu(V)\text{-Mod}$.
+This naturally leads to a functor $\Omega: \text{$V$-Mod} \to \Zhu(V)\text{-Mod}$.
 Next, we construct an inverse $L: \Zhu(V)\text{-Mod} \to \{\text{admissible $V$-modules}\}$ of the functor $\Omega$ using the associated Lie algebras of a vertex algebra constructed in \Cref{sec:lie-algebr-assoc}.
 We end this section by describing the irreducible modules over $\Vir^c$ and $\Vir_c$ explicitly in terms of representations $L(c, h)$ for certain values of $h$.
 
@@ -3164,7 +3219,7 @@ One of the most important properties of the Zhu algebra is that it simplifies th
 
 Because our constructions are natural, it is evident that we have constructed a functor
 \begin{equation*}
-  \Omega: V\text{-Mod} \to \Zhu(V)\text{-Mod}.
+  \Omega: \text{$V$-Mod} \to \Zhu(V)\text{-Mod}.
 \end{equation*}
 To be more precise, if $f: M \to N$ is a homomorphism of $V$-modules, then $[f]: [M] \to [N]$ is a homomorphism of $[V]$-modules.
 This implies that $\Omega(M) \subseteq \Omega(N)$.
@@ -3416,8 +3471,9 @@ In this section, we review the theory of filtrations for vertex algebras.
 We can consider either the Li filtration $(F_pV)_{p \in \mathbb{Z}}$ or the standard filtration $(G^pV)_{p \in \mathbb{Z}}$.
 Both of these filtrations lead to a vertex Poisson algebra, namely $\gr_F(V)$ and $\gr^G(V)$, as was shown by Haisheng Li in \cite{li_abelianizing_2005} and \cite{li_vertex_2004}.
 In \cite{arakawa_remark_2012}, it was shown by Arakawa that the resulting vertex Poisson algebra is the same.
-Then, we introduce the Li filtration $(F_pM)_{p \in \mathbb{Z}}$ and the standard filtration $(G^pM)_{p \in \mathbb{Z}}$ for modules which was not presented in \cite{li_vertex_2004}.
+Then, we introduce the Li filtration $(F_pM)_{p \in \mathbb{Z}}$ and the standard filtration $(G^pM)_{p \in \mathbb{Z}}$ for modules.
 This leads to modules $\gr_F(M)$ and $\gr^G(M)$ that are again isomorphic.
+Finally, we introduce the Zhu $C_2$-algebra and derive consequences of the $C_2$-cofiniteness condition.
 
 \subsection{Vertex Lie superalgebras and their modules}
 \label{sec:vert-lie-supera}
@@ -4242,7 +4298,7 @@ This is also valid for vertex algebras because all the definitions are compatibl
   However, if we do it like that, the characters would not have good meanings because one can always shift the grading in admissible modules, and the term $q^h$ is lost.
 \end{remark}
 
-\subsection{The Zhu $C_2$-algebra and its modules}
+\subsection{The Zhu $C_2$-algebra and the $C_2$-cofiniteness condition}
 \label{sec:zhu-c_2-algebra}
 
 Let $V$ be a vertex algebra.
@@ -4255,7 +4311,7 @@ We define the \emph{Zhu $C_2$-algebra} of $V$ by
   R_V = V/C_2V = F_0V/F_1V \subseteq \gr_F(V).
 \end{equation*}
 
-The fact that $\gr_F(V)$ is a vertex Poisson algebra implies that $R_V$ is a Poisson algebra with operation given as follows.
+The fact that $\gr_F(V)$ is a vertex Poisson algebra implies that $R_V$ is a Poisson algebra with operations given as follows.
 For $a, b \in V$, we set:
 \begin{align*}
   \sigma_0(a)\cdot\sigma_0(b) &= \sigma_0(a_{(-1)}b), \\
@@ -5426,9 +5482,8 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   Taking the union of these subspaces, we get $K' = K$.
 \end{proof}
 
-\appendix
 \numberwithin{theorem}{section}
-
+\appendix
 \section{Almost commutative algebras}
 \label{sec:almost-comm-algebr}
 
@@ -5506,8 +5561,8 @@ The operation $\{\bullet, \bullet\}$ is called \emph{Poisson bracket}.
 
 \begin{example}
   \label{exa:18}
-  Let $A$ be an associative almost commutative algebra with $A$ with a unit $1$ satisfying (i)--(iv) of ...
-  We know that $\gr(A)$ an associative commutative algebra with a unit $\gamma^0(1)$.
+  Let $A$ be an associative almost commutative algebra with $A$ with unit $1$ satisfying (i)--(iv) of \Cref{sec:almost-comm-algebr}.
+  We know that $\gr(A)$ an associative commutative algebra with unit $\gamma^0(1)$.
   We now make $\gr(A)$ into a Poisson algebra by defining the Poisson bracket as follows.
   For $p, q \in \mathbb{N}$, $a \in A^p$ and $b \in A^q$, we set
   \begin{equation*}
@@ -5550,7 +5605,7 @@ A Poisson $A$-module or a Poisson module over $A$ is a $A$-module $M$ in the usu
 \section{Jet algebras and jet schemes}
 \label{sec:jet-algebras-jet}
 
-In this appendix alone, by an algebra we will mean a commutative associative algebra with a unit.
+In this appendix alone, by an algebra we will mean a commutative associative algebra with unit.
 The categories $\Alg$ of finitely generated algebras and $\DAlg$ of finitely generated differential algebras will appear frequently in this section.
 
 Let $R$ be a finitely generated algebra.
