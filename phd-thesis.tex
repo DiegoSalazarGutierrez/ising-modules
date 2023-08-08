@@ -74,7 +74,7 @@
   To every $h + \mathbb{N}$-graded module $M$ over an $\mathbb{N}$-graded conformal vertex algebra $V$, we associate an increasing filtration $(G^pM)_{p \in \mathbb{Z}}$, which is compatible with the filtrations introduced by Haisheng Li.
   The associated graded vector space $\gr^G(M)$ is naturally a module over the vertex Poisson algebra $\gr^G(V)$.
   We study $\gr^G(M)$ for the three irreducible modules over the Ising model $\Vir_{3, 4}$, namely $\Vir_{3,4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
-  We obtain an explicit monomial basis of each of these modules and a formula for their refined characters, which are related to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$.
+  We obtain an explicit PBW basis of each of these modules and a formula for their refined characters, which are related to Nahm sums for the matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$.
 \end{abstract}
 
 \title{PBW bases of irreducible Ising modules}
@@ -110,9 +110,47 @@ Another, even shorter, way to describe vertex algebras is to require the vacuum 
 The equivalence of these definitions is explained in \cite[\S1]{de_sole_finite_2006}.
 
 A common way to create vertex superalgebras is to start from regular formal distribution Lie superalgebras $(\mathfrak{g}, \mathfrak{F}, T)$, which are just Lie superalgebras $\mathfrak{g}$ together with a family of $\mathfrak{g}$-valued formal distributions $\mathfrak{F}$ generating $\mathfrak{g}$ and a derivation $T$.
+Then, we can construct the associated vertex algebra $V(\mathfrak{g}, \mathfrak{F}, T)$.
 As we can see, vertex superalgebras are closely related to traditional Lie superalgebras.
 
-A module $M$ over a vertex superalgebra $V$ can be defined as a vector superspace $M$ together with a linear and parity preserving map $Y^M: V \to \End(M)[[z^{\pm 1}]]$ satisfying the vacuum axiom and the Borcherds identity.
+We now describe the universal Virasoro vertex algebra $\Vir^c$, where $c \in \mathbb{C}$.
+The Virasoro Lie algebra, denoted by $\Vir$, is the Lie algebra given by
+\begin{equation*}
+  \Vir = \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_{n} \oplus \mathbb{C}C.
+\end{equation*}
+These elements satisfy the following commutation relations:
+\begin{equation*}
+  \begin{split}
+    [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for }m, n \in \mathbb{Z}, \\
+    [\Vir, C] &= 0.
+  \end{split}
+\end{equation*}
+We have an important $\Vir$-valued formal distribution
+\begin{equation*}
+  L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2},
+\end{equation*}
+and we can verify that $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ is a regular formal distribution Lie algebra.
+A certain quotient of the associated vertex algebra is the universal Virasoro vertex algebra of central charge $c$, which we describe now.
+First, we make the subalgebra $\Vir_{\ge -1} \oplus \mathbb{C}C$ act on $\mathbb{C}$ as follows:
+\begin{equation*}
+  L_n1 = 0\text{ for }n \ge -1, C1 = c.
+\end{equation*}
+It turns out that $\Vir^c$ is an induced $\Vir$-module given by
+\begin{equation*}
+  \Vir^c = \Ind^{\Vir}_{\Vir_{\ge -1} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge -1} \oplus \mathbb{C}C)} \mathbb{C}.
+\end{equation*}
+By the PBW theorem, a basis of $\Vir^c$, also known as PBW basis, is given by
+\begin{equation*}
+  \{L_{-i_k}\dots L_{-i_1}\vac \mid i_k \ge \dots \ge i_1 \ge 2\}.
+\end{equation*}
+
+The vertex algebra $\Vir^c$ has a unique maximal ideal, and the quotient $\Vir_c$ is the simple Virasoro vertex algebra.
+For a generic value of $c \in \mathbb{C}$, $\Vir^c = \Vir_c$, i.e., $\Vir^c$ is already simple.
+The smallest case in which this does not happen (other than the one dimensional vertex algebra $\mathbb{C}\vac$) is the Ising model $\Vir_{3, 4} = \Vir_{1/2}$.
+A natural question to ask is: Can an explicit PBW basis of $\Vir_{3, 4}$ be obtained?
+This is achieved in \cite{andrews_singular_2022}.
+
+A module over a vertex superalgebra $V$ can be defined as a vector superspace $M$ together with a linear and parity preserving map $Y^M: V \to \End(M)[[z^{\pm 1}]]$ satisfying the vacuum axiom and the Borcherds identity.
 When $V$ is given by a formal distribution Lie superalgebra, modules over $V$ are just smooth modules over the underlying Lie superalgebra.
 We often assume that a $V$-module $M$ has a grading $\bigoplus_{n \in \mathbb{N}}M(n)$, which is compatible with the $n$-products in $V$.
 Such modules are called admissible.
@@ -128,19 +166,19 @@ Some of the most common examples of vertex superalgebras encountered in the lite
 \end{enumerate}
 In this thesis, we will consider examples (i)--(iv).
 The Moonshine module is perhaps the most amazing example of a vertex algebra.
-However, the Virasoro vertex algebras are foundational in the sense that most vertex algebras $V$ are required to be conformal, which means there is a distinguished vector $\omega \in V$ satisfying the Virasoro relations.
+However, the Virasoro vertex algebras are foundational in the sense that most vertex algebras $V$ are required to be conformal, which means there is a distinguished vector $\omega \in V$ satisfying the Virasoro commutation relations.
 Even more, we usually require vertex algebras to be $\mathbb{Z}$-graded lower truncated or $\mathbb{N}$-graded.
 Thus, we define vertex operator algebras as $\mathbb{Z}$-graded lower truncated conformal vertex algebras, and this is often the object of study, not general vertex algebras.
 
 Vertex algebras are often assumed to be $C_2$-cofinite, which is just a finite dimensionality condition, and rational, which means any admissible module is completely reducible.
 Rational vertex operator algebras have finitely many isomorphism classes of irreducible admissible modules, while $C_2$-cofinite vertex operator algebras have well-behaved modules.
 
-Given a $\mathbb{Z}$-graded vertex algebra $V$, the Zhu algebra $\Zhu(V)$ is a usual associative algebra with unit that describes the irreducible admissible $V$-modules by doing the following: given an irreducible admissible $V$-module $M$, the space of lowest weight vectors $M(0)$ is a $\Zhu(V)$-module.
+Given a $\mathbb{Z}$-graded vertex algebra $V$, the Zhu algebra $\Zhu(V)$ is an associative algebra with unit that describes the irreducible admissible $V$-modules by doing the following: given an irreducible admissible $V$-module $M$, the space of lowest weight vectors $M(0)$ is a $\Zhu(V)$-module.
 It turns out that it is possible to reverse this process, i.e., start with an irreducible $\Zhu(V)$-module and end up with an irreducible admissible $V$-module.
 
-In this thesis, we focus on the Ising model $\Vir_{3, 4} = \Vir_{1/2}$, which is conformal, $\mathbb{N}$-graded, $C_2$-cofinite and rational.
-The irreducible modules over $\Vir_{3,4}$ are $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$, which are irreducible highest weight representations of the Virasoro Lie algebra.
-To describe the irreducible modules over $\Vir_{3, 4}$, we study filtrations of vertex algebras and their modules.
+In this thesis, we focus on the Ising model $\Vir_{3, 4}$, which is conformal, $\mathbb{N}$-graded, $C_2$-cofinite and rational.
+The irreducible modules over $\Vir_{3,4}$, called Ising modules, are $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$, which are irreducible highest weight representations of the Virasoro Lie algebra.
+To describe a PBW basis of Ising modules, we study filtrations of vertex algebras and their modules.
 
 In \cite{li_vertex_2004}, Li introduced an increasing filtration $(G^pV)_{p \in \mathbb{Z}}$ on an arbitrary $\mathbb{N}$-graded vertex algebra $V$.
 The associated graded space $\gr^G(V)$ with respect to this increasing filtration then carries the structure of an $\mathbb{N}$-graded vertex Poisson algebra.
@@ -166,7 +204,7 @@ We construct a functor
 Parallel to what was done in \cite{arakawa_remark_2012}, we show that $\gr_F(M)$ and $\gr^G(M)$ are isomorphic as modules.
 However, for our purposes, the filtration $(G^pM)_{p \in \mathbb{Z}}$ is better suited.
 
-In \cite{andrews_singular_2022}, two theorems about the Virasoro minimal model $\Vir_{3, 4} = L(1/2, 0)$, also known as the Ising model, are proved.
+In \cite{andrews_singular_2022}, two theorems about the Virasoro minimal model $\Vir_{3, 4}$ are proved.
 
 \begin{theorem}
   \label{thr:1}
@@ -252,7 +290,6 @@ Specializing the character formula in \Cref{thr:7} to $t = 1$, we obtain that th
 In this thesis, we develop the theory needed to prove the theorems above.
 We assume only basic knowledge about algebra, commutative algebra, Lie algebras and algebraic geometry.
 Mathematical terms are typeset with \emph{italics} when they are officially defined.
-There are references to every result used in this thesis.
 
 This thesis is organized as follows: In \Cref{sec:vert-supera-their}, we introduce the notion of vertex superalgebras and their modules while trying to compile several results.
 In \Cref{sec:high-weight-repr}, we review the theory of representations of the Virasoro Lie algebra with the objective of describing explicitly the maximal subrepresentations of Verma modules.
@@ -3090,7 +3127,7 @@ Let $l_{c, h}$ denote the solutions to this linear equation.
   If $c = c_{p, q}$ for some $p, q \ge 2$ relatively prime integers, then the singular vector of $\Vir^c$ can be computed by solving the linear equation $L_1u = L_2u = 0$ for $u \in \Vir^c_{(p - 1)(q - 1)}$ (see \Cref{thr:23} and \Cref{lmm:19}).
 \end{remark}
 
-One of the objectives of this thesis is to find a monomial basis of $L(1/2, 1/2)$ and $L(1/2, 1/16)$ similar to what was done for the Ising model $\Vir_{3, 4} = L(1/2, 0)$ in \cite{andrews_singular_2022}.
+One of the objectives of this thesis is to find a PBW basis of $L(1/2, 1/2)$ and $L(1/2, 1/16)$ similar to what was done for the Ising model $\Vir_{3, 4} = L(1/2, 0)$ in \cite{andrews_singular_2022}.
 The modules $L(1/2, 1/2)$ and $L(1/2, 1/16)$ are not vertex algebras but they are modules (vertex algebra modules) over both $\Vir^{1/2}$ and $\Vir_{3, 4}$, as we will see later.
 
 \begin{remark}
@@ -3113,7 +3150,7 @@ We end this section by describing the irreducible modules over $\Vir^c$ and $\Vi
 
 Let $V$ be a $\mathbb{Z}$-graded vertex algebra with Hamiltonian $H$.
 First, we define two operations on $V$.
-Let $a, b \in V$ with $a$ homogeneous, and we set
+Let $a, b \in V$ with $a$ homogeneous, and we set:
 \begin{align*}
   a\circ b &= \Res_z\left(\frac{(1 + z)^{\Delta_a}}{z^2}Y(a, z)b\right) \in V, \\
   a*b &= \Res_z\left(\frac{(1 + z)^{\Delta_a}}{z}Y(a, z)b\right) \in V.
@@ -4734,7 +4771,7 @@ By \Cref{exa:16}, the Ising model $\Vir_{3, 4} = \Vir_{1/2}$ satisfies these con
 \section{PBW basis of $L(1/2, 1/2)$ and its refined character}
 \label{sec:pbw-basis-l12}
 
-In this section, our objective is to determine a monomial basis (also called PBW basis) of $L(1/2, 1/2)$ explicitly and a formula for the refined character of $\gr^G(L(1/2, 1/2))$ with respect to the standard filtration, as introduced in \Cref{sec:filtr-modul-over}.
+In this section, our objective is to determine a PBW basis of $L(1/2, 1/2)$ explicitly and a formula for the refined character of $\gr^G(L(1/2, 1/2))$ with respect to the standard filtration, as introduced in \Cref{sec:filtr-modul-over}.
 We present a family of series in two variables $f_{a, b, c, d}(t, q)$, where $a, b, c, d \in \mathbb{N}$ are the parameters, which are Nahm sums for the same matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$ (cf.\ \cite{Nahm2007}) when we set $t = 1$.
 These series satisfy some recursive relations which will help us to prove series identities.
 Then, we find a formula for the refined character of $\gr^G(L(1/2, 1/2))$ using these series and the recursive relations they satisfy.
