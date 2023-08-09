@@ -3540,7 +3540,7 @@ The data must satisfy the following axioms for $a, b \in V$:
 \end{enumerate}
 
 \begin{remark}
-  \label{rmk:38}
+  \label{rmk:37}
   Axiom (i) of vertex Lie superalgebras implies that $T \in \End(V)_{\zero}$.
 \end{remark}
 
@@ -3758,7 +3758,7 @@ The filtration $(F_pV)_{p \in \mathbb{Z}}$ is called the \emph{Li filtration} of
 By \Cref{lmm:23}, the Li filtration depends only on $V$ and not on the choice of the strong generators.
 If $V$ is graded by a Hamiltonian $H$ with grading $V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}$, then $H(F_pV) \subseteq F_pV$ because in that case, for $p \in \mathbb{Z}$,
 \begin{equation*}
-F_pV = \vspan \{a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, a^i \in V\text{ homogeneous}, n_1 + \dots + n_s \ge p\}.
+  F_pV = \vspan\{a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, a^i \in V\text{ homogeneous}, n_1 + \dots + n_s \ge p\}.
 \end{equation*}
 
 Therefore, we can define an operator $H \in \End(\gr_F(V))$ as $H(\sigma_p(a)) = \sigma_p(Ha)$ for $p \in \mathbb{N}$ and $a \in F_pV$.
@@ -3769,7 +3769,7 @@ Since $H(F_pV) \subseteq F_pV$ for $p \in \mathbb{Z}$, \Cref{lmm:9} implies that
 \end{equation*}
 For $\Delta \in \mathbb{C}$, we define $\gr_F(V)_{\Delta} = \bigoplus_{p \in \mathbb{N}}\sigma_p(F_pV_{\Delta})$.
 Then $Ha = \Delta a$ for $a \in \gr_F(V)_{\Delta}$.
-The family of subspaces $(\gr_F(V)_{\Delta})_{\Delta \in \mathbb{C}}$ satisfies $\gr_F(V) = \bigoplus_{\Delta \in \mathbb{C}} \gr_F(V)_{\Delta}$.
+The family of subspaces $(\gr_F(V)_{\Delta})_{\Delta \in \mathbb{C}}$ satisfies $\gr_F(V) = \bigoplus_{\Delta \in \mathbb{C}}\gr_F(V)_{\Delta}$.
 Therefore, the operator $H \in \End(\gr_F(V))$ is diagonalizable with $\gr_F(V)_{\Delta} = \ker(H - \Delta\Id_{\gr_F(V)})$.
 In fact, more is true.
 
@@ -3782,8 +3782,8 @@ In fact, more is true.
   For $p, q \in \mathbb{N}$, $a \in F_pV$ and $b \in F_qV$,
   \begin{align*}
     [H, Y_-(\sigma_p(a), z)]\sigma_q(b) &= \sum_{n \in \mathbb{N}}\sigma_{p + q - n}([H, a_{(n)}]b)z^{-n - 1} \\
-    &= \sum_{n \in \mathbb{N}}\sigma_{p + q - n}((-(n + 1)a_{(n)} + (Ha)_{(n)})b)z^{-n - 1} \\
-    &= (z\partial_zY_-(\sigma_p(a), z) + Y_-(\sigma_p(Ha), z))\sigma_q(b). \qedhere
+                                        &= \sum_{n \in \mathbb{N}}\sigma_{p + q - n}((-(n + 1)a_{(n)} + (Ha)_{(n)})b)z^{-n - 1} \\
+                                        &= (z\partial_zY_-(\sigma_p(a), z) + Y_-(\sigma_p(Ha), z))\sigma_q(b). \qedhere
   \end{align*}
 \end{proof}
 
@@ -3803,7 +3803,7 @@ By \eqref{eq:40}, when $\dim(V_{\Delta}) < \infty$ for $\Delta \in \mathbb{C}$, 
 
 If $f: V_1 \to V_2$ is a homomorphism of vertex algebras, then
 \begin{align*}
-  \gr_F(f): \gr_F(V_1) &\to \gr_F({V_2}), \\
+  \gr_F(f): \gr_F(V_1) &\to \gr_F(V_2), \\
   \gr_F(f)(\sigma^{V_1}_p(a)) &= \sigma^{V_2}_p(f(a)) \quad \text{for }p \in \mathbb{N}\text{ and }a \in F_pV_1
 \end{align*}
 defines a homomorphism of vertex Poisson algebras.
@@ -3853,7 +3853,6 @@ By \Cref{prp:15} ahead, the standard filtration does not depend on the choice of
 
 By \Cref{prp:14}(vii), we can define an operator $H \in \End(\gr^G(V))$ as $H(\alpha^p(a)) = \alpha^p(Ha)$ for $p \in \mathbb{Z}$ and $a \in G^pV$.
 For $p \in \mathbb{Z}$ and $n \in \mathbb{N}$, we define $G^pV_n = G^pV \cap V_n$.
-
 Since $H(G^pV) \subseteq G^pV$ for $p \in \mathbb{Z}$, \Cref{lmm:9} implies that
 \begin{equation*}
   G^pV = \bigoplus_{n \in \mathbb{N}}G^pV_n \quad \text{for }p \in \mathbb{Z}.
@@ -3914,11 +3913,11 @@ Therefore, we obtain a functor
 \end{proposition}
 
 \begin{remark}
-  \label{rmk:39}
+  \label{rmk:38}
   In \cite{arakawa_remark_2012}, it is suggested in a footnote that it is possible to consider more general $\tfrac{1}{r_0}\mathbb{N}$-graded vertex algebras instead of $\mathbb{N}$-graded vertex algebras.
   However, we encounter difficulties doing this.
   For example, if $V = \Vir^{1/2}$, which is the case we are interested here, then $V$ is $\tfrac{1}{2}\mathbb{N}$-graded.
-  According to the definition of $\gr^G(V)$ given in \cite{arakawa_remark_2012}, we should have $\gr^G(V) = \bigoplus_{p \in \tfrac{1}{2}\mathbb{N}}G_pV/G_{p - 1}V = G_0V/G_{-1}V \oplus G_{1/2}V/G_{-1/2}V \oplus \dots = \mathbb{C}\vac \oplus \mathbb{C}\vac \oplus \dots$, which means ``the vacuum is doubled''.
+  According to the definition of $\gr^G(V)$ given in \cite{arakawa_remark_2012}, we should have $\gr^G(V) = \bigoplus_{p \in \frac{1}{2}\mathbb{N}}G_pV/G_{p - 1}V = G_0V/G_{-1}V \oplus G_{1/2}V/G_{-1/2}V \oplus \dots = \mathbb{C}\vac \oplus \mathbb{C}\vac \oplus \dots$, which means ``the vacuum is doubled''.
   That is probably not intended, and also the proof of \cite[Proposition 2.6.1]{arakawa_remark_2012} does not work for $\tfrac{1}{r_0}\mathbb{N}$-graded vertex algebras.
   But the hypothesis $V_0 = \mathbb{C}\vac$ can be removed, just as Arakawa wrote.
 \end{remark}
@@ -3964,7 +3963,7 @@ Therefore, we obtain a functor
   Therefore, we have to show that
   \begin{equation}
     \label{eq:42}
-    (L_{\lambda}\vac)_{(-1)}(L_{\eta}\vac) = (L_{\lambda}L_{\eta})\vac + a \quad \text{for some }a \in G^{2s - 1}\Vir^c.
+    (L_{\lambda}\vac)_{(-1)}(L_{\eta}\vac) = (L_{\lambda}L_{\eta})\vac + a \quad \text{for some }a \in G^{2s + 2t - 1}\Vir^c.
   \end{equation}
 
   If $s = 0$ or $s = 1$, \eqref{eq:42} is clear.
@@ -3972,15 +3971,15 @@ Therefore, we obtain a functor
   By \Cref{crl:1},
   \begin{align*}
     (L_{\lambda}\vac)_{(-1)}(L_{\eta}\vac) &= \left(\frac{:\partial_z^{\lambda_1 - 2}L(z)\dots\partial_z^{\lambda_s - 2}L(z):}{(\lambda_1 - 2)!\dots(\lambda_s - 2)!} \right)_{(-1)}(L_{\eta}\vac) \\
-    &= \frac{(:\partial_z^{\lambda_1 - 2}L(z)\dots\partial_z^{\lambda_s - 2}L(z):)_{(-1)}(L_{\eta}\vac)}{(\lambda_1 - 2)!\dots(\lambda_s - 2)!},
+                                           &= \frac{(:\partial_z^{\lambda_1 - 2}L(z)\dots\partial_z^{\lambda_s - 2}L(z):)_{(-1)}(L_{\eta}\vac)}{(\lambda_1 - 2)!\dots(\lambda_s - 2)!},
   \end{align*}
   where $L(z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2} \in \mathcal{F}(\Vir^c)$.
   We now use \Cref{lmm:3} with $V = \Vir^c$, $a^k(z) = \partial^{\lambda_k - 2}L(z)$ for $k = 1, \dots, s$ and $b = L_{\eta}\vac$.
   First, we note that for $k = 1, \dots, s$,
   \begin{align*}
     a^k(z) &= \partial_z^{\lambda_k - 2}L(z) \\
-    &= \sum_{n \in \mathbb{Z}}(-n - 2)\dots(-n - 2 - (\lambda_k - 3))L_nz^{-n - 2 - (\lambda_k - 2)} \\
-    &= \sum_{n \in \mathbb{Z}}(-n + \lambda_k - 3)\dots(-n)L_{n + 1 - \lambda_k}z^{-n - 1},
+           &= \sum_{n \in \mathbb{Z}}(-n - 2)\dots(-n - 2 - (\lambda_k - 3))L_nz^{-n - 2 - (\lambda_k - 2)} \\
+           &= \sum_{n \in \mathbb{Z}}(-n + \lambda_k - 3)\dots(-n)L_{n + 1 - \lambda_k}z^{-n - 1},
   \end{align*}
   which says that
   \begin{equation*}
@@ -3989,17 +3988,17 @@ Therefore, we obtain a functor
 
   We note that each expression $R^{-1, k}_{n_1, \dots, n_{s - 1}}L_{\eta}\vac$ in \Cref{lmm:3}, where we omitted the fields $a^k(z)$ from the notation, is the sum of elements of the form
   \begin{equation*}
-    \text{scalar}\cdot L_{\eta_1}\dots L_{\eta_s}(L_{\eta}\vac),
+    \text{scalar}\cdot L_{\kappa_1}\dots L_{\kappa_s}(L_{\eta}\vac),
   \end{equation*}
-  where $\eta_k \in \mathbb{Z}$ for $k = 1, \dots, s$.
-  Furthermore, we note that if $\eta_k \ge -1$ for some $k = 1, \dots, s$, then $L_{\eta_1}\dots L_{\eta_s}(L_{\eta}\vac) \in G^{2s - 1}\Vir^c$.
+  where $\kappa_k \in \mathbb{Z}$ for $k = 1, \dots, s$.
+  Furthermore, we note that if $\kappa_k \ge -1$ for some $k = 1, \dots, s$, then $L_{\kappa_1}\dots L_{\kappa_s}(L_{\eta}\vac) \in G^{2s + 2t - 1}\Vir^c$.
   We now study these expressions $R^{-1, k}_{n_1, \dots, n_{s - 1}}L_{\eta}\vac$ by considering the elements that appear in the sum defining it.
   We consider several disjoint cases:
   \begin{enumerate}
   \item $k > 0$.
     If $n_{i_1} \ge \lambda_{i_1} - 2$, then $n_{i_1} + 1 - \lambda_{i_1} \ge -1$, so we get
     \begin{equation*}
-      a^{j_1}_{(-n_{j_1} - 1)}\dots a^{j_{s - 1 - k}}_{(-n_{j_{s - 1 - k}} - 1)}a^s_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}L_{\eta}\vac \in G^{2s - 1}\Vir^c.
+      a^{j_1}_{(-n_{j_1} - 1)}\dots a^{j_{s - 1 - k}}_{(-n_{j_{s - 1 - k}} - 1)}a^s_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}L_{\eta}\vac \in G^{2s + 2t - 1}\Vir^c.
     \end{equation*}
     If $n_{i_1} \le \lambda_{i_1} - 3$, then $a^{i_1}(z)_{(n_{i_1})}L_{\eta}\vac = 0$ because $(-n + \lambda_k - 3)\dots(-n) = 0$, so we get
     \begin{equation*}
@@ -4007,18 +4006,18 @@ Therefore, we obtain a functor
     \end{equation*}
     Therefore, we obtain
     \begin{equation*}
-      R^{-1, k}_{n_1, \dots, n_{s - 1}}L_{\eta}\vac \in G^{2s - 1}\Vir^c.
+      R^{-1, k}_{n_1, \dots, n_{s - 1}}L_{\eta}\vac \in G^{2s + 2t - 1}\Vir^c.
     \end{equation*}
   \item $k = 0$ and there exists some $j = 1, \dots, s - 1$ such that $n_j > 0$.
     In this case, we get
     \begin{equation*}
-      R^{-1, 0}_{n_1, \dots, n_{s - 1}}L_{\eta}\vac = a^1_{(-n_1 - 1)}\dots a^{s - 1}_{(-n_{s - 1} - 1)}a^s_{(-1 + \sum_{r = 1}^{s - 1}n_r)}L_{\eta}\vac \in G^{2s - 1}\Vir^c
+      R^{-1, 0}_{n_1, \dots, n_{s - 1}}L_{\eta}\vac = a^1_{(-n_1 - 1)}\dots a^{s - 1}_{(-n_{s - 1} - 1)}a^s_{(-1 + \sum_{r = 1}^{s - 1}n_r)}L_{\eta}\vac \in G^{2s + 2t - 1}\Vir^c
     \end{equation*}
     because we can repeat the reasoning of (i) with $-1 + \sum_{r = 1}^{s - 1}n_r$ instead of $n_{i_1}$.
   \item $k = 0$ and $n_1 = \dots = n_{s - 1} = 0$.
     In this case, we get
     \begin{equation*}
-      R^{-1, 0}_{0, \dots, 0} = a^1_{(-1)}\dots a^{s - 1}_{(-1)}a^s_{(-1)} L_{\eta}\vac = (\lambda_1 - 2)!\dots(\lambda_s - 2)!L_{\lambda} L_{\eta}\vac.
+      R^{-1, 0}_{0, \dots, 0} = a^1_{(-1)}\dots a^{s - 1}_{(-1)}a^s_{(-1)}L_{\eta}\vac = (\lambda_1 - 2)!\dots(\lambda_s - 2)!L_{\lambda}L_{\eta}\vac.
     \end{equation*}
   \end{enumerate}
   From these three cases, we obtain \eqref{eq:42}.
@@ -4026,18 +4025,18 @@ Therefore, we obtain a functor
   We conclude that we have an algebra isomorphism $\gr^G(\Vir^c) \xrightarrow{\sim} \gr(U(\Vir_{\le -2}))$.
   Composing this with the inverse of the isomorphism $S(\Vir_{\le -2}) \xrightarrow{\sim} \gr(U(\Vir_{\le -2}))$ in \Cref{sec:almost-comm-algebr} and taking $(L_n)_{n \le -2}$ as the basis of $\Vir_{\le -2}$, we obtain the following isomorphism of commutative associative algebras with unit
   \begin{align*}
-  \gr^G(\Vir^c) &\xrightarrow{\sim} \mathbb{C}[L_{-2}, L_{-3}, \dots], \\
-  \alpha^{2s}(L_{-n_1 - 2}\dots L_{-n_s - 2}\vac) &\mapsto L_{-n_1 - 2}\dots L_{-n_s - 2} \quad \text{for }s, n_1, \dots, n_s \in \mathbb{N}.
+    \gr^G(\Vir^c) &\xrightarrow{\sim} \mathbb{C}[L_{-2}, L_{-3}, \dots], \\
+    \alpha^{2s}(L_{-n_1 - 2}\dots L_{-n_s - 2}\vac) &\mapsto L_{-n_1 - 2}\dots L_{-n_s - 2} \quad \text{for }s, n_1, \dots, n_s \in \mathbb{N}.
   \end{align*}
   In particular, the isomorphism does not depend on $c$.
 
   The endomorphism $T \in \End(\mathbb{C}[L_{-2}, L_{-3}, \dots])$ is given by $T(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \ge 2$, which is extended to a derivation.
 
-  The Poisson structure on $\gr^G(\Vir^c)$ is trivial (i.e., the map $Y_-$ is zero) because for $s \in \mathbb{Z}$, $G^{2s}\Vir^c = G^{2s + 1}\Vir^c$.
+  The Poisson structure of $\gr^G(\Vir^c)$ is trivial (i.e., the map $Y_-$ is zero) because for $s \in \mathbb{Z}$, $G^{2s}\Vir^c = G^{2s + 1}\Vir^c$.
 \end{example}
 
 \begin{remark}
-  \label{rmk:40}
+  \label{rmk:39}
   It is worth noting that we do not use the Poisson structure of $\gr(U(\Vir_{\le -2}))$ given in \Cref{exa:18}.
 \end{remark}
 
@@ -4079,7 +4078,7 @@ We note that if $V$ were conformal with conformal vector $\omega$, then we do no
 For example, for $V = \Vir^{1/2}$, $M = M(1/2, 1/2)$ and $\vachalf \in F_0M$, we have $L_{-1}\vachalf \notin F_1M$.
 
 \begin{remark}
-  \label{rmk:41}
+  \label{rmk:40}
   The observation above makes \cite[Lemma 3.1.2]{arakawa_remark_2012} incorrect because the expression $\sigma_{p - 1}(\omega_{(0)}m)$ that is written there (that should be $\sigma_{p + 1}(\omega_{(0)}m)$, but it still does not work) is not well defined.
   It is probably not possible to define a differential on $\gr_F(M)$ in a meaningful way.
   We will not need that differential in this thesis, though.
@@ -4181,7 +4180,7 @@ For $p \in \mathbb{Z}$, we set
 \end{proof}
 
 \begin{remark}
-  \label{rmk:42}
+  \label{rmk:41}
   We do not have the property $L_{-1}^M(G^pM) \subseteq G^pM$ as in the case of vertex algebras.
 \end{remark}
 
@@ -4330,13 +4329,13 @@ This is also valid for vertex algebras because all the definitions are compatibl
 \end{example}
 
 \begin{remark}
-  \label{rmk:43}
+  \label{rmk:42}
   That $+k$ in the isomorphism above is what makes this filtration different from the PBW filtration (see \Cref{sec:almost-comm-algebr}), where all $L_n$ for $n \le -1$ have the same length.
   On the other hand, with the standard filtration, $L_{-1}$ has length equal to $1$, while $L_{-2}$, $L_{-3}$, $\dots$ have length equal to $2$.
 \end{remark}
 
 \begin{remark}
-  \label{rmk:44}
+  \label{rmk:43}
   We could have done the theory of standard filtrations of modules for admissible modules over $\mathbb{N}$-graded vertex algebras (or maybe even over lower truncated $\mathbb{Z}$-graded vertex algebras, as it is done in \cite{li_vertex_2004}).
   However, if we do it like that, the characters would not have good meanings because one can always shift the grading in admissible modules, and the term $q^h$ is lost.
 \end{remark}
@@ -4522,12 +4521,12 @@ Fortunately, these two concepts are related, as the following theorem shows.
 \end{proof}
 
 \begin{remark}
-  \label{rmk:45}
+  \label{rmk:44}
   For a generalization of \Cref{thr:52} assuming $V$ is a lower truncated $\mathbb{Z}$-graded vertex algebra, see \cite[Theorem 4.8]{li_abelianizing_2005}.
 \end{remark}
 
 \begin{remark}
-  \label{rmk:46}
+  \label{rmk:45}
   In the proof of \cite[Corollary 2.6.2]{arakawa_remark_2012}, it is commented that the principal symbol map gives the isomorphism $V \xrightarrow{\sim} \gr_F(V)$.
   However, there are some difficulties with this because if there were such an isomorphism, it should be natural and valid for every vertex algebra $V$, given that $V$ is defined for every vertex algebra (see \Cref{sec:filtr-vert-algebr}).
   We now present an example in which $V$ and $\gr_F(V)$ satisfy:
@@ -4773,7 +4772,7 @@ We recover the series obtained in \cite[Theorem 4]{andrews_singular_2022} when w
 In the explicit monomial basis of \Cref{thr:4}, there are ordinary and exceptional partitions.
 The ordinary partitions are handled by the theory of $\Vir_{1/2}$-modules done in \Cref{sec:modul-over-viras}.
 The exceptional partitions are handled with computer software.
-As we can see, the arguments are similar to those in \cite{andrews_singular_2022}, but there are some differences such as the use of the Zhu algebra here but not in \cite{andrews_singular_2022}, and the fact that we do not have a differential available (see \Cref{rmk:41}).
+As we can see, the arguments are similar to those in \cite{andrews_singular_2022}, but there are some differences such as the use of the Zhu algebra here but not in \cite{andrews_singular_2022}, and the fact that we do not have a differential available (see \Cref{rmk:40}).
 Finally, we give formal proofs of \Cref{thr:3} and \Cref{thr:4}.
 
 \subsection{Conventions and notation}
@@ -5275,7 +5274,7 @@ For example, we have $(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf \in W$ and $\
 If we were using only the degree reverse lexicographical order with TOP, then we would get $L_{-3}L_{-1}\vachalf$ as leading monomial, and we do not want that.
 
 \begin{remark}
-  \label{rmk:47}
+  \label{rmk:46}
   The definition of the order in the PBW basis of $U(\Vir_{\le -1})$ was made to make the following statements true:
   \begin{enumerate}
   \item For $\lambda$ a partition and $a \in V$, if $\lm(a) = L_{\lambda}\vac$, then $\lm(\alpha^{\len(\lambda)}(a)) = p_{\lambda}$.
@@ -5296,8 +5295,8 @@ In other words, $u^W_{\lambda} = L_{\lambda}\vachalf + \text{(lower order terms)
 We set $u^K_{\lambda} = \alpha^{\len(\lambda)}(u^W_{\lambda})$ for each pivot $\lambda$ of $A^W_n$.
 
 \begin{remark}
-  \label{rmk:48}
-  By construction and \Cref{rmk:47}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
+  \label{rmk:47}
+  By construction and \Cref{rmk:46}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
 \end{remark}
 
 For example, when $n = 4$, the partitions are ordered in the following way
@@ -5327,7 +5326,7 @@ We set
   K' = (u^K_{[2]}, u^K_{[1, 1, 1]}, u^K_{[3, 1, 1]}, u^K_{[3, 3]}, u^K_{[4, 3, 1]}, u^K_{[4, 4, 1]}, u^K_{[5, 4, 1, 1]}, u^K_{[6, 5, 3, 1]}, \iota_0(I))_{\psn},
 \end{equation*}
 where $\psn$ denotes the Poisson submodule generated by the given subset.
-By \Cref{lmm:36}, \Cref{rmk:48} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
+By \Cref{lmm:36}, \Cref{rmk:47} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
 \begin{equation*}
 K' \subseteq K.
 \end{equation*}
@@ -5342,7 +5341,7 @@ We have
 where $\lambda$ is any partition, and $[\lambda, 1]$ denotes the partition $\lambda$ with a $1$ appended at the end.
 
 \begin{remark}
-  \label{rmk:49}
+  \label{rmk:48}
   While the Poisson structure of $\gr^G(V)$ is trivial (i.e., is zero), the Poisson structure of $\gr^G(M)$ is not.
   In fact, if $u \in \gr^G(M)$, and $\lambda$ is a partition, then
   \begin{equation*}
@@ -5365,14 +5364,14 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   By the definition of $K'$ and \cite[Proposition 5.1]{andrews_singular_2022}, we know that for $\lambda \in R$, there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
   We now assume $\lambda \in \overline{R}$, which means there is $\eta \in R$ such that $\lambda \supseteq \eta$.
   Therefore, $\lambda$ is obtained from $\eta$ by adding some integers greater than or equal to two and adding $k$ ones.
-  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:49}, and the fact that $\lm$ is multiplicative).
+  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:48}, and the fact that $\lm$ is multiplicative).
   Thus, we set $u = (L_{-2})^k_{(0)}(p_{\tau}v) \in K'$ to get $\lm(u) = u_{\lambda}$.
   For example, if we take $\lambda = [3, 2, 1, 1] \in \overline{R}$, then $\eta = [2] \in R$.
   In this case, $v = L_{-2}- 3/4L_{-1}^2 \in K'$ is such that $\lm(v) = u_{[2]}$, and we take $u = L_{-3}L_{-2}L_{-1}^2 - 3/4L_{-3}L_{-1}^4 \in K'$.
 \end{proof}
 
 \begin{remark}
-  \label{rmk:50}
+  \label{rmk:49}
   For any partitions $\lambda$ and $\eta$ with the same number of ones, if $\lambda \supseteq \eta$, then $u_{\eta} \mid u_{\lambda}$.
   The converse is not true.
   For example, $u_{[4, 2]} \mid u_{[4, 3, 2]}$ but $[4, 3, 2] \nsupseteq [4, 2]$.
@@ -5399,7 +5398,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   First, we prove the inclusion $(\supseteq)$.
   We assume $\lambda$ belongs to the right set, and $\lambda \supseteq \eta$ for some $\eta \in R$.
   Then $\lambda$ has $k$ more ones than $\eta$ for some $k \in \mathbb{N}$.
-  By \Cref{rmk:50}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$ where we added $k$ ones to $\eta$, a contradiction.
+  By \Cref{rmk:49}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$ where we added $k$ ones to $\eta$, a contradiction.
   Therefore, $\lambda \nsupseteq \eta$ for $\eta \in R$, which means $\lambda$ belongs to the left set.
 
   We now prove the inclusion $(\subseteq)$.
@@ -5407,7 +5406,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   Then $\lambda$ has $0$, $1$ or $2$ ones.
   We assume $\lambda$ has $0$ ones.
   It is enough to prove that for $\eta \in R$ with $0$ ones, $u_{\eta} \nmid u_{\lambda}$.
-  By \Cref{rmk:50}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
+  By \Cref{rmk:49}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
   We assume $\eta = [r + 2, r + 1, r]$ for some $r \ge 3$ and $u_{\eta} \mid u_{\lambda}$.
   Then $\lambda$ contains $[r + 2, r + 1, \dots, r + 1, r]$, where $r + 1$ appears $k \ge 1$ times.
   If $k \ge 2$, then $\lambda$ contains $[r + 1, r + 1, r]$, which is not possible.
@@ -5637,7 +5636,7 @@ A \emph{module} over $A$ is an $A$-module $M$ in the usual associative sense equ
 \end{enumerate}
 
 \begin{remark}
-  \label{rmk:51}
+  \label{rmk:50}
   We probably cannot prove the right Leibniz rule from the Left Leibniz rule for modules like in \Cref{lmm:39} because we do not have anticommutativity for modules.
   Some authors only require the left Leibniz rule for modules, but here we also want the right Leibniz rule (see \cite{caressa_examples_2003}).
 \end{remark}
@@ -5684,7 +5683,7 @@ The \emph{jet scheme} of an affine scheme of finite type $X = \Spec(R)$ is defin
 \end{equation*}
 
 \begin{remark}
-  \label{rmk:52}
+  \label{rmk:51}
   It is possible to define the jet scheme $JX$ of a general scheme $X$ of finite type (see \cite{ein_jet_2008}), but the construction is more elaborate, and we will only need the affine case.
 \end{remark}
 
