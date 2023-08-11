@@ -58,7 +58,6 @@
 \DeclareMathOperator{\Algf}{Alg^f}
 \DeclareMathOperator{\DAlg}{DAlg}
 \DeclareMathOperator{\Gen}{Gen}
-\DeclareMathOperator{\Shift}{Shift}
 
 \renewcommand*{\backref}[1]{}
 \renewcommand*{\backrefalt}[4]{%
@@ -183,6 +182,8 @@ It turns out that it is possible to reverse this process, i.e., start with an ir
 In this thesis, we focus on the Ising model $\Vir_{3, 4}$, which is conformal, $\mathbb{N}$-graded, $C_2$-cofinite and rational.
 The irreducible modules over $\Vir_{3, 4}$, called Ising modules, are $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$, which are irreducible highest weight representations of the Virasoro Lie algebra.
 To describe a PBW basis of Ising modules, we study filtrations of vertex algebras and their modules.
+These filtrations will yield a vertex Poisson algebra, in the case of vertex algebras, and a module over a vertex Poisson algebra, in the case of modules over vertex algebras.
+Thus, the situation is similar to that of Lie algebras: we start with a Lie algebra $\mathfrak{g}$, we make its universal enveloping algebra $U(\mathfrak{g})$, we consider the PBW filtration of $U(\mathfrak{g})$, and the resulting associated algebra $\gr(U(\mathfrak{g}))$ is canonically isomorphic to the polynomial algebra $S(\mathfrak{g})$ (see \Cref{sec:almost-comm-algebr}).
 
 In \cite{li_vertex_2004}, Li introduced an increasing filtration $(G^pV)_{p \in \mathbb{Z}}$ on an arbitrary $\mathbb{N}$-graded vertex algebra $V$.
 The associated graded space $\gr^G(V)$ with respect to this increasing filtration then carries the structure of an $\mathbb{N}$-graded vertex Poisson algebra.
@@ -266,7 +267,9 @@ Let $P^{1/2}$ be the set of partitions that do not contain any partition in $R^{
   is a vector space basis of $L(1/2, 1/2)$.
 \end{theorem}
 
-Specializing the character formula in \Cref{thr:7} to $t = 1$, we obtain that the character of $L(1/2, 1/2)$ is the sum of three Nahm sums for the same matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$ (cf.\ \cite{Nahm2007}).
+Specializing the character formula in \Cref{thr:3} to $t = 1$, we obtain that the character of $L(1/2, 1/2)$ is the sum of three Nahm sums for the same matrix $\left(\begin{smallmatrix} 8 & 3 \\ 3 & 2 \end{smallmatrix}\right)$ (cf.\ \cite{Nahm2007} and \cite{andrews_singular_2022}).
+The partitions in $P^0$ also have a combinatorial interpretation, as was noted in \cite{andrews_singular_2022} and \cite{tsuchioka_vertex_2023}.
+For example, for $n \in \mathbb{N}$, the number of partitions of $n$ in $P^0$ is the number of partitions of $n$ with parts congruent to $\pm 2$, $\pm 3$, $\pm 4$ and $\pm 5$ modulo $16$.
 
 \begin{theorem}
   \label{thr:5}
@@ -1946,7 +1949,7 @@ A \emph{conformal vertex superalgebra homomorphism} $(V_1, \omega_1) \to (V_2, \
 
 \begin{remark}
   \label{rmk:20}
-  Because homomorphisms of conformal vertex superalgebras respect the conformal vectors, they automatically respect the grading as well.
+  Because homomorphisms of conformal vertex superalgebras respect the conformal vectors, they automatically respect the gradings as well.
 \end{remark}
 
 \begin{theorem}[Universal property of $\Vir^c$]
@@ -2272,7 +2275,7 @@ With this notation, \eqref{eq:26} is equivalent to
   \end{enumerate}
 \end{proof}
 
-Homomorphisms of graded modules over graded vertex superalgebras are assumed to respect the gradings, i.e., if $f: M_1 \to M_2$ is a homomorphism of graded $V$-modules, then $f\circ H^{M_1} = H^{M_2}\circ f$, where $H^{M_1}$ is the Hamiltonian of $M_1$, and $H^{M_2}$ is the Hamiltonian of $M_2$.
+\emph{Homomorphisms of graded modules} over graded vertex superalgebras are assumed to respect the gradings.
 
 \begin{theorem}[{\cite[Proposition 4.1.5 and (4.1.18)]{lepowsky_introduction_2004}}]
   \label{thr:27}
@@ -2309,15 +2312,16 @@ We usually require $M_h \neq 0$, and when this happens, the number $h$ and the t
 \begin{remark}
   \label{rmk:25}
   Let $(V, \omega)$ be a conformal vertex algebra, and let $M_1$ and $M_2$ be $(V, \omega)$-modules.
-  A homomorphism $f: M_1 \to M_2$ automatically respects the gradings of $M_1$ and $M_2$.
+  A homomorphism $f: M_1 \to M_2$ automatically respects the gradings of $M_1$ and $M_2$ given by $L_0^{M_1}$ and $L_0^{M_2}$.
 \end{remark}
 
 Let $V$ be a $\mathbb{Z}$-graded vertex superalgebra.
-An \emph{admissible} $V$-module is a $V$-module $M$ together with a grading $M = \bigoplus_{n \in \mathbb{Z}}M(n)$ such that:
+An \emph{admissible} $V$-module is a $V$-module $M$ together with a grading $M = \bigoplus_{n \in \mathbb{Z}}M(n)$, such that:
 \begin{enumerate}
 \item $M(n) = 0$ for $n \in \mathbb{Z}_-$;
 \item $a^M_{(n)}M(m) \subseteq M(m + \Delta_a - n - 1)$ for $a \in V$ homogeneous and $m, n \in \mathbb{Z}$ or, equivalently, $a^M_nM(m) \subseteq M(m - n)$ for $a \in V$ homogeneous and $m, n \in \mathbb{Z}$.
 \end{enumerate}
+
 Thus, an admissible $V$-module is a pair $(M, \bigoplus_{n \in \mathbb{Z}}M(n))$ satisfying the above conditions, though we often omit the grading from the notation.
 If $M \neq 0$, we set $n_0 = \min\{n \in \mathbb{N} \mid M(n) \neq 0\}$.
 The subspace $M(n_0)$ is called the \emph{top degree component} of $M$.
@@ -2328,14 +2332,6 @@ We have defined the category of admissible $V$-modules, which is abelian.
 Arbitrary direct sums of admissible $V$-modules always exist.
 We note that shifting the grading of an admissible $V$-module gives an isomorphic admissible $V$-module, and that submodules of admissible $V$-modules are not necessarily graded.
 When $M \neq 0$ is an admissible $V$-module, we can always shift the grading so that $M(0) \neq 0$.
-Thus, we have a functor defined by
-\begin{align*}
-  \Shift: \{\text{admissible $V$-modules}\} &\to \{\text{admissible $V$-modules}\}, \\
-  \Shift\left(M, \bigoplus_{n \in \mathbb{Z}}M(n)\right) &= \left(M, \bigoplus_{n \in \mathbb{Z}}M(n - n_0)\right),
-\end{align*}
-if $M \neq 0$ and $M(n_0)$ is the top degree component of $M$.
-We set $\Shift(0) = 0$.
-This functor is clearly an equivalence of categories.
 
 A \emph{simple} or \emph{irreducible} admissible $V$-module is an admissible $V$-module $M$ such that $0$ is the only proper graded submodule of $M$.
 We note that we ask for graded submodules, not just submodules, in the definition of irreducible.
@@ -2345,7 +2341,7 @@ The completely reducible admissible $V$-modules form a full subcategory of the c
 Let $V$ be a $\mathbb{Z}$-graded conformal vertex algebra, and let $M$ be a module over $V$.
 As usual, we write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}} L^M_nz^{-n - 2}$.
 We consider the endomorphism $L^M_0 \in \End(M)$, which in general is not diagonalizable.
-By \Cref{lmm:10}, we have a direct sum decomposition
+By \Cref{lmm:10}(i), we have a direct sum decomposition
 \begin{equation*}
   M^{\Gen} = \bigoplus_{\Delta \in \mathbb{C}}M^{\Gen}_{\Delta}.
 \end{equation*}
@@ -2361,7 +2357,6 @@ We define
                   \end{cases}
   \end{split}
 \end{equation}
-
 We often consider $V$-modules $M$ satisfying the following condition
 \begin{equation}
   \label{eq:29}
@@ -2370,19 +2365,21 @@ We often consider $V$-modules $M$ satisfying the following condition
 
 \begin{proposition}
   \label{prp:10}
-  With notation as above, we have:
+  Let $V$ be a $\mathbb{Z}$-graded conformal vertex algebra, and let $M$ be a module over $V$. Then:
   \begin{enumerate}
+  \item If $M$ is admissible with grading $\bigoplus_{n \in \mathbb{Z}}M(n)$ such that for $n \in \mathbb{Z}$, $\dim(M(n)) < \infty$, then $M = M^{\Gen}$;
   \item If $a \in V$ is homogeneous, $n \in \mathbb{Z}$ and $u \in M^{\Gen}_{\Delta}$, then $a^M_nu \in M^{\Gen}_{\Delta - n}$;
   \item $M^{\Gen}$ is a submodule of $M$;
   \item If $M$ satisfies \eqref{eq:29}, then $M^{\Gen}$ is an admissible $V$-module with grading given by \eqref{eq:28};
-  \item If $f: M_1 \to M_2$ is a homomorphism of $V$-modules, then $f(M^{\Gen}_{1\Delta}) \subseteq M^{\Gen}_{2\Delta}$ for $\Delta \in \mathbb{C}$.
-    In particular, $f(M^{\Gen}_1) \subseteq M^{\Gen}_2$.
+  \item If $f: M_1 \to M_2$ is a homomorphism of $V$-modules, then $f(M^{\Gen}_{1\Delta}) \subseteq M^{\Gen}_{2\Delta}$ for $\Delta \in \mathbb{C}$ and $f(M^{\Gen}_1) \subseteq M^{\Gen}_2$.
   \end{enumerate}
 \end{proposition}
 
 \begin{proof}
   We omit superindexes in this proof.
   \begin{enumerate}
+  \item For $n \in \mathbb{Z}$, $L_0(M(n)) \subseteq M(n)$.
+    By \cite[\S6.8 Theorem 12]{hoffman_linear_1971}, for $n \in \mathbb{Z}$, $M(n) = M(n)^{\Gen}$, and this implies the assertion.
   \item From the formula $[L_0, a_n] = -na_n$ given in \eqref{eq:27}, we inductively get the formula
     \begin{equation*}
       L_0^ka_n = \sum_{j \in \mathbb{N}}\binom{k}{j}(-n)^ja_nL_j^{k - j} \quad \text{for $k \in \mathbb{N}$}.
@@ -2399,9 +2396,9 @@ We often consider $V$-modules $M$ satisfying the following condition
                                       &= 0.
     \end{align*}
     This means $a_nu \in M^{\Gen}_{\Delta - n}$.
-  \item From (i), we immediately get that $M^{\Gen}$ is a submodule of $M$.
+  \item From (ii), we immediately get that $M^{\Gen}$ is a submodule of $M$.
   \item If this condition is satisfied, then we have $M^{\Gen} = \bigoplus_{n \in \mathbb{Z}}M^{\Gen}(n)$.
-    From (i), we get that this grading makes $M^{\Gen}$ into an admissible $V$-module.
+    From (ii), we get that this grading makes $M^{\Gen}$ into an admissible $V$-module.
   \item This follows straight from the definitions. \qedhere
   \end{enumerate}
 \end{proof}
@@ -4743,9 +4740,9 @@ By the universal property of the $JR_V$-module $JR_V \otimes R_M$ (see \Cref{sec
   Then:
   \begin{enumerate}
   \item Any $V$-module $M$ satisfies $M = M^{\Gen}$ and \eqref{eq:29};
-  \item We have $\For\circ\Gen = \Id_{\text{\emph{$V$-Mod}}}$ and $\Gen\circ\For = \Shift$.
-    In particular, both $\For$ and $\Gen$ are equivalences of categories;
-  \item If $M$ is an admissible $V$-module, then $M$ is irreducible as an admissible $V$-module if and only if $M$ is irreducible as a $V$-module;
+  \item $\For\circ\Gen = \Id_{\text{\emph{$V$-Mod}}}$;
+  \item Both $\For$ and $\Gen$ are equivalences of categories;
+  \item If $M$ is a $V$-module, then $M$ is irreducible as a $V$-module if and only if $M$ with grading $\bigoplus_{n \in \mathbb{Z}}M^{\Gen}(n)$ is irreducible as an admissible $V$-module;
   \item Any irreducible $V$-module is an irreducible ordinary positive energy representation of $V$.
   \end{enumerate}
 \end{theorem}
@@ -4753,17 +4750,19 @@ By the universal property of the $JR_V$-module $JR_V \otimes R_M$ (see \Cref{sec
 \begin{proof}\leavevmode
   \begin{enumerate}
   \item The equality $M = M^{\Gen}$ is proved in \cite[Proposition 5.7]{abe_rationality_2003} and \eqref{eq:29} is proved in \cite[Lemma 5.6]{abe_rationality_2003}.
-  \item The equality $\For\circ\Gen = \Id_{\text{$V$-Mod}}$ is obvious.
-    The equality $\Gen\circ\For = \Shift$ is proved in \cite[Lemma 5.6]{abe_rationality_2003}.
-  \item We assume that $M$ is an irreducible admissible $V$-module.
-    By (ii), we can assume that $M = \bigoplus_{n \in \mathbb{Z}}M^{\Gen}(n)$.
+  \item This is obvious.
+  \item By \Cref{prp:10}(iv), both $\For$ and $\Gen$ are essentially surjective functors.
+    Both are fully faithful by definition.
+    Thus, both are equivalences of categories.
+  \item If $M$ is irreducible as a $V$-module then it clearly is irreducible as an admissible $V$-module.
+    We now assume $M$ is irreducible as an admissible $V$-module.
+    By (i), we can assume that $M = \bigoplus_{n \in \mathbb{Z}}M^{\Gen}(n)$.
     Let $N$ be a proper submodule of $M$.
     Then $L_0^M(N) \subseteq N$.
     By \Cref{lmm:10}(iii), $N = \sum_{\Delta \in \mathbb{C}}N \cap M^{\Gen}_{\Delta}$.
     This implies that $N = \sum_{n \in \mathbb{Z}}N \cap M^{\Gen}(n)$, i.e., $N$ is a proper graded submodule of $M$.
     Therefore, $N = 0$.
     In conclusion, $M$ is irreducible as a $V$-module.
-    If $M$ is an admissible $V$-module that is irreducible as a $V$-module, then it clearly is irreducible as an admissible $V$-module.
   \item This is \cite[Corollary 5.8]{abe_rationality_2003}. \qedhere
   \end{enumerate}
 \end{proof}
