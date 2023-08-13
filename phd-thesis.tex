@@ -868,7 +868,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
 \end{remark}
 
 Let $\mathfrak{g}$ be a Lie superalgebra, and let $C \in \mathfrak{g}$.
-A \emph{Virasoro formal distribution} with central charge $C$ is a $\mathfrak{g}$-valued formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ satisfying \eqref{eq:6} or, equivalently, \eqref{eq:7}, \eqref{eq:8} or \eqref{eq:9}.
+A \emph{Virasoro formal distribution} of central charge $C$ is a $\mathfrak{g}$-valued formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ satisfying \eqref{eq:6} or, equivalently, \eqref{eq:7}, \eqref{eq:8} or \eqref{eq:9}.
 
 \begin{example}[\emph{Current Lie conformal superalgebra}]
   \label{exa:2}
@@ -1051,7 +1051,7 @@ We follow the convention that the normal ordered ordering is read from right to 
 \begin{lemma}
   \label{lmm:3}
   Let $V$ be a purely even vector space.
-  Consider $s$ fields $a^1(z), \dots, a^s(z) \in \mathcal{F}(V)$, with $s \ge 2$, and let $b \in V$.
+  We consider $s$ fields $a^1(z), \dots, a^s(z) \in \mathcal{F}(V)$, with $s \ge 2$, and let $b \in V$.
   For $l \in \mathbb{Z}$,
   \begin{equation*}
     :a^1(z)a^2(z)\dots a^s(z):_{(l)}b = \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 1}R^{l, k}_{n_1, \dots, n_{s - 1}}(a^1(z), \dots, a^s(z))b,
@@ -1570,8 +1570,7 @@ Now we come to a very fundamental theorem, which allows us to construct noncommu
 
 Let $(\mathfrak{g}, \mathfrak{F}, T_0)$ be a regular formal distribution Lie superalgebra with $\mathfrak{F} = \{a^j(z)\}_{j \in J}$, and let $\mathfrak{g}_-$ be the annihilation subalgebra.
 Since $T_0(\mathfrak{g}_-) \subseteq \mathfrak{g}_-$, $DU(T_0): U(\mathfrak{g}) \to U(\mathfrak{g})$ is a $(U(\mathfrak{g}), U(\mathfrak{g}_-))$-bimodule homomorphism.
-Consider the trivial representation $0: \mathfrak{g}_- \to \mathfrak{gl}(\mathbb{C})$.
-We define:
+We consider the trivial representation $0: \mathfrak{g}_- \to \mathfrak{gl}(\mathbb{C})$, and we define:
 \begin{align*}
   V &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(\mathbb{C}) = U(\mathfrak{g}) \otimes_{U(\mathfrak{g}_-)} \mathbb{C}, \\
   \pi &= \Ind^{\mathfrak{g}}_{\mathfrak{g}_-}(0): \mathfrak{g} \to \mathfrak{gl}(V), \\
@@ -1728,11 +1727,11 @@ We now use this construction to obtain several important examples of vertex supe
   \end{equation*}
 \end{remark}
 
-\begin{example}[\emph{Universal Virasoro vertex algebra} with central charge $c$]
+\begin{example}[\emph{Universal Virasoro vertex algebra} of central charge $c$]
   \label{exa:5}
   We pick $c \in \mathbb{C}$.
   We take $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ as the regular formal distribution Lie superalgebra as constructed in \Cref{exa:1} and $\lambda: \mathbb{C}C \to \mathbb{C}, \lambda(C) = c$ as the linear functional.
-  The resulting vertex algebra is the universal Virasoro vertex algebra with central charge $c$, denoted by $\Vir^c$.
+  The resulting vertex algebra is the universal Virasoro vertex algebra of central charge $c$, denoted by $\Vir^c$.
 
   A \emph{partition} (of $n \in \mathbb{N}$) is a sequence $\lambda = [\lambda_1, \dots, \lambda_m]$ such that $\lambda_i \in \mathbb{Z}_+$ for $i = 1, \dots, m$, $\lambda_1 \ge \dots \ge \lambda_m$ (and $\lambda_1 + \dots + \lambda_m = n$).
   We also consider the \emph{empty partition} $\emptyset$, which is the unique partition of $0$.
@@ -1855,7 +1854,7 @@ A $\mathbb{Z}$ or $\mathbb{N}$-graded vertex superalgebra $V$ is a graded vertex
 Let $V$ be a vertex superalgebra.
 A \emph{conformal vector} of central charge $c \in \mathbb{C}$ of $V$ is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
 \begin{enumerate}
-\item $Y(\omega, z)$ is a Virasoro formal distribution with central charge $C = c\Id_V$;
+\item $Y(\omega, z)$ is a Virasoro formal distribution of central charge $C = c\Id_V$;
 \item $L_{-1} = T$;
 \item $L_0$ is diagonalizable.
 \end{enumerate}
@@ -1931,7 +1930,7 @@ A \emph{vertex operator superalgebra} is a $\mathbb{Z}$-graded conformal vertex 
   \begin{equation*}
     \omega = \frac{1}{2(k + h^{\wedge})}\sum_{i \in I}a^i_{(-1)}a_{i(-1)}\vac \in V^k(\mathfrak{g}).
   \end{equation*}
-  Then $\omega$ is a conformal vector with central charge $\frac{k\sdim(\mathfrak{g})}{k + h^{\wedge}}$, and for $a \in \mathfrak{g}$, $a(z)$ is a primary eigendistribution of conformal weight $1$.
+  Then $\omega$ is a conformal vector of central charge $\frac{k\sdim(\mathfrak{g})}{k + h^{\wedge}}$, and for $a \in \mathfrak{g}$, $a(z)$ is a primary eigendistribution of conformal weight $1$.
 \end{example}
 
 \begin{example}[{\cite[Proposition 4.10]{kac_vertex_1998}}]
@@ -1942,7 +1941,7 @@ A \emph{vertex operator superalgebra} is a $\mathbb{Z}$-graded conformal vertex 
   \begin{equation*}
     \omega = \frac{1}{2}\sum_{i \in I}a^i_{(-2)}a_{i(-1)}\vac \in F(V).
   \end{equation*}
-  Then $\omega$ is a conformal vector with central charge $-\frac{1}{2}\sdim(V)$, and all fields $a(z)$, where $a \in V$, are primary of conformal weight $1/2$.
+  Then $\omega$ is a conformal vector of central charge $-\frac{1}{2}\sdim(V)$, and all fields $a(z)$, where $a \in V$, are primary of conformal weight $1/2$.
 \end{example}
 
 A \emph{conformal vertex superalgebra homomorphism} $(V_1, \omega_1) \to (V_2, \omega_2)$ is a homomorphism of vertex superalgebras $V_1 \to V_2$ such that $\omega_1 \mapsto \omega_2$.
@@ -2584,7 +2583,7 @@ By \eqref{eq:30} and \Cref{thr:20}(vi), the bracket in $[V]_0$ is given by
   [a(\Delta_a - 1), b(\Delta_b - 1)] = \sum_{j \in \mathbb{N}}\binom{\Delta_a - 1}{j}(a_{(j)}b)(\Delta_{a_{(j)}b} - 1) \quad \text{for $a, b \in V$ homogeneous}.
 \end{equation}
 
-Consider the surjective linear map
+We consider the surjective linear map
 \begin{align*}
   \psi: V &\twoheadrightarrow [V]_0, \\
   \psi(a) &= a(\Delta_a - 1).
@@ -4421,7 +4420,7 @@ Furthermore, if $\sigma_0(a)$ and $\sigma_0(b)$ are homogeneous, then $\sigma_0(
   \begin{equation*}
     R_{\Vir_c} \cong \mathbb{C}[L_{-2}]/(L_{-2}^{(p - 1)(q - 1)/2}).
   \end{equation*}
-  Thus, $\Vir^c$ is never $C_2$-cofinite while $\Vir_c$ is $C_2$-cofinite only when $c$ is of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers.
+  Thus, $\Vir^c$ is never $C_2$-cofinite, while $\Vir_c$ is $C_2$-cofinite only when $c$ is of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers.
 \end{example}
 
 The \emph{associated variety} $X_V$ and the \emph{singular support} $SS(V)$ of a vertex algebra $V$ (no condition on $V$) are defined by:
@@ -4544,7 +4543,7 @@ Fortunately, these two concepts are related, as the following theorem shows.
   \item The vector spaces $V$ and $\gr_F(V)$ have different dimensions;
   \item $R_V$ is finitely generated, but $V$ is not finitely strongly generated.
   \end{enumerate}
-  Consider the commutative vertex algebra $V = \mathbb{C}[[t]]$ with derivation $T = t^2\frac{d}{dt}$.
+  We consider the commutative vertex algebra $V = \mathbb{C}[[t]]$ with derivation $T = t^2\frac{d}{dt}$.
   We have:
   \begin{align*}
     F_0V &= \mathbb{C}[[t]], \\
@@ -4842,7 +4841,6 @@ Therefore, for a partition $\lambda$, we have
 \begin{equation*}
   L_{\lambda}\vachalf \in G^{\len(\lambda)}M_{1/2 + \Delta(\lambda)}.
 \end{equation*}
-
 For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$, we define $p_{\lambda} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$ by setting
 \begin{equation*}
   p_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m}.
@@ -4868,7 +4866,7 @@ From the epimorphism of $V$-modules $\pi: M \twoheadrightarrow L$, we deduce the
 
 In this thesis, we will deal with polynomial algebras written as $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and free modules of the form $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ for some $N \in \mathbb{N}$.
 We will always use the degree reverse lexicographical order with $L_{-2} > L_{-3} > \dots > L_{-N}$ and TOP (term over position) with $L_{-1}^0 < L_{-1}^1 < \dots < L_{-1}^N$.
-We can extend the definition of $\lm$ (leading monomial) as follows.
+We can extend the definition of $\lm$ (\emph{leading monomial}) as follows.
 For any element $u \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, we pick $N$ large enough so that $u \in \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$.
 Then, we define $\lm(u)$ as the leading monomial in $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$, which is naturally a subset of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$.
 This does not depend on the choice of $N$.
@@ -4919,7 +4917,7 @@ We define
 \begin{equation*}
   p(t, q) = \sum_{\lambda \in P}t^{\len(\lambda)}q^{\Delta(\lambda)} \in \mathbb{C}[[t, q]],
 \end{equation*}
-where $P$ is the set of partitions that do not contain any partition in $R$, as defined in \Cref{sec:introduction}, i.e.,
+where $P$ is the set of partitions that do not contain any partition in $R$ as defined in \Cref{sec:introduction}, i.e.,
 \begin{equation*}
   P = \{\lambda \mid \text{for $\eta \in R$, $\lambda \nsupseteq \eta$}\}.
 \end{equation*}
@@ -4956,7 +4954,7 @@ It turns out that $P$ is made of the these ``smaller'' objects, and we can find 
 \end{lemma}
 
 \begin{proof}
-  Consider the disjoint union
+  We consider the disjoint union
   \begin{equation*}
     P_{>2} = P_{4, 3} \cup P_{6, 5, 3} \cup P_{>6, 5, 3} \cup P_{>5, 3} \cup P_{4, 4} \cup P_{5, 4} \cup P_{>5, 4} \cup P_{>4},
   \end{equation*}
@@ -5073,7 +5071,7 @@ It turns out that $P$ is made of the these ``smaller'' objects, and we can find 
 \end{lemma}
 
 \begin{proof}
-  Consider the disjoint union
+  We consider the disjoint union
   \begin{equation*}
     P_{>2, 1} = P_{5, 3, 1} \cup P_{>5, 3, 1} \cup P_{5, 4, 1} \cup P_{>5, 4, 1} \cup P_{>4, 1}.
   \end{equation*}
@@ -5118,7 +5116,7 @@ It turns out that $P$ is made of the these ``smaller'' objects, and we can find 
 \end{lemma}
 
 \begin{proof}
-  Consider the disjoint union
+  We consider the disjoint union
   \begin{equation*}
     P_{>3, 1, 1} = P_{4, 1, 1} \cup P_{>4, 1, 1}.
   \end{equation*}
@@ -5258,7 +5256,7 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
     K = \sum_{p \in \mathbb{N}}\alpha^p(W \cap G^pM).
   \end{equation*}
   Let $\alpha^p(a) \in I$ with $a \in U(\Vir)\{a_{3, 4}\} \cap G^pV$.
-  By \Cref{lmm:35} and \eqref{eq:48}, $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
+  By \Cref{lmm:35} and \eqref{eq:48}, we have $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
 \end{proof}
 
 We need to compute all leading monomials of elements of $K$.
@@ -5280,7 +5278,7 @@ We define the \emph{leading monomial} of $x$ as $\lm(x) = L_{\lambda_1}$.
 We set $\lm(0) = 0$.
 We extend the definition of $\lm$ from $U(\Vir_{\le -1})$ to $V$ and $M$ by considering the isomorphisms of vector spaces: $U(\Vir_{\le -2}) \xrightarrow{\sim} V, L_{\lambda} \mapsto L_{\lambda}\vac$ and $U(\Vir_{\le -1}) \xrightarrow{\sim} M, L_{\lambda} \mapsto L_{\lambda}\vachalf$, where $\lambda$ is a partition and $U(\Vir_{\le -2}) = \{L_{\lambda} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_m]$ satisfies $\lambda_m \ge 2$}\}$.
 For example, we have $(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf \in W$ and $\lm((L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf) = L_{-1}^4\vachalf$.
-If we were using only the degree reverse lexicographical order with TOP, then we would get $L_{-3}L_{-1}\vachalf$ as leading monomial, and we do not want that.
+If we were using only the degree reverse lexicographical order with TOP, then we would get $L_{-3}L_{-1}\vachalf$ as leading monomial instead.
 
 \begin{remark}
   \label{rmk:46}
@@ -5383,7 +5381,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   \label{rmk:49}
   For any partitions $\lambda$ and $\eta$ with the same number of ones, if $\lambda \supseteq \eta$, then $u_{\eta} \mid u_{\lambda}$.
   The converse is not true.
-  For example, $u_{[4, 2]} \mid u_{[4, 3, 2]}$ but $[4, 3, 2] \nsupseteq [4, 2]$.
+  For example, $u_{[4, 2]} \mid u_{[4, 3, 2]}$, but $[4, 3, 2] \nsupseteq [4, 2]$.
   However, if $\eta = [\eta_1, \dots, \eta_m, 1, \dots, 1]$ with $\eta_m \ge 2$ and $\eta_1 - \eta_m \le 1$, then $\lambda \supseteq \eta$ if and only if $u_{\eta} \mid u_{\lambda}$, provided $\lambda$ and $\eta$ have the same number of ones.
 \end{remark}
 
@@ -5422,7 +5420,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   If $k = 1$, then $\lambda$ contains $[r + 2, r + 1, r]$, which is not possible.
   Therefore, we cannot have $u_{\eta} \mid u_{\lambda}$.
   Continuing this way, we obtain that $u_{\eta} \nmid u_{\lambda}$ for $\eta \in R$ with $0$ ones.
-  The same argument can be made when $\lambda$ has $1$ or $2$ ones.
+  The same argument can be applied when $\lambda$ has $1$ or $2$ ones.
   Therefore, $\lambda$ belongs to the right set.
 \end{proof}
 
@@ -5441,7 +5439,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   \begin{equation*}
     F_N = \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n
   \end{equation*}
-  with base ring $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$, because a basis of $\gr^G(M)_{\le 1/2 + N}$ is given by elements of the form $u_{\lambda}$, with all the elements of $\lambda$ being less than $N$, and with $\lambda$ having at most $N$ ones.
+  with base ring $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ because a basis of $\gr^G(M)_{\le 1/2 + N}$ is given by elements of the form $u_{\lambda}$, with all the elements of $\lambda$ being less than $N$, and with $\lambda$ having at most $N$ ones.
   We note that $K \cap F_N$ is a submodule of $F_N$ for $N \in \mathbb{N}$.
 
   For $N \in \mathbb{N}$, we have natural vector space isomorphisms
@@ -5480,7 +5478,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
     |\overline{B_N}| = \sum_{n \le N}|P(n)|.
   \end{equation*}
 
-  On the other hand, we have $B_N \subseteq \overline{B_N}$ because if $u_{\lambda} \in B_N$ and $\eta \in \overline{R}$, then we have $u_{\eta} \nmid u_{\lambda}$, because if we had $u_{\eta} \mid u_{\lambda}$, then by \Cref{lmm:37}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$, then by the definition of Gröbner basis, there would exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
+  On the other hand, we have $B_N \subseteq \overline{B_N}$ because if $u_{\lambda} \in B_N$ and $\eta \in \overline{R}$, then we have $u_{\eta} \nmid u_{\lambda}$ because if we had $u_{\eta} \mid u_{\lambda}$, then by \Cref{lmm:37}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$, then by the definition of Gröbner basis, there would exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
   We see that the family of bases given by \eqref{eq:50} satisfies the property that one basis is contained in the next one, and this concludes the proof of \Cref{thr:4}.
 \end{proof}
@@ -5749,7 +5747,7 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 \end{lemma}
 
 \begin{proof}[Sketch of proof]
-  Consider the disjoint union
+  We consider the disjoint union
   \begin{equation*}
     P_{>2} = P_{3, 3} \cup P_{6, 4, 3} \cup P_{>6, 4, 3} \cup P_{6, 5, 3} \cup P_{8, 7, 5, 3} \cup P_{>8, 7, 5, 3} \cup P_{>7, 5, 3} \cup P_{>5, 3} \cup P_{4, 4} \cup P_{5, 4} \cup P_{>5, 4} \cup P_{>4}.
   \end{equation*}
@@ -5863,7 +5861,7 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 \end{lemma}
 
 \begin{proof}
-  Consider the disjoint union
+  We consider the disjoint union
   \begin{equation*}
     P_{>2, 1} = P_{6, 5, 3, 1} \cup P_{8, 7, 5, 3, 1} \cup P_{>8, 7, 5, 3, 1} \cup P_{>7, 5, 3, 1} \cup P_{>5, 3, 1} \cup P_{4, 4, 1} \cup P_{5, 4, 1} \cup P_{>5, 4, 1} \cup P_{>4, 1}.
   \end{equation*}
@@ -5928,7 +5926,7 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 \end{lemma}
 
 \begin{proof}
-  Consider the disjoint union
+  We consider the disjoint union
   \begin{equation*}
     P_{>2, 1, 1} = P_{7, 5, 3, 1, 1} \cup P_{>7, 5, 3, 1, 1} \cup P_{>5, 3, 1, 1} \cup P_{5, 4, 1, 1} \cup P_{>5, 4, 1, 1} \cup P_{>4, 1, 1}.
   \end{equation*}
@@ -5978,7 +5976,7 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 \end{lemma}
 
 \begin{proof}
-  Consider the disjoint union
+  We consider the disjoint union
   \begin{equation*}
     P_{>3, 1, 1, 1} = P_{4, 1, 1, 1} \cup P_{>4, 1, 1, 1}.
   \end{equation*}
@@ -6013,7 +6011,7 @@ The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vec
 \begin{proof}
   This follows from the disjoint union
   \begin{equation*}
-    p = p_{>2} \cup p_{>2, 1} \cup p_{>2, 1, 1} \cup p_{>3, 1, 1, 1}
+    P = P_{>2} \cup P_{>2, 1} \cup P_{>2, 1, 1} \cup P_{>3, 1, 1, 1}
   \end{equation*}
   together with \Cref{lmm:40}, \Cref{lmm:41}, \Cref{lmm:42}, \Cref{lmm:43} and \Cref{lmm:28}.
 \end{proof}

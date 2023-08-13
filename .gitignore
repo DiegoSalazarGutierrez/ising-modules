@@ -12,6 +12,7 @@ auto
 *.ilg
 *.ind
 *.toc
+*.brf
 last-commit-message
 .ipynb_checkpoints
 #.gitignore#
