@@ -11,5 +11,6 @@ This work is licensed under the GNU General Public License v3.0.
 3. ising-modules.bib is the bibtex bibliography
 4. ising-modules-1-16.nb is a Mathematica notebook about verifying series identities related to L(1/2, 1/16) (much of the data is obtained from the semi-simplified branch)
 5. ising-modules.nb is a Mathematica notebook about verifying series identities related to L(1/2, 1/2) (much of the data is obtained from the semi-simplified branch)
-6. ising-modules.tex is the LaTeX source code
+6. ising-modules.tex is the LaTeX source code of the article
 7. m11-m15.ipynb is a SageMath notebook about verfying that m11 and m15 are redundant
+8. phd-thesis.tex is the LaTeX source code of my thesis based on the article
