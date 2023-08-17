@@ -546,14 +546,13 @@ Therefore, we have:
 \end{align*}
 We wish to find an expression for $p(t, q)$ as a sum of series $f_{a, b, c, d}(t, q)$ for some tuples $(a, b, c, d)$.
 
-We now define subsets of $P$ which will help us in finding an expression for $p(t, q)$.
-We set:
+We now define subsets of $P$, which will help us in finding an expression for $p(t, q)$, by setting:
 \begin{align*}
   P_{>2} &= \{[\lambda_1, \dots, \lambda_m] \in P \mid \text{$\lambda_m > 2$ or $\lambda = \emptyset$}\}, \\
   P_2 &= \{[\lambda_1, \dots, \lambda_m] \in P \mid \lambda_m = 2\},
 \end{align*}
 and both $p_{>2}(t, q)$ and $P_{>2}(n, m)$ are defined like $p(t, q)$ and $P(n, m)$ were defined.
-We similarly define objects like $P_{>6, 5, 3}$, $P_{6, 5, 3}$, $p_{>6, 5, 3}(t, q)$, $p_{6, 5, 3}(t, q)$, $P_{>6, 5, 3}(n, m)$ and $P_{6, 5, 3}(n, m)$.
+Likewise, we define $P_{>6, 5, 3}$, $P_{6, 5, 3}$, $p_{>6, 5, 3}(t, q)$, $p_{6, 5, 3}(t, q)$, $P_{>6, 5, 3}(n, m)$ and $P_{6, 5, 3}(n, m)$.
 It turns out that $P$ is made of the these ``smaller'' objects, and we can find recurrence relations between them to find our desired formula for $p(t, q)$.
 
 \begin{lemma}
@@ -798,7 +797,7 @@ For $x \in U(\Vir_{\le -1})$ with $x \neq 0$, we may write
 where for $1 \le i \le r$, $0 \neq c_i \in \mathbb{C}$ and $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_r}$.
 We define the \emph{leading monomial} of $x$ as $\lm(x) = L_{\lambda_1}$.
 We set $\lm(0) = 0$.
-We extend the definition of $\lm$ from $U(\Vir_{\le -1})$ to $V$ and $M$ by considering the isomorphisms of vector spaces: $U(\Vir_{\le -2}) \xrightarrow{\sim} V, L_{\lambda} \mapsto L_{\lambda}\vac$ and $U(\Vir_{\le -1}) \xrightarrow{\sim} M, L_{\lambda} \mapsto L_{\lambda}\vachalf$, where $\lambda$ is a partition and $U(\Vir_{\le -2}) = \{L_{\lambda} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_m]$ satisfies $\lambda_m \ge 2$}\}$.
+Next, we extend the definition of $\lm$ from $U(\Vir_{\le -1})$ to $V$ and $M$ by considering the isomorphisms of vector spaces: $U(\Vir_{\le -2}) \xrightarrow{\sim} V, L_{\lambda} \mapsto L_{\lambda}\vac$ and $U(\Vir_{\le -1}) \xrightarrow{\sim} M, L_{\lambda} \mapsto L_{\lambda}\vachalf$, where $\lambda$ is a partition and $U(\Vir_{\le -2}) = \{L_{\lambda} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_m]$ satisfies $\lambda_m \ge 2$}\}$.
 For example, we have $(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf \in W$ and $\lm((L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf) = L_{-1}^4\vachalf$.
 If we were using only the degree reverse lexicographic order with TOP, then we would get $L_{-3}L_{-1}\vachalf$ as leading monomial instead.
 
@@ -1074,7 +1073,7 @@ where
 \label{sec:case-l12-116}
 
 We can do the same analysis we did for $L(1/2, 1/2)$ but with $L(1/2, 1/16)$ instead.
-The arguments are the same but the computations are, of course, different.
+The arguments are the same, but the computations are, of course, different.
 These computations will be briefly shown now.
 
 We recall the definitions of $P^{1/16}$ and $R^{1/16}$ given in \Cref{sec:introduction}.
