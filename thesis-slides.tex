@@ -1,0 +1,138 @@
+\documentclass[notheorems]{beamer}
+\usetheme{Madrid}
+
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[nameinlink]{cleveref}
+
+\setbeamertemplate{theorems}[numbered]
+
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{remark}
+\newtheorem{example}{Example}
+
+\setenumerate[0]{label = \normalfont(\roman*)}
+
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\lm}{lm}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\psn}{psn}
+\DeclareMathOperator{\vac}{|0\rangle}
+\DeclareMathOperator{\zero}{\overline{0}}
+
+\title{PBW bases of irreducible Ising modules}
+\author{Diego Salazar}
+\institute[IMPA]
+{
+  Instituto de Matemática Pura e Aplicada (IMPA)\\
+  Rio de Janeiro -- Brasil\\[1cm]
+}
+\date[26 September 2023]{26 September 2023}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+  \frametitle{Vertex superalgebras}
+  A \emph{vertex superalgebra} is the data consisting of four elements $(V, \vac, T, Y)$ satisfying the following properties:
+  \begin{enumerate}
+  \item $V$ is a superspace called the \emph{state space};
+  \item $\vac \in V_{\zero}$ is called the \emph{vacuum vector};
+  \item $T \in \End(V)_{\zero}$ is called the \emph{translation operator};
+  \item $Y: V \to \mathcal{F}(V)$ is a linear and parity preserving map called the \emph{state-field correspondence}, which is commonly written as $Y(a, z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1}$ for $a \in V$.
+  \end{enumerate}
+  The data must satisfy the following axioms for $a \in V$:
+\end{frame}
+
+\begin{frame}
+  \begin{enumerate}
+  \item (Vacuum axiom)
+    \begin{align*}
+      Y(\vac,z) &= \Id_V, \\
+      Y(a, z)\vac &\in V[[z]], \\
+      Y(a, z)\vac|_{z = 0} &= a, \\
+      T\vac &= 0;
+    \end{align*}
+  \item (Translation covariance) $[T, Y(a, z)] = \partial_zY(a, z)$;
+  \item (Locality) $\{Y(b, z) \mid b \in V\}$ is a local family of fields.
+  \end{enumerate}
+
+  Axioms (i)--(iii) are equivalent to the following three axioms.
+  For $a, b, c \in V$ and $m, n \in \mathbb{Z}$:
+  \begin{align}
+    \label{eq:1}
+    (\vac)_{(n)} &= \delta_{n, -1}\Id_V, \\
+    \label{eq:2}
+    [a_{(m)}, b_{(n)}] &= \sum_{j \in \mathbb{N}}(a_{(j)}b)_{(m + n - j)}, \\
+    \label{eq:3}
+    (a_{(n)}b)_{(m)}u &= \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a_{(n - j)}b_{(m + j)}u - (-1)^np(a, b)b_{(n + m - j)}a_{(j)}u).
+  \end{align}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Modules over vertex superalgebras}
+  Let $V$ be a vertex superalgebra.
+  A $V$-module is equivalently a superspace $M$ together with a linear and parity preserving map $Y^M: V \to \mathcal{F}(M)$, written as $Y^M(a, z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}$, such that for $a, b \in V$, $u \in M$ and $m, n \in \mathbb{Z}$:
+  \begin{align}
+    \label{eq:4}
+    (\vac)^M_{(n)} &= \delta_{n, -1}\Id_M, \\
+    \label{eq:5}
+    [a^M_{(m)}, b^M_{(n)}] &= \sum_{j \in \mathbb{N}}(a_{(j)}b)^M_{(m + n - j)}, \\
+    \label{eq:6}
+    (a_{(n)}b)^M_{(m)}u &= \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a^M_{(n - j)}b^M_{(m + j)}u - (-1)^np(a, b)b^M_{(n + m - j)}a^M_{(j)}u).
+  \end{align}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of vertex algebras and their modules}
+  \begin{example}[Commutative vertex algebras]
+    \label{exa:1}
+    Let $V$ be a differential commutative associative algebra with unit $1$ and derivation $T$.
+    Then $V$ becomes a vertex algebra by setting  $\vac = 1$ and
+    \begin{equation*}
+      Y(a, z) = e^{Tz}a \quad \text{for $a \in V$}.
+    \end{equation*}
+  \end{example}
+
+  \begin{example}[Virasoro Lie algebra]
+    \label{exa:2}
+    The Virasoro Lie algebra, denoted by $\Vir$, is the Lie algebra given by:
+    \begin{equation*}
+      \begin{split}
+        \Vir &= \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_{n} \oplus \mathbb{C}C, \\
+        [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
+        [\Vir, C] &= 0.
+      \end{split}
+    \end{equation*}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{example}[Virasoro vertex algebras]
+    \label{exa:3}
+    We make the subalgebra $\Vir_{\ge -1} \oplus \mathbb{C}C$ act on $\mathbb{C}$ as follows:
+    \begin{equation*}
+      \text{$L_n1 = 0$ for $n \ge -1$, $C1 = c$}.
+    \end{equation*}
+    The \emph{universal Virasoro vertex algebra} of central charge $c$, denote by $\Vir^c$, is an induced $\Vir$-module given by
+    \begin{equation*}
+      \Vir^c = \Ind^{\Vir}_{\Vir_{\ge -1} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge -1} \oplus \mathbb{C}C)} \mathbb{C}.
+    \end{equation*}
+
+    The vertex algebra $\Vir^c$ has a unique maximal ideal, and the quotient $\Vir_c$ is the \emph{simple Virasoro vertex algebra}.
+
+    By the PBW theorem, a basis of $\Vir^c$, also known as PBW basis, is given by
+    \begin{equation*}
+      \{L_{-\lambda_1}\dots L_{-\lambda_m}\vac \mid \text{$\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition with $\lambda_m \ge 2$}\}.
+    \end{equation*}
+  \end{example}
+\end{frame}
+
+\end{document}

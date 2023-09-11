@@ -4,7 +4,7 @@
 \usepackage{enumerate}
 \usepackage[backref = page]{hyperref}
 \usepackage[margin = 0.75in]{geometry}
-\usepackage{enumitem}
+\usepackage[shortlabels]{enumitem}
 \usepackage{tikz-cd}
 \usepackage[nameinlink]{cleveref}
 \usepackage{stmaryrd}
@@ -1391,9 +1391,8 @@ The tensor product $V_1 \otimes V_2$ is a vertex algebra with the vacuum vector 
   Furthermore, the vacuum vector $\vac$ is a unit, and the operator $T$ is a derivation with respect to this product.
   Thus, we have the structure of a differential commutative associative algebra with unit on $V$.
 
-  Conversely, let $V$ be a differential commutative associative algebra with unit $1$, and let $T$ be a derivation of $V$.
-  Then $V$ can become a vertex algebra.
-  We take $\vac = 1$, and we set
+  Conversely, let $V$ be a differential commutative associative algebra with unit $1$ and derivation $T$.
+  Then $V$ becomes a vertex algebra by setting $\vac = 1$ and
   \begin{equation*}
     Y(a, z) = e^{Tz}a \quad \text{for $a \in V$}.
   \end{equation*}
@@ -4267,7 +4266,7 @@ Therefore, we obtain a functor
 
 \begin{proof}
   We recall three facts:
-  \begin{enumerate}[label = (\alph*)]
+  \begin{enumerate}[(a)]
   \item $M_{h + n} \subseteq G^nM$ for $n \in \mathbb{Z}$;
   \item $\Delta_{a^M_{(n)}u} = \Delta_a + \Delta_u - n - 1$ for homogeneous $a \in V$, $u \in M$ and $n \in \mathbb{Z}$;
   \item For $p \in \mathbb{Z}_+$ and $n \in \mathbb{N}$,
