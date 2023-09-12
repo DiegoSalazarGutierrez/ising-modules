@@ -72,7 +72,7 @@
     \label{eq:2}
     [a_{(m)}, b_{(n)}] &= \sum_{j \in \mathbb{N}}(a_{(j)}b)_{(m + n - j)}, \\
     \label{eq:3}
-    (a_{(n)}b)_{(m)}u &= \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a_{(n - j)}b_{(m + j)}u - (-1)^np(a, b)b_{(n + m - j)}a_{(j)}u).
+    (a_{(n)}b)_{(m)}c &= \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a_{(n - j)}b_{(m + j)}c - (-1)^np(a, b)b_{(n + m - j)}a_{(j)}c).
   \end{align}
 \end{frame}
 
@@ -119,20 +119,119 @@
     \label{exa:3}
     We make the subalgebra $\Vir_{\ge -1} \oplus \mathbb{C}C$ act on $\mathbb{C}$ as follows:
     \begin{equation*}
-      \text{$L_n1 = 0$ for $n \ge -1$, $C1 = c$}.
+      \text{$L_n1 = 0$ for $n \ge -1$ and $C1 = c$}.
     \end{equation*}
     The \emph{universal Virasoro vertex algebra} of central charge $c$, denote by $\Vir^c$, is an induced $\Vir$-module given by
     \begin{equation*}
       \Vir^c = \Ind^{\Vir}_{\Vir_{\ge -1} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge -1} \oplus \mathbb{C}C)} \mathbb{C}.
     \end{equation*}
 
-    The vertex algebra $\Vir^c$ has a unique maximal ideal, and the quotient $\Vir_c$ is the \emph{simple Virasoro vertex algebra}.
+    The vertex algebra $\Vir^c$ has a unique maximal ideal, and the quotient $\Vir_c$ is the \emph{simple Virasoro vertex algebra} of central charge $c$.
 
     By the PBW theorem, a basis of $\Vir^c$, also known as PBW basis, is given by
     \begin{equation*}
-      \{L_{-\lambda_1}\dots L_{-\lambda_m}\vac \mid \text{$\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition with $\lambda_m \ge 2$}\}.
+      \{\underbrace{L_{-\lambda_1}\dots L_{-\lambda_m}}_{L_{\lambda}}\vac \mid \text{$\lambda = [\lambda_1, \dots, \lambda_m]$ is a partition with $\lambda_m \ge 2$}\}.
     \end{equation*}
   \end{example}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Highest weight representations of $\Vir$}
+  The Virasoro Lie algebra $\Vir$ has the following antilinear anti-involution
+  \begin{align*}
+    \omega: \Vir &\to \Vir, \\
+    \omega(L_n) &= L_{-n} \quad \text{for $n \in \mathbb{Z}$}, \\
+    \omega(C) &= C.
+  \end{align*}
+
+  A $\Vir$-module $V$ with a Hermitian form $\langle\bullet| \bullet\rangle$ is \emph{contravariant} if
+  \begin{equation*}
+    \langle au| v\rangle = \langle u| \omega(a)v\rangle \quad \text{for $a \in \Vir$ and $u, v \in V$}.
+  \end{equation*}
+  We further say $V$ is \emph{unitary} if, in addition, it is positive-definite.
+
+  A \emph{highest weight representation} of $\Vir$ is a $\Vir$-module $V$, which has a nonzero vector $v$ such that there exist $c, h \in \mathbb{C}$ satisfying:
+  \begin{enumerate}
+  \item $Cv = cv$;
+  \item $L_0v = hv$;
+  \item $V = \vspan\{L_{-i_k}\dots L_{-i_1}v \mid i_k \ge \dots \ge i_1 > 0\}$.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \begin{example}[Verma modules]
+    \label{exa:4}
+    We pick a pair $(c, h)$ of complex numbers.
+    The subalgebra $\Vir_{\ge 0} \oplus \mathbb{C}C$ of $\Vir$ acts on $\mathbb{C}$ as follows:
+    \begin{equation*}
+      \text{$L_n1 = 0$ for $n \in \mathbb{Z}_+$, $L_01 = h$ and $C1 = c$}.
+    \end{equation*}
+    Then
+    \begin{equation*}
+      M(c, h) = \Ind^{\Vir}_{\Vir_{\ge 0} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge 0} \oplus \mathbb{C}C)} \mathbb{C}
+    \end{equation*}
+    is a $\Vir$-module, where $\Vir$ acts by left multiplication.
+    We set $|c, h\rangle = 1\otimes1$.
+    We call this module the Verma module, and it is a highest weight representation of $\Vir$ with highest weight $(c, h)$.
+    The representation $M(c, h)$ has a unique maximal subrepresentation $J(c, h)$ and the quotient
+    \begin{equation*}
+      L(c, h) = M(c, h)/J(c, h)
+    \end{equation*}
+    is the irreducible highest weight representation with highest weight $(c, h)$.
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  Let $V$ be a highest weight representation with highest weight $(c, h)$ and highest weight vector $v$.
+  For a vector $u \in M(c, h)$, we define the \emph{expectation value} of $u$ as the coefficient of $v$ in the decomposition $V = \bigoplus_{j \in \mathbb{N}}V_{h + j}$ where $V_{\Delta}$ is the $\Delta$-eigenspace of $L_0$.
+  We can define a contravariant Hermitian form on $V$ by setting
+  \begin{equation}
+    \label{eq:7}
+    \langle L_{\lambda}v| u\rangle = \langle\omega(L_{\lambda})u\rangle \quad \text{for a partition $\lambda$ and $u \in V$}.
+  \end{equation}
+  A highest weight representation is $V$ \emph{unitary} if this form is unitary.
+  A unitary representation is necessarily irreducible and thus of the form $L(c, h)$ for some highest weight $(c, h)$.
+
+  Let $M(c, h)$ be the Verma module of $\Vir$, and we consider the determinant $\det_n(c, h)$ of the contravariant Hermitian form $\langle\bullet| \bullet\rangle$ restricted to $M(c, h)_{h + n}$.
+\end{frame}
+
+\begin{frame}
+  \begin{theorem}[Kac determinant formula {\cite[Theorem 4.2]{iohara_representation_2011}}]
+    \label{thr:1}
+    For $n \in \mathbb{N}$,
+    \begin{equation*}
+      \textstyle\det_n(c, h) = \displaystyle\text{constant}\cdot\prod_{\substack{k, l \in \mathbb{Z}_+ \\ k \ge l \\ 1 \le kl \le n}}\phi_{k, l}(c, h)^{p(n - kl)},
+    \end{equation*}
+    where
+    \begin{align*}
+      &\phi_{k, l}(c, h) = \\
+      &\begin{cases}
+        (h + \frac{(k^2 - 1)(c - 13)}{24} + \frac{kl - 1}{2})(h + \frac{(l^2 - 1)(c - 13)}{24} + \frac{kl - 1}{2}) + \frac{(k^2 - l^2)^2}{16} &\text{if $k \neq l$};\\
+        h + \frac{(k^2 - 1)(c - 13)}{24} + \frac{k^2 - 1}{2} &\text{if $k = l$}.
+      \end{cases}
+    \end{align*}
+  \end{theorem}
+\end{frame}
+
+\begin{frame}
+  It is always possible to write (nonuniquely)
+  \begin{equation*}
+    c = \frac{(3r + 2s)(3s + 2r)}{rs}, h = \frac{(r + s)^2 - t^2}{4rs}
+  \end{equation*}
+  for some $r, s \in \mathbb{C} \setminus \{0\}$ and $t \in \mathbb{C}$.
+  Then
+  \begin{equation*}
+    \phi_{k, l}(c, h) =
+    \begin{cases}
+      \frac{(rk + sl + t)(sk + rl + t)(rk + sl - t)(sk + rl - t)}{rs} &\text{if $k \neq l$};\\
+      \frac{(rk + sk + t)(rk + sk - t)}{4rs} &\text{if $k = l$}.
+    \end{cases}
+  \end{equation*}
+
+  Therefore, to find singular vectors in $M(c, h)$, we have to study integral solutions to the linear equation $rk + sl + t = 0$.
+  This line is real if and only if $c \le 1$ or $c \ge 25$.
+  Let $l_{c, h}$ denote the solutions to this linear equation.
+\end{frame}
+\bibliographystyle{alpha}
+\bibliography{ising-modules.bib}
 \end{document}
