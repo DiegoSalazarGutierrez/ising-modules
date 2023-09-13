@@ -14,3 +14,4 @@ This work is licensed under the GNU General Public License v3.0.
 6. ising-modules.tex is the LaTeX source code of the article
 7. m11-m15.ipynb is a SageMath notebook about verfying that m11 and m15 are redundant
 8. phd-thesis.tex is the LaTeX source code of my thesis based on the article
+9. thesis-slides.tex is the LaTeX source code of my thesis slides
