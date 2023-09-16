@@ -1,7 +1,7 @@
 \documentclass{beamer}
 \usetheme{Madrid}
 
-\usepackage{enumitem}
+\usepackage[shortlabels]{enumitem}
 \usepackage{tikz-cd}
 \usepackage[nameinlink]{cleveref}
 
@@ -11,6 +11,7 @@
 
 \DeclareMathOperator{\Vir}{Vir}
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\gr}{gr}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\ch}{ch}
 \DeclareMathOperator{\vspan}{span}
@@ -36,14 +37,95 @@
 \maketitle
 
 \begin{frame}
-  \frametitle{Vertex superalgebras}
+  \frametitle{The Virasoro Lie algebra and its modules}
+
+  The \emph{Virasoro Lie algebra}, denoted by $\Vir$, is the Lie algebra given by:
+  \begin{align*}
+    \Vir &= \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C, \\
+    [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
+    [\Vir, C] &= 0.
+  \end{align*}
+  We pick a pair $(c, h)$ of complex numbers.
+  The subalgebra $\Vir_{\ge 0} \oplus \mathbb{C}C$ of $\Vir$ acts on $\mathbb{C}$ as follows:
+  \begin{equation*}
+    \text{$L_n1 = 0$ for $n \in \mathbb{Z}_+$, $L_01 = h$ and $C1 = c$}.
+  \end{equation*}
+  The \emph{Verma module} with highest weight $(c, h)$ is the induced $\Vir$-module
+  \begin{equation*}
+    M(c, h) = \Ind^{\Vir}_{\Vir_{\ge 0} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge 0} \oplus \mathbb{C}C)} \mathbb{C}.
+  \end{equation*}
+
+\end{frame}
+
+\begin{frame}
+
+  We set $|c, h\rangle = 1\otimes1$.
+  The representation $M(c, h)$ has a unique maximal subrepresentation $J(c, h)$, and the quotient
+  \begin{equation*}
+    L(c, h) = M(c, h)/J(c, h)
+  \end{equation*}
+  is the \emph{irreducible highest weight representation} with highest weight $(c, h)$.
+
+  \begin{theorem}[{PBW Theorem}]
+    \label{thr:1}
+    A PBW basis of $M(c, h)$ is given by monomials $L_{-\lambda_1}\dots L_{-\lambda_m}|c, h\rangle$ for partitions $\lambda = [\lambda_1, \dots, \lambda_m]$.
+  \end{theorem}
+
+  We can ask a similar question for $L(c, h)$:
+  \begin{enumerate}[(a)]
+  \item What is a PBW basis of $L(c, h)$?
+  \end{enumerate}
+  By a PBW basis of $L(c, h)$ we mean a basis of monomials of the form $L_{-\lambda_1}\dots L_{-\lambda_m}(|c, h\rangle + J(c, h))$ for ``some partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ satisfying something''.
+\end{frame}
+
+\begin{frame}
+  \frametitle{PBW basis of the Ising model}
+
+  For the \emph{Ising model} $\Vir_{3, 4} = L(1/2, 0)$, this can be done.
+  Let $R^0$ be the following set of partitions
+  \footnotesize
+  \begin{align*}
+    &[r, r, r], [r + 1, r, r], [r + 1, r + 1, r], [r + 2, r + 1, r], [r + 2, r + 2, r], &(r \ge 2) \\
+    &[r + 2, r, r], &(r \ge 3) \\
+    &[r + 3, r + 3, r, r], [r + 4, r + 3, r, r],  [r + 4, r + 3, r + 1, r], [r + 4, r + 4, r + 1, r], &(r \ge 2) \\
+    &[r + 6, r + 5, r + 3, r + 1, r], &(r \ge 2) \\
+    &[5, 4, 2, 2], [7, 6, 4, 2, 2], [7, 7, 4, 2, 2], [9, 8, 6, 4, 2, 2].
+  \end{align*}
+  \normalsize
+  Let $P^0$ be the set of partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$ that do not contain any partition in $R^0$.
+
+  \begin{theorem}[{\cite{andrews_singular_2022}}]
+    \label{thr:2}
+    The set $\{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vac \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P^0\}$ is a vector space basis of the Ising model $\Vir_{3, 4}$.
+  \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vertex superalgebras and their modules}
+
+  Let $V$ be a vector space.
+  An $\End(V)$-valued formal distribution $a(z) \in \End(V)[[z^{\pm 1}]]$ is a \emph{field} if
+  \begin{equation*}
+    a(z)b = \sum_{n \in \mathbb{Z}}a_{(n)}bz^{-n - 1} \in V((z)) \quad \text{for $b \in V$}.
+  \end{equation*}
+  The vector space of fields over $V$ is denoted by $\mathcal{F}(V)$.
+
+  A pair $(a(z), b(z))$ of $\End(V)$-valued formal distributions is said \emph{local} if there exists $N \in \mathbb{N}$ such that
+  \begin{equation*}
+    (z - w)^N[a(z), b(w)] = 0.
+  \end{equation*}
+
+\end{frame}
+
+\begin{frame}
 
   A \emph{vertex superalgebra} is the data consisting of four elements $(V, \vac, T, Y)$ satisfying the following properties:
   \begin{enumerate}
   \item $V$ is a superspace called the \emph{state space};
   \item $\vac \in V_{\zero}$ is called the \emph{vacuum vector};
   \item $T \in \End(V)_{\zero}$ is called the \emph{translation operator};
-  \item $Y: V \to \mathcal{F}(V)$ is a linear and parity preserving map called the \emph{state-field correspondence}, which is commonly written as $Y(a, z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1}$ for $a \in V$.
+  \item $Y: V \to \mathcal{F}(V)$ is a linear and parity preserving map called the \emph{state-field correspondence}.
   \end{enumerate}
   The data must satisfy the following axioms for $a \in V$:
 
@@ -74,10 +156,9 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Modules over vertex superalgebras}
 
   Let $V$ be a vertex superalgebra.
-  A $V$-module is a superspace $M$ together with a linear and parity preserving map $Y^M: V \to \mathcal{F}(M)$, written as $Y^M(a, z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}$, such that for $a, b \in V$, $u \in M$ and $m, n \in \mathbb{Z}$:
+  A \emph{module over $V$} or $V$-module is a superspace $M$ together with a linear and parity preserving map $Y^M: V \to \mathcal{F}(M)$, written as $Y^M(a, z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}$, such that for $a, b \in V$, $u \in M$ and $m, n \in \mathbb{Z}$:
   \begin{align*}
     (\vac)^M_{(n)} &= \delta_{n, -1}\Id_M, \\
     [a^M_{(m)}, b^M_{(n)}] &= \sum_{j \in \mathbb{N}}(a_{(j)}b)^M_{(m + n - j)}, \\
@@ -87,84 +168,58 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Examples of vertex algebras and their modules}
-
-  \begin{example}[Commutative vertex algebras]
-    \label{exa:1}
-    Let $V$ be a differential commutative associative algebra with unit $1$ and derivation $T$.
-    Then $V$ becomes a vertex algebra by setting  $\vac = 1$ and
-    \begin{equation*}
-      Y(a, z) = e^{Tz}a \quad \text{for $a \in V$}.
-    \end{equation*}
-  \end{example}
-
-  \begin{example}[Virasoro Lie algebra]
-    \label{exa:2}
-    The Virasoro Lie algebra, denoted by $\Vir$, is the Lie algebra given by:
-    \begin{align*}
-      \Vir &= \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C, \\
-      [L_m, L_n] &= (m - n)L_{m + n} + \delta_{m, -n}\frac{m^3 - m}{12}C \quad \text{for $m, n \in \mathbb{Z}$}, \\
-      [\Vir, C] &= 0.
-    \end{align*}
-  \end{example}
-
-\end{frame}
-
-\begin{frame}
 
   \begin{example}[Virasoro vertex algebras]
-    \label{exa:3}
+    \label{exa:1}
+    We pick $c \in \mathbb{C}$.
     We make the subalgebra $\Vir_{\ge -1} \oplus \mathbb{C}C$ act on $\mathbb{C}$ as follows:
     \begin{equation*}
       \text{$L_n1 = 0$ for $n \ge -1$ and $C1 = c$}.
     \end{equation*}
-    The \emph{universal Virasoro vertex algebra} of central charge $c$, denote by $\Vir^c$, is an induced $\Vir$-module given by:
+    The \emph{universal Virasoro vertex algebra of central charge $c$}, denote by $\Vir^c$, is an induced $\Vir$-module given by:
     \begin{align*}
       \Vir^c &= \Ind^{\Vir}_{\Vir_{\ge -1} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge -1} \oplus \mathbb{C}C)} \mathbb{C}, \\
-      \vac &= 1\otimes 1, \\
-      T & = L_{-1}, \\
+      \vac &= 1\otimes1, \\
+      T &= L_{-1}, \\
       Y(L_{-2}\vac, z) &= \sum_{n \in \mathbb{Z}}L_{-n}z^{-n - 2}.
     \end{align*}
 
-    The vertex algebra $\Vir^c$ has a unique maximal ideal, and the quotient $\Vir_c$ is the \emph{simple Virasoro vertex algebra} of central charge $c$.
+    The vertex algebra $\Vir^c$ has a unique maximal ideal, and the quotient $\Vir_c$ is the \emph{simple Virasoro vertex algebra of central charge $c$}.
   \end{example}
 
 \end{frame}
 
 \begin{frame}
 
-  \begin{example}[Verma modules]
-    \label{exa:4}
-    We pick a pair $(c, h)$ of complex numbers.
-    The subalgebra $\Vir_{\ge 0} \oplus \mathbb{C}C$ of $\Vir$ acts on $\mathbb{C}$ as follows:
-    \begin{equation*}
-      \text{$L_n1 = 0$ for $n \in \mathbb{Z}_+$, $L_01 = h$ and $C1 = c$}.
-    \end{equation*}
-    Then
-    \begin{equation*}
-      M(c, h) = \Ind^{\Vir}_{\Vir_{\ge 0} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge 0} \oplus \mathbb{C}C)} \mathbb{C}
-    \end{equation*}
-    is a $\Vir$-module, where $\Vir$ acts by left multiplication.
-    We set $|c, h\rangle = 1\otimes1$.
-    We call this module the \emph{Verma module} with highest weight $(c, h)$.
-    The representation $M(c, h)$ has a unique maximal subrepresentation $J(c, h)$, and the quotient
-    \begin{equation*}
-      L(c, h) = M(c, h)/J(c, h)
-    \end{equation*}
-    is the irreducible highest weight representation with highest weight $(c, h)$.
+  We see that for $c \in \mathbb{C}$:
+  \begin{align*}
+    \Vir^c &= M(c, 0)/U(\Vir)\{L_{-1}|c, 0\rangle\}, \\
+    \Vir_c &= L(c, 0).
+  \end{align*}
+
+  By the PBW theorem, a PBW basis of $\Vir^c$ is given by monomials $L_{-\lambda_1}\dots L_{-\lambda_m}\vac$ for partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$.
+
+  \begin{example}[Modules over $\Vir^c$]
+    \label{exa:2}
     Both $M(c, h)$ and $L(c, h)$ are modules over the vertex algebra $\Vir^c$.
+    In fact, the modules over $\Vir^c$ are the smooth $\Vir$-modules of central charge $C$.
   \end{example}
+
+  It is natural to ask:
+  \begin{enumerate}[(a)]
+    \setcounter{enumi}{1}
+  \item When is $\Vir^c$ equal to $\Vir_c$?
+  \item What are the modules over $\Vir_c$?
+  \end{enumerate}
 
 \end{frame}
 
 \begin{frame}
-
-  By the PBW theorem, a basis of $\Vir^c$, a.k.a.~PBW basis, is given by monomials $L_{-\lambda_1}\dots L_{-\lambda_m}\vac$ for partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$.
 
   Let $p, q \ge 2$ be relatively prime integers, and we set $c_{p, q} = 1 - \frac{6(p - q)^2}{pq}$.
 
   \begin{theorem}[{\cite{gorelik_simplicity_2007}}]
-    \label{thr:1}
+    \label{thr:3}
     The following are equivalent:
     \begin{enumerate}
     \item $\Vir^c$ is not simple, i.e., $\Vir^c \neq \Vir_c$;
@@ -181,39 +236,16 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{PBW basis of the Ising model}
-
-  For the \emph{Ising model} $\Vir_{3, 4} = \Vir_{1/2} = L(1/2, 0)$, we have $a_{3, 4} = (L_{-2}^3 + \frac{93}{64}L_{-3}^2 - \frac{27}{16}L_{-6} - \frac{33}{8}L_{-4}L_{-2})\vac$.
-  Let $R^0$ be the following set of partitions
-  \footnotesize
-  \begin{align*}
-    &[r, r, r], [r + 1, r, r], [r + 1, r + 1, r], [r + 2, r + 1, r], [r + 2, r + 2, r], &(r \ge 2) \\
-    &[r + 2, r, r], &(r \ge 3) \\
-    &[r + 3, r + 3, r, r], [r + 4, r + 3, r, r],  [r + 4, r + 3, r + 1, r], [r + 4, r + 4, r + 1, r], &(r \ge 2) \\
-    &[r + 6, r + 5, r + 3, r + 1, r], &(r \ge 2) \\
-    &[5, 4, 2, 2], [7, 6, 4, 2, 2], [7, 7, 4, 2, 2], [9, 8, 6, 4, 2, 2].
-  \end{align*}
-  \normalsize
-  Let $P^0$ be the set of partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$ that do not contain any partition in $R^0$.
-
-  \begin{theorem}[{\cite{andrews_singular_2022}}]
-    \label{thr:2}
-    The set $\{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vac \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P^0\}$ is a vector space basis of the Ising model $\Vir_{3, 4}$.
-  \end{theorem}
-
-\end{frame}
-
-\begin{frame}
   \frametitle{Graded and conformal vertex superalgebras}
 
   Let $V$ be a vertex superalgebra.
-  A \emph{Hamiltonian operator} of $V$ is a diagonalizable operator $H \in \End(V)$ such that
+  A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that
   \begin{equation}
     \label{eq:1}
     [H, Y(a, z)] = z\partial_zY(a, z) + Y(Ha, z) \quad \text{for $a \in V$}.
   \end{equation}
   A vertex superalgebra with a Hamiltonian operator is called \emph{graded}.
-  The \emph{grading} of $V$ is the eigenspace decomposition of $H$
+  The \emph{grading of $V$} is the eigenspace decomposition of $H$
   \begin{equation*}
     V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta},
   \end{equation*}
@@ -221,7 +253,7 @@
   \begin{equation*}
     V_{\Delta} = \ker(H - \Delta\Id_V) \quad \text{for $\Delta \in \mathbb{C}$}.
   \end{equation*}
-  If $a$ is an eigenvector of $H$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight} of $a$, and it is denoted by $\Delta_a$.
+  If $a$ is an eigenvector of $H$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight of $a$}, and it is denoted by $\Delta_a$.
   For $a \in V$ homogeneous, we write $Y(a, z) = \sum_{n \in \mathbb{Z} - \Delta_a}a_nz^{-n - \Delta_a}$.
 
 \end{frame}
@@ -229,17 +261,18 @@
 \begin{frame}
 
   Let $V$ be a vertex superalgebra.
-  A \emph{conformal vector} of central charge $c \in \mathbb{C}$ of $V$ is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
+  A \emph{conformal vector (of central charge $c \in \mathbb{C}$)} of $V$ is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
   \begin{enumerate}
   \item $Y(\omega, z)$ is a Virasoro formal distribution of central charge $C = c\Id_V$;
   \item $L_{-1} = T$;
   \item $L_0$ is diagonalizable.
   \end{enumerate}
 
-  A \emph{conformal vertex superalgebra} (of central charge $c$) is a vertex superalgebra $V$ together with a conformal vector $\omega$ (of central charge $c$).
+  A \emph{conformal vertex superalgebra (of central charge $c$)} is a vertex superalgebra $V$ together with a conformal vector $\omega$ (of central charge $c$).
   Conformal vertex algebras are graded by $L_0$, and the conformal vector $\omega$ has conformal weight $\Delta_{\omega} = 2$.
 
   \begin{example}
+    \label{exa:3}
     We pick $c \in \mathbb{C}$.
     Both $\Vir^c$ and $\Vir_c$ are conformal vertex algebras with conformal vector $L_{-2}\vac$.
   \end{example}
@@ -250,14 +283,15 @@
   \frametitle{Characters of modules over vertex superalgebras}
 
   Let $M$ be a module over a graded vertex superalgebra $V$ with Hamiltonian operator $H$.
-  A \emph{Hamiltonian operator} of $M$ is a diagonalizable operator $H^M \in \End(M)$ satisfying \eqref{eq:1}.
+  A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ satisfying \eqref{eq:1}.
   If $V$ is conformal with conformal vector $\omega$ such that $L_0^M$ is diagonalizable, where $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L_n^Mz^{-n - 2}$, then $M$ is graded by $L_0^M$.
-  Furthermore, if $M$ is $h + \mathbb{N}$-graded for some $h \in \mathbb{R}$, we define the \emph{character} of $M$ by
+  Furthermore, if $M$ is $h + \mathbb{N}$-graded for some $h \in \mathbb{R}$, we define the \emph{character of $M$} by
   \begin{equation*}
     \ch_M(q) = \sum_{n \in \mathbb{N}}\dim(M_{h + n})q^{h + n} \in q^h\mathbb{C}[[q]].
   \end{equation*}
 
   \begin{example}
+    \label{exa:4}
     The Verma module $M(c, h)$ for some highest weight $(c, h)$ satisfies
     \begin{equation*}
       \ch_{M(c, h)}(q) = \frac{q^h}{\prod_{j \in \mathbb{N}}(1 - q^j)}.
@@ -269,12 +303,17 @@
 \begin{frame}
 
   \begin{theorem}[{\cite{andrews_singular_2022}}]
+    \label{thr:4}
     The characters of $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$ are given by:
+    \footnotesize
     \begin{align*}
-      \ch_{L(1/2, 0)} &= \sum_{k_1, k_2 \in \mathbb{N}}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(1 - q^{4k_1 + 2k_2 +1}), \\
-      \ch_{L(1/2, 1/2)} &= q^{1/2}\left(\sum_{k_1, k_2 \in \mathbb{N}}\frac{q^{4k_1^2 +3k_1k_2 + k_2^2 + 2k_1}}{(q)_{k_1}(q)_{k_2}}(1 - q^{8k_1 + 4k_2 + 6})\right), \\
-      \ch_{L(1/2, 1/16)} &= q^{1/16}\left(\sum_{k_1, k_2 \in \mathbb{N}}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(q^{k_1 + k_2} + q^{4k_1 + k_2 + 1})\right).
+      \ch_{L(1/2, 0)}(q) &= \sum_{k_1, k_2 \in \mathbb{N}}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(1 - q^{4k_1 + 2k_2 +1}), \\
+      \ch_{L(1/2, 1/2)}(q) &= q^{1/2}\left(\sum_{k_1, k_2 \in \mathbb{N}}\frac{q^{4k_1^2 +3k_1k_2 + k_2^2 + 2k_1}}{(q)_{k_1}(q)_{k_2}}(1 - q^{8k_1 + 4k_2 + 6})\right), \\
+      \ch_{L(1/2, 1/16)}(q) &= q^{1/16}\left(\sum_{k_1, k_2 \in \mathbb{N}}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(q^{k_1 + k_2} + q^{4k_1 + k_2 + 1})\right), \\
+      \ch_{\gr^G(L(1/2, 0))}(t, q) &= \sum_{k_1, k_2 \in \mathbb{N}}t^{4k_1 + 2k_2}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(1 - q^{k_1} + q^{k_1 + k_2}),
     \end{align*}
+    \normalsize
+    where $\gr^G$ denotes the associated vertex Poisson algebra with respect to the standard filtration as defined in \cite{li_vertex_2004} and \cite{arakawa_remark_2012}.
   \end{theorem}
 
 \end{frame}
@@ -291,11 +330,11 @@
   \end{align*}
 
   \begin{theorem}[{\cite{dong_twisted_1998}}]
-    \label{thr:3}
+    \label{thr:5}
     The subspace $O(V)$ is a two-sided ideal of $V$ under the operation $*$, and $V/O(V)$ becomes an associative algebra with unit $\vac + O(V)$.
   \end{theorem}
 
-  The \emph{Zhu algebra} of $V$ is the quotient $\Zhu(V) = V/O(V)$.
+  The \emph{Zhu algebra of $V$} is the quotient $\Zhu(V) = V/O(V)$.
 
 \end{frame}
 
@@ -307,7 +346,7 @@
   \end{equation*}
 
   \begin{theorem}[{\cite{dong_twisted_1998}}]
-    \label{thr:4}
+    \label{thr:6}
     Let $V$ be a $\mathbb{Z}$-graded vertex algebra, and let $M$ be a $V$-module.
     Then the following map
     \begin{align*}
@@ -328,7 +367,7 @@
 
   \begin{example}
     \label{exa:5}
-    If $V = \Vir^c$ and $M$ is a $\Vir^c$-module, then $\Omega(M) = \{u \in M \mid \text{for $n \in \mathbb{Z}_+$, $L_nu = 0$}\}$ is the subspace of singular vectors of $M$.
+    If $V = \Vir^c$, and $M$ is a $\Vir^c$-module, then $\Omega(M) = \{u \in M \mid \text{for $n \in \mathbb{Z}_+$, $L_nu = 0$}\}$ is the subspace of singular vectors of $M$.
   \end{example}
 
   We can construct a right inverse for $\Omega$, i.e., we have a pair of functors
@@ -340,22 +379,23 @@
   such that $\Omega\circ L$ is equivalent to the identity.
 
   \begin{theorem}[{\cite{dong_twisted_1998}}]
-    \label{thr:5}
+    \label{thr:7}
     $L$ and $\Omega$ are equivalences when restricted to the full subcategories of completely reducible $\Zhu(V)$-modules and completely reducible admissible $V$-modules respectively.
   \end{theorem}
 
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Modules over the Virasoro vertex algebras}
+  \frametitle{Modules over the simple Virasoro vertex algebras}
 
   \begin{example}[{\cite{wang_rationality_1993}}]
+    \label{exa:6}
     For $c \in \mathbb{C}$, we have $\Zhu(\Vir^c) \cong \mathbb{C}[x]$.
     For $c = c_{p, q}$ for some $p, q \ge 2$ relatively prime integers, we have $\Zhu(\Vir_c) \cong \mathbb{C}[x]/(G_{p, q}(x))$, where $G_{p ,q}(x)^2 = \prod_{m = 1}^{p - 1}\prod_{n = 1}^{q - 1}(x - h_{m, n})$ and $h_{m, n} = \frac{(np - mq)^2 - (p - q)^2}{4pq}$.
   \end{example}
 
   \begin{theorem}[{\cite{wang_rationality_1993}}]
-    \label{thr:6}
+    \label{thr:8}
     We set $c = c_{p, q}$ for some $p, q \ge 2$ relatively prime integers.
     Then the irreducible admissible modules over $\Vir_c$ are $L(c, h_{m, n})$ for integers $m, n$ such that $0 < m < p$ and $0 < n < q$, and the following diagram commutes
     \begin{equation*}
@@ -371,7 +411,7 @@
 \begin{frame}
   \frametitle{PBW bases of irreducible Ising modules}
 
-  It follows from \Cref{thr:6} that the irreducible admissible modules over the Ising model $\Vir_{3, 4}$, called \emph{Ising modules}, are $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
+  It follows from \Cref{thr:8} that the irreducible admissible modules over the Ising model $\Vir_{3, 4}$, called \emph{Ising modules}, are $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
 
   Let $R^{1/2}$ be the following set of partitions
   \footnotesize
@@ -386,7 +426,7 @@
   Let $P^{1/2}$ be the set of partitions that do not contain any partition in $R^{1/2}$.
 
   \begin{theorem}[\cite{salazar_pbw_2023}]
-    \label{thr:7}
+    \label{thr:9}
     The set $\{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vachalf \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P^{1/2}\}$ is a vector space basis of $L(1/2, 1/2)$.
   \end{theorem}
 
@@ -408,12 +448,31 @@
   Let $P^{1/16}$ be the set of partitions that do not contain any partition in $R^{1/16}$.
 
   \begin{theorem}[\cite{salazar_pbw_2023}]
+    \label{thr:10}
     The set $\{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vacsixteen \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P^{1/16}\}$ is a vector space basis of $L(1/2, 1/16)$.
   \end{theorem}
 
 \end{frame}
 
 \begin{frame}
+
+  \begin{corollary}[{\cite{salazar_pbw_2023}}]
+    \label{crl:1}
+    The refined characters of $L(1/2, 1/2)$ and $L(1/2, 1/16)$ are:
+    \footnotesize
+    \begin{align*}
+      &\ch_{\gr^G(L(1/2, 1/2))}(t, q) = \\
+      &q^{1/2}\left(\sum_{k_1, k_2 \in \mathbb{N}}t^{4k_1 + 2k_2}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(q^{3k_1 + 2k_2} + q^{5k_1 + 2k_2 + 1}t + q^{6k_1 + 3k_2 + 2}t^2)\right), \\
+      &\ch_{\gr^G(L(1/2, 1/16))}(t, q) = \\
+      &q^{1/16}\left(\sum_{k_1, k_2 \in \mathbb{N}}t^{4k_1 + 2k_2}\frac{q^{4k_1^2 + 3k_1k_2 + k_2^2}}{(q)_{k_1}(q)_{k_2}}(q^{k_1 + k_2} + q^{4k_1 + 2k_2 + 1}t + q^{7k_1 + 3k_2 + 3}t^3)\right),
+    \end{align*}
+    \normalsize
+    where $\gr^G$ denotes the associated module over the vertex Poisson algebra $\gr^G(\Vir^{1/2})$ with respect to the standard filtration as defined in \cite{salazar_pbw_2023}.
+  \end{corollary}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
   \frametitle{References}
 
   \footnotesize
