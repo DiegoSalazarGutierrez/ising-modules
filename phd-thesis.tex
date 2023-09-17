@@ -333,15 +333,15 @@ Finally, we construct a couple of functors from the category of vertex algebras 
 All vector spaces and all algebras are over $\mathbb{C}$, the field of complex numbers, unless otherwise stated.
 The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$, and the set of negative integers $\{-1, -2, \dots\}$ is denoted by $\mathbb{Z}_-$.
 
-The vector space of \emph{formal distributions} in $n \in \mathbb{N}$ variables, denoted by $\mathbb{C}[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}x_1^{m_1}\dots x_n^{m_n}$, with the natural operations of addition and multiplication by a scalar.
-The field of \emph{rational functions} in $n$ variables, denoted by $\mathbb{C}(x_1, \dots, x_n)$, is the field of fractions $\Frac(\mathbb{C}[x_1, \dots, x_n])$.
+The vector space of \emph{formal distributions in $n \in \mathbb{N}$ variables}, denoted by $\mathbb{C}[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$, is the set of functions $f: \mathbb{Z}^n \to \mathbb{C}$, written as $f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{Z}}f_{m_1, \dots, m_n}x_1^{m_1}\dots x_n^{m_n}$, with the natural operations of addition and multiplication by a scalar.
+The field of \emph{rational functions in $n$ variables}, denoted by $\mathbb{C}(x_1, \dots, x_n)$, is the field of fractions $\Frac(\mathbb{C}[x_1, \dots, x_n])$.
 The field of \emph{formal Laurent series}, denoted by $\mathbb{C}((x))$, is the subalgebra of elements $f(x) \in \mathbb{C}[[x^{\pm 1}]]$ such that there is $N \in \mathbb{Z}$ with $f_n = 0$ for $n \le N$.
 We also have $\mathbb{C}((x)) = \Frac(\mathbb{C}[[x]])$.
-The field of \emph{joint Laurent series} in $n$ variables, denoted by $\mathbb{C}((x_1, \dots, x_n))$, is $\Frac(\mathbb{C}[[x_1, \dots, x_n]])$.
+The field of \emph{joint Laurent series in $n$ variables}, denoted by $\mathbb{C}((x_1, \dots, x_n))$, is $\Frac(\mathbb{C}[[x_1, \dots, x_n]])$.
 If $V$ is a vector space, we similarly define $V[[x_1^{\pm 1}, \dots, x_n^{\pm 1}]]$ and $V((x))$, but in this case, $V((x))$ is only a vector space.
 
 Let $V$ be a vector space.
-The \emph{Fourier expansion} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$, written as $a(z) = \sum_{n \in \mathbb{Z}}a_nz^n$, is conventionally written in the theory of vertex superalgebras as
+The \emph{Fourier expansion of a formal distribution $a(z) \in V[[z^{\pm 1}]]$}, written as $a(z) = \sum_{n \in \mathbb{Z}}a_nz^n$, is conventionally written in the theory of vertex superalgebras as
 \begin{equation*}
   a(z) = \sum_{n \in \mathbb{Z}}a_{(n)}z^{-n - 1},
 \end{equation*}
@@ -349,7 +349,7 @@ where
 \begin{equation*}
   a_{(n)} = a_{-n - 1}.
 \end{equation*}
-The \emph{residue} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$ is defined as
+The \emph{residue of a formal distribution $a(z) \in V[[z^{\pm 1}]]$} is defined as
 \begin{equation*}
   \Res_z(a(z)) = a_{(0)} = a_{-1}.
 \end{equation*}
@@ -432,7 +432,7 @@ We define
 
 We now define the notion of Fourier transform in two cases: in one and two variables.
 Let $V$ be a vector space, and let $a(z) \in V[[z^{\pm 1}]]$.
-We define the \emph{Fourier transform in one variable} of $a(z)$ by
+We define the \emph{Fourier transform in one variable of $a(z)$} by
 \begin{equation*}
   F^{\lambda}_za(z) = \Res_z(e^{\lambda z}a(z)) \in V[[\lambda]].
 \end{equation*}
@@ -449,7 +449,7 @@ We define the \emph{Fourier transform in one variable} of $a(z)$ by
 \end{proposition}
 
 Now let $a(z, w) \in V[[z^{\pm 1}, w^{\pm 1}]]$.
-We define the \emph{Fourier transform in two variables} of $a(z, w)$ by
+We define the \emph{Fourier transform in two variables of $a(z, w)$} by
 \begin{equation*}
   F^{\lambda}_{z, w}a(z, w) = \Res_z(e^{\lambda(z - w)}a(z, w)) \in V[[w^{\pm 1}]][[\lambda]].
 \end{equation*}
@@ -481,14 +481,14 @@ where
 \label{sec:lie-conf-super}
 
 A \emph{vector superspace} is a $\mathbb{Z}_2$-graded vector space $V = V_{\zero} \oplus V_{\one}$, where $\mathbb{Z}_2 = \mathbb{Z}/2\mathbb{Z} = \{\zero, \one\}$, $\zero = 0 + 2\mathbb{Z}$ and $\one = 1 + 2\mathbb{Z}$.
-We call $V_{\zero}$ the \emph{even subspace} of $V$ and $V_{\one}$ the \emph{odd subspace} of $V$.
+We call $V_{\zero}$ the \emph{even subspace of $V$} and $V_{\one}$ the \emph{odd subspace of $V$}.
 Elements of $V_{\zero} \cup V_{\one}$ are called \emph{homogeneous}.
 If $V$ is finite dimensional, we define its superdimension by setting $\sdim(V) = \dim(V_{\zero}) - \dim(V_{\one})$.
 A \emph{superalgebra} is a $\mathbb{Z}_2$-graded algebra $A = A_{\zero} \oplus A_{\one}$.
 This means $A_{\alpha}A_{\beta} \subseteq A_{\alpha + \beta}$ for $\alpha, \beta \in \mathbb{Z}_2$.
 
 We set $(-1)^{\zero} = 1$ and $(-1)^{\one} = -1$.
-If $a \in V_{\alpha}$, $a \neq 0$ is homogeneous, we set $p(a) = \alpha$ and call it the \emph{parity} of $a$.
+If $a \in V_{\alpha}$, $a \neq 0$ is homogeneous, we set $p(a) = \alpha$ and call it the \emph{parity of $a$}.
 If $a$ and $b$ are homogeneous, we set $p(a, b) = (-1)^{p(a)p(b)}$.
 A \emph{Lie superalgebra} is a superalgebra $\mathfrak{g} = \mathfrak{g}_{\zero} \oplus \mathfrak{g}_{\one}$ with a bilinear product $[\bullet, \bullet]: \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}$ called \emph{Lie superbracket} satisfying the following properties for $a, b, c \in \mathfrak{g}$ homogeneous:
 \begin{enumerate}
@@ -501,7 +501,7 @@ In an associative superalgebra $A$, we can define the superbracket of homogeneou
   [a, b] = ab - p(a, b)ba.
 \end{equation*}
 It can then be extended by linearity to nonhomogeneous elements.
-With this superbracket, $A$ becomes a Lie superalgebra called the \emph{underlying Lie superalgebra} of $A$, and it is denoted by $[A]$.
+With this superbracket, $A$ becomes a Lie superalgebra called the \emph{underlying Lie superalgebra of $A$}, and it is denoted by $[A]$.
 
 \begin{remark}
   \label{rmk:2}
@@ -515,18 +515,18 @@ With this superbracket, $A$ becomes a Lie superalgebra called the \emph{underlyi
   When a formula involves $p(a)$, it is assumed that $a$ is a homogeneous with parity $p(a)$, and the formula is extended to arbitrary $a$ by linearity.
 \end{remark}
 
-Probably the most important example of an associative superalgebra is the \emph{endomorphism superalgebra} $\End(V)$ of a superspace $V$, with the $\mathbb{Z}_2$-grading given by
+Probably the most important example of an associative superalgebra is the \emph{endomorphism superalgebra of a superspace $V$}, denoted by $\End(V)$, with the $\mathbb{Z}_2$-grading given by
 \begin{equation*}
   \End(V)_{\alpha} = \{T \in \End(V) \mid \text{for $\beta \in \mathbb{Z}_2, T(V_{\beta}) \subseteq V_{\alpha + \beta}$}\} \quad \text{for $\alpha \in \mathbb{Z}_2$}.
 \end{equation*}
 We denote $\mathfrak{gl}(V) = [\End(V)]$.
 
 Let $A$ be a not necessarily associative superalgebra.
-A \emph{superderivation} of $A$ is a homogeneous endomorphism $\partial \in \End(A)$ such that
+A \emph{superderivation of $A$} is a homogeneous endomorphism $\partial \in \End(A)$ such that
 \begin{equation*}
   \partial(ab) = \partial(a)b + (-1)^{p(\partial)p(a)}b\partial(c) \quad \text{for $a, b \in A$}.
 \end{equation*}
-The \emph{subspace of superderivations} of $A$ is denoted by $\Der(A)$.
+The \emph{subspace of superderivations of $A$} is denoted by $\Der(A)$.
 A \emph{differential superalgebra} is a superalgebra $A$ together with a superderivation $\partial$ of $A$.
 A differential algebra is a differential superalgebra with odd subspace equal to $0$.
 A homomorphism $f: (A, \partial_1) \to (A_2, \partial_2)$ of differential superalgebras is a linear and parity preserving map such that $f\circ\partial_1 = \partial_2\circ f$.
@@ -626,7 +626,7 @@ We note that for a local pair, the sum in the expansion of $[a(w)_{\lambda}b(w)]
 
 Let $V$ be a vector superspace.
 From now on, all coefficients of a formal distribution are assumed to have the same parity.
-Therefore, we can define the \emph{parity} of a formal distribution $a(z) \in V[[z^{\pm 1}]]$ as $p(a(z)) = p(a_{(n)})$ for any $n \in \mathbb{Z}$.
+Therefore, we can define the \emph{parity of a formal distribution $a(z) \in V[[z^{\pm 1}]]$} as $p(a(z)) = p(a_{(n)})$ for any $n \in \mathbb{Z}$.
 
 \begin{theorem}[{\cite[\S2.3]{nozaradan_introduction_2008}}]
   \label{thr:8}
@@ -664,15 +664,15 @@ A \emph{regular} formal distribution Lie superalgebra is a triple $(\mathfrak{g}
 \end{remark}
 
 Let $(\mathfrak{g}, \mathfrak{F})$ be a formal distribution Lie superalgebra.
-The \emph{annihilation subalgebra} of $(\mathfrak{g}, \mathfrak{F})$ is
+The \emph{annihilation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
 \begin{equation*}
   \mathfrak{g}_- = \vspan\{a^j_{(n)} \mid j \in J, n \in \mathbb{N}\},
 \end{equation*}
-the \emph{creation subalgebra} of $(\mathfrak{g}, \mathfrak{F})$ is
+the \emph{creation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
 \begin{equation*}
   \mathfrak{g}_+ = \vspan\{a^j_{(-n - 1)} \mid j \in J, n \in \mathbb{N}\},
 \end{equation*}
-and the \emph{polar decomposition} of $(\mathfrak{g}, \mathfrak{F})$ is
+and the \emph{polar decomposition of $(\mathfrak{g}, \mathfrak{F})$} is
 \begin{equation*}
   \mathfrak{g} = \mathfrak{g}_- \oplus \mathfrak{g}_+.
 \end{equation*}
@@ -725,7 +725,7 @@ According to the definition of a formal distribution Lie superalgebra, we first 
 We proceed in two steps.
 
 We first consider the space $\widetilde{\mathcal{R}} = \mathcal{R}[t, t^{-1}] = \mathcal{R} \otimes \mathbb{C}[t, t^{-1}]$ with $\widetilde{\partial} = \partial\otimes\Id_{\mathbb{C}[t, t^{-1}]} + \Id_{\mathcal{R}}\otimes\partial_t$.
-This space is called the \emph{affinization} of $\mathcal{R}$.
+This space is called the \emph{affinization of $\mathcal{R}$}.
 Its generating elements can be written $a\otimes t^m$, where $a \in \mathcal{R}$ and $m \in \mathbb{Z}$.
 For clarity, we will use the notation $at^m$ for its elements, and we write $\widetilde{\partial} = \partial + \partial_t$.
 We define the commutation relation on $\widetilde{\mathcal{R}}$ as
@@ -868,7 +868,7 @@ We now show three examples of regular formal distribution Lie superalgebras and 
 \end{remark}
 
 Let $\mathfrak{g}$ be a Lie superalgebra, and let $C \in \mathfrak{g}$.
-A \emph{Virasoro formal distribution} of central charge $C$ is a $\mathfrak{g}$-valued formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ satisfying \eqref{eq:6} or, equivalently, \eqref{eq:7}, \eqref{eq:8} or \eqref{eq:9}.
+A \emph{Virasoro formal distribution of central charge $C$} is a $\mathfrak{g}$-valued formal distribution $L(z) \in \mathfrak{g}[[z^{\pm 1}]]$ satisfying \eqref{eq:6} or, equivalently, \eqref{eq:7}, \eqref{eq:8} or \eqref{eq:9}.
 
 \begin{example}[\emph{Current Lie conformal superalgebra}]
   \label{exa:2}
@@ -884,7 +884,7 @@ A \emph{Virasoro formal distribution} of central charge $C$ is a $\mathfrak{g}$-
   \end{equation*}
 
   Let $\mathfrak{g}$ be a Lie superalgebra endowed with a supersymmetric invariant bilinear form $(\bullet| \bullet)$.
-  The associated \emph{loop algebra}, denoted by $\tilde{\mathfrak{g}}$, is the superalgebra $\tilde{\mathfrak{g}} = \mathfrak{g} \otimes \mathbb{C}[t, t^{-1}] = \mathfrak{g}[t, t^{-1}]$, endowed with the superbracket defined by
+  The associated \emph{loop algebra of $\mathfrak{g}$} is the superalgebra $\tilde{\mathfrak{g}} = \mathfrak{g} \otimes \mathbb{C}[t, t^{-1}] = \mathfrak{g}[t, t^{-1}]$, endowed with the superbracket defined by
   \begin{equation*}
     [a\otimes f(t), b\otimes g(t)] = [a, b]\otimes f(t)g(t) \quad \text{for $a, b \in \mathfrak{g}$ and $f(t), g(t) \in \mathbb{C}[t, t^{-1}]$},
   \end{equation*}
@@ -902,7 +902,7 @@ A \emph{Virasoro formal distribution} of central charge $C$ is a $\mathfrak{g}$-
     \end{split}
   \end{equation*}
   and with parity given by $p(K) = \zero$.
-  This makes $\hat{\mathfrak{g}}$ into a Lie superalgebra called the \emph{affinization} of $\mathfrak{g}$.
+  This makes $\hat{\mathfrak{g}}$ into a Lie superalgebra called the \emph{affinization of $\mathfrak{g}$}.
   If $\mathfrak{g}$ is a finite-dimensional simple Lie superalgebra, then the affinization of $\mathfrak{g}$ leads to a \emph{Kac-Moody affinization}.
   We now construct $\hat{\mathfrak{g}}$-valued formal distributions by setting
   \begin{equation*}
@@ -944,7 +944,7 @@ A \emph{Virasoro formal distribution} of central charge $C$ is a $\mathfrak{g}$-
   \end{equation*}
   Alternatively, we can define an antisymmetric bilinear form as a bilinear form that vanishes on $V_{\zero} \oplus V_{\one}$ and $V_{\one} \oplus V_{\zero}$, is antisymmetric on the even part $V_{\zero} \oplus V_{\zero}$ and symmetric on the odd part $V_{\one} \oplus V_{\one}$.
 
-  The \emph{Clifford affinization} of $V$ is defined by
+  The \emph{Clifford affinization of $V$} is defined by
   \begin{equation*}
     \widehat{V} = V[t, t^{-1}] \oplus \mathbb{C}K
   \end{equation*}
@@ -993,7 +993,7 @@ We set
 \end{align*}
 
 Let $a(z)$ and $b(z)$ be two formal distributions.
-We define the \emph{normal product} between $a(z)$ and $b(z)$ as the following formal distribution in two variables
+We define the \emph{normal product between $a(z)$ and $b(z)$} as the following formal distribution in two variables
 \begin{equation*}
   :a(z)b(w): = a(z)_+b(w) + p(a(z), b(z))b(w)a(z)_-.
 \end{equation*}
@@ -1028,7 +1028,7 @@ Therefore, we can define a field $a(z)$ by defining $a(z)b \in V((z))$ for $b \i
   \end{equation*}
 \end{proposition}
 
-We thus defined the notion of \emph{normal ordered product} $:a(z)b(z):$ between fields $a(z), b(z) \in \mathcal{F}(V)$.
+We thus defined the notion of \emph{normal ordered product between fields $a(z), b(z) \in \mathcal{F}(V)$}, denoted by $:a(z)b(z):$.
 In general, the operation of normal ordered product is neither commutative nor associative.
 We follow the convention that the normal ordered product is read from right to left, so that, by definition,
 \begin{equation*}
@@ -1100,7 +1100,7 @@ The usual properties of $j$-products for $j \in \mathbb{N}$ carry over to the ge
 \end{lemma}
 
 Let $L(z)$ be a formal distribution.
-An \emph{eigendistribution} of \emph{weight} $\Delta_{a(z)}$ with respect to $L(z)$ is a formal distribution $a(z)$ satisfying
+An \emph{eigendistribution of weight $\Delta_{a(z)}$ with respect to $L(z)$} is a formal distribution $a(z)$ satisfying
 \begin{equation}
   \label{eq:11}
   [L(z)_{\lambda}a(z)] = (\partial + \Delta_{a(z)}\lambda)a(z) + O(\lambda^2),
@@ -1441,21 +1441,21 @@ The theory done in \Cref{sec:fields-over-vector} is translated into the language
 \end{theorem}
 
 Let $V$ be a vertex superalgebra.
-A \emph{vertex subalgebra} of $V$ is a subspace of $W$ of $V$, which contains $\vac$, and such that $Y(a, z)b \in W((z))$ for $a, b \in W$.
+A \emph{vertex subalgebra of $V$} is a subspace of $W$ of $V$, which contains $\vac$, and such that $Y(a, z)b \in W((z))$ for $a, b \in W$.
 Because $Ta = a_{(-2)}\vac$ and $\vac \in W$, this implies that $TW \subseteq W$.
 Thus, $(W, \vac, T|_{W}: W \to W, Y|_{W}: W \to \mathcal{F}(W))$ is a vertex superalgebra in its own right.
 Let $S \subseteq V$ be a subset.
-The \emph{vertex subalgebra generated} by $S$ is the smallest vertex subalgebra containing $S$, which is the intersection of all vertex subalgebras containing $S$.
+The \emph{vertex subalgebra generated by $S$} is the smallest vertex subalgebra containing $S$, which is the intersection of all vertex subalgebras containing $S$.
 It is denoted by $\langle S \rangle$, and we can prove that
 \begin{equation*}
   \langle S \rangle = \vspan\{a^1_{(n_1)}\dots a^s_{(n_s)}\vac \mid s \in \mathbb{N}, a^1, \dots, a^s \in S, n_1, \dots, n_s \in \mathbb{Z}\}.
 \end{equation*}
-The vertex superalgebra $V$ is \emph{strongly generated} by $S \subseteq V$ if
+The vertex superalgebra $V$ is \emph{strongly generated by $S \subseteq V$} if
 \begin{equation*}
   V = \vspan\{a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac \mid s, n_1, \dots, n_s \in \mathbb{N}, a^1, \dots, a^s \in S\}.
 \end{equation*}
 
-An \emph{ideal} of a vertex superalgebra $V$ is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for $a \in V$ and $b \in I$.
+An \emph{ideal of a vertex superalgebra $V$} is a subspace $I$ of $V$ such that $Y(a, z)b \in I((z))$ and $Y(b, z)a \in I((z))$ for $a \in V$ and $b \in I$.
 For example, the kernel of a vertex superalgebra homomorphism is an ideal.
 A vertex superalgebra is \emph{simple} or \emph{irreducible} if $0$ is the only proper ideal.
 
@@ -1468,7 +1468,7 @@ A vertex superalgebra is \emph{simple} or \emph{irreducible} if $0$ is the only 
 
 It follows that for any ideal $I$, $V/I$ inherits a natural \emph{quotient vertex superalgebra} structure $(V/I, \vac + I, T_{V/I}: V/I \to V/I, Y_{V/I}: V/I \to \mathcal{F}(V/I))$.
 Let $S \subseteq V$ be a subset.
-The \emph{ideal generated} by $S$ is the smallest ideal containing $S$, which is the intersection of all ideals containing $S$.
+The \emph{ideal generated by $S$} is the smallest ideal containing $S$, which is the intersection of all ideals containing $S$.
 It is denoted by $(S)$, and we can prove that
 \begin{equation*}
   (S) = \vspan\{b_{(n)}T^ma \mid b \in V, n \in \mathbb{Z}, m \in \mathbb{N}, a \in S\}.
@@ -1726,13 +1726,13 @@ We now use this construction to obtain several important examples of vertex supe
   \end{equation*}
 \end{remark}
 
-\begin{example}[\emph{Universal Virasoro vertex algebra} of central charge $c$]
+\begin{example}[\emph{Universal Virasoro vertex algebra of central charge $c$}]
   \label{exa:5}
   We pick $c \in \mathbb{C}$.
   We take $(\Vir, \{L(z), C\}, \ad(L_{-1}))$ as the regular formal distribution Lie superalgebra as constructed in \Cref{exa:1} and $\lambda: \mathbb{C}C \to \mathbb{C}, \lambda(C) = c$ as the linear functional.
   The resulting vertex algebra is the universal Virasoro vertex algebra of central charge $c$, denoted by $\Vir^c$.
 
-  A \emph{partition} (of $n \in \mathbb{N}$) is a sequence $\lambda = [\lambda_1, \dots, \lambda_m]$ such that $\lambda_i \in \mathbb{Z}_+$ for $i = 1, \dots, m$, $\lambda_1 \ge \dots \ge \lambda_m$ (and $\lambda_1 + \dots + \lambda_m = n$).
+  A \emph{partition (of $n \in \mathbb{N}$)} is a sequence $\lambda = [\lambda_1, \dots, \lambda_m]$ such that $\lambda_i \in \mathbb{Z}_+$ for $i = 1, \dots, m$, $\lambda_1 \ge \dots \ge \lambda_m$ (and $\lambda_1 + \dots + \lambda_m = n$).
   We also consider the \emph{empty partition} $\emptyset$, which is the unique partition of $0$.
   By \Cref{rmk:13}, for any $c \in \mathbb{C}$, a basis of $\Vir^c$ is given by
   \begin{equation*}
@@ -1789,13 +1789,13 @@ We have constructed a functor
 \label{sec:grad-conf-vert}
 
 Let $V$ be a vertex superalgebra.
-A \emph{Hamiltonian operator} of $V$ is a diagonalizable operator $H \in \End(V)$ such that
+A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that
 \begin{equation}
   \label{eq:17}
   [H, Y(a, z)] = z\partial_zY(a, z) + Y(Ha, z) \quad \text{for $a \in V$}.
 \end{equation}
 A vertex superalgebra with a Hamiltonian operator is called \emph{graded}.
-The \emph{grading} of $V$ is the eigenspace decomposition of $H$
+The \emph{grading of $V$} is the eigenspace decomposition of $H$
 \begin{equation*}
   V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta},
 \end{equation*}
@@ -1803,7 +1803,7 @@ where
 \begin{equation*}
   V_{\Delta} = \ker(H - \Delta\Id_V) \quad \text{for $\Delta \in \mathbb{C}$}.
 \end{equation*}
-If $a$ is an eigenvector of $H$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight} of $a$, and it is denoted by $\Delta_a$.
+If $a$ is an eigenvector of $H$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight of $a$}, and it is denoted by $\Delta_a$.
 Condition \eqref{eq:17} is equivalent to
 \begin{equation}
   \label{eq:18}
@@ -1852,14 +1852,14 @@ A $\mathbb{Z}$ or $\mathbb{N}$-graded vertex superalgebra $V$ is a graded vertex
 \emph{Homomorphisms of graded vertex superalgebras} are assumed to respect the gradings, i.e., if $f: V_1 \to V_2$ is a homomorphism of graded vertex superalgebras, then $f\circ H^{V_1} = H^{V_2}\circ f$, where $H^{V_1}$ is the Hamiltonian of $V_1$, and $H^{V_2}$ is the Hamiltonian of $V_2$.
 
 Let $V$ be a vertex superalgebra.
-A \emph{conformal vector} of central charge $c \in \mathbb{C}$ of $V$ is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
+A \emph{conformal vector of central charge $c \in \mathbb{C}$ of $V$} is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
 \begin{enumerate}
 \item $Y(\omega, z)$ is a Virasoro formal distribution of central charge $C = c\Id_V$;
 \item $L_{-1} = T$;
 \item $L_0$ is diagonalizable.
 \end{enumerate}
 
-A \emph{conformal vertex superalgebra} (of central charge $c$) is a vertex superalgebra $V$ together with a conformal vector $\omega$ (of central charge $c$).
+A \emph{conformal vertex superalgebra (of central charge $c$)} is a vertex superalgebra $V$ together with a conformal vector $\omega$ (of central charge $c$).
 We denote the conformal superalgebra by $(V, \omega)$ if we want to emphasize the conformal vector.
 
 \begin{remark}
@@ -2050,7 +2050,7 @@ An ideal $I$ of a graded vertex superalgebra $V$ with Hamiltonian $H$ is called 
 \end{proof}
 
 The conformal vertex algebra $\Vir^c$ satisfies $\Vir^c_0 = \mathbb{C}\vac$.
-We denote by $\Vir_c$ the unique simple quotient, and we call it the \emph{simple Virasoro vertex algebra} of central charge $c$.
+We denote by $\Vir_c$ the unique simple quotient, and we call it the \emph{simple Virasoro vertex algebra of central charge $c$}.
 Let $p, q \ge 2$ be relatively prime integers, and we set
 \begin{equation*}
   c_{p, q} = 1 - \frac{6(p - q)^2}{pq}.
@@ -2058,7 +2058,7 @@ Let $p, q \ge 2$ be relatively prime integers, and we set
 
 Let $V$ be a $\Vir$-module.
 We say $V$ is \emph{smooth} if $L(z) = \sum_{n \in \mathbb{Z}}L_{n}z^{-n - 2} \in \End(V)[[z^{\pm 1}]]$ is a field.
-We say $V$ is \emph{of central charge} $c \in \mathbb{C}$ if the central element $C$ acts as multiplication by $c$.
+We say $V$ is \emph{of central charge $c \in \mathbb{C}$} if the central element $C$ acts as multiplication by $c$.
 A vector $u$ in $V$ is called \emph{singular} if it is nonzero and
 \begin{equation*}
   L_nu = 0 \quad \text{for $n \in \mathbb{Z}_+$}.
@@ -2095,7 +2095,7 @@ of conformal weight $(3 - 1)(4 - 1) = 6$ (see \Cref{sec:kac-dete-form} ahead for
 \label{sec:modules-over-vertex}
 
 Let $V$ be a vertex superalgebra.
-A \emph{module} over $V$, $V$-module or \emph{representation} of $V$ is a vector superspace $M$ together with a linear and parity preserving map
+A \emph{module over $V$}, $V$-module or \emph{representation of $V$} is a vector superspace $M$ together with a linear and parity preserving map
 \begin{align*}
   Y^M(\bullet, z): V &\to \mathcal{F}(M), \\
   a &\mapsto Y^M(a, z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}
@@ -2115,12 +2115,12 @@ satisfying:
   Since this is the minimum requirement for a module, I think it is a better idea to just call them modules and add adjectives as we require more assumptions.
 \end{remark}
 
-The vertex superalgebra $V$ is clearly a $V$-module, and it is called the \emph{adjoint representation} of $V$.
-A \emph{submodule} of $M$ is a subspace $N$ of $M$ such that $Y^M(a, z)u \in N((z))$ for $a \in V$ and $u \in N$, i.e., $a^M_{(n)}u \in N$ for $n \in \mathbb{Z}$.
+The vertex superalgebra $V$ is clearly a $V$-module, and it is called the \emph{adjoint representation of $V$}.
+A \emph{submodule of $M$} is a subspace $N$ of $M$ such that $Y^M(a, z)u \in N((z))$ for $a \in V$ and $u \in N$, i.e., $a^M_{(n)}u \in N$ for $n \in \mathbb{Z}$.
 The \emph{quotient module} $M/N$ is defined in the usual way.
 A module whose only proper submodule is $0$ is called \emph{simple} or \emph{irreducible}.
 Let $T \subseteq M$ be a subset.
-The \emph{submodule generated} by $T$ is the smallest submodule containing $T$, which is the intersection of all submodules containing $T$.
+The \emph{submodule generated by $T$} is the smallest submodule containing $T$, which is the intersection of all submodules containing $T$.
 It is denoted by $(T)$, and we can prove that
 \begin{equation*}
   (T) = \vspan\{a^{1M}_{(n_1)}\dots a^{sM}_{(n_s)}u \mid s \in \mathbb{N}, a^1, \dots, a^s \in V, n_1, \dots, n_s \in \mathbb{Z}, u \in T\}.
@@ -2182,7 +2182,7 @@ We obtain the category $V$-Mod of $V$-modules, which is abelian.
 \end{proposition}
 
 Let $V$ be a vertex superalgebra, and let $M$ be a $V$-module.
-We say  $T^M \in \End(M)$ is a \emph{differential} of $M$ if
+We say  $T^M \in \End(M)$ is a \emph{differential of $M$} if
 \begin{equation*}
   [T^M, a^M_{(n)}] = -na^M_{(n - 1)} \quad \text{for $a \in V$ and $n \in \mathbb{Z}$}
 \end{equation*}
@@ -2217,13 +2217,13 @@ We say $\mathfrak{h}$ \emph{acts as $\lambda$} if for $h \in \mathfrak{h}$ and $
 \end{remark}
 
 Let $M$ be a module over a graded vertex superalgebra $V$ with Hamiltonian operator $H$.
-A \emph{Hamiltonian operator} of $M$ is a diagonalizable operator $H^M \in \End(M)$ such that
+A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ such that
 \begin{equation}
   \label{eq:26}
   [H^M, Y^M(a, z)] = z\partial_zY^M(a, z) + Y^M(Ha, z) \quad \text{for $a \in V$}.
 \end{equation}
 A $V$-module together with a Hamiltonian operator is called \emph{graded}.
-The \emph{grading} of $M$ is the eigenspace decomposition of $H^M$
+The \emph{grading of $M$} is the eigenspace decomposition of $H^M$
 \begin{equation*}
   M = \bigoplus_{\Delta \in \mathbb{C}}M_{\Delta},
 \end{equation*}
@@ -2231,7 +2231,7 @@ where
 \begin{equation*}
   M_{\Delta} = \ker(H^M - \Delta\Id_M).
 \end{equation*}
-If $u$ is an eigenvector of $H^M$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight} of $u$, and it is denoted by $\Delta_u$.
+If $u$ is an eigenvector of $H^M$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight of $u$}, and it is denoted by $\Delta_u$.
 Condition \eqref{eq:26} is equivalent to
 \begin{equation*}
   [H^M, a^M_{(n)}] = -(n + 1)a^M_{(n)} + (Ha)^M_{(n)} \quad \text{for $a \in V$ and $n \in \mathbb{Z}$}
@@ -2274,7 +2274,7 @@ With this notation, \eqref{eq:27} is equivalent to
   \end{enumerate}
 \end{proof}
 
-\emph{Homomorphisms of graded modules} over graded vertex superalgebras are assumed to respect the gradings.
+A \emph{homomorphism of graded modules} over a graded vertex superalgebra is assumed to respect the gradings.
 
 \begin{theorem}[{\cite[Proposition 4.1.5 and (4.1.18)]{lepowsky_introduction_2004}}]
   \label{thr:27}
@@ -2304,8 +2304,8 @@ It is better to use the notation $(V, \omega)$ for now because of \Cref{rmk:19}.
 By \Cref{thr:27}, the following definition makes sense. A $(V, \omega)$-module is a $V$-module $M$ such that $L^M_0$ is diagonalizable, where we write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 2}$.
 The $(V, \omega)$-modules form a subcategory of $V$-Mod.
 In particular, $M$ is a differential module with differential $L^M_{-1}$ and is graded by $L^M_0$.
-A $(V, \omega)$-module $M$ is called a \emph{positive energy representation} of $(V, \omega)$ if $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$ for some $h \in \mathbb{C}$, and in this case, we also say that $M$ is $h + \mathbb{N}$-graded.
-The subspace $M_h$ is called a \emph{top degree component} of $M$.
+A $(V, \omega)$-module $M$ is called a \emph{positive energy representation of $(V, \omega)$} if $M = \bigoplus_{n \in \mathbb{N}}M_{h + n}$ for some $h \in \mathbb{C}$, and in this case, we also say that $M$ is $h + \mathbb{N}$-graded.
+The subspace $M_h$ is called a \emph{top degree component of $M$}.
 We usually require $M_h \neq 0$, and when this happens, the number $h$ and the top degree component are well-defined.
 
 \begin{remark}
@@ -2323,7 +2323,7 @@ An \emph{admissible} $V$-module is a $V$-module $M$ together with a grading $M =
 
 Thus, an admissible $V$-module is a pair $(M, \bigoplus_{n \in \mathbb{Z}}M(n))$ satisfying the above conditions, though we often omit the grading from the notation.
 If $M \neq 0$, we set $n_0 = \min\{n \in \mathbb{N} \mid M(n) \neq 0\}$.
-The subspace $M(n_0)$ is called the \emph{top degree component} of $M$.
+The subspace $M(n_0)$ is called the \emph{top degree component of $M$}.
 The top degree component of the zero module $0$ is $0$.
 
 A \emph{homomorphism of admissible $V$-modules} is a homomorphism of $V$-modules, no condition on the grading is imposed.
@@ -2437,7 +2437,7 @@ Thus, we can think of the following inclusions of categories
 \end{equation*}
 
 A positive energy representation $M$ of the conformal vertex algebra $(V, \omega)$ is ordinary if for $n \in \mathbb{N}$, $\dim(M_{h + n}) < \infty$, where $M_h$ is a top degree component of $M$.
-For an ordinary positive energy representation $M$, the \emph{character} of $M$ is a formal power series defined by
+For an ordinary positive energy representation $M$, the \emph{character of $M$} is a formal power series defined by
 \begin{equation*}
   \ch_M(q) = \sum_{n \in \mathbb{N}}\dim(M_{h + n})q^{h + n} \in q^h\mathbb{C}[[q]].
 \end{equation*}
@@ -2507,7 +2507,7 @@ Indeed, one of our objectives is to study $L(1/2, 1/2)$ and $L(1/2, 1/16)$, whic
   The assertion follows by applying \Cref{lmm:13} to the vertex algebra $V \otimes R$.
 \end{proof}
 
-The \emph{Borcherds Lie algebra} associated with a vertex algebra $V$ is the Lie algebra
+The \emph{Borcherds Lie algebra associated with a vertex algebra $V$} is the Lie algebra
 \begin{equation*}
   [V] = \Lie(V, \mathbb{C}[t, t^{-1}]),
 \end{equation*}
@@ -2673,7 +2673,7 @@ Next, we present the Kac determinant formula, which allows us to determine $L(c,
 \label{sec:unit-contr-repr}
 
 Let $V$ be a vector space.
-A (\emph{sesquilinear}) \emph{form} on $V$ is a function
+A (\emph{sesquilinear}) \emph{form on $V$} is a function
 \begin{align*}
   \langle \bullet| \bullet\rangle: V \times V &\to \mathbb{C}, \\
   (u, v) &\mapsto \langle u| v\rangle
@@ -2691,7 +2691,7 @@ A \emph{Hermitian} form on $V$ is a form $\langle\bullet| \bullet\rangle$ satisf
 \end{equation*}
 
 Let $S \subseteq V$ be a subset of a vector space $V$ equipped with a form $\langle\bullet| \bullet\rangle$.
-We define the \emph{orthogonal complement} of $S$ as the subspace
+We define the \emph{orthogonal complement of $S$} as the subspace
 \begin{equation*}
   S^{\perp} = \{v \in V \mid \text{for $u \in S$, $\langle u| v\rangle = 0$}\}.
 \end{equation*}
@@ -2750,8 +2750,8 @@ A \emph{highest weight representation} of $\Vir$ is a $\Vir$-module $V$, which h
 \item $L_0v = hv$;
 \item $V = \vspan\{L_{-i_k}\dots L_{-i_1}v \mid i_k \ge \dots \ge i_1 > 0\}$.
 \end{enumerate}
-The numbers $c$ and $h$ are uniquely determined, and the pair $(c, h)$ is called the \emph{highest weight} of $V$.
-The vector $v$ is not uniquely determined; it can be replaced by any nonzero scalar multiple of it, and we call $v$ a \emph{highest weight vector} of $V$.
+The numbers $c$ and $h$ are uniquely determined, and the pair $(c, h)$ is called the \emph{highest weight of $V$}.
+The vector $v$ is not uniquely determined; it can be replaced by any nonzero scalar multiple of it, and we call $v$ a \emph{highest weight vector of $V$}.
 
 For $\Delta \in \mathbb{C}$, we set $V_{\Delta} = \ker(L_0 - \Delta\Id_V)$.
 We observe that all vectors of the form $L_{-i_k}\dots L_{-i_1}v$ with $i_k \ge \dots \ge i_1 > 0$ and a fixed value of $j = i_1 + \dots + i_k$ belong to $V_{h + j}$.
@@ -2811,7 +2811,7 @@ Thus, a highest weight representation of $\Vir$ with highest weight $(c, h)$ is 
 \end{proof}
 
 Let $V$ be a highest weight representation of $\Vir$ with highest weight $(c, h)$.
-The \emph{character} of $V$ is formal power series defined by
+The \emph{character of $V$} is a formal power series defined by
 \begin{equation*}
   \ch_V(q) = \sum_{j \in \mathbb{N}}\dim(V_{h + j})q^{h + j} \in q^h\mathbb{C}[[q]].
 \end{equation*}
@@ -2930,7 +2930,7 @@ We wish to determine when is $L(c, h)$ equal to $M(c, h)$.
 Let $V$ be a highest weight representation with highest weight $(c, h)$, and we pick a highest weight vector $v$.
 We wish to define a contravariant form $\langle\bullet| \bullet\rangle$ on $V$ such that $\langle v| v\rangle = 1$.
 We now show we do not have much choice.
-Since $V_h = \mathbb{C}v$, it makes sense to define for $u \in V$, its \emph{expectation value} $\langle u\rangle$ as the coefficient of $v$ with respect to the direct sum $V = \bigoplus_{j \in \mathbb{N}}V_{h + j}$, i.e., as the unique $t \in \mathbb{C}$ such that $u - tv \in \bigoplus_{j \in \mathbb{Z}_+}V_{h + j}$.
+Since $V_h = \mathbb{C}v$, it makes sense to define the \emph{expectation value of $u \in V$}, denoted by $\langle u\rangle$, as the coefficient of $u$ with respect to the direct sum $V = \bigoplus_{j \in \mathbb{N}}V_{h + j}$, i.e., as the unique $t \in \mathbb{C}$ such that $u - tv \in \bigoplus_{j \in \mathbb{Z}_+}V_{h + j}$.
 We consider $L_{\lambda} \in U(\Vir)$ for a partition $\lambda$ and $u \in V$.
 By contravariance, we must have $\langle L_{\lambda}v| u\rangle = \langle v| \omega(L_{\lambda})u\rangle$.
 But $\langle v| \omega(L_{\lambda})u\rangle = \langle\omega(L_{\lambda})u\rangle$ because all eigenspaces of $L_0$ are pairwise orthogonal by \Cref{thr:29}.
@@ -3204,7 +3204,7 @@ The quotient
 \begin{equation*}
   \Zhu(V) = V/O(V)
 \end{equation*}
-is called the \emph{Zhu algebra} of $V$.
+is called the \emph{Zhu algebra of $V$}.
 The Zhu algebra is closely related to the Borcherds Lie algebra, as the following theorem shows.
 
 \begin{theorem}
@@ -3368,7 +3368,7 @@ and let the grading of $L(U)$ and $Y^{L(U)}$ be inherited from $M(U)$ in the obv
   This implies that $L(U)$ is strongly generated by $U$ as a vertex algebra.
 \end{remark}
 
-At this point, we have a pair of functors $\Omega, L$ defined on approriate module categories
+At this point, we have a pair of functors $\Omega, L$ defined on appropriate module categories
 \begin{equation*}
   \begin{tikzcd}
     \text{$\Zhu(V)$-Mod} \arrow[r, "L", shift left] & \{\text{admissible $V$-modules}\} \arrow[l, "\Omega", shift left]
@@ -3595,17 +3595,17 @@ Consequently, we have three equivalent concepts: vertex Lie superalgebras, Lie c
 \end{proof}
 
 Let $V$ be a vertex Lie superalgebra.
-A \emph{Hamiltonian operator} of $V$ is a diagonalizable operator $H \in \End(V)$ such that
+A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that
 \begin{equation*}
   [H, Y_-(a, z)] = z\partial_zY_-(a, z) + Y_-(Ha, z) \quad \text{for $a \in V$}.
 \end{equation*}
 A vertex Lie superalgebra with a Hamiltonian operator is called \emph{graded}.
-The \emph{grading} of $V$ is the eigenspace decomposition of $H$
+The \emph{grading of $V$} is the eigenspace decomposition of $H$
 \begin{equation*}
   V = \bigoplus_{\Delta \in \mathbb{C}}V_{\Delta}.
 \end{equation*}
 
-A \emph{module} over a vertex Lie superalgebra $V$ is a vector superspace $M$ together with a linear and parity preserving map $Y^M_-: V \to \Hom(M, z^{-1}M[z^{-1}])$, written as $Y^M_-(a, z) = \sum_{n \in \mathbb{N}}a^M_{(n)}z^{-n - 1}$, $a^M_{(n)} \in \End(M)$, such that for $a, b \in V$ and $m, n \in \mathbb{N}$:
+A \emph{module over $V$} is a vector superspace $M$ together with a linear and parity preserving map $Y^M_-: V \to \Hom(M, z^{-1}M[z^{-1}])$, written as $Y^M_-(a, z) = \sum_{n \in \mathbb{N}}a^M_{(n)}z^{-n - 1}$, $a^M_{(n)} \in \End(M)$, such that for $a, b \in V$ and $m, n \in \mathbb{N}$:
 \begin{enumerate}
 \item $(Ta)^M_{(n)} = -na^M_{(n - 1)}$;
 \item $[a^M_{(m)}, b^M_{(n)}] = \sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)^M_{(m + n - j)}$.
@@ -3614,18 +3614,18 @@ Concepts like homomorphisms and vertex Lie submodules are defined in the usual w
 Given a vertex Lie superalgebra $V$, we obtain the abelian category $V$-Mod of modules over $V$.
 
 Let $M$ be a module over a graded vertex Lie superalgebra $V$ with Hamiltonian operator $H$.
-A \emph{Hamiltonian operator} of $M$ is a diagonalizable operator $H^M \in \End(M)$ such that
+A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ such that
 \begin{equation*}
   [H^M, Y^M_-(a, z)] = z\partial_zY^M_-(a, z) + Y^M_-(Ha, z) \quad \text{for $a \in V$}.
 \end{equation*}
 A $V$-module together with a Hamiltonian operator is called \emph{graded}.
-The \emph{grading} of $M$ is the eigenspace decomposition of $H^M$
+The \emph{grading of $M$} is the eigenspace decomposition of $H^M$
 \begin{equation*}
   M = \bigoplus_{\Delta \in \mathbb{C}}M_{\Delta}.
 \end{equation*}
 
 Let $V$ be a vertex Lie superalgebra, and let $M$ be a $V$-module.
-We say $T^M \in \End(M)$ is a \emph{differential} of $M$ if
+We say $T^M \in \End(M)$ is a \emph{differential of $M$} if
 \begin{equation*}
   [T^M, Y^M_-(a, z)] = Y^M_-(Ta, z) \quad \text{for $a \in V$}.
 \end{equation*}
@@ -3662,7 +3662,8 @@ Let $V_1$ and $V_2$ be vertex Poisson algebras.
 A \emph{vertex Poisson algebra homomorphism} $f: V_1 \to V_2$ is simultaneously a differential algebra and a vertex Lie algebra homomorphism.
 We obtain the category of vertex Poisson algebras.
 
-A \emph{module} over a vertex Poisson algebra $(V, T, Y_-)$ is a module $(M, Y^M_-)$ over $V$ as a vertex Lie algebra and a module over $V$ as a commutative associative algebra such that
+Let $V$ be a vertex Poisson algebra.
+A \emph{module over $V$} is a module $(M, Y^M_-)$ over $V$ as a vertex Lie algebra and a module over $V$ as a commutative associative algebra such that
 \begin{equation*}
   a^M_{(n)}(bu) = (a_{(n)}b)u + b(a^M_{(n)}u) \quad \text{for $a, b \in V$, $u \in M$ and $n \in \mathbb{N}$}.
 \end{equation*}
@@ -3678,7 +3679,7 @@ Given a vertex Poisson algebra $V$, we obtain the abelian category $V$-Mod of mo
   \end{equation*}
 \end{proposition}
 
-The vertex Poisson algebra structure on $JR$ given in \Cref{prp:11} for a finitely generated Poisson algebra $R$ will be called the \emph{level 0 vertex Poisson algebra structure}.
+The vertex Poisson algebra structure on $JR$ given in \Cref{prp:11} for a finitely generated Poisson algebra $R$ will be called the \emph{level 0 vertex Poisson algebra structure of $JR$}.
 
 If $R$ is a finitely generated Poisson algebra, and $M$ is an $R$-module, then we can verify that $JR \otimes_{R} M$ is a $JR$-module by defining the Poisson structure as
 \begin{equation*}
@@ -3750,7 +3751,7 @@ For $p, q \in \mathbb{N}$, $a \in F_pV$ and $b \in F_qV$, we set:
 \end{align*}
 where $\sigma_p: F_pV \to \gr_F(V)$ is the \emph{principal symbol map}, which is the composition of the natural maps $F_pV \twoheadrightarrow F_pV/F_{p + 1}V$ and $F_pV/F_{p + 1}V \hookrightarrow \gr_F(V)$.
 The unit is $\sigma^0(\vac)$.
-The filtration $(F_pV)_{p \in \mathbb{Z}}$ is called the \emph{Li filtration} of $V$.
+The filtration $(F_pV)_{p \in \mathbb{Z}}$ is called the \emph{Li filtration of $V$}.
 
 \begin{lemma}[{\cite[Lemma 2.9]{li_abelianizing_2005}}]
   \label{lmm:23}
@@ -3857,7 +3858,7 @@ For $p, q \in \mathbb{N}$, $a \in G^pV$ and $b \in G^qV$, we set:
 \end{align*}
 where $\alpha^p: G^pV \to \gr^G(V)$ is the principal symbol map.
 The unit is $\alpha^0(\vac)$.
-The filtration $(G^pV)_{p \in \mathbb{Z}}$ is called the \emph{standard filtration} of $V$.
+The filtration $(G^pV)_{p \in \mathbb{Z}}$ is called the \emph{standard filtration of $V$}.
 By \Cref{prp:15} ahead, the standard filtration does not depend on the choice of the strong generators of $V$.
 
 By \Cref{prp:14}(vii), we can define an operator $H \in \End(\gr^G(V))$ as $H(\alpha^p(a)) = \alpha^p(Ha)$ for $p \in \mathbb{Z}$ and $a \in G^pV$.
@@ -4362,7 +4363,7 @@ By \Cref{lmm:23}, we have
 \begin{equation*}
   C_2V = \vspan\{a_{(-2)}b \mid a, b \in V\} = F_1V.
 \end{equation*}
-We define the \emph{Zhu $C_2$-algebra} of $V$ by
+We define the \emph{Zhu $C_2$-algebra of $V$} by
 \begin{equation*}
   R_V = V/C_2V = F_0V/F_1V \subseteq \gr_F(V).
 \end{equation*}
@@ -4426,7 +4427,8 @@ Furthermore, if $\sigma_0(a)$ and $\sigma_0(b)$ are homogeneous, then $\sigma_0(
   Thus, $\Vir^c$ is never $C_2$-cofinite, while $\Vir_c$ is $C_2$-cofinite only when $c$ is of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers.
 \end{example}
 
-The \emph{associated variety} $X_V$ and the \emph{singular support} $SS(V)$ of a vertex algebra $V$ (no condition on $V$) are defined by:
+Let $V$ be a vertex algebra (no condition on $V$).
+The \emph{associated variety of $V$}, denoted by $X_V$, and the \emph{singular support of $V$}, denoted by $SS(V)$, are defined by:
 \begin{align*}
   X_V &= \Spec(R_V), \\
   SS(V) &= \Spec(\gr_F(V)).
@@ -4629,7 +4631,7 @@ By \Cref{lmm:24}, we have
 \begin{equation*}
   C_2M = \vspan\{a^M_{(-2)}u \mid a \in V, u \in M\} = F_1M.
 \end{equation*}
-We define the \emph{Zhu $C_2$-module} of $M$ by
+We define the \emph{Zhu $C_2$-module of $M$} by
 \begin{equation*}
   R_M = M/C_2M = F_0M/F_1M \subseteq \gr_F(M).
 \end{equation*}
@@ -4647,8 +4649,8 @@ We have constructed a functor
 A $V$-module $M$ is called \emph{$C_2$-cofinite} if $R_M$ is finite dimensional.
 The condition of $C_2$-cofiniteness on modules has several implications, as we will see later.
 
-Let $V$ be a vertex algebra (no condition on $V$).
-The \emph{associated variety} $X_M$ and the \emph{singular support} $SS(M)$ of a $V$-module $M$ are defined by:
+Let $V$ be a vertex algebra (no condition on $V$), and let $M$ be a $V$-module.
+The \emph{associated variety of $M$}, denoted by $X_M$, and the \emph{singular support of $M$}, denoted by $SS(M)$, are defined by:
 \begin{align*}
   X_M &= \Supp_{R_M}(R_V), \\
   SS(M) &= \Supp_{\gr_F(V)}(\gr_F(M)).
@@ -4832,11 +4834,11 @@ For a partition $\lambda = [\lambda_1, \dots, \lambda_m, 1, \dots, 1]$ with exac
   u_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m}L_{-1}^n,
 \end{equation*}
 where $L_{-1}^n$ is the $n$-th element of the canonical basis.
-We define the \emph{length} of $\lambda$ as
+We define the \emph{length of $\lambda$} as
 \begin{equation*}
   \len(\lambda) = 2m + n
 \end{equation*}
-and the \emph{weight} of $\lambda$ as
+and the \emph{weight of $\lambda$} as
 \begin{equation*}
   \Delta(\lambda) = \lambda_1 + \dots + \lambda_m + n.
 \end{equation*}
@@ -4869,8 +4871,9 @@ From the epimorphism of $V$-modules $\pi: M \twoheadrightarrow L$, we deduce the
 
 In this thesis, we will deal with polynomial algebras written as $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and free modules of the form $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ for some $N \in \mathbb{N}$.
 We will always use the degree reverse lexicographic order with $L_{-2} > L_{-3} > \dots > L_{-N}$ and TOP (term over position) with $L_{-1}^0 < L_{-1}^1 < \dots < L_{-1}^N$.
-We can extend the definition of \emph{leading monomial} $\lm$ as follows.
-For any element $u \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, we pick $N$ large enough so that $u \in \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$.
+Let $u \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$.
+We can define the \emph{leading monomial of $u$}, denoted by $\lm(u)$, as follows.
+We pick $N$ large enough so that $u \in \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$.
 Then, we define $\lm(u)$ as the leading monomial in $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$, which is naturally a subset of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$.
 This does not depend on the choice of $N$.
 For example, $\lm(L_{-2} - \frac{3}{4}L_{-1}^2) = L_{-2}$.
@@ -4914,7 +4917,7 @@ The following lemma will be used frequently to verify series identities.
 \subsection{A combinatorial argument}
 \label{sec:comb-argum}
 
-A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains} a partition $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
+A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains a partition} $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
 
 We define
 \begin{equation*}
@@ -5276,7 +5279,7 @@ For $x \in U(\Vir_{\le -1})$ with $x \neq 0$, we may write
   x = c_1L_{\lambda_1} + c_2L_{\lambda_2} + \dots + c_rL_{\lambda_r},
 \end{equation*}
 where for $1 \le i \le r$, $0 \neq c_i \in \mathbb{C}$ and $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_r}$.
-We define the \emph{leading monomial} of $x$ as $\lm(x) = L_{\lambda_1}$.
+We define the \emph{leading monomial of $x$} as $\lm(x) = L_{\lambda_1}$.
 We set $\lm(0) = 0$.
 Next, we extend the definition of $\lm$ from $U(\Vir_{\le -1})$ to $V$ and $M$ by considering the isomorphisms of vector spaces: $U(\Vir_{\le -2}) \xrightarrow{\sim} V, L_{\lambda} \mapsto L_{\lambda}\vac$ and $U(\Vir_{\le -1}) \xrightarrow{\sim} M, L_{\lambda} \mapsto L_{\lambda}\vachalf$, where $\lambda$ is a partition and $U(\Vir_{\le -2}) = \{L_{\lambda} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_m]$ satisfies $\lambda_m \ge 2$}\}$.
 For example, we have $(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf \in W$ and $\lm((L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf) = L_{-1}^4\vachalf$.
@@ -5559,16 +5562,16 @@ We say $A$ is \emph{almost commutative} if the filtration $(A^p)_{p \in \mathbb{
 If $A$ is almost commutative, then $\gr(A)$ is commutative.
 
 Let $\mathfrak{g}$ be a Lie algebra.
-The \emph{tensor algebra} $T(\mathfrak{g}) = \bigoplus_{n \in \mathbb{N}}\mathfrak{g}^{\otimes n}$ of $\mathfrak{g}$ is an associative algebra with unit $1$.
-The \emph{universal enveloping algebra} $U(\mathfrak{g}) = T(\mathfrak{g})/(xy - yx - [x, y] \mid x, y \in \mathfrak{g})$ of $\mathfrak{g}$ is also an associative algebra with $1$, but we also have an inclusion $\inc: \mathfrak{g} \hookrightarrow U(\mathfrak{g})$, which is a Lie algebra homomorphism.
-The \emph{PBW filtration} $(U(\mathfrak{g})^p)_{p \in \mathbb{Z}}$ is given by
+The \emph{tensor algebra of $\mathfrak{g}$}, given by $T(\mathfrak{g}) = \bigoplus_{n \in \mathbb{N}}\mathfrak{g}^{\otimes n}$, is an associative algebra with unit $1$.
+The \emph{universal enveloping algebra of $\mathfrak{g}$}, given by $U(\mathfrak{g}) = T(\mathfrak{g})/(xy - yx - [x, y] \mid x, y \in \mathfrak{g})$, is also an associative algebra with $1$, but we also have an inclusion $\inc: \mathfrak{g} \hookrightarrow U(\mathfrak{g})$, which is a Lie algebra homomorphism.
+The \emph{PBW filtration of $U(\mathfrak{g})$} is given by
 \begin{equation*}
   U(\mathfrak{g})^p = \vspan\{x_1x_2\dots x_s \mid s \le p, x_1, \dots, x_s \in \mathfrak{g}\} \quad \text{for $p \in \mathbb{Z}$}.
 \end{equation*}
 This filtration clearly satisfies axioms (i)--(iv) above.
 Furthermore, $U(\mathfrak{g})^1 = \mathfrak{g}$.
 By \cite[Lemma 2.1.5]{dixmier_enveloping_1996}, $U(\mathfrak{g})$ is almost commutative, so $\gr(U(\mathfrak{g}))$ is commutative.
-The \emph{symmetric algebra} $S(\mathfrak{g}) = T(\mathfrak{g})/(xy - yx \mid x, y \in \mathfrak{g})$ of $\mathfrak{g}$ is a commutative associative algebra with unit $1$, and we have an inclusion $\inc: \mathfrak{g} \hookrightarrow S(\mathfrak{g})$ satisfying a universal property.
+The \emph{symmetric algebra of $\mathfrak{g}$}, given by $S(\mathfrak{g}) = T(\mathfrak{g})/(xy - yx \mid x, y \in \mathfrak{g})$, is a commutative associative algebra with unit $1$, and we have an inclusion $\inc: \mathfrak{g} \hookrightarrow S(\mathfrak{g})$ satisfying a universal property.
 We have two natural inclusions of $\mathfrak{g}$: $\gamma^1: \mathfrak{g} \hookrightarrow \gr(U(\mathfrak{g}))$ and $\inc: \mathfrak{g} \hookrightarrow S(\mathfrak{g})$.
 By the universal property of $\inc: \mathfrak{g} \hookrightarrow S(\mathfrak{g})$, there is a homomorphism of commutative algebras $S(\mathfrak{g}) \to \gr(U(\mathfrak{g}))$ such that $1 \mapsto 1$, and the following diagram commutes
 \begin{equation*}
@@ -5638,7 +5641,7 @@ The operation $\{\bullet, \bullet\}$ is called \emph{Poisson bracket}.
 \end{example}
 
 Let $A$ be a Poisson algebra.
-A \emph{module} over $A$ is an $A$-module $M$ in the usual associative sense equipped with a bilinear map $\{\bullet, \bullet\}: A \times M \to M$, which makes $M$ a Lie algebra module over $A$ such that for $a, b \in A$ and $u \in M$:
+A \emph{module over $A$} is an $A$-module $M$ in the usual associative sense equipped with a bilinear map $\{\bullet, \bullet\}: A \times M \to M$, which makes $M$ a Lie algebra module over $A$ such that for $a, b \in A$ and $u \in M$:
 \begin{enumerate}
 \item (Left Leibniz rule) $\{a, bu\} = \{a, b\}u + b\{a, u\}$;
 \item (Right Leibniz rule) $\{ab, u\} = a\{b, u\} + b\{a, u\}$.
@@ -5657,7 +5660,7 @@ In this appendix alone, by an algebra we will mean a commutative associative alg
 The categories $\Algf$ of finitely generated algebras and $\DAlg$ of differential algebras will appear frequently in this appendix.
 
 Let $R$ be a finitely generated algebra.
-We now construct a differential algebra $JR$ called the \emph{jet algebra} of $R$ and an algebra monomorphism $\inc: R \hookrightarrow JR$ universal with this property, i.e., for a differential algebra $A$ and an algebra homomorphism $\phi: R \to A$, there is a unique differential algebra homomorphism $\overline{\phi}: JR \to A$ such that the following diagram commutes
+We now construct a differential algebra $JR$ called the \emph{jet algebra of $R$} and an algebra monomorphism $\inc: R \hookrightarrow JR$ universal with this property, i.e., for a differential algebra $A$ and an algebra homomorphism $\phi: R \to A$, there is a unique differential algebra homomorphism $\overline{\phi}: JR \to A$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
     R \arrow[r, "\inc", hook] \arrow[rd, "\phi"'] & JR \arrow[d, "\overline{\phi}"] \\
@@ -5686,7 +5689,7 @@ such that for $R \in \Algf$ and $A \in \DAlg$, we have a natural isomorphism
   \Hom_{\DAlg}(JR, A) \cong \Hom_{\Alg}(R, A).
 \end{equation*}
 
-The \emph{jet scheme} of an affine scheme of finite type $X = \Spec(R)$ is defined by
+The \emph{jet scheme of an affine scheme of finite type $X = \Spec(R)$} is defined by
 \begin{equation*}
   JX = \Spec(JR).
 \end{equation*}
