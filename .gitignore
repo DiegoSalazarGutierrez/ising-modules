@@ -16,5 +16,8 @@ auto
 last-commit-message
 .ipynb_checkpoints
 #.gitignore#
+*.nav
+*.snm
+*.vrb
 _region_.tex
 thesis-outline.tex
