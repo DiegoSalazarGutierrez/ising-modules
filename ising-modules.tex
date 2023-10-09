@@ -182,13 +182,14 @@ In \Cref{sec:proofs-main-theorems}, we prove \Cref{thr:3} and \Cref{thr:4}.
 In the appendices, we show the SageMath \cite{sagemath} program used to compute the exceptional partitions appearing in $R^{1/2}$, and we briefly consider the case $L(1/2, 1/16)$.
 The software systems Mathematica \cite{Mathematica} and Singular \cite{Singular} were also very useful to verify the series and compute Gröbner bases.
 
-I would like to thank my advisor Reimundo Heluani, Instituto de Matemática Pura e Aplicada (IMPA) and Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) for their support.
+I would like to thank my advisor Reimundo Heluani and Instituto de Matemática Pura e Aplicada (IMPA) for their support.
 Jethro Van Ekeren made some valuable suggestions as well.
+The author is partially supported by PhD scholarship 155672/2019-3 from Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).
 
 \section{Preliminaries and notation}
 \label{sec:prel-notat}
 
-The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$ and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
+The set of natural numbers $\{0, 1, \dots\}$ is denoted by $\mathbb{N}$, the set of integers is denoted by $\mathbb{Z}$, and the set of positive integers $\{1, 2, \dots\}$ is denoted by $\mathbb{Z}_+$.
 
 First, we review the theory of representations of the Virasoro Lie algebra following \cite{kac_bombay_2013}.
 The \emph{Virasoro Lie algebra} is a Lie algebra given by
@@ -213,7 +214,7 @@ The \emph{Verma representation} of $\Vir$ with \emph{highest weight} $(c, h)$ is
 where $\Vir$ acts by left multiplication.
 We take $|c, h\rangle = 1 \otimes 1$ as \emph{highest weight vector}.
 
-A \emph{partition} (of $n \in \mathbb{N}$) is a sequence $\lambda = [\lambda_1, \dots, \lambda_m]$ such that $\lambda_i \in \mathbb{Z}_+$ for $i = 1, \dots, m$, $\lambda_1 \ge \dots \ge \lambda_m$ (and $\lambda_1 + \dots + \lambda_m = n$).
+A \emph{partition (of $n \in \mathbb{N}$)} is a sequence $\lambda = [\lambda_1, \dots, \lambda_m]$ such that $\lambda_i \in \mathbb{Z}_+$ for $i = 1, \dots, m$, $\lambda_1 \ge \dots \ge \lambda_m$ (and $\lambda_1 + \dots + \lambda_m = n$).
 We also consider the \emph{empty partition} $\emptyset$, which is the unique partition of $0$.
 For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$, we define
 \begin{equation*}
@@ -224,7 +225,7 @@ By the PBW theorem, the set
   \{L_{\lambda}|c, h\rangle \mid \text{$\lambda$ is a partition}\}
 \end{equation*}
 is a vector space basis of $M(c, h)$.
-The representation $M(c, h)$ has a unique maximal subrepresentation $J(c, h)$, and the quotient
+The representation $M(c, h)$ has a unique maximal proper subrepresentation $J(c, h)$, and the quotient
 \begin{equation*}
   L(c, h) = M(c, h)/J(c, h)
 \end{equation*}
@@ -270,7 +271,7 @@ For $p, q \in \mathbb{N}$, $a \in G^pV$ and $b \in G^qV$, we set:
 \end{align*}
 where $\alpha^p: G^pV \to \gr^G(V)$ is the \emph{principal symbol map}.
 The unit is $\alpha^0(\vac)$.
-The filtration $(G^pV)_{p \in \mathbb{Z}}$ is called the \emph{standard filtration} of $V$.
+The filtration $(G^pV)_{p \in \mathbb{Z}}$ is called the \emph{standard filtration of $V$}.
 
 Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, let $(a^i)_{i \in I}$ be a family of homogeneous strong generators of $V$, and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
 As usual, we write $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L^M_nz^{-n - 2}$.
@@ -299,7 +300,7 @@ For $p \in \mathbb{Z}$, we set
 \end{proposition}
 
 \begin{proof}
-  The proofs in \cite{li_vertex_2004} also work here, but there is an additional $\pm h$ hanging around.
+  The proofs in \cite{li_vertex_2004} also work here.
 \end{proof}
 
 \begin{remark}
@@ -330,13 +331,13 @@ Then
   \gr^G(M) = \bigoplus_{n \in \mathbb{N}}\gr^G(M)_{h + n},
 \end{equation}
 where $\gr^G(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\alpha^p_M(G^pM_{h + n})$ and $\gr^G(M)_{h + n} = \ker(H^M - (h + n)\Id_{\gr^G(M)})$.
-Besides grading \eqref{eq:1}, we have the refined grading
+Besides the grading \eqref{eq:1}, we have the refined grading
 \begin{equation}
   \label{eq:2}
   \gr^G(M) = \bigoplus_{p, n \in \mathbb{N}}\alpha^p_M(G^pM_{h + n}).
 \end{equation}
 We assume that for $n \in \mathbb{N}$, $M_{h + n}$ is finite dimensional.
-We define the \emph{character} and the \emph{refined character} of $\gr^G(M)$ (with respect to grading \eqref{eq:1} and grading \eqref{eq:2}) as:
+We define the \emph{character} and the \emph{refined character of $\gr^G(M)$} (with respect to grading \eqref{eq:1} and grading \eqref{eq:2}) as:
 \begin{align*}
   \ch_{\gr^G(M)}(q) &= \sum_{n \in \mathbb{N}}\dim(\gr^G(M)_{h + n})q^{h + n} \in q^h\mathbb{C}[[q]], \\
   \ch_{\gr^G(M)}(t, q) &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^pq^{h + n} \in q^{h}\mathbb{C}[[t, q]].
@@ -373,12 +374,19 @@ Therefore, we obtain a functor
 
 \begin{remark}
   \label{rmk:2}
+  The definition of the standard filtration $(G^pM)_{p \in \mathbb{Z}}$ apparently depends on $h$, so we should write it as $(G^p_hM)_{p \in \mathbb{Z}}$.
+  However, since $G^p_{h - 1}M = G^{p - 1}_hM$ for $p \in \mathbb{Z}$, $\gr^G_h(M)$ and $\gr^G_{h - 1}(M)$ are isomorphic and $\ch_{\gr^G_{h - 1}(M)}(t, q) = t\ch_{\gr^G_h(M)}(t, q)$.
+  If we further require that $M_h \neq 0$ when $M \neq 0$, then $\gr^G(M)$ and $\ch_{\gr^G(M)}(t, q)$ are well-defined.
+\end{remark}
+
+\begin{remark}
+  \label{rmk:3}
   We can relax the hypothesis of $L_0^M$ being diagonalizable.
   It is possible to define the standard filtration for admissible modules (see \cite[Definition 3.3]{dong_twisted_1998}), and \Cref{prp:3} still holds.
 \end{remark}
 
 From now on, we take $V = \Vir^{1/2}$ (the universal Virasoro vertex algebra of central charge $1/2$) as the $\mathbb{N}$-graded vertex algebra with conformal vector $\omega = L_{-2}\vac$.
-Some indexes or superindexes will be omitted, so for example $\alpha^p_M$ simplifies to $\alpha^p$.
+Some subscripts or superscripts will be omitted, so for example $\alpha^p_M$ simplifies to $\alpha^p$.
 We set:
 \begin{equation*}
   M = M(1/2, 1/2), L = L(1/2, 1/2), W = J(1/2, 1/2).
@@ -391,9 +399,10 @@ It can be shown (cf.\ \cite{astashkevich_structure_1997}) that
   W = U(\Vir)\{u_2, u_3\},
 \end{equation}
 where the generating singular vectors are:
-\begin{equation*}
-  u_2 = (L_{-1}^2 - \tfrac{4}{3}L_{-2})\vachalf, u_3 = (L_{-1}^3 - 3L_{-2}L_{-1} + \tfrac{3}{4}L_{-3})\vachalf
-\end{equation*}
+\begin{equation}
+  \label{eq:4}
+  u_2 = (L_{-1}^2 - \tfrac{4}{3}L_{-2})\vachalf, u_3 = (L_{-1}^3 - 3L_{-2}L_{-1} + \tfrac{3}{4}L_{-3})\vachalf.
+\end{equation}
 
 We have a natural epimorphism of representations of $\Vir$
 \begin{align*}
@@ -411,7 +420,7 @@ and this produces a natural isomorphism of modules over $\gr^G(V)$
 \end{equation*}
 where
 \begin{equation}
-  \label{eq:4}
+  \label{eq:5}
   K = \ker(\gr^G(\pi)).
 \end{equation}
 
@@ -426,7 +435,7 @@ This is because
 \begin{equation*}
   \gr^G(V) \cong \gr(U(\Vir_{\le -2})) \cong S(\Vir_{\le -2}) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots],
 \end{equation*}
-where $\Vir_{\le -2}$ is the subalgebra of $\Vir$ given by $\Vir_{\le -2} = \bigoplus_{n \le -2}L_n$, and $U(\Vir_{\le -2})$ is equipped with the PBW filtration (see \cite[\S2]{dixmier_enveloping_1996}).
+where $\Vir_{\le -2}$ is the subalgebra of $\Vir$ given by $\Vir_{\le -2} = \bigoplus_{n \le -2}L_n$, and $U(\Vir_{\le -2})$ is equipped with the PBW filtration (see \cite[\S2]{dixmier_enveloping_1996} and \cite[(5.2.25)]{lepowsky_introduction_2004}).
 A similar argument can be made for $\gr^G(M)$, obtaining the following isomorphism
 \begin{align*}
   \gr^G(M) &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k, \\
@@ -437,14 +446,13 @@ where $s, k, n_1, \dots, n_s \in \mathbb{N}$.
 These observations justify the following definitions.
 For a partition $\lambda = [\lambda_1, \dots, \lambda_m, 1, \dots, 1]$ with exactly $n$ ones, we define $u_{\lambda} \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$ by setting
 \begin{equation*}
-  u_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m}L_{-1}^n,
+  u_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m}L_{-1}^n.
 \end{equation*}
-where $L_{-1}^n$ is the $n$-th element of the canonical basis.
-We define the \emph{length} of $\lambda$ as
+We define the \emph{length of $\lambda$} as
 \begin{equation*}
   \len(\lambda) = 2m + n
 \end{equation*}
-and the \emph{weight} of $\lambda$ as
+and the \emph{weight of $\lambda$} as
 \begin{equation*}
   \Delta(\lambda) = \lambda_1 + \dots + \lambda_m + n.
 \end{equation*}
@@ -476,12 +484,12 @@ From the epimorphism of $V$-modules $\pi: M \twoheadrightarrow L$, we deduce the
 \end{proposition}
 
 In this article, we will deal with polynomial algebras written as $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and free modules of the form $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ for some $N \in \mathbb{N}$.
-We will always use the degree reverse lexicographic order with $L_{-2} > L_{-3} > \dots > L_{-N}$ and TOP (term over position) with $L_{-1}^0 < L_{-1}^1 < \dots < L_{-1}^N$.
-We can extend the definition of \emph{leading monomial} $\lm$ as follows.
-For any element $u \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, we pick $N$ large enough so that $u \in \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$.
+We will always use the degree reverse lexicographic order with $L_{-2} > L_{-3} > \dots > L_{-N}$ and TOP (term over position) with $L_{-1}^0 < L_{-1}^1 < \dots < L_{-1}^N$, see \cite[\S3.5]{adams_introduction_1994}.
+Let $u \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$.
+We can define the \emph{leading monomial of $u$}, denoted by $\lm(u)$, as follows.
+We pick $N$ large enough so that $u \in \bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$.
 Then, we define $\lm(u)$ as the leading monomial in $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$, which is naturally a subset of $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$.
 This does not depend on the choice of $N$.
-For example, $\lm(L_{-2} - \frac{3}{4}L_{-1}^2) = L_{-2}$.
 
 When working with $q$-series, the following notation is useful.
 The \emph{$q$-Pochhammer symbol} is $(q)_n = \prod_{j = 1}^n(1 - q^j) \in \mathbb{C}[q]$ for $n \in \mathbb{N}$.
@@ -522,7 +530,7 @@ The following lemma will be used frequently to verify series identities.
 \section{A combinatorial argument}
 \label{sec:comb-argum}
 
-A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains} a partition $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
+A partition $\lambda = [\lambda_1, \dots, \lambda_m]$ \emph{contains a partition} $\eta = [\eta_1, \dots, \eta_n]$, written as $\eta \subseteq \lambda$, if $m \ge n$ and there is $i \in \mathbb{Z}_+$ such that $1 \le i \le m - n + 1$ and $[\lambda_i, \lambda_{i + 1}, \dots, \lambda_{i + n - 1}] = \eta$.
 
 We define
 \begin{equation*}
@@ -553,7 +561,7 @@ We now define subsets of $P$, which will help us in finding an expression for $p
 \end{align*}
 and both $p_{>2}(t, q)$ and $P_{>2}(n, m)$ are defined like $p(t, q)$ and $P(n, m)$ were defined.
 Likewise, we define $P_{>6, 5, 3}$, $P_{6, 5, 3}$, $p_{>6, 5, 3}(t, q)$, $p_{6, 5, 3}(t, q)$, $P_{>6, 5, 3}(n, m)$ and $P_{6, 5, 3}(n, m)$.
-It turns out that $P$ is made of the these ``smaller'' objects, and we can find recurrence relations between them to find our desired formula for $p(t, q)$.
+It turns out that $P$ decomposes as a disjoint union of these smaller objects, and we can find recurrence relations between them to find our desired formula for $p(t, q)$.
 
 \begin{lemma}
   \label{lmm:2}
@@ -721,7 +729,7 @@ the insertion of $\gr^G(V)$ into the $k$-th component of $\gr^G(M)$.
 \end{lemma}
 
 \begin{proof}
-  Follows immediately from \Cref{lmm:7}.
+  The result follows immediately from \Cref{lmm:7}.
 \end{proof}
 
 We have a natural quotient map
@@ -733,12 +741,12 @@ where
 \begin{equation*}
   a_{3, 4} = (L_{-2}^3 + \tfrac{93}{64}L_{-3}^2 - \tfrac{27}{16}L_{-6} - \tfrac{33}{8}L_{-4}L_{-2})\vac
 \end{equation*}
-is the singular vector of $V$ that generates its maximal subrepresentation as in \cite{andrews_singular_2022}.
+is the singular vector of $V$ that generates its maximal proper ideal as in \cite{andrews_singular_2022}.
 Applying the functor $\gr^G$, we obtain an epimorphism of $\mathbb{N}$-graded vertex Poisson algebras
 \begin{equation*}
   \gr^G(\pi_0): \gr^G(V) \twoheadrightarrow \gr^G(\Vir_{3, 4}).
 \end{equation*}
-We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singular_2022}, and we recall the definition of $K$ given in \eqref{eq:4}.
+We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singular_2022}, and we recall the definition of $K$ given in \eqref{eq:5}.
 
 \begin{lemma}
   \label{lmm:9}
@@ -764,7 +772,7 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
   where $W$ is defined in \eqref{eq:3}.
   We use this statement in the following simplified form
   \begin{equation}
-    \label{eq:5}
+    \label{eq:6}
     \text{for $a \in U(\Vir)\{a_{3, 4}\}$, $a_{(-1)}\vachalf \in W$}.
   \end{equation}
 
@@ -777,8 +785,13 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
     K = \sum_{p \in \mathbb{N}}\alpha^p(W \cap G^pM).
   \end{equation*}
   Let $\alpha^p(a) \in I$ with $a \in U(\Vir)\{a_{3, 4}\} \cap G^pV$.
-  By \Cref{lmm:8} and \eqref{eq:5}, we have $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
+  By \Cref{lmm:8} and \eqref{eq:6}, we have $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
 \end{proof}
+
+\begin{remark}
+  \label{rmk:4}
+  The proof of \Cref{lmm:9} also works for other values of $c = c_{p, q} = 1 - \frac{6(p - q)^2}{pq}$ and $h = h_{m, n} = \frac{(np - mq)^2 - (p - q)^2}{4pq}$, where $p, q \ge 2$ are relatively prime integers, and $m, n$ are integers satisfying $0 < m < p$ and $0 < n < q$, see \cite{wang_rationality_1993}.
+\end{remark}
 
 We need to compute all leading monomials of elements of $K$.
 To do this, we need to order the PBW basis of $U(\Vir_{\le -1}) = \vspan\{L_{\lambda} \mid \text{$\lambda$ is a partition}\}$ first by length, then by degree reverse lexicographic order and finally by position.
@@ -795,19 +808,25 @@ For $x \in U(\Vir_{\le -1})$ with $x \neq 0$, we may write
   x = c_1L_{\lambda_1} + c_2L_{\lambda_2} + \dots + c_rL_{\lambda_r},
 \end{equation*}
 where for $1 \le i \le r$, $0 \neq c_i \in \mathbb{C}$ and $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_r}$.
-We define the \emph{leading monomial} of $x$ as $\lm(x) = L_{\lambda_1}$.
+We define the \emph{leading monomial of $x$} as $\lm(x) = L_{\lambda_1}$.
 We set $\lm(0) = 0$.
-Next, we extend the definition of $\lm$ from $U(\Vir_{\le -1})$ to $V$ and $M$ by considering the isomorphisms of vector spaces: $U(\Vir_{\le -2}) \xrightarrow{\sim} V, L_{\lambda} \mapsto L_{\lambda}\vac$ and $U(\Vir_{\le -1}) \xrightarrow{\sim} M, L_{\lambda} \mapsto L_{\lambda}\vachalf$, where $\lambda$ is a partition and $U(\Vir_{\le -2}) = \{L_{\lambda} \mid \text{$\lambda = [\lambda_1, \dots, \lambda_m]$ satisfies $\lambda_m \ge 2$}\}$.
-For example, we have $(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf \in W$ and $\lm((L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf) = L_{-1}^4\vachalf$.
-If we were using only the degree reverse lexicographic order with TOP, then we would get $L_{-3}L_{-1}\vachalf$ as leading monomial instead.
+Next, we extend the definition of $\lm$ from $U(\Vir_{\le -1})$ to $M$ by considering the isomorphism of vector spaces $U(\Vir_{\le -1}) \xrightarrow{\sim} M, L_{\lambda} \mapsto L_{\lambda}\vachalf$, where $\lambda$ is a partition.
+For example:
+\begin{enumerate}
+\item We have $\lm(L_{-1}^2 - \frac{3}{4}L_{-2}) = L_{-2}$ because the power product of $L_{-1}^2$ is $1$, the power product of $L_{-1}^0$ is $L_{-2}$, $L_{-2} > 1$ by degree considerations, and we are using TOP with $L_{-1}^0 < L_{-1}^1 < L_{-1}^2$.
+  We also have $\lm((L_{-1}^2 - \frac{3}{4}L_{-2})\vachalf) = L_{-2}\vachalf$ because $\len(L_{-1}^2) = \len(L_{-2}) = 2$.
+\item We have $\lm(L_{-1}^3 - 3L_{-2}L_{-1} + \frac{3}{4}L_{-3}) = L_{-2}L_{-1}$ because the power product of $L_{-1}^3$ is $1$, the power product of $L_{-1}^1$ is $L_{-2}$, the power product of $L_{-1}^0$ is $L_{-3}$, $L_{-2} > L_{-3} > 1$ by definition and degree considerations, and we are using TOP with $L_{-1}^0 < L_{-1}^1 < L_{-1}^2 < L_{-1}^3$.
+  Again, we have $\lm((L_{-1}^3 - 3L_{-2}L_{-1} + \frac{3}{4}L_{-3})\vachalf) = L_{-2}L_{-1}\vachalf$ because $\len(L_{-1}^3) = \len(L_{-2}L_{-1}) = 3$ and $\len(L_{-3}) = 2$.
+\item We have $\lm(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4}) = L_{-3}L_{-1}$ because the power product of $L_{-1}^4$ is $1$, the power product of $L_{-1}^1$ is $L_{-3}$, the power product of $L_{-1}^0$ is $L_{-4}$, $L_{-3} > L_{-4} > 1$ by definition and degree considerations, and we are using TOP with $L_{-1}^0 < L_{-1}^1 < L_{-1}^2 < L_{-1}^3 < L_{-1}^4$.
+  However, we now have $\lm((L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf) = L_{-1}^4\vachalf$ because $\len(L_{-1}^4) = 4$, $\len(L_{-3}L_{-1}) = 3$ and $\len(L_{-4}) = 2$.
+  In fact, we have $(L_{-1}^4 - 3L_{-3}L_{-1} - 6L_{-4})\vachalf \in W$, as we will see in a moment.
+\end{enumerate}
 
 \begin{remark}
-  \label{rmk:3}
-  The definition of the order in the PBW basis of $U(\Vir_{\le -1})$ was made to make the following statements true:
-  \begin{enumerate}
-  \item For $\lambda$ a partition and $a \in V$, if $\lm(a) = L_{\lambda}\vac$, then $\lm(\alpha^{\len(\lambda)}(a)) = p_{\lambda}$.
-  \item For $\lambda$ a partition and $u \in M$, if $\lm(u) = L_{\lambda}\vachalf$, then $\lm(\alpha^{\len(\lambda)}(u)) = u_{\lambda}$.
-  \end{enumerate}
+  \label{rmk:5}
+  The definition of the order in the PBW basis of $U(\Vir_{\le -1})$ was made so that for a partition $\lambda$ and $u \in M$, if $\lm(u) = L_{\lambda}\vachalf$, then $\lm(\alpha^{\len(\lambda)}(u)) = u_{\lambda}$.
+
+  This order also helps us in computing the exceptional partitions faster, as we do not have to compute Gröbner bases explicitly because it is enough to transform matrices into row reduced echelon form.
 \end{remark}
 
 For $n \in \mathbb{N}$, let $p(n)$ denote the number of partitions of $n$.
@@ -817,15 +836,15 @@ The matrix $A^{m_k}_n$ is given by
 \begin{equation*}
   A^{m_k}_n(i, j) = \text{coefficient of $L_{\lambda_j}\vachalf$ in $L_{\lambda_i}u_k$},
 \end{equation*}
-for $1 \le i \le p(n - k)$, $1 \le j \le p(n)$ and $k = 2, 3$, where $\lambda_1, \dots, \lambda_{p(n)}$ are the partitions of $n$ ordered in such a way that $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_{p(n)}}$.
-We now transform $A_n$ into row reduced echelon form, obtaining a matrix $A^W_n$ which has an unknown number of rows and $p(n)$ columns.
+for $1 \le i \le p(n - k)$, $1 \le j \le p(n)$ and $k = 2, 3$, where $\lambda_1, \dots, \lambda_{p(n)}$ are the partitions of $n$ ordered in such a way that $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_{p(n)}}$ and $u_2, u_3$ are given by \eqref{eq:4}.
+We now transform $A_n$ into row reduced echelon form, obtaining a matrix $A^W_n$ which has an unknown number of nonzero rows and $p(n)$ columns.
 For each pivot $\lambda$ of $A^W_n$, let $u^W_{\lambda}$ be the element of $\gr^G(M)$ corresponding to the row which has $L_{\lambda}\vachalf$ as pivot.
 In other words, $u^W_{\lambda} = L_{\lambda}\vachalf + \text{(lower order terms)}$.
 We set $u^K_{\lambda} = \alpha^{\len(\lambda)}(u^W_{\lambda})$ for each pivot $\lambda$ of $A^W_n$.
 
 \begin{remark}
-  \label{rmk:4}
-  By construction and \Cref{rmk:3}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
+  \label{rmk:6}
+  By construction and \Cref{rmk:5}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
 \end{remark}
 
 For example, when $n = 4$, the partitions are ordered in the following way
@@ -855,7 +874,7 @@ We set
   K' = (u^K_{[2]}, u^K_{[1, 1, 1]}, u^K_{[3, 1, 1]}, u^K_{[3, 3]}, u^K_{[4, 3, 1]}, u^K_{[4, 4, 1]}, u^K_{[5, 4, 1, 1]}, u^K_{[6, 5, 3, 1]}, \iota_0(I))_{\psn},
 \end{equation*}
 where $\psn$ denotes the Poisson submodule generated by the given subset.
-By \Cref{lmm:9}, \Cref{rmk:4} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
+By \Cref{lmm:9}, \Cref{rmk:6} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
 \begin{equation*}
   K' \subseteq K.
 \end{equation*}
@@ -870,7 +889,7 @@ We have
 where $\lambda$ is any partition, and $[\lambda, 1]$ denotes the partition $\lambda$ with a $1$ appended at the end.
 
 \begin{remark}
-  \label{rmk:5}
+  \label{rmk:7}
   While the Poisson structure of $\gr^G(V)$ is trivial (i.e., is zero), the Poisson structure of $\gr^G(M)$ is not.
   In fact, if $u \in \gr^G(M)$, and $\lambda$ is a partition, then
   \begin{equation*}
@@ -892,14 +911,14 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   By the definition of $K'$ and \cite[Proposition 5.1]{andrews_singular_2022}, we know that for $\lambda \in R$, there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
   We now assume $\lambda \in \overline{R}$, which means there is $\eta \in R$ such that $\lambda \supseteq \eta$.
   Therefore, $\lambda$ is obtained from $\eta$ by adding some integers greater than or equal to two and adding $k$ ones.
-  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:5}, and the fact that $\lm$ is multiplicative).
+  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:7}, and the fact that $\lm$ is multiplicative).
   Thus, we set $u = (L_{-2})^k_{(0)}(p_{\tau}v) \in K'$ to get $\lm(u) = u_{\lambda}$.
   For example, if we take $\lambda = [3, 2, 1, 1] \in \overline{R}$, then $\eta = [2] \in R$.
   In this case, $v = L_{-2}- 3/4L_{-1}^2 \in K'$ is such that $\lm(v) = u_{[2]}$, and we take $u = L_{-3}L_{-2}L_{-1}^2 - 3/4L_{-3}L_{-1}^4 \in K'$.
 \end{proof}
 
 \begin{remark}
-  \label{rmk:6}
+  \label{rmk:8}
   For any partitions $\lambda$ and $\eta$ with the same number of ones, if $\lambda \supseteq \eta$, then $u_{\eta} \mid u_{\lambda}$.
   The converse is not true.
   For example, $u_{[4, 2]} \mid u_{[4, 3, 2]}$, but $[4, 3, 2] \nsupseteq [4, 2]$.
@@ -923,7 +942,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   First, we prove the inclusion $(\supseteq)$.
   We assume $\lambda$ belongs to the right set, and $\lambda \supseteq \eta$ for some $\eta \in R$.
   Then $\lambda$ has $k$ more ones than $\eta$ for some $k \in \mathbb{N}$.
-  By \Cref{rmk:6}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$, where we added $k$ ones to $\eta$, a contradiction.
+  By \Cref{rmk:8}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$, where we added $k$ ones to $\eta$, a contradiction.
   Therefore, $\lambda \nsupseteq \eta$ for $\eta \in R$, which means $\lambda$ belongs to the left set.
 
   We now prove the inclusion $(\subseteq)$.
@@ -931,7 +950,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   Then $\lambda$ has $0$, $1$ or $2$ ones.
   We assume $\lambda$ has $0$ ones.
   It is enough to prove that for $\eta \in R$ with $0$ ones, $u_{\eta} \nmid u_{\lambda}$.
-  By \Cref{rmk:6}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
+  By \Cref{rmk:8}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
   We assume $\eta = [r + 2, r + 1, r]$ for some $r \ge 3$ and $u_{\eta} \mid u_{\lambda}$.
   Then $\lambda$ contains $[r + 2, r + 1, \dots, r + 1, r]$, where $r + 1$ appears $k \ge 1$ times.
   If $k \ge 2$, then $\lambda$ contains $[r + 1, r + 1, r]$, which is not possible.
@@ -962,10 +981,10 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
 
   For $N \in \mathbb{N}$, we have natural vector space isomorphisms
   \begin{equation}
-    \label{eq:6}
+    \label{eq:7}
     \frac{F_N}{K \cap F_N} \supseteq \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap F_N} \xrightarrow{\sim} \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap \gr^G(M)_{\le 1/2 + N}} \xrightarrow{\sim} \gr^G(L)_{\le 1/2 + N}.
   \end{equation}
-  Therefore, if we find a basis of each vector space $\gr^G(M)_{\le 1/2 + N}/K \cap F_N \subseteq F_N/K \cap F_N$ such that each basis is contained in the next one when considering the isomorphism \eqref{eq:6}, we get a basis of $\gr^G(L)$ by taking the union of these bases because $\bigcup_{N \in \mathbb{N}}\gr^G(L)_{\le 1/2 + N} = \gr^G(L)$.
+  Therefore, if we find a basis of each vector space $\gr^G(M)_{\le 1/2 + N}/K \cap F_N \subseteq F_N/K \cap F_N$ such that each basis is contained in the next one when considering the isomorphism \eqref{eq:7}, we get a basis of $\gr^G(L)$ by taking the union of these bases because $\bigcup_{N \in \mathbb{N}}\gr^G(L)_{\le 1/2 + N} = \gr^G(L)$.
 
   Let $G_N$ be a Gröbner basis of $K \cap F_N$.
   We define
@@ -974,11 +993,11 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   \end{equation*}
   By \cite[Proposition 3.6.4]{adams_introduction_1994},
   \begin{equation}
-    \label{eq:7}
+    \label{eq:8}
     \{u_{\lambda} + K \cap F_N \mid u_{\lambda} \in B_N\}
   \end{equation}
   is a vector space basis of $\gr^G(M)_{\le 1/2 + N}/K \cap F_N$.
-  Therefore, by \Cref{lmm:6}, isomorphism \eqref{eq:6} and the isomorphism between $\gr^G(L)_{1/2 + n}$ and $L_{1/2 + n}$ of \Cref{prp:4}, we have
+  Therefore, by \Cref{lmm:6}, isomorphism \eqref{eq:7} and the isomorphism between $\gr^G(L)_{1/2 + n}$ and $L_{1/2 + n}$ of \Cref{prp:4}, we have
   \begin{equation*}
     |B_N| = \sum_{n \le N}\dim(\gr^G(L)_{1/2 + n}) = \sum_{n \le N}\dim(L_{1/2 + n}) = \sum_{n \le N}|P(n)|.
   \end{equation*}
@@ -998,7 +1017,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
 
   On the other hand, we have $B_N \subseteq \overline{B_N}$ because if $u_{\lambda} \in B_N$ and $\eta \in \overline{R}$, then we have $u_{\eta} \nmid u_{\lambda}$ because if we had $u_{\eta} \mid u_{\lambda}$, then by \Cref{lmm:10}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$, then by the definition of Gröbner basis, there would exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
-  We see that the family of bases given by \eqref{eq:7} satisfies the property that one basis is contained in the next one, and this concludes the proof of \Cref{thr:4}.
+  We see that the family of bases given by \eqref{eq:8} satisfies the property that one basis is contained in the next one, and this concludes the proof of \Cref{thr:4}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]
@@ -1078,9 +1097,9 @@ These computations will be briefly shown now.
 
 We recall the definitions of $P^{1/16}$ and $R^{1/16}$ given in \Cref{sec:introduction}.
 For the definition of the series $p^{1/16}(t, q)$, the set $P^{1/16}(n, m)$ and other related notation, see \Cref{sec:comb-argum}.
-Again, we omit superindexes.
+Again, we omit superscripts.
 
-The maximal subrepresentation of $M(1/2, 1/16)$ is generated by the singular vectors:
+The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singular vectors:
 \begin{equation*}
   u_2 = (L_{-2} - \tfrac{4}{3}L_{-1}^2)\vacsixteen, u_4 = (L_{-2}L_{-2} - \tfrac{600}{49}L_{-2}L_{-1}^2 + \tfrac{144}{49}L_{-1}^4 + \tfrac{264}{49}L_{-3}L_{-1} - \tfrac{36}{49}L_{-4})\vacsixteen.
 \end{equation*}
