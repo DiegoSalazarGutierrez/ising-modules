@@ -2403,7 +2403,7 @@ We have constructed a functor
 \begin{align*}
   \Gen: \{\text{$V$-modules satisfying \eqref{eq:30}}\} \to \{\text{admissible $V$-modules}\}.
 \end{align*}
-For $\mathbb{Z}$-graded a vertex algebra $V$, we have a natural forgetful functor
+For a $\mathbb{Z}$-graded vertex algebra $V$, we have a natural forgetful functor
 \begin{equation*}
   \For: \{\text{admissible $V$-modules}\} \to \text{$V$-Mod}.
 \end{equation*}
@@ -3133,7 +3133,7 @@ The $\Vir$-modules $L(1/2, 1/2)$ and $L(1/2, 1/16)$ are not vertex algebras, but
 \label{sec:modules-over-simple}
 
 In this section, the objective is to describe the irreducible admissible modules over $\Vir^c$ and $\Vir_c$.
-To do that, we first study the Zhu algebra $\Zhu(V)$ of a $\mathbb{Z}$-graded vertex algebra $V$.
+To do that, we first study the Zhu algebra $\Zhu(V)$ of a $\mathbb{Z}$-graded vertex algebra $V$ introduced in \cite{zhu_modular_1996}.
 This naturally leads to a functor $\Omega: \text{$V$-Mod} \to \text{$\Zhu(V)$-Mod}$.
 Next, we construct an inverse $L: \text{$\Zhu(V)$-Mod} \to \{\text{admissible $V$-modules}\}$ of the functor $\Omega$ using the associated Lie algebras of a vertex algebra constructed in \Cref{sec:lie-algebr-assoc}.
 We end this section by describing the irreducible admissible modules over $\Vir^c$ and $\Vir_c$ explicitly in terms of the irreducible highest weight representations $L(c, h)$ for certain values of $h$.
@@ -3448,7 +3448,7 @@ We start with $\Vir^c$, which is easier.
   Therefore, $L(\mathbb{C}_h)$ is an irreducible highest weight representation of $\Vir$, i.e., $L(\mathbb{C}_h) = L(c, h)$.
 \end{proof}
 
-We now move onto $\Vir_c$.
+We now move on to $\Vir_c$.
 If $c$ is not of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers, then $\Vir_c = \Vir^c$, and we have already solved the problem.
 
 \begin{theorem}[{\cite{wang_rationality_1993}}]
@@ -4381,6 +4381,7 @@ We define the \emph{Zhu $C_2$-algebra of $V$} by
 \begin{equation*}
   R_V = V/C_2V = F_0V/F_1V \subseteq \gr_F(V).
 \end{equation*}
+In Zhu's original article \cite{zhu_modular_1996} and other works, $R_V$ is denoted by $A(V)$.
 
 The fact that $\gr_F(V)$ is a vertex Poisson algebra implies that $R_V$ is a Poisson algebra with operations given as follows.
 For $a, b \in V$, we set:
