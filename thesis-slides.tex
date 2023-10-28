@@ -16,7 +16,7 @@
 \DeclareMathOperator{\ch}{ch}
 \DeclareMathOperator{\vspan}{span}
 \DeclareMathOperator{\Ind}{Ind}
-\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\res}{res}
 \DeclareMathOperator{\vac}{|0\rangle}
 \DeclareMathOperator{\vachalf}{|1/2\rangle}
 \DeclareMathOperator{\vacsixteen}{|1/16\rangle}
@@ -24,13 +24,10 @@
 \DeclareMathOperator{\Zhu}{Zhu}
 
 \title{PBW bases of irreducible Ising modules}
-\author{Diego Salazar}
-\institute[IMPA]
-{
-  Instituto de Matemática Pura e Aplicada (IMPA) \\
-  Rio de Janeiro -- Brasil \\ [1cm]
-}
-\date[26 September 2023]{26 September 2023}
+\author[Salazar]{Diego Salazar\inst{1}}
+\institute[IMPA]{\inst{1}Instituto de Matemática Pura e Aplicada (IMPA)}
+\date[26 September 2023]{Thesis defense \\
+  Rio de Janeiro - RJ - Brasil, 26 September 2023}
 
 \begin{document}
 
@@ -38,7 +35,6 @@
 
 \begin{frame}
   \frametitle{The Virasoro Lie algebra and its modules}
-
   The \emph{Virasoro Lie algebra}, denoted by $\Vir$, is the Lie algebra given by:
   \begin{align*}
     \Vir &= \bigoplus_{n \in \mathbb{Z}}\mathbb{C}L_n \oplus \mathbb{C}C, \\
@@ -54,11 +50,9 @@
   \begin{equation*}
     M(c, h) = \Ind^{\Vir}_{\Vir_{\ge 0} \oplus \mathbb{C}C}(\mathbb{C}) = U(\Vir) \otimes_{U(\Vir_{\ge 0} \oplus \mathbb{C}C)} \mathbb{C}.
   \end{equation*}
-
 \end{frame}
 
 \begin{frame}
-
   We set $|c, h\rangle = 1\otimes1$.
   The representation $M(c, h)$ has a unique maximal proper subrepresentation $J(c, h)$, and the quotient
   \begin{equation*}
@@ -76,12 +70,10 @@
   \item What is a PBW basis of $L(c, h)$?
   \end{enumerate}
   By a PBW basis of $L(c, h)$ we mean a basis of monomials of the form $L_{-\lambda_1}\dots L_{-\lambda_m}(|c, h\rangle + J(c, h))$ for ``some partitions $\lambda = [\lambda_1, \dots, \lambda_m]$ satisfying something''.
-
 \end{frame}
 
 \begin{frame}
   \frametitle{PBW basis of the Ising model}
-
   For the \emph{Ising model} $\Vir_{3, 4} = L(1/2, 0)$, this can be done.
   Let $R^0$ be the following set of partitions
   \footnotesize
@@ -99,12 +91,10 @@
     \label{thr:2}
     The set $\{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vac \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P^0\}$ is a vector space basis of the Ising model $\Vir_{3, 4}$.
   \end{theorem}
-
 \end{frame}
 
 \begin{frame}
   \frametitle{Vertex superalgebras and their modules}
-
   Let $V$ be a vector space.
   An $\End(V)$-valued formal distribution $a(z) \in \End(V)[[z^{\pm 1}]]$ is a \emph{field} if
   \begin{equation*}
@@ -116,11 +106,9 @@
   \begin{equation*}
     (z - w)^N[a(z), b(w)] = 0.
   \end{equation*}
-
 \end{frame}
 
 \begin{frame}
-
   A \emph{vertex superalgebra} is the data consisting of four elements $(V, \vac, T, Y)$ satisfying the following properties:
   \begin{enumerate}
   \item $V$ is a superspace called the \emph{state space};
@@ -129,11 +117,9 @@
   \item $Y: V \to \mathcal{F}(V)$ is a linear and parity preserving map called the \emph{state-field correspondence}.
   \end{enumerate}
   The data must satisfy the following axioms for $a \in V$:
-
 \end{frame}
 
 \begin{frame}
-
   \begin{enumerate}
   \item (Vacuum axiom)
     \begin{align*}
@@ -153,11 +139,9 @@
     [a_{(m)}, b_{(n)}] &= \sum_{j \in \mathbb{N}}(a_{(j)}b)_{(m + n - j)}, \\
     (a_{(n)}b)_{(m)}c &= \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a_{(n - j)}b_{(m + j)}c - (-1)^np(a, b)b_{(n + m - j)}a_{(j)}c).
   \end{align*}
-
 \end{frame}
 
 \begin{frame}
-
   Let $V$ be a vertex superalgebra.
   A \emph{module over $V$} or $V$-module is a superspace $M$ together with a linear and parity preserving map $Y^M: V \to \mathcal{F}(M)$, written as $Y^M(a, z) = \sum_{n \in \mathbb{Z}}a^M_{(n)}z^{-n - 1}$, such that for $a, b \in V$, $u \in M$ and $m, n \in \mathbb{Z}$:
   \begin{align*}
@@ -165,11 +149,9 @@
     [a^M_{(m)}, b^M_{(n)}] &= \sum_{j \in \mathbb{N}}(a_{(j)}b)^M_{(m + n - j)}, \\
     (a_{(n)}b)^M_{(m)}u &= \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a^M_{(n - j)}b^M_{(m + j)}u - (-1)^np(a, b)b^M_{(n + m - j)}a^M_{(j)}u).
   \end{align*}
-
 \end{frame}
 
 \begin{frame}
-
   \begin{example}[Virasoro vertex algebras]
     \label{exa:1}
     We pick $c \in \mathbb{C}$.
@@ -187,11 +169,9 @@
 
     The vertex algebra $\Vir^c$ has a unique maximal proper ideal, and the quotient $\Vir_c$ is the \emph{simple Virasoro vertex algebra of central charge $c$}.
   \end{example}
-
 \end{frame}
 
 \begin{frame}
-
   We see that for $c \in \mathbb{C}$:
   \begin{align*}
     \Vir^c &= M(c, 0)/U(\Vir)\{L_{-1}|c, 0\rangle\}, \\
@@ -212,11 +192,9 @@
   \item When is $\Vir^c$ equal to $\Vir_c$?
   \item What are the modules over $\Vir_c$?
   \end{enumerate}
-
 \end{frame}
 
 \begin{frame}
-
   Let $p, q \ge 2$ be relatively prime integers, and we set $c_{p, q} = 1 - \frac{6(p - q)^2}{pq}$.
 
   \begin{theorem}[{\cite{gorelik_simplicity_2007}}]
@@ -233,12 +211,10 @@
     \end{equation*}
     where $c_{i_1\dots i_k} \in \mathbb{Q}$, the coefficient of $L_{-2}^{(p - 1)(q - 1)/2}$ is nonzero.
   \end{theorem}
-
 \end{frame}
 
 \begin{frame}
   \frametitle{Graded and conformal vertex superalgebras}
-
   Let $V$ be a vertex superalgebra.
   A \emph{Hamiltonian operator of $V$} is a diagonalizable operator $H \in \End(V)$ such that
   \begin{equation}
@@ -256,11 +232,9 @@
   \end{equation*}
   If $a$ is an eigenvector of $H$, it is called \emph{homogeneous}, its eigenvalue is called the \emph{conformal weight of $a$}, and it is denoted by $\Delta_a$.
   For $a \in V$ homogeneous, we write $Y(a, z) = \sum_{n \in \mathbb{Z} - \Delta_a}a_nz^{-n - \Delta_a}$.
-
 \end{frame}
 
 \begin{frame}
-
   Let $V$ be a vertex superalgebra.
   A \emph{conformal vector (of central charge $c \in \mathbb{C}$)} of $V$ is a vector $\omega \in V$ such that $Y(\omega, z) = \sum_{n \in \mathbb{Z}}L_nz^{-n - 2}$ satisfies:
   \begin{enumerate}
@@ -277,12 +251,10 @@
     We pick $c \in \mathbb{C}$.
     Both $\Vir^c$ and $\Vir_c$ are conformal vertex algebras with conformal vector $L_{-2}\vac$.
   \end{example}
-
 \end{frame}
 
 \begin{frame}
   \frametitle{Characters of modules over vertex superalgebras}
-
   Let $M$ be a module over a graded vertex superalgebra $V$ with Hamiltonian operator $H$.
   A \emph{Hamiltonian operator of $M$} is a diagonalizable operator $H^M \in \End(M)$ satisfying \eqref{eq:1}.
   If $V$ is conformal with conformal vector $\omega$ such that $L_0^M$ is diagonalizable, where $Y^M(\omega, z) = \sum_{n \in \mathbb{Z}}L_n^Mz^{-n - 2}$, then $M$ is graded by $L_0^M$.
@@ -298,11 +270,9 @@
       \ch_{M(c, h)}(q) = \frac{q^h}{\prod_{j \in \mathbb{N}}(1 - q^j)}.
     \end{equation*}
   \end{example}
-
 \end{frame}
 
 \begin{frame}
-
   \begin{theorem}[{\cite{andrews_singular_2022}}]
     \label{thr:4}
     The characters of $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$ are given by:
@@ -316,17 +286,15 @@
     \normalsize
     where $\gr^G$ denotes the associated vertex Poisson algebra with respect to the standard filtration as defined in \cite{li_vertex_2004} and \cite{arakawa_remark_2012}.
   \end{theorem}
-
 \end{frame}
 
 \begin{frame}
   \frametitle{The Zhu algebra}
-
   Let $V$ be a $\mathbb{Z}$-graded vertex algebra.
   For $a, b \in V$ with $a$ homogeneous, we set:
   \begin{align*}
-    a\circ b &= \Res_z\left(\frac{(1 + z)^{\Delta_a}}{z^2}Y(a, z)b\right) \in V, \\
-    a*b &= \Res_z\left(\frac{(1 + z)^{\Delta_a}}{z}Y(a, z)b\right) \in V, \\
+    a\circ b &= \res_z\left(\frac{(1 + z)^{\Delta_a}}{z^2}Y(a, z)b\right) \in V, \\
+    a*b &= \res_z\left(\frac{(1 + z)^{\Delta_a}}{z}Y(a, z)b\right) \in V, \\
     O(V) &= \vspan\{a\circ b \mid a, b \in V\}.
   \end{align*}
 
@@ -336,11 +304,9 @@
   \end{theorem}
 
   The \emph{Zhu algebra of $V$} is the quotient $\Zhu(V) = V/O(V)$.
-
 \end{frame}
 
 \begin{frame}
-
   For a $V$-module $M$, the subspace of \emph{lowest weight vectors of $M$} is
   \begin{equation*}
     \Omega(M) = \{u \in M \mid \text{for $a \in V$ homogeneous and $n \in \mathbb{Z}_+$, $a_nu = 0$}\}.
@@ -361,11 +327,9 @@
   \begin{equation*}
     \Omega: \text{$V$-Mod} \to \text{$\Zhu(V)$-Mod}.
   \end{equation*}
-
 \end{frame}
 
 \begin{frame}[fragile]
-
   \begin{example}
     \label{exa:5}
     If $V = \Vir^c$, and $M$ is a $\Vir^c$-module, then $\Omega(M) = \{u \in M \mid \text{for $n \in \mathbb{Z}_+$, $L_nu = 0$}\}$ is the subspace of singular vectors of $M$.
@@ -383,12 +347,10 @@
     \label{thr:7}
     $L$ and $\Omega$ are equivalences when restricted to the full subcategories of completely reducible $\Zhu(V)$-modules and completely reducible admissible $V$-modules respectively.
   \end{theorem}
-
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Modules over the simple Virasoro vertex algebras}
-
   \begin{example}[{\cite{wang_rationality_1993}}]
     \label{exa:6}
     For $c \in \mathbb{C}$, we have $\Zhu(\Vir^c) \cong \mathbb{C}[x]$.
@@ -406,12 +368,10 @@
       \end{tikzcd}
     \end{equation*}
   \end{theorem}
-
 \end{frame}
 
 \begin{frame}
   \frametitle{PBW bases of irreducible Ising modules}
-
   It follows from \Cref{thr:8} that the irreducible admissible modules over the Ising model $\Vir_{3, 4}$, called \emph{Ising modules}, are $\Vir_{3, 4} = L(1/2, 0)$, $L(1/2, 1/2)$ and $L(1/2, 1/16)$.
 
   Let $R^{1/2}$ be the following set of partitions
@@ -430,11 +390,9 @@
     \label{thr:9}
     The set $\{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vachalf \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P^{1/2}\}$ is a vector space basis of $L(1/2, 1/2)$.
   \end{theorem}
-
 \end{frame}
 
 \begin{frame}
-
   Let $R^{1/16}$ be the following set of partitions
   \footnotesize
   \begin{align*}
@@ -452,11 +410,9 @@
     \label{thr:10}
     The set $\{L_{-\lambda_1}L_{-\lambda_2}\dots L_{-\lambda_m}\vacsixteen \mid \lambda = [\lambda_1, \dots, \lambda_m] \in P^{1/16}\}$ is a vector space basis of $L(1/2, 1/16)$.
   \end{theorem}
-
 \end{frame}
 
 \begin{frame}
-
   \begin{corollary}[{\cite{salazar_pbw_2023}}]
     \label{crl:1}
     The refined characters of $L(1/2, 1/2)$ and $L(1/2, 1/16)$ are:
@@ -470,27 +426,22 @@
     \normalsize
     where $\gr^G$ denotes the associated module over the vertex Poisson algebra $\gr^G(\Vir^{1/2})$ with respect to the standard filtration as defined in \cite{salazar_pbw_2023}.
   \end{corollary}
-
 \end{frame}
 
 \begin{frame}[allowframebreaks]
   \frametitle{References}
-
   \footnotesize
   \setbeamertemplate{bibliography item}{\insertbiblabel}
   \bibliographystyle{alpha}
   \bibliography{ising-modules.bib}
-
 \end{frame}
 
 \begin{frame}
-
   \begin{center}
     \Huge
     Thanks! \\
     Obrigado!
   \end{center}
-
 \end{frame}
 
 \end{document}

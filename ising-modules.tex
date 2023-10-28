@@ -1,7 +1,6 @@
 \documentclass[a4paper, 12pt, reqno]{amsart}
 
 \usepackage{amssymb}
-\usepackage{enumerate}
 \usepackage[backref = page]{hyperref}
 \usepackage[margin = 0.75in]{geometry}
 \usepackage{enumitem}
@@ -361,7 +360,7 @@ Therefore, we obtain a functor
 \begin{proposition}
   \label{prp:3}
   Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
-  Then the Li filtration (see \cite{li_abelianizing_2005}) and standard filtration satisfy
+  Then the Li filtration (see \cite{li_abelianizing_2005}) and the standard filtration satisfy
   \begin{equation*}
     F_pM_{h + n} = G^{n - p}M_{h + n} \quad \text{for $p, n \in \mathbb{N}$},
   \end{equation*}
@@ -435,13 +434,19 @@ This is because
 \begin{equation*}
   \gr^G(V) \cong \gr(U(\Vir_{\le -2})) \cong S(\Vir_{\le -2}) \cong \mathbb{C}[L_{-2}, L_{-3}, \dots],
 \end{equation*}
-where $\Vir_{\le -2}$ is the subalgebra of $\Vir$ given by $\Vir_{\le -2} = \bigoplus_{n \le -2}L_n$, and $U(\Vir_{\le -2})$ is equipped with the PBW filtration (see \cite[\S2]{dixmier_enveloping_1996} and \cite[(5.2.25)]{lepowsky_introduction_2004}).
+where $\Vir_{\le -2}$ is the subalgebra of $\Vir$ given by $\Vir_{\le -2} = \bigoplus_{n \le -2}\mathbb{C}L_n$, and $U(\Vir_{\le -2})$ is equipped with the PBW filtration (see \cite[\S2]{dixmier_enveloping_1996} and \cite[(5.2.25)]{lepowsky_introduction_2004}).
 A similar argument can be made for $\gr^G(M)$, obtaining the following isomorphism
 \begin{align*}
   \gr^G(M) &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k, \\
   \alpha_M^{2s + k}(L_{-n_1 - 2}^M\dots L_{-n_s - 2}^M(L_{-1}^M)^k\vachalf) &\mapsto L_{-n_1 - 2}\dots L_{-n_s - 2}L_{-1}^k,
 \end{align*}
 where $s, k, n_1, \dots, n_s \in \mathbb{N}$.
+
+\begin{remark}
+  \label{rmk:4}
+  That $+k$ in the isomorphism above is what makes this filtration different from the PBW filtration, where all $L_n$ for $n \le -1$ have the same length.
+  On the other hand, with the standard filtration, $L_{-1}$ has length equal to $1$, while $L_{-2}$, $L_{-3}$, $\dots$ have length equal to $2$.
+\end{remark}
 
 These observations justify the following definitions.
 For a partition $\lambda = [\lambda_1, \dots, \lambda_m, 1, \dots, 1]$ with exactly $n$ ones, we define $u_{\lambda} \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$ by setting
@@ -761,7 +766,7 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
   By \cite[Theorem 4.2]{wang_rationality_1993}, $L$ is a module over $\Vir_{3,4}$ with state-field correspondence map $Y^L_{\Vir_{3, 4}}: \Vir_{3, 4} \to \mathcal{F}(L)$ such that the following diagram commutes
   \begin{equation*}
     \begin{tikzcd}
-      V \arrow[r, "\pi_0"] \arrow[rd, "{Y^{L}_{V}}"'] & {\Vir_{3, 4}} \arrow[d, "{Y^{L}_{\Vir_{3, 4}}}"] \\
+      V \arrow[r, "\pi_0", two heads] \arrow[rd, "{Y^{L}_{V}}"'] & {\Vir_{3, 4}} \arrow[d, "{Y^{L}_{\Vir_{3, 4}}}"] \\
       & {\mathcal{F}(L)}
     \end{tikzcd}
   \end{equation*}
@@ -789,7 +794,7 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
 \end{proof}
 
 \begin{remark}
-  \label{rmk:4}
+  \label{rmk:5}
   The proof of \Cref{lmm:9} also works for other values of $c = c_{p, q} = 1 - \frac{6(p - q)^2}{pq}$ and $h = h_{m, n} = \frac{(np - mq)^2 - (p - q)^2}{4pq}$, where $p, q \ge 2$ are relatively prime integers, and $m, n$ are integers satisfying $0 < m < p$ and $0 < n < q$, see \cite{wang_rationality_1993}.
 \end{remark}
 
@@ -823,7 +828,7 @@ For example:
 \end{enumerate}
 
 \begin{remark}
-  \label{rmk:5}
+  \label{rmk:6}
   The definition of the order in the PBW basis of $U(\Vir_{\le -1})$ was made so that for a partition $\lambda$ and $u \in M$, if $\lm(u) = L_{\lambda}\vachalf$, then $\lm(\alpha^{\len(\lambda)}(u)) = u_{\lambda}$.
 
   This order also helps us in computing the exceptional partitions faster, as we do not have to compute Gröbner bases explicitly because it is enough to transform matrices into row reduced echelon form.
@@ -836,15 +841,15 @@ The matrix $A^{m_k}_n$ is given by
 \begin{equation*}
   A^{m_k}_n(i, j) = \text{coefficient of $L_{\lambda_j}\vachalf$ in $L_{\lambda_i}u_k$},
 \end{equation*}
-for $1 \le i \le p(n - k)$, $1 \le j \le p(n)$ and $k = 2, 3$, where $\lambda_1, \dots, \lambda_{p(n)}$ are the partitions of $n$ ordered in such a way that $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_{p(n)}}$ and $u_2, u_3$ are given by \eqref{eq:4}.
+for $1 \le i \le p(n - k)$, $1 \le j \le p(n)$ and $k = 2, 3$, where $\lambda_1, \dots, \lambda_{p(n)}$ are the partitions of $n$ ordered in such a way that $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_{p(n)}}$, and $u_2, u_3$ are given by \eqref{eq:4}.
 We now transform $A_n$ into row reduced echelon form, obtaining a matrix $A^W_n$ which has an unknown number of nonzero rows and $p(n)$ columns.
 For each pivot $\lambda$ of $A^W_n$, let $u^W_{\lambda}$ be the element of $\gr^G(M)$ corresponding to the row which has $L_{\lambda}\vachalf$ as pivot.
 In other words, $u^W_{\lambda} = L_{\lambda}\vachalf + \text{(lower order terms)}$.
 We set $u^K_{\lambda} = \alpha^{\len(\lambda)}(u^W_{\lambda})$ for each pivot $\lambda$ of $A^W_n$.
 
 \begin{remark}
-  \label{rmk:6}
-  By construction and \Cref{rmk:5}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
+  \label{rmk:7}
+  By construction and \Cref{rmk:6}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
 \end{remark}
 
 For example, when $n = 4$, the partitions are ordered in the following way
@@ -874,7 +879,7 @@ We set
   K' = (u^K_{[2]}, u^K_{[1, 1, 1]}, u^K_{[3, 1, 1]}, u^K_{[3, 3]}, u^K_{[4, 3, 1]}, u^K_{[4, 4, 1]}, u^K_{[5, 4, 1, 1]}, u^K_{[6, 5, 3, 1]}, \iota_0(I))_{\psn},
 \end{equation*}
 where $\psn$ denotes the Poisson submodule generated by the given subset.
-By \Cref{lmm:9}, \Cref{rmk:6} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
+By \Cref{lmm:9}, \Cref{rmk:7} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
 \begin{equation*}
   K' \subseteq K.
 \end{equation*}
@@ -889,7 +894,7 @@ We have
 where $\lambda$ is any partition, and $[\lambda, 1]$ denotes the partition $\lambda$ with a $1$ appended at the end.
 
 \begin{remark}
-  \label{rmk:7}
+  \label{rmk:8}
   While the Poisson structure of $\gr^G(V)$ is trivial (i.e., is zero), the Poisson structure of $\gr^G(M)$ is not.
   In fact, if $u \in \gr^G(M)$, and $\lambda$ is a partition, then
   \begin{equation*}
@@ -911,14 +916,14 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   By the definition of $K'$ and \cite[Proposition 5.1]{andrews_singular_2022}, we know that for $\lambda \in R$, there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
   We now assume $\lambda \in \overline{R}$, which means there is $\eta \in R$ such that $\lambda \supseteq \eta$.
   Therefore, $\lambda$ is obtained from $\eta$ by adding some integers greater than or equal to two and adding $k$ ones.
-  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:7}, and the fact that $\lm$ is multiplicative).
+  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:8} and the fact that $\lm$ is multiplicative).
   Thus, we set $u = (L_{-2})^k_{(0)}(p_{\tau}v) \in K'$ to get $\lm(u) = u_{\lambda}$.
   For example, if we take $\lambda = [3, 2, 1, 1] \in \overline{R}$, then $\eta = [2] \in R$.
   In this case, $v = L_{-2}- 3/4L_{-1}^2 \in K'$ is such that $\lm(v) = u_{[2]}$, and we take $u = L_{-3}L_{-2}L_{-1}^2 - 3/4L_{-3}L_{-1}^4 \in K'$.
 \end{proof}
 
 \begin{remark}
-  \label{rmk:8}
+  \label{rmk:9}
   For any partitions $\lambda$ and $\eta$ with the same number of ones, if $\lambda \supseteq \eta$, then $u_{\eta} \mid u_{\lambda}$.
   The converse is not true.
   For example, $u_{[4, 2]} \mid u_{[4, 3, 2]}$, but $[4, 3, 2] \nsupseteq [4, 2]$.
@@ -942,7 +947,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   First, we prove the inclusion $(\supseteq)$.
   We assume $\lambda$ belongs to the right set, and $\lambda \supseteq \eta$ for some $\eta \in R$.
   Then $\lambda$ has $k$ more ones than $\eta$ for some $k \in \mathbb{N}$.
-  By \Cref{rmk:8}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$, where we added $k$ ones to $\eta$, a contradiction.
+  By \Cref{rmk:9}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$, where we added $k$ ones to $\eta$, a contradiction.
   Therefore, $\lambda \nsupseteq \eta$ for $\eta \in R$, which means $\lambda$ belongs to the left set.
 
   We now prove the inclusion $(\subseteq)$.
@@ -950,7 +955,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   Then $\lambda$ has $0$, $1$ or $2$ ones.
   We assume $\lambda$ has $0$ ones.
   It is enough to prove that for $\eta \in R$ with $0$ ones, $u_{\eta} \nmid u_{\lambda}$.
-  By \Cref{rmk:8}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
+  By \Cref{rmk:9}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
   We assume $\eta = [r + 2, r + 1, r]$ for some $r \ge 3$ and $u_{\eta} \mid u_{\lambda}$.
   Then $\lambda$ contains $[r + 2, r + 1, \dots, r + 1, r]$, where $r + 1$ appears $k \ge 1$ times.
   If $k \ge 2$, then $\lambda$ contains $[r + 1, r + 1, r]$, which is not possible.

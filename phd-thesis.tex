@@ -1,7 +1,6 @@
 \documentclass[a4paper, 12pt, reqno]{amsart}
 
 \usepackage{amssymb}
-\usepackage{enumerate}
 \usepackage[backref = page]{hyperref}
 \usepackage[margin = 0.75in]{geometry}
 \usepackage[shortlabels]{enumitem}
@@ -34,7 +33,7 @@
 \DeclareMathOperator{\len}{len}
 \DeclareMathOperator{\psn}{psn}
 \DeclareMathOperator{\Frac}{Frac}
-\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\res}{res}
 \DeclareMathOperator{\vac}{|0\rangle}
 \DeclareMathOperator{\vachalf}{|1/2\rangle}
 \DeclareMathOperator{\vacsixteen}{|1/16\rangle}
@@ -48,7 +47,7 @@
 \DeclareMathOperator{\fs}{fs}
 \DeclareMathOperator{\tc}{tc}
 \DeclareMathOperator{\sdim}{sdim}
-\DeclareMathOperator{\Sing}{Sing}
+\DeclareMathOperator{\sing}{sing}
 \DeclareMathOperator{\Zhu}{Zhu}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\For}{For}
@@ -352,7 +351,7 @@ where
 \end{equation*}
 The \emph{residue of a formal distribution $a(z) \in V[[z^{\pm 1}]]$} is defined as
 \begin{equation*}
-  \Res_z(a(z)) = a_{(0)} = a_{-1}.
+  \res_z(a(z)) = a_{(0)} = a_{-1}.
 \end{equation*}
 
 If $P \in \mathbb{C}[[z_1^{\pm 1}, \dots, z_n^{\pm 1}]]$ and $Q \in \mathbb{C}[[w_1^{\pm 1}, \dots, w_m^{\pm 1}]]$, then $PQ \in \mathbb{C}[[z_1^{\pm 1}, \dots z_n^{\pm 1}, w_1^{\pm 1}, \dots, w_m^{\pm 1}]]$ is defined in the natural way.
@@ -370,7 +369,7 @@ The \emph{expansion in the domain} $|z| > |w|$ is the field homomorphism $i_{z, 
     & \mathbb{C}((z))((w))
   \end{tikzcd}
 \end{equation*}
-where the unlabeled homomorphisms are the natural ones.
+where $\inc$ denotes a natural inclusion.
 Similarly, the expansion in the domain $|w| > |z|$ is the field homomorphism $i_{w, z}: \mathbb{C}((z, w)) \to \mathbb{C}((w))((z))$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
@@ -379,7 +378,6 @@ Similarly, the expansion in the domain $|w| > |z|$ is the field homomorphism $i_
   \end{tikzcd}
 \end{equation*}
 
-We have natural inclusions $\mathbb{C}((z))((w)) \hookrightarrow \mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]$ and $\mathbb{C}((w))((z)) \hookrightarrow \mathbb{C}[[z^{\pm 1}, w^{\pm 1}]]$.
 The diagram
 \begin{equation*}
   \begin{tikzcd}
@@ -412,7 +410,7 @@ For example, the formal delta distribution $\delta(z, w)$ is local with $(z - w)
   \end{equation*}
   where $c^j(w) \in V[[w^{\pm 1}]]$ are formal distributions given by
   \begin{equation*}
-    c^j(w) = \Res_z((z - w)^ja(z, w)) \quad \text{for $j \in \mathbb{N}$}.
+    c^j(w) = \res_z((z - w)^ja(z, w)) \quad \text{for $j \in \mathbb{N}$}.
   \end{equation*}
   In addition, the converse is true.
 \end{theorem}
@@ -435,7 +433,7 @@ We now define the notion of Fourier transform in two cases: in one and two varia
 Let $V$ be a vector space, and let $a(z) \in V[[z^{\pm 1}]]$.
 We define the \emph{Fourier transform in one variable of $a(z)$} by
 \begin{equation*}
-  F^{\lambda}_za(z) = \Res_z(e^{\lambda z}a(z)) \in V[[\lambda]].
+  F^{\lambda}_za(z) = \res_z(e^{\lambda z}a(z)) \in V[[\lambda]].
 \end{equation*}
 
 \begin{proposition}[{\cite[Proposition 1.5.2]{nozaradan_introduction_2008}}]
@@ -452,7 +450,7 @@ We define the \emph{Fourier transform in one variable of $a(z)$} by
 Now let $a(z, w) \in V[[z^{\pm 1}, w^{\pm 1}]]$.
 We define the \emph{Fourier transform in two variables of $a(z, w)$} by
 \begin{equation*}
-  F^{\lambda}_{z, w}a(z, w) = \Res_z(e^{\lambda(z - w)}a(z, w)) \in V[[w^{\pm 1}]][[\lambda]].
+  F^{\lambda}_{z, w}a(z, w) = \res_z(e^{\lambda(z - w)}a(z, w)) \in V[[w^{\pm 1}]][[\lambda]].
 \end{equation*}
 Expanding the definition of $F^{\lambda}_{z, w}$, we obtain another expression
 \begin{equation*}
@@ -460,7 +458,7 @@ Expanding the definition of $F^{\lambda}_{z, w}$, we obtain another expression
 \end{equation*}
 where
 \begin{equation*}
-  c^j(w) = \Res_z((z - w)^ja(z, w)) \quad \text{for $j \in \mathbb{N}$}.
+  c^j(w) = \res_z((z - w)^ja(z, w)) \quad \text{for $j \in \mathbb{N}$}.
 \end{equation*}
 
 \begin{proposition}[{\cite[Proposition 1.5.4]{nozaradan_introduction_2008}}]
@@ -554,7 +552,7 @@ By \Cref{thr:6}, this means that
 \begin{equation*}
   [a(z), b(w)] = \sum_{j \in \mathbb{N}}\frac{\partial^j_w\delta(z, w)}{j!}c^j(w),
 \end{equation*}
-where $c^j(w) = \Res_z((z - w)^j[a(z), b(w)]) \in \mathfrak{g}[[w^{\pm 1}]]$ for $j \in \mathbb{N}$.
+where $c^j(w) = \res_z((z - w)^j[a(z), b(w)]) \in \mathfrak{g}[[w^{\pm 1}]]$ for $j \in \mathbb{N}$.
 Equivalently, we can write this equation as
 \begin{equation}
   \label{eq:1}
@@ -574,7 +572,7 @@ For $j \in \mathbb{N}$, the \emph{$j$-product} is the $\mathbb{C}$-bilinear map 
   \nonumber
   \bullet_{(j)}\bullet: \mathfrak{g}[[w^{\pm 1}]] \times \mathfrak{g}[[w^{\pm 1}]] &\to \mathfrak{g}[[w^{\pm 1}]], \\
   \label{eq:2}
-  a(w)_{(j)}b(w) &= \Res_z((z - w)^j[a(z), b(w)]).
+  a(w)_{(j)}b(w) &= \res_z((z - w)^j[a(z), b(w)]).
 \end{align}
 Expanding the right-hand side, we get
 \begin{equation}
@@ -1079,7 +1077,7 @@ For $j \in \mathbb{N}$, we set
   \label{thr:12}
   The $j$-products \eqref{eq:2} and \eqref{eq:10} are special cases of the following generalized $j$-product defined by
   \begin{equation*}
-    a(w)_{(j)}b(w)c = \Res_z(i_{z, w}((z - w)^j)a(z)b(w)c - p(a(z), b(z))i_{w, z}((z - w)^j)b(w)a(z)c) \quad \text{for $c \in V$}.
+    a(w)_{(j)}b(w)c = \res_z(i_{z, w}((z - w)^j)a(z)b(w)c - p(a(z), b(z))i_{w, z}((z - w)^j)b(w)a(z)c) \quad \text{for $c \in V$}.
   \end{equation*}
 \end{theorem}
 
@@ -1158,8 +1156,8 @@ A formal distribution $a(z)$ is called \emph{covariant} with respect to $T$ if
   Assume that $\vac \in V_{\zero}$ is such that $T\vac = 0$.
   Then:
   \begin{enumerate}
-  \item For any translation covariant field $a(z)$, we have $a(z)\vac \in V[[z]]$;
-  \item We set $a = a_{(-1)}\vac$.
+  \item For any translation covariant field $a(z)$, we have $a(z)\vac \in V[[z]]$.
+  \item Let $a(z)$ be a translation covariant field, and we set $a = a_{(-1)}\vac$.
     Then
     \begin{equation*}
       a(z)\vac = e^{Tz}a = \sum_{n = 0}^{\infty}\frac{T^na}{n!}z^n.
@@ -1232,15 +1230,15 @@ called the \emph{field-state correspondence}.
     \end{equation*}
     and the right-hand side, by \Cref{thr:12}, is equal to
     \begin{equation*}
-      \Res_w(a(w)b(z)i_{w, z}((w - z)^n)\vac - p(a, b)b(z)a(w)i_{z, w}((w - z)^n)\vac)|_{z = 0}.
+      \res_w(a(w)b(z)i_{w, z}((w - z)^n)\vac - p(a, b)b(z)a(w)i_{z, w}((w - z)^n)\vac)|_{z = 0}.
     \end{equation*}
     Now, since $a(w)\vac \in V[[w]]$ and $i_{z, w}((w - z)^n)$ has only nonnegative powers of $w$, we have
     \begin{equation*}
-      \Res_w(b(z)a(w)i_{z, w}((w - z)^n)\vac) = 0.
+      \res_w(b(z)a(w)i_{z, w}((w - z)^n)\vac) = 0.
     \end{equation*}
     For the first term, since $b(z)\vac \in V[[z]]$, we can let $z = 0$ before we calculate the residue, which gives
     \begin{equation*}
-      \Res_w(a(w)b(z)i_{w, z}((w - z)^n)\vac)|_{z = 0} = \Res_w(a(w)bw^n) = a_{(n)}b.
+      \res_w(a(w)b(z)i_{w, z}((w - z)^n)\vac)|_{z = 0} = \res_w(a(w)bw^n) = a_{(n)}b.
     \end{equation*}
   \item This follows from $[T, a_{(n)}] = -na_{(n - 1)}$, which is equivalent to translation covariance of the field $a(z)$.
   \item We set $b_1(z, w) = i_{z, w}a(z + w)$ and $b_2(z, w) = e^{Tw}a(z)e^{-Tw}$.
@@ -1259,8 +1257,8 @@ called the \emph{field-state correspondence}.
     \end{equation*}
     where
     \begin{align*}
-      c^j(w)c &= (\Res_z((z - w)^j(i_{z, w}((z - w)^n)a(z)b(w) - p(a, b)i_{w, z}((z - w)^n)b(w)a(z))))c \\
-              &= \Res_z((i_{z, w}((z - w)^{n + j})a(z)b(w)c - p(a, b)i_{w, z}((z - w)^{n + j})b(w)a(z)c)) \\
+      c^j(w)c &= (\res_z((z - w)^j(i_{z, w}((z - w)^n)a(z)b(w) - p(a, b)i_{w, z}((z - w)^n)b(w)a(z))))c \\
+              &= \res_z((i_{z, w}((z - w)^{n + j})a(z)b(w)c - p(a, b)i_{w, z}((z - w)^{n + j})b(w)a(z)c)) \\
               &= a(w)_{(n + j)}b(w)c.
     \end{align*}
   \item By locality, there is $N \in \mathbb{Z}$ such that
@@ -1435,8 +1433,8 @@ The theory done in \Cref{sec:fields-over-vector} is translated into the language
   or, equivalently, for $a, b, c \in \mathbb{Z}$ and $F(z, w) = z^mw^n(z - w)^k$, where $m, n, k \in \mathbb{Z}$,
   \begin{equation*}
     \begin{split}
-      &\Res_{z - w}(i_{w, z - w}F(z, w)Y(Y(a, z - w)b, w)c) = \\
-      &\Res_z(i_{z, w}F(z, w)Y(a, z)Y(b, w)c) - \Res_z(i_{w, z}F(z, w)Y(b, w)Y(a, z)c).
+      &\res_{z - w}(i_{w, z - w}F(z, w)Y(Y(a, z - w)b, w)c) = \\
+      &\res_z(i_{z, w}F(z, w)Y(a, z)Y(b, w)c) - \res_z(i_{w, z}F(z, w)Y(b, w)Y(a, z)c).
     \end{split}
   \end{equation*}
 \end{theorem}
@@ -1514,8 +1512,7 @@ Now we come to a very fundamental theorem, which allows us to construct noncommu
       \fs: \mathcal{F}_{\max} &\to V, \\
       \fs(a(z)) &= a(z)\vac|_{z = 0}
     \end{align*}
-    is well-defined and bijective.
-    We denote by $Y: V \to \mathcal{F}(V)$ the inverse map;
+    is well-defined and bijective, and we denote by $Y: V \to \mathcal{F}(V)$ the inverse map;
   \item $(V, \vac, T, Y)$ is a vertex superalgebra, with $Y: V \to \mathcal{F}(V)$ given explicitly by
     \begin{equation}
       \label{eq:13}
@@ -2414,10 +2411,10 @@ For $\mathbb{Z}$-graded a vertex algebra $V$, we have a natural forgetful functo
 \begin{remark}
   \label{rmk:26}
   We followed \cite{dong_twisted_1998} when we defined admissible modules and their homomorphisms.
-  In \cite{zhu_modular_1996}, homomorphisms of admissible modules are required to shift the gradation by a fixed integer $k$, i.e., a morphism $f: M_1 \to M_2$ between admissible modules $M_1$ and $M_2$ must satisfy $f(M_1(n)) \subseteq M_2(n + k)$ for $n \in \mathbb{Z}$.
+  In \cite{zhu_modular_1996}, homomorphisms of admissible modules are required to shift the grading by a fixed integer $k$, i.e., a morphism $f: M_1 \to M_2$ between admissible modules $M_1$ and $M_2$ must satisfy $f(M_1(n)) \subseteq M_2(n + k)$ for $n \in \mathbb{Z}$.
   However, with Zhu's definition, direct sums of admissible modules might not exist.
-  For example, if $M \neq 0$ is an admissible module, then we may define the admissible module $M'$, which is equal to $M$ but has gradation shifted by $1$.
-  Then we run into trouble while defining $M \oplus M'$ because the identity map $M \oplus M \to M \oplus M'$ does not shift the gradation by a fixed integer.
+  For example, if $M \neq 0$ is an admissible module, then we may define the admissible module $M'$, which is equal to $M$ but has grading shifted by $1$.
+  Then we run into trouble while defining $M \oplus M'$ because the identity map $M \oplus M \to M \oplus M'$ does not shift the grading by a fixed integer.
 
   Furthermore, our definition of irreducible admissible $V$-module is not the same as the usual definition of irreducible object in an abelian category.
   As we will see in \Cref{sec:zhu-c_2-algebra}, under certain conditions on $V$, both $\Gen$ and $\For$ are equivalences of categories, and an admissible module is irreducible if and only if it is irreducible as an object in the category of $V$-modules.
@@ -2818,7 +2815,7 @@ The \emph{character of $V$} is a formal power series defined by
 \end{equation*}
 The character of $V$ satisfies the inequality
 \begin{equation*}
-  \ch_V(q) \le \frac{q^h}{\prod_{j \in \mathbb{N}}(1 - q^j)}.
+  \ch_V(q) \le \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - q^k)}.
 \end{equation*}
 
 A \emph{Verma representation} is a highest weight representation of $\Vir$ in which all vectors of the form $L_{-i_k}\dots L_{-i_1}v$, with $i_k \ge \dots \ge i_1 > 0$, are linearly independent.
@@ -2852,7 +2849,7 @@ Therefore, $M(c, h)$ is a Verma representation of $\Vir$ with highest weight $(c
 We usually simplify $|c, h\rangle$ to just $|h\rangle$ when $c$ is understood.
 By \eqref{eq:36}, the character of a Verma representation is given by
 \begin{equation*}
-  \ch_{M(c, h)}(q) = \frac{q^h}{\prod_{j \in \mathbb{N}}(1 - q^j)}.
+  \ch_{M(c, h)}(q) = \frac{q^h}{\prod_{k \in \mathbb{Z}_+}(1 - q^k)}.
 \end{equation*}
 
 Any other highest weight representation $V$ with highest weight $(c, h)$ is a quotient of $M(c, h)$: we simply map $v$ to a highest weight vector of $V$, the resulting homomorphism is surjective, and $V$ is isomorphic to $M(c, h)$ quotiented by the kernel of this homomorphism.
@@ -2958,9 +2955,9 @@ That is only possible for $M(c, h)$, and later we will see that it is also possi
   We pick a highest weight vector $v$, and we define the form $\langle\bullet| \bullet\rangle$ on $M(c, h)$ using equation \eqref{eq:37}.
   Then:
   \begin{enumerate}
-  \item $\langle\bullet| \bullet\rangle$ is a contravariant Hermitian form on $M(c, h)$ such that $\langle v| v\rangle = 1$;
-  \item The eigenspaces of $L_0$ are pairwise orthogonal;
-  \item $M(c, h)^{\perp} = J(c, h)$;
+  \item $\langle\bullet| \bullet\rangle$ is a contravariant Hermitian form on $M(c, h)$ such that $\langle v| v\rangle = 1$.
+  \item The eigenspaces of $L_0$ are pairwise orthogonal.
+  \item $M(c, h)^{\perp} = J(c, h)$.
   \item Let $V$ be a highest weight representation with highest weight vector $v'$.
     There is a unique contravariant form $\langle\bullet| \bullet\rangle$ on $V$ such that $\langle v'| v'\rangle = 1$ and is defined by equation \eqref{eq:37} with $v'$ in place of $v$.
     This form satisfies properties \emph{(i)--(iii)} of this Theorem.
@@ -3148,8 +3145,8 @@ Let $V$ be a $\mathbb{Z}$-graded vertex algebra with Hamiltonian $H$.
 First, we define two operations on $V$.
 For $a, b \in V$ with $a$ homogeneous, we set:
 \begin{align*}
-  a\circ b &= \Res_z\left(\frac{(1 + z)^{\Delta_a}}{z^2}Y(a, z)b\right) \in V, \\
-  a*b &= \Res_z\left(\frac{(1 + z)^{\Delta_a}}{z}Y(a, z)b\right) \in V.
+  a\circ b &= \res_z\left(\frac{(1 + z)^{\Delta_a}}{z^2}Y(a, z)b\right) \in V, \\
+  a*b &= \res_z\left(\frac{(1 + z)^{\Delta_a}}{z}Y(a, z)b\right) \in V.
 \end{align*}
 We extend these operations linearly to obtain bilinear products on $V$, and we define
 \begin{equation*}
@@ -3180,17 +3177,17 @@ We extend these operations linearly to obtain bilinear products on $V$, and we d
   \item We assume $a \in V$ is homogeneous, $b \in V$ and $m \ge n \ge 0$.
     Then
     \begin{equation*}
-      \Res_z\left(\frac{(1 + z)^{\Delta_a + n}}{z^{m + 2}}Y(a, z)b\right) \in O(V);
+      \res_z\left(\frac{(1 + z)^{\Delta_a + n}}{z^{m + 2}}Y(a, z)b\right) \in O(V).
     \end{equation*}
   \item We assume $a, b \in V$ are homogeneous.
     Then
     \begin{equation*}
-      a*b - \Res_z\left(\frac{(1 + z)^{\Delta_b - 1}}{z}Y(b, z)a\right) \in O(V);
+      a*b - \res_z\left(\frac{(1 + z)^{\Delta_b - 1}}{z}Y(b, z)a\right) \in O(V).
     \end{equation*}
   \item We assume $a \in V$ is homogeneous.
     Then
     \begin{equation*}
-      a*b - b*a - \Res_z((1 + z)^{\Delta_a - 1}Y(a, z)b) \in O(V).
+      a*b - b*a - \res_z((1 + z)^{\Delta_a - 1}Y(a, z)b) \in O(V).
     \end{equation*}
   \end{enumerate}
 \end{lemma}
@@ -3231,7 +3228,7 @@ The Zhu algebra is closely related to the Borcherds Lie algebra, as the followin
   \begin{align*}
     [a + (T + H)V, b + (T + H)V] &= \sum_{j \in \mathbb{N}}\binom{\Delta_a - 1}{j}a_{(j)}b + (T + H)V \\
                                  &\mapsto \sum_{j \in \mathbb{N}}\binom{\Delta_a - 1}{j}a_{(j)}b + O(V) \\
-                                 &= \Res_z((1 + z)^{\Delta_a - 1}Y(a, z)b) + O(V) \\
+                                 &= \res_z((1 + z)^{\Delta_a - 1}Y(a, z)b) + O(V) \\
                                  &= a*b - b*a + O(V) \\
                                  &= [a + O(V), b + O(V)]. \qedhere
   \end{align*}
@@ -3411,7 +3408,7 @@ This is essentially because there are examples of $\mathbb{Z}$-graded vertex alg
   There are some difficulties with this approach:
   \begin{enumerate}
   \item This is not even a functor.
-    For example, if $V = \Vir^{1/2}$, $N = U(\Vir)\{a_{3, 4}\}$ and $\inc: N \hookrightarrow V$ is the inclusion map, there is no sensible way of defining $\Omega(\inc)$ if $\Omega(M) = M(0)$.
+    For example, if $V = \Vir^{1/2}$, $N = U(\Vir)\{a_{3, 4}\}$ and $\inc: N \hookrightarrow V$ is the inclusion, there is no sensible way of defining $\Omega(\inc)$ if $\Omega(M) = M(0)$.
     On the other hand, if we use the definition of $\Omega$ given in \cite{dong_twisted_1998}, the problem disappears (see \Cref{exa:13}).
   \item It is slightly less general because \cite{dong_twisted_1998} defines $\Omega(M)$ when $M$ is any $V$-module (called weak $V$-module there).
   \end{enumerate}
@@ -3535,15 +3532,15 @@ Given a formal distribution $f(x_1, \dots, x_n) \in V[[x_1^{\pm 1}, \dots, x_n^{
 \end{equation*}
 We set
 \begin{equation*}
-  \Sing f(x_1, \dots, x_n) = \sum_{m_1, \dots, m_n \in \mathbb{N}}f_{(m_1, \dots, m_n)}x_1^{-m_1 - 1}\dots x_n^{-m_n - 1}.
+  \sing(f(x_1, \dots, x_n)) = \sum_{m_1, \dots, m_n \in \mathbb{N}}f_{(m_1, \dots, m_n)}x_1^{-m_1 - 1}\dots x_n^{-m_n - 1}.
 \end{equation*}
 
-A \emph{vertex Lie superalgebra} is the data $(V, T, Y_-)$, where $V$ is a vector superspace, $Y_-: V \to \mathcal{F}(V)$ is a linear and parity preserving map such that $Y_-(a, z) = \Sing(Y_-(a, z))$ (i.e., $Y_-: V \to \Hom(V, z^{-1}V[z^{-1}])$) for $a \in V$ and $T \in \End(V)$.
+A \emph{vertex Lie superalgebra} is the data $(V, T, Y_-)$, where $V$ is a vector superspace, $Y_-: V \to \mathcal{F}(V)$ is a linear and parity preserving map such that $Y_-(a, z) = \sing(Y_-(a, z))$ (i.e., $Y_-: V \to \Hom(V, z^{-1}V[z^{-1}])$) for $a \in V$ and $T \in \End(V)$.
 The data must satisfy the following axioms for $a, b \in V$:
 \begin{enumerate}
 \item $Y_-(Ta, z) = \partial_zY_-(a, z)$;
-\item $Y_-(a, z)b = \Sing(p(a, b)(e^{Tz}Y_-(b, -z)a))$;
-\item $[Y_-(a, z), Y_-(b, w)] = \Sing(\sum_{j \in \mathbb{N}}\frac{\partial^j_w\delta(z, w)}{j!}Y_-(a_{(j)}b, w))$, where $Y_-(a, z) = \sum_{n \in \mathbb{N}}a_{(n)}z^{-n - 1}$, $a_{(n)} \in \End(V)$.
+\item $Y_-(a, z)b = \sing(p(a, b)(e^{Tz}Y_-(b, -z)a))$;
+\item $[Y_-(a, z), Y_-(b, w)] = \sing(\sum_{j \in \mathbb{N}}\frac{\partial^j_w\delta(z, w)}{j!}Y_-(a_{(j)}b, w))$, where $Y_-(a, z) = \sum_{n \in \mathbb{N}}a_{(n)}z^{-n - 1}$, $a_{(n)} \in \End(V)$.
 \end{enumerate}
 
 \begin{remark}
@@ -3564,7 +3561,7 @@ Since
 \end{equation*}
 we have
 \begin{equation*}
-  \Sing\left(\sum_{j \in \mathbb{N}}\frac{\partial^j_w\delta(z, w)}{j!}Y_-(a_{(j)}b, w)\right) = \sum_{m, n \in \mathbb{N}}\sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)_{(m + n - j)}z^{-m - 1}w^{-n - 1}.
+  \sing\left(\sum_{j \in \mathbb{N}}\frac{\partial^j_w\delta(z, w)}{j!}Y_-(a_{(j)}b, w)\right) = \sum_{m, n \in \mathbb{N}}\sum_{j = 0}^m\binom{m}{j}(a_{(j)}b)_{(m + n - j)}z^{-m - 1}w^{-n - 1}.
 \end{equation*}
 On the other hand,
 \begin{equation*}
@@ -3949,7 +3946,7 @@ Therefore, we obtain a functor
 
 \begin{example}[$\gr^G(\Vir^c)$]
   \label{exa:14}
-  We pick any $c \in \mathbb{C}$ and define the subalgebra $\Vir_{\le -2} = \bigoplus_{n \le -2}L_{n}$ of $\Vir$.
+  We pick any $c \in \mathbb{C}$ and define the subalgebra $\Vir_{\le -2} = \bigoplus_{n \le -2}\mathbb{C}L_{n}$ of $\Vir$.
   By the PBW theorem and \Cref{exa:5}, for $s \in \mathbb{N}$, a basis of $U(\Vir_{\le -2})^s$ (see \Cref{sec:almost-comm-algebr} for the definition of $U(\Vir_{\le -2})^s$) is given by
   \begin{equation*}
     \{L_{\lambda} \mid \text{$t \le s$ and $[\lambda_1, \dots, \lambda_t]$ is a partition with $\lambda_t \ge 2$}\}.
@@ -4044,6 +4041,11 @@ Therefore, we obtain a functor
   The endomorphism $T \in \End(\mathbb{C}[L_{-2}, L_{-3}, \dots])$ is given by $T(L_{-n}) = (n - 1)L_{-n - 1}$ for $n \ge 2$, which is extended to a derivation.
 
   The Poisson structure of $\gr^G(\Vir^c)$ is trivial (i.e., the map $Y_-$ is zero) because for $s \in \mathbb{Z}$, $G^{2s}\Vir^c = G^{2s + 1}\Vir^c$.
+
+  Since $\Delta_{L_{-2}\vac} = 2$,
+  \begin{equation*}
+    \ch_{\gr^G(\Vir^c)}(t, q) = \frac{1}{\prod_{k \ge 2}(1 - t^2q^k)}.
+  \end{equation*}
 \end{example}
 
 \begin{remark}
@@ -4259,7 +4261,7 @@ Therefore, we obtain a functor
 \begin{proposition}
   \label{prp:18}
   Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
-  Then the Li filtration and standard filtration satisfy
+  Then the Li filtration and the standard filtration satisfy
   \begin{equation*}
     F_pM_{h + n} = G^{n - p}M_{h + n} \quad \text{for $p, n \in \mathbb{N}$}.
   \end{equation*}
@@ -4342,6 +4344,11 @@ This is also valid for vertex algebras because all the definitions are compatibl
     \alpha_{M(c, h)}^{2s + k}(L_{-n_1 - 2}^{M(c, h)}\dots L_{-n_s - 2}^{M(c, h)}(L_{-1}^{M(c, h)})^k|c, h\rangle) &\mapsto L_{-n_1 - 2}\dots L_{-n_s - 2}L_{-1}^k,
   \end{align*}
   where $s, k, n_1, \dots, n_s \in \mathbb{N}$.
+
+  Since $\Delta_{L_{-2}\vac} = 2$ and $\Delta_{(L_{-1}^{M(c, h)})^k|c, h\rangle)} = k + h$ for $k \in \mathbb{N}$,
+  \begin{equation*}
+    \ch_{\gr^G(M(c, h))}(t, q) = \frac{q^h}{(1 - tq)\prod_{k \ge 2}(1 - t^2q^k)}.
+  \end{equation*}
 \end{example}
 
 \begin{remark}
@@ -5243,7 +5250,7 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
   By \Cref{thr:44}, the following diagram commutes
   \begin{equation*}
     \begin{tikzcd}
-      V \arrow[r, "\pi_0"] \arrow[rd, "{Y^L_{V}}"'] & {\Vir_{3, 4}} \arrow[d, "{Y^L_{\Vir_{3, 4}}}"] \\
+      V \arrow[r, "\pi_0", two heads] \arrow[rd, "{Y^L_{V}}"'] & {\Vir_{3, 4}} \arrow[d, "{Y^L_{\Vir_{3, 4}}}"] \\
       & {\mathcal{F}(L)}
     \end{tikzcd}
   \end{equation*}
@@ -5317,7 +5324,7 @@ The matrix $A^{m_k}_n$ is given by
 \begin{equation*}
   A^{m_k}_n(i, j) = \text{coefficient of $L_{\lambda_j}\vachalf$ in $L_{\lambda_i}u_k$},
 \end{equation*}
-for $1 \le i \le p(n - k)$, $1 \le j \le p(n)$ and $k = 2, 3$, where $\lambda_1, \dots, \lambda_{p(n)}$ are the partitions of $n$ ordered in such a way that $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_{p(n)}}$ and $u_2, u_3$ are given by \eqref{eq:48}.
+for $1 \le i \le p(n - k)$, $1 \le j \le p(n)$ and $k = 2, 3$, where $\lambda_1, \dots, \lambda_{p(n)}$ are the partitions of $n$ ordered in such a way that $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_{p(n)}}$, and $u_2, u_3$ are given by \eqref{eq:48}.
 We now transform $A_n$ into row reduced echelon form, obtaining a matrix $A^W_n$ which has an unknown number of nonzero rows and $p(n)$ columns.
 For each pivot $\lambda$ of $A^W_n$, let $u^W_{\lambda}$ be the element of $\gr^G(M)$ corresponding to the row which has $L_{\lambda}\vachalf$ as pivot.
 In other words, $u^W_{\lambda} = L_{\lambda}\vachalf + \text{(lower order terms)}$.
@@ -5393,7 +5400,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   By the definition of $K'$ and \cite[Proposition 5.1]{andrews_singular_2022}, we know that for $\lambda \in R$, there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
   We now assume $\lambda \in \overline{R}$, which means there is $\eta \in R$ such that $\lambda \supseteq \eta$.
   Therefore, $\lambda$ is obtained from $\eta$ by adding some integers greater than or equal to two and adding $k$ ones.
-  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:50}, and the fact that $\lm$ is multiplicative).
+  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:50} and the fact that $\lm$ is multiplicative).
   Thus, we set $u = (L_{-2})^k_{(0)}(p_{\tau}v) \in K'$ to get $\lm(u) = u_{\lambda}$.
   For example, if we take $\lambda = [3, 2, 1, 1] \in \overline{R}$, then $\eta = [2] \in R$.
   In this case, $v = L_{-2}- 3/4L_{-1}^2 \in K'$ is such that $\lm(v) = u_{[2]}$, and we take $u = L_{-3}L_{-2}L_{-1}^2 - 3/4L_{-3}L_{-1}^4 \in K'$.
