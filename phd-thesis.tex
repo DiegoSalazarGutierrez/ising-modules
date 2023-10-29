@@ -91,6 +91,19 @@
 \section{Introduction}
 \label{sec:introduction}
 
+Modules over the Virasoro Lie algebra, Kac-Moody Lie algebras, vertex algebras, and other related noncommutative algebraic objects are often equipped with natural filtrations, whose associated graded spaces bear interesting structures, such as differential structures, Poisson structures, etc.
+The prototype of this situation is, of course, the PBW theorem, one formulation of which is that for a Lie algebra $\mathfrak{g}$, the associated graded space $\gr(U(\mathfrak{g}))$ of the universal enveloping algebra $U(\mathfrak{g})$ with respect to the usual PBW filtration is naturally isomorphic to the symmetric algebra $S(\mathfrak{g})$, i.e., it is a polynomial algebra.
+
+A similar notion in the context of vertex operator algebras has garnered increasing interest in recent years.
+For a vertex operator algebra $V$, there is a natural epimorphism $JR_V \twoheadrightarrow \gr_F(V)$ between the jet algebra of the Zhu $C_2$-algebra $R_V$ of $V$ and the associated graded space $\gr_F(V)$ of $V$ with respect to the Li filtration.
+If this is an isomorphism, we say $V$ is classically free.
+The property of classical freedom, and its failure, are related to problems in representation theory such as monomial bases of irreducible representations and combinatorial interpretations of classical number theoretic identities like the Rogers-Ramanujan identity.
+
+The Ising model $\Vir_{3, 4}$ is a vertex operator algebra that turns out not to be classically free, as illustrated in \cite{andrews_singular_2022}.
+However, it is still possible to find a monomial basis of $\Vir_{3, 4}$.
+In this thesis, we continue the work of Andrews, Van Ekeren and Heluani by studying the irreducible modules over $\Vir_{3, 4}$, their associated graded spaces and their PBW bases.
+As it turns out, we have to use a modified version of the PBW filtration when considering modules over $\Vir_{3, 4}$.
+
 A vertex superalgebra can be thought of as a vector superspace $V$ together with a distinguished element $\vac \in V_{\zero}$, called vacuum vector, and $\mathbb{Z}$-many bilinear products
 \begin{align*}
   \bullet_{(n)}\bullet: V \times V &\to V, \\
@@ -172,7 +185,7 @@ However, the Virasoro vertex algebras are foundational in the sense that most ve
 Even more, we usually require vertex algebras to be $\mathbb{Z}$-graded lower truncated or $\mathbb{N}$-graded.
 Thus, we define vertex operator algebras as $\mathbb{Z}$-graded lower truncated conformal vertex algebras, and this is often the object of study, not general vertex algebras.
 
-Vertex algebras are often assumed to be $C_2$-cofinite, which is just a finite dimensionality condition, and rational, which means any admissible module is completely reducible.
+Vertex algebras are often assumed to be $C_2$-cofinite, which means $R_V$ is finite dimensional, and rational, which means any admissible module is completely reducible.
 Rational vertex operator algebras have finitely many isomorphism classes of irreducible admissible modules, while $C_2$-cofinite vertex operator algebras have well-behaved modules.
 
 Given a $\mathbb{Z}$-graded vertex algebra $V$, the Zhu algebra $\Zhu(V)$ is an associative algebra with unit that describes the irreducible admissible $V$-modules by doing the following: given an irreducible admissible $V$-module $M$, the space of lowest weight vectors $M(0)$ is a $\Zhu(V)$-module.
@@ -4050,7 +4063,7 @@ Therefore, we obtain a functor
 
 \begin{remark}
   \label{rmk:39}
-  It is worth noting that we do not use the Poisson structure of $\gr(U(\Vir_{\le -2}))$ given in \Cref{exa:18}.
+  It is worth noting that we do not use the Poisson structure of $\gr(U(\Vir_{\le -2}))$ given in \Cref{exa:19}.
 \end{remark}
 
 \subsection{Filtrations of modules over vertex algebras}
@@ -4345,7 +4358,7 @@ This is also valid for vertex algebras because all the definitions are compatibl
   \end{align*}
   where $s, k, n_1, \dots, n_s \in \mathbb{N}$.
 
-  Since $\Delta_{L_{-2}\vac} = 2$ and $\Delta_{(L_{-1}^{M(c, h)})^k|c, h\rangle)} = k + h$ for $k \in \mathbb{N}$,
+  Since $\Delta_{L_{-2}\vac} = 2$ and $\Delta_{(L_{-1}^{M(c, h)})^k|c, h\rangle} = k + h$ for $k \in \mathbb{N}$,
   \begin{equation*}
     \ch_{\gr^G(M(c, h))}(t, q) = \frac{q^h}{(1 - tq)\prod_{k \ge 2}(1 - t^2q^k)}.
   \end{equation*}
@@ -4478,6 +4491,22 @@ From now on, $JR_V$ will be considered as a vertex Poisson algebra.
   The homomorphism $\phi_V$ is surjective by \Cref{lmm:25}.
   The fact that $\phi_V$ is a vertex Poisson algebra homomorphism is explained in \cite[Proposition 2.5.1]{arakawa_remark_2012}.
 \end{proof}
+
+When $\phi_V$ is an isomorphism, we say $V$ is \emph{classically free}.
+
+\begin{example}
+  \label{exa:17}
+  It was proven in \cite{andrews_singular_2022} that the Ising model $\Vir_{3, 4}$ is not classically free.
+  In fact, by \cite[Theorem 2]{andrews_singular_2022},
+  \begin{equation*}
+    \ker(\phi_{\Vir_{3, 4}}) = (b)_{\partial},
+  \end{equation*}
+  where
+  \begin{equation*}
+    b = L_{-4}L_{-3}L_{-2} + \tfrac{1}{6}L_{-5}L_{-2}^2
+  \end{equation*}
+  and $(b)_{\partial}$ is the differential ideal generated by $b$, cf.\ \Cref{sec:jet-algebras-jet} and \Cref{exa:14} where $\partial$ is denoted by $T$.
+\end{example}
 
 In algebra, commutative algebras are often required to be finitely generated.
 In the theory of $\mathbb{N}$-graded vertex algebras, the equivalent of this is assuming that $V$ is finitely strongly generated.
@@ -4636,7 +4665,7 @@ Thus, $C_2$-cofinite vertex algebras can be regarded as a generalization of fini
 \end{theorem}
 
 \begin{example}
-  \label{exa:17}
+  \label{exa:18}
   Assume $c$ is of the form $c_{p, q}$ for some $p, q \ge 2$ relatively prime integers.
   By \Cref{exa:12}, \Cref{exa:16} and \Cref{thr:54}, $\Vir_c$ is regular.
 \end{example}
@@ -5636,7 +5665,7 @@ The operation $\{\bullet, \bullet\}$ is called \emph{Poisson bracket}.
 \end{proof}
 
 \begin{example}
-  \label{exa:18}
+  \label{exa:19}
   Let $A$ be an associative almost commutative algebra with $A$ with unit $1$ satisfying (i)--(iv) of \Cref{sec:almost-comm-algebr}.
   We know that $\gr(A)$ is a commutative associative algebra with unit $\gamma^0(1)$.
   We now make $\gr(A)$ into a Poisson algebra by defining the Poisson bracket as follows.
