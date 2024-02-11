@@ -1046,17 +1046,21 @@ We follow the convention that the normal ordered product is read from right to l
 \begin{equation*}
   :a(z)b(z)c(z): = :a(z)(:b(z)c(z):):.
 \end{equation*}
+Moreover, the normally ordered product of a single field is the field itself, so we have
+\begin{equation*}
+  :a(z): = a(z).
+\end{equation*}
 
 \begin{lemma}[{\cite[Proposition 3.3.3]{nozaradan_introduction_2008}}]
   \label{lmm:2}
   Let $a(z)$ and $b(z)$ be two fields.
   Their normal ordered product is written explicitly as
   \begin{equation*}
-    :a(z)b(z): = \sum_{j \in \mathbb{Z}}:ab:_{(j)}z^{-j - 1},
+    :a(z)b(z): = \sum_{j \in \mathbb{Z}}:a(z)b(z):_{(j)}z^{-j - 1},
   \end{equation*}
   with
   \begin{equation*}
-    :ab:_{(j)}c = \sum_{n \le -1}a_{(n)}b_{(j - n - 1)}c + p(a(z), b(z))\sum_{n \ge 0}b_{(j - n - 1)}a_{(n)}c \quad \text{for $c \in V$}.
+    :a(z)b(z):_{(j)}c = \sum_{n \le -1}a_{(n)}b_{(j - n - 1)}c + p(a(z), b(z))\sum_{n \ge 0}b_{(j - n - 1)}a_{(n)}c \quad \text{for $c \in V$}.
   \end{equation*}
 \end{lemma}
 
@@ -1076,14 +1080,35 @@ We follow the convention that the normal ordered product is read from right to l
 \end{lemma}
 
 \begin{proof}
-  This follows from \Cref{lmm:2} and induction on $s$.
+  We do this by induction on $s \ge 2$.
+  The base case $s = 2$ follows from \Cref{lmm:3} and by replacing $n$ by $-n - 1 \in \mathbb{N}$ in the following computation
+  \begin{align*}
+    :a^1(z)a^2(z):_{(l)} &= \sum_{n \le -1}a^1_{(n)}a^2_{(l - n - 1)} + \sum_{n \ge 0}a^2_{(l - n - 1)}a^1_{(n)} \\
+                         &= \sum_{n \in \mathbb{N}}a^1_{(-n - 1)}a^2_{(l + n)} + \sum_{n \in \mathbb{N}}a^2_{(l - 1 - n)}a^1_{(n)} \\
+                         &= \sum_{n \in \mathbb{N}}R^{l, 0}_n(a^1(z), a^2(z)) + \sum_{n \in \mathbb{N}}R^{l, 1}_n(a^1(z), a^2(z)) \\
+                         &= \sum_{n \in \mathbb{N}}\sum_{k = 0}^1R^{l, k}_n(a^1(z), a^2(z)).
+  \end{align*}
+
+  We now assume our desired formula for $s - 1$, with $s \ge 3$, and we prove it for $s$.
+  We observe that in the sum $R^{l, k}_{n_1, \dots, n_{s - 1}}(a^1(z), \dots, a^s(z))$, either $i_1 = 1$ or $j_1 = 1$.
+  Therefore, by the induction hypothesis and the base case $s = 2$, we have
+  \begin{align*}
+    :a^1(z)a^2(z)\dots a^s(z):_{(l)} &= :a^1(z)(:a^2(z)\dots a^s(z):):_{(l)} \\
+                                     &= \sum_{n_1 \in \mathbb{N}}a^1_{(-n_1 - 1)}(:a^2(z)\dots a^s(z):)_{(l + n_1)} \\
+                                     &\quad + \sum_{n_1 \in \mathbb{N}}(:a^2(z)\dots a^s(z):)_{(l - 1 - n_1)}a^1_{(n_1)} \\
+                                     &= \sum_{n_1 \in \mathbb{N}}a^1_{(-n_1 - 1)}\sum_{n_2, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 2}R^{l + n_1, k}_{n_2, \dots, n_{s - 1}}(a^2(z), \dots, a^s(z)) \\
+                                     &\quad + \sum_{n_1 \in \mathbb{N}}\sum_{n_2, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 2}R^{l - 1 - n_1, k}_{n_2, \dots, n_{s - 1}}(a^2(z), \dots, a^s(z))a^1_{(n_1)} \\
+                                     &= \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 2}a^1_{(-n_1 - 1)}R^{l + n_1, k}_{n_2, \dots, n_{s - 1}}(a^2(z), \dots, a^s(z)) \\
+                                     &\quad + \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 2}R^{l - 1 - n_1, k}_{n_2, \dots, n_{s - 1}}(a^2(z), \dots, a^s(z))a^1_{(n_1)} \\
+                                     &= \sum_{n_1, \dots, n_{s - 1} \in \mathbb{N}}\sum_{k = 0}^{s - 1}R^{l, k}_{n_1, \dots, n_{s - 1}}(a^1(z), \dots, a^s(z)). \qedhere
+  \end{align*}
 \end{proof}
 
 We now extend the $j$-products.
 For $j \in \mathbb{N}$, we set
 \begin{equation}
   \label{eq:10}
-  a(w)_{(-1 - j)}b(w) = \frac{:(\partial^j_wa(w))b(w):}{j!}.
+  a(w)_{(-j - 1)}b(w) = \frac{:(\partial^j_wa(w))b(w):}{j!}.
 \end{equation}
 
 \begin{theorem}[{\cite[Proposition 3.4.3]{nozaradan_introduction_2008}}]
@@ -2141,7 +2166,7 @@ We say \emph{$M$ is strongly generated over $V$ by $T$} if
   M = \vspan\{a^{1M}_{(-n_1 - 1)}\dots a^{sM}_{(-n_s - 1)}u \mid s, n_1, \dots, n_s \in \mathbb{N}, a^1, \dots, a^s \in V, u \in T\}.
 \end{equation*}
 
-Most of the theorems about vertex superalgebras and their proofs carry over to modules over vertex superalgebras (cf.\ \Cref{thr:16}), as the following theorem shows.
+Most of the theorems about vertex superalgebras and their proofs carry over to modules over vertex superalgebras (cf.\ \Cref{thr:16} and \Cref{crl:1}), as the following theorem shows.
 
 \begin{theorem}
   \label{thr:24}
@@ -2161,7 +2186,11 @@ Most of the theorems about vertex superalgebras and their proofs carry over to m
         &\sum_{j \in \mathbb{N}}\frac{\partial^j_w\delta(z, w)}{j!}Y^M(a_{(n + j)}b, w)u;
       \end{split}
     \end{equation*}
-  \item $(a_{(n)}b)^M_{(m)}u = \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a^M_{(n - j)}b^M_{(m + j)}u - (-1)^np(a, b)b^M_{(n + m - j)}a^M_{(j)}u)$.
+  \item $(a_{(n)}b)^M_{(m)}u = \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a^M_{(n - j)}b^M_{(m + j)}u - (-1)^np(a, b)b^M_{(n + m - j)}a^M_{(j)}u)$;
+  \item For $s, n_1, \dots, n_s \in \mathbb{N}$ and $a^1, \dots, a^s \in V$,
+    \begin{equation*}
+      Y^M(a^1_{(-n_1 - 1)}\dots a^s_{(-n_s - 1)}\vac, z) = \frac{:\partial^{n_1}_zY^M(a^1, z)\dots\partial^{n_s}_zY^M(a^s, z):}{n_1!\dots n_s!}.
+    \end{equation*}
   \end{enumerate}
 \end{theorem}
 
@@ -4021,7 +4050,7 @@ Therefore, we obtain a functor
     \begin{equation*}
       a^{j_1}_{(-n_{j_1} - 1)}\dots a^{j_{s - 1 - k}}_{(-n_{j_{s - 1 - k}} - 1)}a^s_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}L_{\eta}\vac \in G^{2s + 2t - 1}\Vir^c.
     \end{equation*}
-    If $n_{i_1} \le \lambda_{i_1} - 3$, then $a^{i_1}(z)_{(n_{i_1})}L_{\eta}\vac = 0$ because $(-n + \lambda_k - 3)\dots(-n) = 0$, so we get
+    If $n_{i_1} \le \lambda_{i_1} - 3$, then $a^{i_1}(z)_{(n_{i_1})}L_{\eta}\vac = 0$ because $(-n_{i_1} + \lambda_k - 3)\dots(-n_{i_1}) = 0$, so we get
     \begin{equation*}
       a^{j_1}_{(-n_{j_1} - 1)}\dots a^{j_{s - 1 - k}}_{(-n_{j_{s - 1 - k}} - 1)}a^s_{(l - k - \sum_{r = 1}^kn_{i_r} + \sum_{r = 1}^{s - 1 - k}n_{j_r})}a^{i_k}_{(n_{i_k})}\dots a^{i_1}_{(n_{i_1})}L_{\eta}\vac = 0.
     \end{equation*}
