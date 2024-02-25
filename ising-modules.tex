@@ -1020,14 +1020,19 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
     |\overline{B_N}| = \sum_{n \le N}|P(n)|.
   \end{equation*}
 
-  On the other hand, we have $B_N \subseteq \overline{B_N}$ because if $u_{\lambda} \in B_N$ and $\eta \in \overline{R}$, then we have $u_{\eta} \nmid u_{\lambda}$ because if we had $u_{\eta} \mid u_{\lambda}$, then by \Cref{lmm:10}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$, then by the definition of Gröbner basis, there would exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
+  On the other hand, $B_N \subseteq \overline{B_N}$.
+  This is because if $u_{\lambda} \in B_N$ and $\eta \in \overline{R}$, then $u_{\eta} \nmid u_\lambda$, as we now show.
+  Suppose, for the sake of contradiction, that $u_{\eta} \mid u_\lambda$.
+  By \Cref{lmm:10}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$.
+  However, by the definition of a Gröbner basis, there would then exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
-  We see that the family of bases given by \eqref{eq:8} satisfies the property that one basis is contained in the next one, and this concludes the proof of \Cref{thr:4}.
+  We see that the family of bases given by \eqref{eq:8} satisfies the property that each basis is a subset of the next.
+  This observation, together with the isomorphism between $L$ and $\gr^G(L)$ of \Cref{prp:4}, concludes the proof of \Cref{thr:4}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]
-  We note that the basis of \Cref{thr:4} is also a basis of $\gr^G(L)$ under the isomorphism between $\gr^G(L)$ and $L$ of \Cref{prp:4}.
-  For $\lambda \in P$, we have
+  We recall that the basis of \Cref{thr:4} also gives a basis of $\gr^G(L)$.
+  For a partition $\lambda$, we have
   \begin{equation*}
     \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)) \in \alpha^{\len(\lambda)}(G^{\len(\lambda)}L_{1/2 + \Delta(\lambda)}).
   \end{equation*}
