@@ -3812,8 +3812,10 @@ If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we 
   a_{(n)}(b\otimes u) = (a_{(n)}b)\otimes u + \delta_{n, 0}b\otimes\{a, u\} \quad \text{for $a \in R$, $b \in JR$, $u \in M$ and $n \in \mathbb{N}$}
 \end{equation*}
 and $H^{JR \otimes_R M}$ as in \Cref{sec:jet-algebras-jet}.
+
 We have a natural (graded) inclusion $\inc: M \hookrightarrow JR \otimes_R M$, which is a (graded) $R$-module homomorphism.
 The (graded) $JR$-module $M$ together with the (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$ (see \Cref{sec:jet-algebras-jet}), as we now show.
+
 Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $f: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
 Thus, $N$ is a module over the (graded) algebra $JR$ and in particular, a module over the (graded) algebra $R$ because we have an inclusion $\inc: R \hookrightarrow JR$.
 Also, $f$ can be considered as a (graded) homomorphism of (graded) modules over the (graded) algebra $R$.
@@ -4592,7 +4594,7 @@ The \emph{associated variety of $V$}, denoted by $X_V$, and the \emph{singular s
 
 Let $V$ be a (graded) vertex algebra.
 We have a natural (graded) algebra inclusion $\inc: R_V \hookrightarrow \gr_F(V)$.
-By the universal property of $JR_V$ (see \Cref{sec:jet-algebras-jet}), there is a (graded) differential algebra homomorphism $\phi_V: JR_V \to \gr_F(V)$ such that the following diagram commutes
+By the universal property of $\inc: R \hookrightarrow JR_V$ (see \Cref{sec:jet-algebras-jet}), there is a (graded) differential algebra homomorphism $\phi_V: JR_V \to \gr_F(V)$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
     R_V \arrow[rd, "\inc"', hook] \arrow[r, "\inc", hook] & JR_V \arrow[d, "\phi_V"] \\
@@ -4893,7 +4895,7 @@ Let $V$ be a (graded) vertex algebra, and let $M$ be a (graded) $V$-module.
 We have a natural (graded) inclusion $\inc: R_M \hookrightarrow \gr_F(M)$ of (graded) $R_V$-modules.
 As we explained in \Cref{sec:vert-poiss-algeb-1}, we can consider $JR_V \otimes_{R_V} R_M$ as a (graded) $JR_V$-module.
 Because we have a (graded) epimorphism of vertex Poisson algebras $\phi_V: JR_V \twoheadrightarrow \gr_F(V)$, we can consider the (graded) $\gr_F(V)$-module $\gr_F(M)$ as a (graded) $JR_V$-module.
-By the universal property of the (graded) $JR_V$-module $JR_V \otimes_{R_V} R_M$ (see \Cref{sec:vert-poiss-algeb-1}), there is a (graded) $JR_V$-module homomorphism $\phi_M: JR_V \otimes_{R_V} R_M \to \gr_F(M)$ such that the following diagram commutes
+By the universal property of $\inc: R_M \hookrightarrow JR_V \otimes_{R_V} R_M$ (see \Cref{sec:vert-poiss-algeb-1}), there is a (graded) $JR_V$-module homomorphism $\phi_M: JR_V \otimes_{R_V} R_M \to \gr_F(M)$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
     R_M \arrow[r, "\inc", hook] \arrow[rd, "\inc"', hook] & JR_V \otimes_{R_V} R_M \arrow[d, "\phi_M"] \\
@@ -5995,6 +5997,9 @@ For a finitely generated algebra $R$ and a differential algebra $A$, we have a n
   Let $R$ be an algebra (not necessarily finitely generated), and we consider the polynomial algebra in $R$ variables $\mathbb{C}[(x^j)_{j \in R}]$.
   We have a natural epimorphism $\pi: \mathbb{C}[(x^j)_{j \in R}] \twoheadrightarrow R, \pi(x^j) = j$ for $j \in R$.
   We can repeat the construction of $JR$ with $\mathbb{C}[(x^j)_{j \in R}]$ in place of $\mathbb{C}[x^1, \dots, x^r]$ and $\ker(\pi)$ in place of $(f_1, \dots, f_s)$.
+  We have $JR = \mathbb{C}[x^j_{(-i)} \mid i = 1, 2, \dots, j \in R]/\ker(\pi)_{\partial}$, and the inclusion $\inc: R \to JR$ is given by $\inc(j) = x^j_{(-1)} + \ker(\pi)_{\partial}$ for $j \in R$.
+  As in \Cref{rmk:53}, we have $JR = (\inc(R))_{\partial}$.
+
   This way, we construct a functor
   \begin{equation*}
     J: \{\text{algebras}\} \to \{\text{differential algebras}\},
