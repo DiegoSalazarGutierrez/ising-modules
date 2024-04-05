@@ -678,13 +678,9 @@ The \emph{annihilation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
 \begin{equation*}
   \mathfrak{g}_- = \vspan\{a^j_{(n)} \mid j \in J, n \in \mathbb{N}\},
 \end{equation*}
-the \emph{creation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
+and the \emph{creation subalgebra of $(\mathfrak{g}, \mathfrak{F})$} is
 \begin{equation*}
-  \mathfrak{g}_+ = \vspan\{a^j_{(-n - 1)} \mid j \in J, n \in \mathbb{N}\},
-\end{equation*}
-and the \emph{polar decomposition of $(\mathfrak{g}, \mathfrak{F})$} is
-\begin{equation*}
-  \mathfrak{g} = \mathfrak{g}_- \oplus \mathfrak{g}_+.
+  \mathfrak{g}_+ = \vspan\{a^j_{(-n - 1)} \mid j \in J, n \in \mathbb{N}\}.
 \end{equation*}
 
 By \Cref{rmk:4}, if $(\mathfrak{g}, \mathfrak{F})$ is a formal distribution Lie superalgebra, then $\mathbb{C}[\partial_z]\mathfrak{F}$ is a local family.
@@ -962,7 +958,7 @@ A \emph{Virasoro formal distribution of central charge $C$} is a $\mathfrak{g}$-
   \begin{equation*}
     \begin{split}
       [at^m, bt^n] &= \delta_{m, -n - 1}\langle a, b\rangle K \quad \text{for $a, b \in V$ and $m, n \in \mathbb{Z}$}, \\
-      [at^m, K] &= 0,
+      [\widehat{V}, K] &= 0,
     \end{split}
   \end{equation*}
   and with parity given by $p(at^n) = p(a)$ and $p(K) = \zero$.
@@ -1002,7 +998,7 @@ We set
   a(z)_- &= \sum_{n \ge 0}a_{(n)}z^{-n - 1}.
 \end{align*}
 
-Let $a(z), b(z) \in \mathbb{C}[[z^{\pm1}]]$ be two formal distributions.
+Let $a(z), b(z)$ be two formal distributions.
 We define the \emph{normal product between $a(z)$ and $b(z)$} as the following formal distribution in two variables
 \begin{equation*}
   :a(z)b(w): = a(z)_+b(w) + p(a(z), b(z))b(w)a(z)_-.
@@ -1032,7 +1028,7 @@ Therefore, we can define a field $a(z)$ by defining $a(z)b \in V((z))$ for $b \i
 \begin{proposition}[{\cite[Proposition 3.3.2]{nozaradan_introduction_2008}}]
   \label{prp:6}
   Let $a(z), b(z) \in \mathcal{F}(V)$ be two fields.
-  Then $:a(z)b(z): \in \End(V)[[z,z^{-1}]]$ is again a field, where $:a(z)b(z):$ is defined by
+  Then $:a(z)b(z): \in \End(V)[[z^{\pm1}]]$ is again a field, where $:a(z)b(z):$ is defined by
   \begin{equation*}
     :a(z)b(z):c = a(z)_+b(z)c + p(a, b)b(z)a(z)_-c \quad \text{for $c \in V$}.
   \end{equation*}
@@ -1127,7 +1123,7 @@ The usual properties of $j$-products for $j \in \mathbb{N}$ carry over to the ge
 
 \begin{proposition}[{\cite[Proposition 3.4.4]{nozaradan_introduction_2008}}]
   \label{prp:7}
-  Let $a(z)$ and $b(z)$ be fields.
+  Let $a(z), b(z) \in \mathcal{F}(V)$ be two fields.
   For $j \in \mathbb{Z}$:
   \begin{enumerate}
   \item $(\partial_za(z))_{(j)}b(z) = -ja(z)_{(j - 1)}b(z)$;
