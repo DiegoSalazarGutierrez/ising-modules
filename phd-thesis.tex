@@ -3817,10 +3817,10 @@ If $R$ is a (graded) Poisson algebra, and $M$ is a (graded) $R$-module, then we 
 \end{equation*}
 and $H^{JR \otimes_R M}$ as in \Cref{sec:jet-algebras-jet}.
 We have a natural (graded) inclusion $\inc: M \hookrightarrow JR \otimes_R M$, which is a (graded) $R$-module homomorphism.
-The (graded) $JR$-module $M$ together with the (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy a universal property similar to that of $JR$ (see \Cref{sec:jet-algebras-jet}), as we now show.
+The (graded) $JR$-module $M$ together with the (graded) $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$ (see \Cref{sec:jet-algebras-jet}), as we now show.
 Let $N$ be a (graded) module over the (graded) vertex Poisson algebra $JR$, and let $f: M \to N$ be a (graded) homomorphism of modules over the (graded) Poisson algebra $R$.
 Thus, $N$ is a module over the (graded) algebra $JR$ and in particular, a module over the (graded) algebra $R$ because we have an inclusion $\inc: R \hookrightarrow JR$.
-Also, $f$ can be considered as a (graded) algebra homomorphism.
+Also, $f$ can be considered as a (graded) homomorphism of (graded) modules over the (graded) algebra $R$.
 Therefore, there is a unique (graded) homomorphism $\overline{f}: JR \otimes_R M \to N$ of (graded) modules over the (graded) algebra $JR$ such that the following diagram commutes
 \begin{equation*}
   \begin{tikzcd}
@@ -4224,7 +4224,7 @@ Let
 \end{equation*}
 be the associated graded vector space.
 By \cite{li_abelianizing_2005}, the vector space $\gr_F(M)$ is a module over $\gr_F(V)$ with operations given as follows.
-For $p, q \in \mathbb{N}$, $a \in F_pV$ and $u \in F_pM$, we set:
+For $p, q \in \mathbb{N}$, $a \in F_pV$ and $u \in F_qM$, we set:
 \begin{align*}
   \sigma_p(a)\sigma^M_q(u) &= \sigma^M_{p + q}(a^M_{(-1)}u), \\
   Y^M_-(\sigma_p(a), z)\sigma^M_q(u) &= \sum_{n \in \mathbb{N}}\sigma^M_{p + q - n}(a^M_{(n)}u)z^{-n - 1},
@@ -5807,7 +5807,7 @@ Let
 \end{equation*}
 be the associated graded vector space.
 The vector space $\gr(A)$ is an associative algebra with unit and multiplication given as follows.
-For $p, q \in \mathbb{N}$, $a \in A^p$ and $b \in A^p$, we set
+For $p, q \in \mathbb{N}$, $a \in A^p$ and $b \in A^q$, we set
 \begin{equation*}
   \gamma^p(a)\gamma^q(b) = \gamma^{p + q}(ab),
 \end{equation*}
