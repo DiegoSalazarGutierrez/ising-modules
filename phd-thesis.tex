@@ -323,6 +323,7 @@ Jethro Van Ekeren made some valuable suggestions as well.
 The author is partially supported by PhD scholarship 155672/2019-3 from Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).
 
 \numberwithin{theorem}{subsection}
+\numberwithin{equation}{subsection}
 
 \section{Vertex superalgebras and their modules}
 \label{sec:vert-supera-their}
@@ -3784,17 +3785,36 @@ By skewsymmetry,
   Y_-(1, z) = 0.
 \end{equation*}
 
+\begin{theorem}[Right Leibniz rule]
+  \label{thr:50}
+  Let $V$ be a vertex Poisson algebra.
+  For $a, b, c \in V$ and $n \in \mathbb{N}$,
+  \begin{equation*}
+    (ab)_{(n)}c = \sum_{j \in \mathbb{N}}\left(\frac{T^ja}{j!}b_{(n + j)}c + \frac{T^jb}{j!}a_{(n + j)}c\right).
+  \end{equation*}
+\end{theorem}
+
+\begin{proof}
+  This follows from skewsymmetry and the left Leibniz rule.
+\end{proof}
+
 Let $V_1$ and $V_2$ be vertex Poisson algebras.
 A \emph{vertex Poisson algebra homomorphism} $f: V_1 \to V_2$ is simultaneously a differential algebra and a vertex Lie algebra homomorphism.
 We obtain the category of vertex Poisson algebras.
 
 Let $V$ be a vertex Poisson algebra.
-A \emph{module over $V$} is a module $(M, Y^M_-)$ over $V$ as a vertex Lie algebra and a module over $V$ as a commutative associative algebra such that
-\begin{equation*}
-  a^M_{(n)}(bu) = (a_{(n)}b)u + b(a^M_{(n)}u) \quad \text{for $a, b \in V$, $u \in M$ and $n \in \mathbb{N}$}.
-\end{equation*}
+A \emph{module over $V$} is a module $(M, Y^M_-)$ over $V$ as a vertex Lie algebra and a module over $V$ as a commutative associative algebra such that for $a, b \in V$, $u \in M$ and $n \in \mathbb{N}$:
+\begin{enumerate}
+\item (Left Leibniz rule) $a^M_{(n)}(bu) = (a_{(n)}b)u + b(a^M_{(n)}u)$;
+\item (Right Leibniz rule) $(ab)^M_{(n)}u = \sum_{j \in \mathbb{N}}\left(\frac{T^ja}{j!}b^M_{(n + j)}u + \frac{T^jb}{j!}a^M_{(n + j)}u\right)$.
+\end{enumerate}
 Concepts like homomorphisms and vertex Poisson submodules are defined in the usual way.
 Given a vertex Poisson algebra $V$, we obtain the abelian category $V$-Mod of modules over $V$.
+
+\begin{remark}
+  \label{rmk:38}
+  We probably cannot deduce the right Leibniz rule from the left Leibniz rule (c.f.\ \Cref{rmk:53})
+\end{remark}
 
 \begin{proposition}[{\cite[Proposition 2.3.1]{arakawa_remark_2012}} and {\Cref{sec:jet-algebras-jet}}]
   \label{prp:11}
@@ -3913,7 +3933,7 @@ Therefore, the operator $H \in \End(\gr_F(V))$ is diagonalizable with $\gr_F(V)_
 In fact, more is true.
 
 \begin{theorem}
-  \label{thr:50}
+  \label{thr:51}
   This diagonalizable operator $H$ is a Hamiltonian of $\gr_F(V)$.
 \end{theorem}
 
@@ -4016,12 +4036,12 @@ Therefore, the operator $H \in \End(\gr^G(V))$ is diagonalizable with $\gr^G(V)_
 In fact, more is true.
 
 \begin{theorem}
-  \label{thr:51}
+  \label{thr:52}
   This diagonalizable operator $H$ is a Hamiltonian of $\gr^G(V)$.
 \end{theorem}
 
 \begin{proof}
-  The proof of \Cref{thr:50} also works here.
+  The proof of \Cref{thr:51} also works here.
 \end{proof}
 
 We have the natural vector space isomorphisms
@@ -4064,7 +4084,7 @@ Therefore, we obtain a functor
 \end{proposition}
 
 \begin{remark}
-  \label{rmk:38}
+  \label{rmk:39}
   In \cite{arakawa_remark_2012}, it is suggested in a footnote that it is possible to consider more general $\tfrac{1}{r_0}\mathbb{N}$-graded vertex algebras instead of $\mathbb{N}$-graded vertex algebras.
   However, we encounter difficulties doing this.
   For example, if $V = \Vir^{1/2}$, which is the case we are interested here, then $V$ is $\tfrac{1}{2}\mathbb{N}$-graded.
@@ -4074,7 +4094,7 @@ Therefore, we obtain a functor
 \end{remark}
 
 \begin{theorem}
-  \label{thr:52}
+  \label{thr:53}
   Let $V$ be an $\mathbb{N}$-graded vertex algebra with $\dim(V_n) < \infty$ for $n \in \mathbb{N}$.
   The refined characters of $V$ are related as follows:
   \begin{enumerate}
@@ -4192,7 +4212,7 @@ Therefore, we obtain a functor
 \end{example}
 
 \begin{remark}
-  \label{rmk:39}
+  \label{rmk:40}
   It is worth noting that we do not use the Poisson structure of $\gr(U(\Vir_{\le -2}))$ given in \Cref{exa:24}.
 \end{remark}
 
@@ -4234,7 +4254,7 @@ We note that if $V$ were conformal with conformal vector $\omega$, then we do no
 For example, for $V = \Vir^{1/2}$, $M = M(1/2, 1/2)$ and $\vachalf \in F_0M$, we have $L_{-1}\vachalf \notin F_1M$.
 
 \begin{remark}
-  \label{rmk:40}
+  \label{rmk:41}
   The observation above makes \cite[Lemma 3.1.2]{arakawa_remark_2012} incorrect because the expression $\sigma_{p - 1}(\omega_{(0)}m)$ that is written there (that should be $\sigma_{p + 1}(\omega_{(0)}m)$, but it still does not work) is not well-defined.
   It is probably not possible to define a differential on $\gr_F(M)$ in a meaningful way.
   We will not need that differential in this thesis, though.
@@ -4271,12 +4291,12 @@ Therefore, the operator $H^M \in \End(\gr_F(M))$ is diagonalizable with $\gr_F(M
 In fact, more is true.
 
 \begin{theorem}
-  \label{thr:53}
+  \label{thr:54}
   This diagonalizable operator $H^M$ is a Hamiltonian of $\gr_F(M)$.
 \end{theorem}
 
 \begin{proof}
-  The proof of \Cref{thr:50} also works here.
+  The proof of \Cref{thr:51} also works here.
 \end{proof}
 
 We have the natural vector space isomorphisms
@@ -4336,7 +4356,7 @@ For $p \in \mathbb{Z}$, we set
 \end{proof}
 
 \begin{remark}
-  \label{rmk:41}
+  \label{rmk:42}
   We do not have the property $L_{-1}^M(G^pM) \subseteq G^pM$ as in the case of vertex algebras.
 \end{remark}
 
@@ -4368,12 +4388,12 @@ Therefore, the operator $H^M \in \End(\gr^G(M))$ is diagonalizable with $\gr^G(M
 In fact, more is true.
 
 \begin{theorem}
-  \label{thr:54}
+  \label{thr:55}
   This diagonalizable operator $H^M$ is a Hamiltonian of $\gr^G(M)$.
 \end{theorem}
 
 \begin{proof}
-  The proof of \Cref{thr:50} also works here.
+  The proof of \Cref{thr:51} also works here.
 \end{proof}
 
 We have the natural vector space isomorphisms
@@ -4493,20 +4513,20 @@ This is also valid for vertex algebras because all the definitions are compatibl
 \end{example}
 
 \begin{remark}
-  \label{rmk:42}
+  \label{rmk:43}
   That $+k$ in the isomorphism above is what makes this filtration different from the PBW filtration (see \Cref{sec:almost-comm-algebr}), where all $L_n$ for $n \le -1$ have the same length.
   On the other hand, with the standard filtration, $L_{-1}$ has length equal to $1$, while $L_{-2}$, $L_{-3}$, $\dots$ have length equal to $2$.
 \end{remark}
 
 \begin{remark}
-  \label{rmk:43}
+  \label{rmk:44}
   The definition of the standard filtration $(G^pM)_{p \in \mathbb{Z}}$ apparently depends on $h$, so we should write it as $(G^p_hM)_{p \in \mathbb{Z}}$.
   However, since $G^p_{h - 1}M = G^{p - 1}_hM$ for $p \in \mathbb{Z}$, $\gr^G_h(M)$ and $\gr^G_{h - 1}(M)$ are isomorphic and $\ch_{\gr^G_{h - 1}(M)}(t, q) = t\ch_{\gr^G_h(M)}(t, q)$.
   If we further require that $M_h \neq 0$ when $M \neq 0$, then $\gr^G(M)$ and $\ch_{\gr^G(M)}(t, q)$ are well-defined.
 \end{remark}
 
 \begin{remark}
-  \label{rmk:44}
+  \label{rmk:45}
   We could have done the theory of standard filtrations of modules for admissible modules over $\mathbb{N}$-graded vertex algebras (or maybe even over lower truncated $\mathbb{Z}$-graded vertex algebras, as it is done in \cite{li_vertex_2004}).
 \end{remark}
 
@@ -4665,7 +4685,7 @@ In the theory of $\mathbb{N}$-graded vertex algebras, the equivalent of this is 
 Fortunately, these two concepts are related, as the following theorem shows.
 
 \begin{theorem}
-  \label{thr:55}
+  \label{thr:56}
   Let $S \subseteq V$ be a subset of homogeneous elements of an $\mathbb{N}$-graded vertex algebra $V$.
   The following are equivalent:
   \begin{enumerate}
@@ -4730,12 +4750,12 @@ Fortunately, these two concepts are related, as the following theorem shows.
 \end{proof}
 
 \begin{remark}
-  \label{rmk:45}
-  For a generalization of \Cref{thr:55} assuming $V$ is a lower truncated $\mathbb{Z}$-graded vertex algebra, see \cite[Theorem 4.8]{li_abelianizing_2005}.
+  \label{rmk:46}
+  For a generalization of \Cref{thr:56} assuming $V$ is a lower truncated $\mathbb{Z}$-graded vertex algebra, see \cite[Theorem 4.8]{li_abelianizing_2005}.
 \end{remark}
 
 \begin{remark}
-  \label{rmk:46}
+  \label{rmk:47}
   In the proof of \cite[Corollary 2.6.2]{arakawa_remark_2012}, it is commented that the principal symbol map gives the isomorphism $V \xrightarrow{\sim} \gr_F(V)$.
   However, there are some difficulties with this because if there were such an isomorphism, it should be natural and valid for every vertex algebra $V$, given that $V$ is defined for every vertex algebra (see \Cref{sec:filtr-vert-algebr}).
   We now present an example in which $V$ and $\gr_F(V)$ satisfy:
@@ -4765,11 +4785,11 @@ Fortunately, these two concepts are related, as the following theorem shows.
   From the definition of the Zhu $C_2$-algebra, we see that $R_V$ is isomorphic to $\mathbb{C}[t]/(t^2)$ as an algebra, and the latter is generated by the single element $t + (t^2)$.
   However, $V$ cannot be finitely strongly generated because it has uncountable dimension, and we get (iii).
 
-  From this example, we see that the assumption of $V$ being $\mathbb{N}$-graded cannot be removed in \Cref{thr:55}, although we can assume that $V$ is lower truncated $\mathbb{Z}$-graded.
+  From this example, we see that the assumption of $V$ being $\mathbb{N}$-graded cannot be removed in \Cref{thr:56}, although we can assume that $V$ is lower truncated $\mathbb{Z}$-graded.
 \end{remark}
 
 \begin{theorem}
-  \label{thr:56}
+  \label{thr:57}
   Let $V$ be a vertex algebra such that $R_V$ is finitely generated.
   Then the following are equivalent:
   \begin{enumerate}
@@ -4792,7 +4812,7 @@ Fortunately, these two concepts are related, as the following theorem shows.
     Since $\dim(X_V) = 0$, every prime ideal is maximal.
     Thus, $X_V$ is discrete.
   \item[(iii)$\implies$(ii)] Clear.
-  \item[(ii)$\implies$(iv)] By \Cref{thr:62}, $\dim(JX_V) = 0$.
+  \item[(ii)$\implies$(iv)] By \Cref{thr:63}, $\dim(JX_V) = 0$.
     By \Cref{lmm:26}, $\dim(SS(V)) = 0$.
   \item[(iv)$\implies$(ii)] This follows by considering the projection onto the $0$-th component $\gr_F(V) \twoheadrightarrow R_V$ which shows that $\dim(R_V) \le \dim(\gr_F(V))$.
   \end{description}
@@ -4811,14 +4831,14 @@ Fortunately, these two concepts are related, as the following theorem shows.
 Thus, $C_2$-cofinite vertex algebras can be regarded as a generalization of finite-dimensional finitely generated algebras.
 
 \begin{theorem}[{\cite[Theorem 4.5]{abe_rationality_2003}}]
-  \label{thr:57}
+  \label{thr:58}
   Let $V$ be a conical conformal vertex algebra.
   Then $V$ is regular if and only if $V$ is $C_2$-cofinite and rational.
 \end{theorem}
 
 \begin{example}
   \label{exa:20}
-  By \Cref{exa:12}, \Cref{exa:16} and \Cref{thr:57}, $\Vir_{p, q}$ is regular for $p, q \ge 2$ relatively prime integers.
+  By \Cref{exa:12}, \Cref{exa:16} and \Cref{thr:58}, $\Vir_{p, q}$ is regular for $p, q \ge 2$ relatively prime integers.
 \end{example}
 
 Let $V$ be a vertex algebra, and let $M$ be a module over $V$.
@@ -4883,7 +4903,7 @@ The \emph{associated variety of $M$}, denoted by $X_M$, and the \emph{singular s
 \end{align*}
 
 \begin{theorem}[{\cite[Lemma 4.2]{li_abelianizing_2005}}]
-  \label{thr:58}
+  \label{thr:59}
   Let $V$ be a vertex algebra, and let $M$ be a $V$-module.
   As a $\gr_F(V)$-module without the Poisson structure, $\gr_F(M)$ is generated by $R_M$, i.e.,
   \begin{equation*}
@@ -4909,7 +4929,7 @@ By the universal property of $\inc: R_M \hookrightarrow JR_V \otimes_{R_V} R_M$ 
 \end{lemma}
 
 \begin{proof}
-  The assertion follows from \Cref{lmm:26} and \Cref{thr:58}.
+  The assertion follows from \Cref{lmm:26} and \Cref{thr:59}.
 \end{proof}
 
 When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
@@ -4926,7 +4946,7 @@ When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
 \end{example}
 
 \begin{theorem}
-  \label{thr:59}
+  \label{thr:60}
   Let $V$ be a vertex operator algebra, let $M$ be an admissible $V$-module, and let $T \subseteq M$ be a subset of homogeneous elements of $M$.
   The following are equivalent:
   \begin{enumerate}
@@ -4957,7 +4977,7 @@ When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
 \end{proof}
 
 \begin{theorem}
-  \label{thr:60}
+  \label{thr:61}
   Let $V$ be a vertex algebra such that $R_V$ is finitely generated, let $M$ be a $V$-module, and we assume that $R_M$ is a finitely generated $R_V$-module.
   Then the following are equivalent:
   \begin{enumerate}
@@ -4974,11 +4994,11 @@ When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
 \end{theorem}
 
 \begin{proof}
-  The proof of \Cref{thr:56} works with minor modifications.
+  The proof of \Cref{thr:57} works with minor modifications.
 \end{proof}
 
 \begin{theorem}
-  \label{thr:61}
+  \label{thr:62}
   Let $V$ be a $C_2$-cofinite conical conformal vertex algebra.
   Then:
   \begin{enumerate}
@@ -5010,7 +5030,7 @@ When $\phi_M$ is an isomorphism, we say the $M$ is \emph{classically free}.
   \end{enumerate}
 \end{proof}
 
-By \Cref{thr:61}, when $V$ is a $C_2$-cofinite conical conformal vertex algebra, to find all irreducibles in the category of $V$-modules, it is enough to find all irreducibles in the category of admissible $V$-modules.
+By \Cref{thr:62}, when $V$ is a $C_2$-cofinite conical conformal vertex algebra, to find all irreducibles in the category of $V$-modules, it is enough to find all irreducibles in the category of admissible $V$-modules.
 By \Cref{exa:16}, the Ising model $\Vir_{3, 4} = \Vir_{1/2}$ satisfies these conditions.
 
 \section{PBW basis of $L(1/2, 1/2)$ and its refined character}
@@ -5025,7 +5045,7 @@ We recover the series obtained in \cite[Theorem 4]{andrews_singular_2022} when w
 In the explicit monomial basis of \Cref{thr:4}, there are ordinary and exceptional partitions.
 The ordinary partitions are handled by the theory of $\Vir_{1/2}$-modules done in \Cref{sec:modul-over-viras}.
 The exceptional partitions are handled with computer software.
-As we can see, the arguments are similar to those in \cite{andrews_singular_2022}, but there are some differences such as the use of the Zhu algebra here but not in \cite{andrews_singular_2022}, and the fact that we do not have a differential available (see \Cref{rmk:40}).
+As we can see, the arguments are similar to those in \cite{andrews_singular_2022}, but there are some differences such as the use of the Zhu algebra here but not in \cite{andrews_singular_2022}, and the fact that we do not have a differential available (see \Cref{rmk:41}).
 Finally, we give formal proofs of \Cref{thr:3} and \Cref{thr:4}.
 
 \subsection{Conventions and notation}
@@ -5503,7 +5523,7 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
 \end{proof}
 
 \begin{remark}
-  \label{rmk:47}
+  \label{rmk:48}
   The proof of \Cref{lmm:36} also works for other values of $c = c_{p, q}$ and $h = h_{m, n}$ as in \Cref{thr:44}.
 \end{remark}
 
@@ -5537,7 +5557,7 @@ For example:
 \end{enumerate}
 
 \begin{remark}
-  \label{rmk:48}
+  \label{rmk:49}
   The definition of the order in the PBW basis of $U(\Vir_{\le -1})$ was made so that for a partition $\lambda$ and $u \in M$, if $\lm(u) = L_{\lambda}\vachalf$, then $\lm(\alpha^{\len(\lambda)}(u)) = u_{\lambda}$.
 
   This order also helps us in computing the exceptional partitions faster, as we do not have to compute Gröbner bases explicitly because it is enough to transform matrices into row reduced echelon form.
@@ -5556,8 +5576,8 @@ In other words, $u^W_{\lambda} = L_{\lambda}\vachalf + \text{(lower order terms)
 We set $u^K_{\lambda} = \alpha^{\len(\lambda)}(u^W_{\lambda})$ for each pivot $\lambda$ of $A^W_n$.
 
 \begin{remark}
-  \label{rmk:49}
-  By construction and \Cref{rmk:48}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
+  \label{rmk:50}
+  By construction and \Cref{rmk:49}, for each pivot $\lambda$ of $A^W_n$, we have $u^W_{\lambda} \in W$, $u^K_{\lambda} \in K$ and $\lm(u^K_{\lambda}) = u_{\lambda}$.
 \end{remark}
 
 For example, when $n = 4$, the partitions are ordered in the following way
@@ -5587,7 +5607,7 @@ We set
   K' = (u^K_{[2]}, u^K_{[1, 1, 1]}, u^K_{[3, 1, 1]}, u^K_{[3, 3]}, u^K_{[4, 3, 1]}, u^K_{[4, 4, 1]}, u^K_{[5, 4, 1, 1]}, u^K_{[6, 5, 3, 1]}, \iota_0(I))_{\psn},
 \end{equation*}
 where $\psn$ denotes the Poisson submodule generated by the given subset.
-By \Cref{lmm:36}, \Cref{rmk:49} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
+By \Cref{lmm:36}, \Cref{rmk:50} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
 \begin{equation*}
   K' \subseteq K.
 \end{equation*}
@@ -5602,7 +5622,7 @@ We have
 where $\lambda$ is any partition, and $[\lambda, 1]$ denotes the partition $\lambda$ with a $1$ appended at the end.
 
 \begin{remark}
-  \label{rmk:50}
+  \label{rmk:51}
   While the Poisson structure of $\gr^G(V)$ is trivial (i.e., is zero), the Poisson structure of $\gr^G(M)$ is not.
   In fact, if $u \in \gr^G(M)$, and $\lambda$ is a partition, then
   \begin{equation*}
@@ -5625,14 +5645,14 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   By the definition of $K'$ and \cite[Proposition 5.1]{andrews_singular_2022}, we know that for $\lambda \in R$, there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
   We now assume $\lambda \in \overline{R}$, which means there is $\eta \in R$ such that $\lambda \supseteq \eta$.
   Therefore, $\lambda$ is obtained from $\eta$ by adding some integers greater than or equal to two and adding $k$ ones.
-  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:50} and the fact that $\lm$ is multiplicative).
+  We pick $v \in K'$ such that $\lm(v) = u_{\eta}$ and some power product $p_{\tau} \in \mathbb{C}[L_{-2}, L_{-3}, \dots]$, for some partition $\tau$, such that $\lm((L_{-2})^k_{(0)}(p_{\tau}v)) = u_{\lambda}$ (this can be done because of \Cref{rmk:51} and the fact that $\lm$ is multiplicative).
   Thus, we set $u = (L_{-2})^k_{(0)}(p_{\tau}v) \in K'$ to get $\lm(u) = u_{\lambda}$.
   For example, if we take $\lambda = [3, 2, 1, 1] \in \overline{R}$, then $\eta = [2] \in R$.
   In this case, $v = L_{-2}- 3/4L_{-1}^2 \in K'$ is such that $\lm(v) = u_{[2]}$, and we take $u = L_{-3}L_{-2}L_{-1}^2 - 3/4L_{-3}L_{-1}^4 \in K'$.
 \end{proof}
 
 \begin{remark}
-  \label{rmk:51}
+  \label{rmk:52}
   For any partitions $\lambda$ and $\eta$ with the same number of ones, if $\lambda \supseteq \eta$, then $u_{\eta} \mid u_{\lambda}$.
   The converse is not true.
   For example, $u_{[4, 2]} \mid u_{[4, 3, 2]}$, but $[4, 3, 2] \nsupseteq [4, 2]$.
@@ -5659,7 +5679,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   First, we prove the inclusion $(\supseteq)$.
   We assume $\lambda$ belongs to the right set, and $\lambda \supseteq \eta$ for some $\eta \in R$.
   Then $\lambda$ has $k$ more ones than $\eta$ for some $k \in \mathbb{N}$.
-  By \Cref{rmk:51}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$, where we added $k$ ones to $\eta$, a contradiction.
+  By \Cref{rmk:52}, $u_{[\eta, 1, \dots, 1]} \mid u_{\lambda}$, where we added $k$ ones to $\eta$, a contradiction.
   Therefore, $\lambda \nsupseteq \eta$ for $\eta \in R$, which means $\lambda$ belongs to the left set.
 
   We now prove the inclusion $(\subseteq)$.
@@ -5667,7 +5687,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   Then $\lambda$ has $0$, $1$ or $2$ ones.
   We assume $\lambda$ has $0$ ones.
   It is enough to prove that for $\eta \in R$ with $0$ ones, $u_{\eta} \nmid u_{\lambda}$.
-  By \Cref{rmk:51}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
+  By \Cref{rmk:52}, if $\eta$ is equal to $[2]$, $[3, 3]$, $[r, r, r]$, $[r + 1, r, r]$ or $[r + 1, r + 1, r]$ for some $r \ge 3$, then $u_{\eta} \nmid u_{\lambda}$.
   We assume $\eta = [r + 2, r + 1, r]$ for some $r \ge 3$ and $u_{\eta} \mid u_{\lambda}$.
   Then $\lambda$ contains $[r + 2, r + 1, \dots, r + 1, r]$, where $r + 1$ appears $k \ge 1$ times.
   If $k \ge 2$, then $\lambda$ contains $[r + 1, r + 1, r]$, which is not possible.
@@ -5937,7 +5957,7 @@ A \emph{module over $A$} is an $A$-module $M$ in the usual associative sense equ
 \end{enumerate}
 
 \begin{remark}
-  \label{rmk:52}
+  \label{rmk:53}
   We probably cannot prove the right Leibniz rule from the Left Leibniz rule for modules like in \Cref{lmm:39} because we do not have anticommutativity for modules.
   Some authors only require the left Leibniz rule for modules, but here we also want the right Leibniz rule (see \cite{caressa_examples_2003}).
 \end{remark}
@@ -5976,21 +5996,21 @@ By our definitions, $\partial$ factors through a derivation of $JR$, and we have
 The fact that $\inc: R \hookrightarrow JR$ satisfies our desired universal property is explained in \cite[\S2.3]{arakawa_remark_2012} and \cite{ein_jet_2008}.
 
 \begin{remark}
-  \label{rmk:53}
+  \label{rmk:54}
   We see that the classes of the original variables $x^j$ generate $JR$ as a differential algebra, i.e.,
   \begin{equation*}
     JR = (x^1 + (f_1, \dots, f_s)_{\partial}, \dots, x^r + (f_1, \dots, f_s)_{\partial})_{\partial}.
   \end{equation*}
 \end{remark}
 
-If $f: R_1 \to R_2$ is a homomorphism of finitely generated algebras, then $Jf: JR_1 \to JR_2$ is defined by requiring that $Jf(\partial_1^n(\inc_1(x))) = \partial^n_2(\inc_2(f(x)))$ for $x \in R_1$ and $n \in \mathbb{N}$ (c.f.\ \Cref{rmk:53}).
+If $f: R_1 \to R_2$ is a homomorphism of finitely generated algebras, then $Jf: JR_1 \to JR_2$ is defined by requiring that $Jf(\partial_1^n(\inc_1(x))) = \partial^n_2(\inc_2(f(x)))$ for $x \in R_1$ and $n \in \mathbb{N}$ (c.f.\ \Cref{rmk:54}).
 For a finitely generated algebra $R$ and a differential algebra $A$, we have a natural isomorphism
 \begin{equation*}
   \Hom_{\{\text{differential algebras}\}}(JR, A) \cong \Hom_{\{\text{algebras}\}}(R, A).
 \end{equation*}
 
 \begin{remark}
-  \label{rmk:54}
+  \label{rmk:55}
   It is not true that we have defined a functor $J$ which is left adjoint to the forgetful functor $\{\text{differential algebras}\} \to \{\text{finitely generated algebras}\}$ because a differential algebra is generally not finitely generated.
 
   But we can easily work in the general case as follows.
@@ -5998,7 +6018,7 @@ For a finitely generated algebra $R$ and a differential algebra $A$, we have a n
   We have a natural epimorphism $\pi: \mathbb{C}[(x^j)_{j \in R}] \twoheadrightarrow R, \pi(x^j) = j$ for $j \in R$.
   We can repeat the construction of $JR$ with $\mathbb{C}[(x^j)_{j \in R}]$ in place of $\mathbb{C}[x^1, \dots, x^r]$ and $\ker(\pi)$ in place of $(f_1, \dots, f_s)$.
   We have $JR = \mathbb{C}[x^j_{(-i)} \mid i = 1, 2, \dots, j \in R]/\ker(\pi)_{\partial}$, and the inclusion $\inc: R \to JR$ is given by $\inc(j) = x^j_{(-1)} + \ker(\pi)_{\partial}$ for $j \in R$.
-  As in \Cref{rmk:53}, we have $JR = (\inc(R))_{\partial}$.
+  As in \Cref{rmk:54}, we have $JR = (\inc(R))_{\partial}$.
 
   This way, we construct a functor
   \begin{equation*}
@@ -6027,12 +6047,12 @@ The \emph{jet scheme of an affine scheme of finite type $X = \Spec(R)$} is defin
 \end{equation*}
 
 \begin{remark}
-  \label{rmk:55}
+  \label{rmk:56}
   It is possible to define the jet scheme $JX$ of a general scheme $X$ of finite type (see \cite{ein_jet_2008}), but the construction is more elaborate, and we will only need the affine case.
 \end{remark}
 
 \begin{theorem}[{\cite{ein_jet_2008}}]
-  \label{thr:62}
+  \label{thr:63}
   Let $R$ be a finitely generated algebra.
   Then $\dim(R) = 0$ if and only if $\dim(JR) = 0$.
 \end{theorem}
