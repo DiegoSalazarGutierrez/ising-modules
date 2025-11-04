@@ -3961,7 +3961,7 @@ In fact, more is true.
 
 We have the natural vector space isomorphisms
 \begin{equation*}
-  \sigma_p(F_pV_{\Delta}) \cong F_pV_{\Delta}/F_{p + 1}V_{\Delta} \quad \text{for $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$}
+  \sigma_p(F_pV_{\Delta}) \cong F_pV_{\Delta}/F_{p + 1}V_{\Delta} \quad \text{for $p \in \mathbb{N}$ and $\Delta \in \mathbb{C}$}
 \end{equation*}
 and the refined grading
 \begin{equation}
@@ -4046,7 +4046,7 @@ In fact, more is true.
 
 We have the natural vector space isomorphisms
 \begin{equation*}
-  \alpha^p(G^pV_n) \cong G^pV_n/G^{p - 1}V_n \quad \text{for $p \in \mathbb{Z}$ and $n \in \mathbb{N}$}
+  \alpha^p(G^pV_n) \cong G^pV_n/G^{p - 1}V_n \quad \text{for $p, n \in \mathbb{Z}$}
 \end{equation*}
 and the refined grading
 \begin{equation}
@@ -4096,8 +4096,9 @@ Therefore, we obtain a functor
 \begin{theorem}
   \label{thr:53}
   Let $V$ be an $\mathbb{N}$-graded vertex algebra with $\dim(V_n) < \infty$ for $n \in \mathbb{N}$.
-  The refined characters of $V$ are related as follows:
+  Then:
   \begin{enumerate}
+  \item $\bigcap_{p \in \mathbb{N}}F_pV = 0$;
   \item $\ch_V(q) = \ch_{\gr_F(V)}(q) = \ch_{\gr^G(V)}(q) = \ch_{\gr_F(V)}(1, q) = \ch_{\gr^G(V)}(1, q)$;
   \item $\ch_{\gr^G(V)}(t^{-1}, tq) = \ch_{\gr_F(V)}(t, q)$.
   \end{enumerate}
@@ -4281,9 +4282,10 @@ If $V$ is graded with Hamiltonian $H$, and $M$ is graded with Hamiltonian $H^M$,
 Therefore, we can define an operator $H^M \in \End(\gr_F(M))$ as $H^M(\sigma^M_p(u)) = \sigma^M_p(H^Mu)$ for $p \in \mathbb{N}$ and $u \in F_pM$.
 For $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$, we define $F_pM_{\Delta} = F_pM \cap M_{\Delta}$.
 Since $H^M(F_pM) \subseteq F_pM$ for $p \in \mathbb{Z}$, \Cref{lmm:9} implies that
-\begin{equation*}
+\begin{equation}
+  \label{eq:44}
   F_pM = \bigoplus_{\Delta \in \mathbb{C}}F_pM_{\Delta} \quad \text{for $p \in \mathbb{Z}$}.
-\end{equation*}
+\end{equation}
 For $\Delta \in \mathbb{C}$, we define $\gr_F(M)_{\Delta} = \bigoplus_{p \in \mathbb{N}}\sigma^M_p(F_pM_{\Delta})$.
 Then $H^Mu = \Delta u$ for $u \in \gr_F(M)_{\Delta}$.
 The family of subspaces $(\gr_F(M)_{\Delta})_{\Delta \in \mathbb{C}}$ satisfies $\gr_F(M) = \bigoplus_{\Delta \in \mathbb{C}}\gr_F(M)_{\Delta}$.
@@ -4300,15 +4302,16 @@ In fact, more is true.
 \end{proof}
 
 We have the natural vector space isomorphisms
-\begin{equation*}
-  \sigma^M_p(F_pM_{\Delta}) \cong F_pM_{\Delta}/F_{p + 1}M_{\Delta} \quad \text{for $p \in \mathbb{Z}$ and $\Delta \in \mathbb{C}$}
-\end{equation*}
+\begin{equation}
+  \label{eq:45}
+  \sigma^M_p(F_pM_{\Delta}) \cong F_pM_{\Delta}/F_{p + 1}M_{\Delta} \quad \text{for $p \in \mathbb{N}$ and $\Delta \in \mathbb{C}$}
+\end{equation}
 and the refined grading
 \begin{equation}
-  \label{eq:44}
+  \label{eq:46}
   \gr_F(M) = \bigoplus_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\sigma_p(F_pM_{\Delta}).
 \end{equation}
-By \eqref{eq:44}, when $\dim(M)_{\Delta} < \infty$ for $\Delta \in \mathbb{C}$, it is natural to define the refined character of $M$ with respect to the Li filtration as
+By \eqref{eq:46}, when $\dim(M)_{\Delta} < \infty$ for $\Delta \in \mathbb{C}$, it is natural to define the refined character of $M$ with respect to the Li filtration as
 \begin{equation*}
   \ch_{\gr_F(M)}(t, q) = \sum_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\dim(\sigma_p(F_pM_{\Delta}))t^pq^{\Delta}.
 \end{equation*}
@@ -4375,7 +4378,7 @@ where $\alpha_M^p: G^pM \to \gr^G(M)$ is the principal symbol map.
 The filtration $(G^pM)_{p \in \mathbb{Z}}$ is called the standard filtration of $M$.
 By \Cref{prp:18} ahead, the standard filtration does not depend on the choice of the strong generators of $V$.
 
-By \Cref{prp:14}(vii), we can define an operator $H^M \in \End(\gr^G(M))$ as $H^M(\alpha_M^p(u)) = \alpha_M^p(L^M_0u)$ for $p \in \mathbb{Z}$ and $u \in G^pM$.
+By \Cref{prp:17}(vii), we can define an operator $H^M \in \End(\gr^G(M))$ as $H^M(\alpha_M^p(u)) = \alpha_M^p(L^M_0u)$ for $p \in \mathbb{Z}$ and $u \in G^pM$.
 For $p \in \mathbb{Z}$ and $n \in \mathbb{N}$, we define $G^pM_{h + n} = G^pM \cap M_{h + n}$.
 Since $L_0^M(G^pM) \subseteq G^pM$ for $p \in \mathbb{Z}$, \Cref{lmm:9} implies that
 \begin{equation*}
@@ -4397,15 +4400,16 @@ In fact, more is true.
 \end{proof}
 
 We have the natural vector space isomorphisms
-\begin{equation*}
-  \alpha_M^p(G^pM_{h + n}) \cong G^pM_{h + n}/G^{p - 1}M_{h + n} \quad \text{for $p \in \mathbb{Z}$ and $n \in \mathbb{N}$}
-\end{equation*}
+\begin{equation}
+  \label{eq:47}
+  \alpha_M^p(G^pM_{h + n}) \cong G^pM_{h + n}/G^{p - 1}M_{h + n} \quad \text{for $p, n \in \mathbb{N}$}
+\end{equation}
 and the refined grading
 \begin{equation}
-  \label{eq:45}
+  \label{eq:48}
   \gr^G(M) = \bigoplus_{p, n \in \mathbb{N}}\alpha_M^p(G^pM_{h + n}).
 \end{equation}
-By \eqref{eq:45}, when $M$ is ordinary, which means $\dim(M_{h + n}) < \infty$ for $n \in \mathbb{N}$, it is natural to define the refined character of $M$ with respect to the standard filtration as
+By \eqref{eq:48}, when $M$ is ordinary, which means $\dim(M_{h + n}) < \infty$ for $n \in \mathbb{N}$, it is natural to define the refined character of $M$ with respect to the standard filtration as
 \begin{equation*}
   \ch_{\gr^G(M)}(t, q) = \sum_{p, n \in \mathbb{N}}\dim(\alpha_M^p(G^pM_{h + n}))t^pq^{h + n} \in q^h\mathbb{C}[[t, q]].
 \end{equation*}
@@ -4470,9 +4474,10 @@ This is also valid for vertex algebras because all the definitions are compatibl
 
 \begin{proposition}
   \label{prp:19}
-  Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
+  Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an ordinary $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then:
   \begin{enumerate}
+  \item $\bigcap_{p \in \mathbb{N}}F_pM = 0$;
   \item $\ch_M(q) = \ch_{\gr_F(M)}(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr_F(M)}(1, q) = \ch_{\gr^G(M)}(1, q)$;
   \item $\ch_{\gr^G(M)}(t^{-1}, tq) = t^h\ch_{\gr_F(M)}(t, q)$.
   \end{enumerate}
@@ -4480,8 +4485,39 @@ This is also valid for vertex algebras because all the definitions are compatibl
 
 \begin{proof}\leavevmode
   \begin{enumerate}
-  \item This is clear from the properties and definitions of the filtrations.
-  \item This follows from \Cref{prp:18} and by replacing $p$ by $n - p$ in the following computation
+  \item First, we note that $G^{n - p}M_{h + n} = 0$ for $p, n \in \mathbb{N}$ with $p \ge n$ by \Cref{prp:17}(i).
+    By \eqref{eq:44} and \Cref{prp:18},
+    \begin{equation*}
+      \bigcap_{p \in \mathbb{N}}F_pM = \sum_{n \in \mathbb{N}}\left(\left(\bigcap_{p \in \mathbb{N}}F_p\right) \cap M_{h + n}\right) = \sum_{n \in \mathbb{N}}\left(\bigcap_{p \in \mathbb{N}}F_pM_{h + n}\right) = \sum_{n \in \mathbb{N}}\bigcap_{p \in \mathbb{N}}G^{n - p}M_{h + n} = 0.
+    \end{equation*}
+  \item First, we prove $\ch_M(q) = \ch_{\gr_F(M)}(q) = \ch_{\gr_F(M)}(1, q)$.
+    The latter equality follows from the definition of $\gr_F(M)_{\Delta}$ and $\ch_{\gr_F(M)}(t, q)$.
+    To prove $\ch_M(q) = \ch_{\gr_F(M)}(q)$, we have to prove $\dim(M_{h + n}) = \dim(\gr_F(M)_{h + n})$ for $n \in \mathbb{N}$.
+    By definition, $\gr_F(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\sigma^M_p(F_pM_{h + n})$ for $n \in \mathbb{N}$.
+    By (i) and $\dim(M_{h + n}) < \infty$ for $n \in \mathbb{N}$, $F_pM_{h + n} = 0$ for $n \in \mathbb{N}$ and $p \in \mathbb{N}$ big enough. This implies $\sigma^M_p(F_pM_{h + n}) = 0$ for $n \in \mathbb{N}$ and $p \in \mathbb{N}$ big enough.
+    By \eqref{eq:45} and \Cref{prp:16}(i), for $n \in \mathbb{N}$,
+    \begin{align*}
+      \dim(\gr_F(M)_{h + n}) &= \sum_{p \in \mathbb{N}}\dim(\sigma^M_p(F_pM_{h + n})) \\
+                             &= \sum_{p \in \mathbb{N}}(\dim(F_pM_{h + n}) - \dim(F_pM_{h + n + 1})) \\
+                             &= \dim(F_0M_{h + n}) \\
+                             &= \dim(M_{h + n}).
+    \end{align*}
+
+    It remains prove $\ch_M(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr^G(M)}(1, q)$.
+    The latter equality follows from the definition of $\gr^G(M)_{h + n}$ and $\ch_{\gr^G(M)}(t, q)$.
+    To prove $\ch_M(q) = \ch_{\gr^G(M)}(q)$, we have to prove $\dim(M_{h + n}) = \dim(\gr^G(M)_{h + n})$ for $n \in \mathbb{N}$.
+    By definition, $\gr^G(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\alpha_M^p(G^pM_{h + n})$ for $n \in \mathbb{N}$.
+    By \Cref{prp:17}(ii)--(iii), $G^pM_{h + n} = M_{h + n}$ for $p, n \in \mathbb{N}$ with $p \ge n$.
+    By \eqref{eq:47}, $\alpha_M^p(G^pM_{h + n}) = 0$ for $p, n \in \mathbb{N}$ with $p \ge n + 1$.
+    By \Cref{prp:17}(i), $G^{-1}M_{h + n} = 0$ for $n \in \mathbb{N}$.
+    By \eqref{eq:47}, for $n \in \mathbb{N}$,
+    \begin{align*}
+      \dim(\gr^G(M)_{h + n}) &= \sum_{p \in \mathbb{N}}\dim(\alpha_M^p(G^pM_{h + n})) \\
+                             &= \sum_{p = 0}^n(\dim(G^pM_{h + n}) - \dim(G^{p - 1}M_{h + n})) \\
+                             &= \dim(G^nM_{h + n}) \\
+                             &= \dim(M_{h + n}).
+    \end{align*}
+  \item This follows from \Cref{prp:18} and by replacing $p$ by $n - p$ in the following computation.
     \begin{align*}
       \ch_{\gr^G(M)}(t^{-1}, tq) &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^{-p}(tq)^{h + n} \\
                                  &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^{h + n - p}q^{h + n} \\
@@ -4710,7 +4746,7 @@ Fortunately, these two concepts are related, as the following theorem shows.
   As the elements of $S$ are homogeneous, the subspace $W$ is $H$-invariant.
   By \Cref{lmm:9},
   \begin{equation}
-    \label{eq:46}
+    \label{eq:49}
     W = \sum_{n \in \mathbb{N}}W \cap V_n.
   \end{equation}
   Our objective is to show that $V = W$.
@@ -4743,7 +4779,7 @@ Fortunately, these two concepts are related, as the following theorem shows.
     b = \sum_{\substack{v \in \mathbb{N}^s \\ v_1n_1 + \dots + v_sn_s = N}}t_v(n_1!)^{v_1}\dots(n_s!)^{v_s}(a^1_{(-n_1 - 1)})^{v_1}\dots(a^s_{(-n_s - 1)})^{v_s}\vac \in W.
   \end{equation*}
   This means $a - b \in F_{N + 1}V$.
-  By \eqref{eq:46}, we can write $b = \sum_{n \in \mathbb{N}}b_n$, where $b_n \in W \cap V_n$ for $n \in \mathbb{N}$.
+  By \eqref{eq:49}, we can write $b = \sum_{n \in \mathbb{N}}b_n$, where $b_n \in W \cap V_n$ for $n \in \mathbb{N}$.
   Therefore, $a - b_{n_0} \in F_{N + 1}V_{n_0} = 0$, and this implies $a \in W$.
   We concluded that $F_NV_{n_0} \subseteq W$ from $F_{N + 1}V_{n_0} = 0 \subseteq W$.
   In the same way, we can conclude that $F_{N - 1}V_{n_0} \subseteq W$ from $F_NV_{n_0} \subseteq W$, and we conclude using induction that $F_0V_{n_0} = V_{n_0} \subseteq W$, finishing the proof.
@@ -5060,12 +5096,12 @@ We set:
 Then $M$ and $L$ are $V$-modules and, by definition, $L = M/W$.
 By \Cref{thr:46},
 \begin{equation}
-  \label{eq:47}
+  \label{eq:50}
   W = U(\Vir)\{u_2, u_3\},
 \end{equation}
 where the generating singular vectors are:
 \begin{equation}
-  \label{eq:48}
+  \label{eq:51}
   u_2 = (L_{-1}^2 - \tfrac{4}{3}L_{-2})\vachalf, u_3 = (L_{-1}^3 - 3L_{-2}L_{-1} + \tfrac{3}{4}L_{-3})\vachalf.
 \end{equation}
 
@@ -5084,7 +5120,7 @@ and this produces a natural isomorphism of modules over $\gr^G(V)$
 \end{equation*}
 where
 \begin{equation}
-  \label{eq:49}
+  \label{eq:52}
   K = \ker(\gr^G(\pi)).
 \end{equation}
 
@@ -5481,7 +5517,7 @@ Applying the functor $\gr^G$, we obtain an epimorphism of $\mathbb{N}$-graded ve
 \begin{equation*}
   \gr^G(\pi_0): \gr^G(V) \twoheadrightarrow \gr^G(\Vir_{3, 4}).
 \end{equation*}
-We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singular_2022}, and we recall the definition of $K$ given in \eqref{eq:49}.
+We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singular_2022}, and we recall the definition of $K$ given in \eqref{eq:52}.
 
 \begin{lemma}
   \label{lmm:36}
@@ -5503,10 +5539,10 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
   \begin{equation*}
     \text{for $a \in U(\Vir)\{a_{3, 4}\}$, $u \in M$ and $n \in \mathbb{Z}$, $a_{(n)}u \in W$},
   \end{equation*}
-  where $W$ is defined in \eqref{eq:47}.
+  where $W$ is defined in \eqref{eq:50}.
   We use this statement in the following simplified form
   \begin{equation}
-    \label{eq:50}
+    \label{eq:53}
     \text{for $a \in U(\Vir)\{a_{3, 4}\}$, $a_{(-1)}\vachalf \in W$}.
   \end{equation}
 
@@ -5519,7 +5555,7 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
     K = \sum_{p \in \mathbb{N}}\alpha^p(W \cap G^pM).
   \end{equation*}
   Let $\alpha^p(a) \in I$ with $a \in U(\Vir)\{a_{3, 4}\} \cap G^pV$.
-  By \Cref{lmm:35} and \eqref{eq:50}, we have $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
+  By \Cref{lmm:35} and \eqref{eq:53}, we have $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
 \end{proof}
 
 \begin{remark}
@@ -5569,7 +5605,7 @@ The matrix $A^{m_k}_n$ is given by
 \begin{equation*}
   A^{m_k}_n(i, j) = \text{coefficient of $L_{\lambda_j}\vachalf$ in $L_{\lambda_i}u_k$},
 \end{equation*}
-for $1 \le i \le p(n - k)$, $1 \le j \le p(n)$ and $k = 2, 3$, where $\lambda_1, \dots, \lambda_{p(n)}$ are the partitions of $n$ ordered in such a way that $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_{p(n)}}$, and $u_2, u_3$ are given by \eqref{eq:48}.
+for $1 \le i \le p(n - k)$, $1 \le j \le p(n)$ and $k = 2, 3$, where $\lambda_1, \dots, \lambda_{p(n)}$ are the partitions of $n$ ordered in such a way that $L_{\lambda_1} > L_{\lambda_2} > \dots > L_{\lambda_{p(n)}}$, and $u_2, u_3$ are given by \eqref{eq:51}.
 We now transform $A_n$ into row reduced echelon form, obtaining a matrix $A^W_n$ which has an unknown number of nonzero rows and $p(n)$ columns.
 For each pivot $\lambda$ of $A^W_n$, let $u^W_{\lambda}$ be the element of $\gr^G(M)$ corresponding to the row which has $L_{\lambda}\vachalf$ as pivot.
 In other words, $u^W_{\lambda} = L_{\lambda}\vachalf + \text{(lower order terms)}$.
@@ -5718,10 +5754,10 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
 
   For $N \in \mathbb{N}$, we have natural vector space isomorphisms
   \begin{equation}
-    \label{eq:51}
+    \label{eq:54}
     \frac{F_N}{K \cap F_N} \supseteq \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap F_N} \xrightarrow{\sim} \frac{\gr^G(M)_{\le 1/2 + N}}{K \cap \gr^G(M)_{\le 1/2 + N}} \xrightarrow{\sim} \gr^G(L)_{\le 1/2 + N}.
   \end{equation}
-  Therefore, if we find a basis of each vector space $\gr^G(M)_{\le 1/2 + N}/K \cap F_N \subseteq F_N/K \cap F_N$ such that each basis is contained in the next one when considering the isomorphism \eqref{eq:51}, we get a basis of $\gr^G(L)$ by taking the union of these bases because $\bigcup_{N \in \mathbb{N}}\gr^G(L)_{\le 1/2 + N} = \gr^G(L)$.
+  Therefore, if we find a basis of each vector space $\gr^G(M)_{\le 1/2 + N}/K \cap F_N \subseteq F_N/K \cap F_N$ such that each basis is contained in the next one when considering the isomorphism \eqref{eq:54}, we get a basis of $\gr^G(L)$ by taking the union of these bases because $\bigcup_{N \in \mathbb{N}}\gr^G(L)_{\le 1/2 + N} = \gr^G(L)$.
 
   Let $G_N$ be a Gröbner basis of $K \cap F_N$.
   We define
@@ -5730,11 +5766,11 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   \end{equation*}
   By \cite[Proposition 3.6.4]{adams_introduction_1994},
   \begin{equation}
-    \label{eq:52}
+    \label{eq:55}
     \{u_{\lambda} + K \cap F_N \mid u_{\lambda} \in B_N\}
   \end{equation}
   is a vector space basis of $\gr^G(M)_{\le 1/2 + N}/K \cap F_N$.
-  Therefore, by \Cref{lmm:33}, isomorphism \eqref{eq:51} and the isomorphism between $\gr^G(L)_{1/2 + n}$ and $L_{1/2 + n}$ of \Cref{prp:20}, we have
+  Therefore, by \Cref{lmm:33}, isomorphism \eqref{eq:54} and the isomorphism between $\gr^G(L)_{1/2 + n}$ and $L_{1/2 + n}$ of \Cref{prp:20}, we have
   \begin{equation*}
     |B_N| = \sum_{n \le N}\dim(\gr^G(L)_{1/2 + n}) = \sum_{n \le N}\dim(L_{1/2 + n}) = \sum_{n \le N}|P(n)|.
   \end{equation*}
@@ -5758,7 +5794,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   By \Cref{lmm:37}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$.
   However, by the definition of a Gröbner basis, there would then exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
-  We see that the family of bases given by \eqref{eq:52} satisfies the property that each basis is a subset of the next.
+  We see that the family of bases given by \eqref{eq:55} satisfies the property that each basis is a subset of the next.
   This observation, together with the isomorphism between $L$ and $\gr^G(L)$ of \Cref{prp:20}, concludes the proof of \Cref{thr:4}.
 \end{proof}
 
@@ -5879,7 +5915,7 @@ A \emph{Hamiltonian operator of $A$} is a Hamiltonian of $A$ as a commutative as
 \end{equation*}
 It is possible to prove inductively that the last equation implies
 \begin{equation}
-  \label{eq:53}
+  \label{eq:56}
   H\partial^n = n\partial^n + \partial^nH \quad \text{for $n \in \mathbb{N}$}.
 \end{equation}
 
@@ -6035,7 +6071,7 @@ where $JR$ is merely considered an algebra.
 Again, the $JR$-module $M$ together with the $R$-module inclusion $\inc: M \hookrightarrow JR \otimes_R M, \inc(u) = 1\otimes u$ satisfy a universal property similar to that of $\inc: R \hookrightarrow JR$, and the functor $JR \otimes_R \bullet$ is left adjoint to the forgetful functor $\text{$JR$-Mod} \to \text{$R$-Mod}$.
 
 Let $R$ be a graded algebra with Hamiltonian $H$.
-We can extend uniquely the Hamiltonian $H$ to a Hamiltonian $H^{JR} \in \End(JR)$ because of \eqref{eq:53}.
+We can extend uniquely the Hamiltonian $H$ to a Hamiltonian $H^{JR} \in \End(JR)$ because of \eqref{eq:56}.
 Furthermore, if $M$ is a graded $R$-module with Hamiltonian $H^M$, we can define a Hamiltonian of $JR \otimes_R M$ by setting
 \begin{equation*}
   H^{JR \otimes_R M} = H^{JR}\otimes\Id_{M} + \Id_{JR}\otimes H^M.
