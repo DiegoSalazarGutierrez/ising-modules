@@ -4105,7 +4105,7 @@ Therefore, we obtain a functor
 \end{theorem}
 
 \begin{proof}
-  See the proof of \Cref{prp:19} ahead.
+  See the proof of \Cref{prp:20} ahead.
 \end{proof}
 
 \begin{example}[$\gr^G(\Vir^c)$]
@@ -4346,8 +4346,8 @@ For $p \in \mathbb{Z}$, we set
   \begin{enumerate}
   \item $G^pM = 0$ for $p < 0$;
   \item $G^0M \subseteq G^1M \subseteq \dots$;
-  \item $M_{h + n} \subseteq G^nM$ for $n \in \mathbb{Z}$;
   \item $M = \bigcup_{p \in \mathbb{N}}G^pM$;
+  \item $M_{h + n} \subseteq G^nM$ for $n \in \mathbb{Z}$;
   \item $a^M_{(n)}G^qM \subseteq G^{p + q}M$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{Z}$;
   \item $a^M_{(n)}G^qM \subseteq G^{p + q - 1}M$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{N}$;
   \item $L^M_0(G^pM) \subseteq G^pM$ and $L^M_{-1}(G^pM) \subseteq G^{p + 1}M$ for $p \in \mathbb{Z}$.
@@ -4376,7 +4376,7 @@ For $p, q \in \mathbb{N}$, $a \in G^pV$ and $u \in G^qM$, we set:
 \end{align*}
 where $\alpha_M^p: G^pM \to \gr^G(M)$ is the principal symbol map.
 The filtration $(G^pM)_{p \in \mathbb{Z}}$ is called the standard filtration of $M$.
-By \Cref{prp:18} ahead, the standard filtration does not depend on the choice of the strong generators of $V$.
+By \Cref{prp:19} ahead, the standard filtration does not depend on the choice of the strong generators of $V$.
 
 By \Cref{prp:17}(vii), we can define an operator $H^M \in \End(\gr^G(M))$ as $H^M(\alpha_M^p(u)) = \alpha_M^p(L^M_0u)$ for $p \in \mathbb{Z}$ and $u \in G^pM$.
 For $p \in \mathbb{Z}$ and $n \in \mathbb{N}$, we define $G^pM_{h + n} = G^pM \cap M_{h + n}$.
@@ -4427,6 +4427,38 @@ Therefore, we obtain a functor
 
 \begin{proposition}
   \label{prp:18}
+  Let $M$ be a vector space, let $(M^p)_{p \in \mathbb{Z}}$ be a family of subspaces of $M$ satisfying properties \emph{(i)--(ii)} of \Cref{prp:17}, and let $(B^p)_{p \in \mathbb{N}}$ be a mutually disjoint family of sets satisfying $B^p \subseteq M^p$ for $p \in \mathbb{N}$.
+  Then $\{v + M^{p - 1} \mid v \in B^p\}$ spans (resp.\ is a basis of) $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$ (resp.\ $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent).
+  In particular, if $M = \bigcup_{p \in \mathbb{N}}M^p$, $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent, then $\{v + M^{p - 1} \mid p \in \mathbb{N}, v \in B^p\}$ is a basis of $\gr(M) = \bigoplus_{p \in \mathbb{N}}M^p/M^{p - 1}$.
+\end{proposition}
+
+\begin{proof}
+  To begin with, we prove that $\{v + M^{p - 1} \mid v \in B^p\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$.
+  We now assume that $\{v + M^{p - 1} \mid v \in B^p\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$, and let $v \in M^p$.
+  By hypothesis, there is $v_{p, 1}, \dots, v_{p, k_p} \in B^p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ such that $v + M^{p - 1} = c_{p, 1}(v_{p, 1} + M^{p - 1}) + \dots + c_{p, k_p}(v_{p, k_p} + M^{p - 1})$.
+  This means that $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in M^{p - 1}$.
+  Continuing this way, we find $v_{p - 1, 1}, \dots, v_{p - 1, k_{p - 1}} \in B^{p - 1}$, $c_{p - 1, 1}, \dots, c_{p - 1, k_{p - 1}} \in \mathbb{C}$, \dots, $v_{0, 1}, \dots, v_{0, k_0} \in B^0$, $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$ such that $v - (c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0}) \in M^{-1} = 0$.
+  Therefore, $v = c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0}$, and $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$.
+  If $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, then clearly $\{v + M^{p - 1} \mid v \in B^p\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
+
+  Finally, we prove that $\{v + M^{p - 1} \mid v \in B^p\}$ is a basis of $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent.
+  We now assume that $\{v + M^{p - 1} \mid v \in B^p\}$ is a basis of $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
+  By the last paragraph, $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$.
+  If $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0} = 0$, where $v_{p, 1}, \dots, v_{p, k_p} \in B^p$, $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$, \dots, $v_{0, 1}, \dots, v_{0, k_0} \in B^0$, $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$, then $c_{p, 1}(v_{p, 1} + M^{p - 1}) + \dots + c_{p, k_p}(v_{p, k_p} + M^{p - 1}) = 0$.
+  By the linear independence of $\{v + M^{p - 1} \mid v \in B^p\}$, $c_{p, 1} = \dots = c_{p, k_p} = 0$.
+  Continuing this way, $c_{p - 1, 1} = \dots = c_{p - 1, k_{p - 1}} = \dots = c_{0, 1} = \dots = c_{0, k_0} = 0$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent.
+  To end this proof, we assume that $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent.
+  By the last paragraph, $\{v + M^{p - 1} \mid v \in B^p\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$.
+  Let $v_{p, 1}, \dots, v_{p, k_p} \in B^p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ be such that $c_{p, 1}(v_{p, 1} + M^{p - 1}) + \dots + c_{p, k_p}(v_{p, k_p} + M^{p - 1}) = 0$.
+  Then $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} \in M^{p - 1}$, and $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} = c_{p - 1, 1}v_{p - 1, 1} + \dots +  c_{p - 1, k_{p - 1}}v_{p - 1, k_{p - 1}} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0}$ for some $v_{p - 1, 1}, \dots, v_{p - 1, k_{p - 1}} \in B^{p - 1}$, $c_{p - 1, 1}, \dots, c_{p - 1, k_{p - 1}} \in \mathbb{C}$, \dots, $v_{0, 1}, \dots, v_{0, k_0} \in B^0$, $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$ because $\bigcup_{k \le p - 1}B^k$ spans $M^{p - 1}$.
+  By the linear independence of $\bigcup_{k \in \mathbb{N}}B^k$, $c_{p, 1} = \dots = c_{p, k_p} = 0$, and $\{v + M^{p - 1} \mid v \in B^p\}$ is linearly independent.
+\end{proof}
+
+\begin{proposition}
+  \label{prp:19}
   Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then the Li filtration and the standard filtration satisfy
   \begin{equation*}
@@ -4469,11 +4501,11 @@ Therefore, we obtain a functor
   We verify that we obtain an isomorphism $\gr_F(M) \xrightarrow{\sim} \gr^G(M)$ directly from the definitions (cf.\ \Cref{prp:15}).
 \end{proof}
 
-\Cref{prp:18} translates into an identity of the refined characters of $M$, as the following proposition shows.
+\Cref{prp:19} translates into an identity of the refined characters of $M$, as the following proposition shows.
 This is also valid for vertex algebras because all the definitions are compatible.
 
 \begin{proposition}
-  \label{prp:19}
+  \label{prp:20}
   Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an ordinary $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then:
   \begin{enumerate}
@@ -4486,7 +4518,7 @@ This is also valid for vertex algebras because all the definitions are compatibl
 \begin{proof}\leavevmode
   \begin{enumerate}
   \item First, we note that $G^{n - p}M_{h + n} = 0$ for $p, n \in \mathbb{N}$ with $p \ge n$ by \Cref{prp:17}(i).
-    By \eqref{eq:44} and \Cref{prp:18},
+    By \eqref{eq:44} and \Cref{prp:19},
     \begin{equation*}
       \bigcap_{p \in \mathbb{N}}F_pM = \sum_{n \in \mathbb{N}}\left(\left(\bigcap_{p \in \mathbb{N}}F_p\right) \cap M_{h + n}\right) = \sum_{n \in \mathbb{N}}\left(\bigcap_{p \in \mathbb{N}}F_pM_{h + n}\right) = \sum_{n \in \mathbb{N}}\bigcap_{p \in \mathbb{N}}G^{n - p}M_{h + n} = 0.
     \end{equation*}
@@ -4494,11 +4526,12 @@ This is also valid for vertex algebras because all the definitions are compatibl
     The latter equality follows from the definition of $\gr_F(M)_{\Delta}$ and $\ch_{\gr_F(M)}(t, q)$.
     To prove $\ch_M(q) = \ch_{\gr_F(M)}(q)$, we have to prove $\dim(M_{h + n}) = \dim(\gr_F(M)_{h + n})$ for $n \in \mathbb{N}$.
     By definition, $\gr_F(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\sigma^M_p(F_pM_{h + n})$ for $n \in \mathbb{N}$.
-    By (i) and $\dim(M_{h + n}) < \infty$ for $n \in \mathbb{N}$, $F_pM_{h + n} = 0$ for $n \in \mathbb{N}$ and $p \in \mathbb{N}$ big enough. This implies $\sigma^M_p(F_pM_{h + n}) = 0$ for $n \in \mathbb{N}$ and $p \in \mathbb{N}$ big enough.
+    By \Cref{prp:17}(i) and \Cref{prp:19}, $F_pM_{h + n} = 0$ for $n \in \mathbb{N}$ and $p > n$.
+    This implies $\sigma^M_p(F_pM_{h + n}) = 0$ for $n \in \mathbb{N}$ and $p > n$.
     By \eqref{eq:45} and \Cref{prp:16}(i), for $n \in \mathbb{N}$,
     \begin{align*}
       \dim(\gr_F(M)_{h + n}) &= \sum_{p \in \mathbb{N}}\dim(\sigma^M_p(F_pM_{h + n})) \\
-                             &= \sum_{p \in \mathbb{N}}(\dim(F_pM_{h + n}) - \dim(F_pM_{h + n + 1})) \\
+                             &= \sum_{p \in \mathbb{N}}(\dim(F_pM_{h + n}) - \dim(F_{p + 1}M_{h + n})) \\
                              &= \dim(F_0M_{h + n}) \\
                              &= \dim(M_{h + n}).
     \end{align*}
@@ -4507,7 +4540,7 @@ This is also valid for vertex algebras because all the definitions are compatibl
     The latter equality follows from the definition of $\gr^G(M)_{h + n}$ and $\ch_{\gr^G(M)}(t, q)$.
     To prove $\ch_M(q) = \ch_{\gr^G(M)}(q)$, we have to prove $\dim(M_{h + n}) = \dim(\gr^G(M)_{h + n})$ for $n \in \mathbb{N}$.
     By definition, $\gr^G(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\alpha_M^p(G^pM_{h + n})$ for $n \in \mathbb{N}$.
-    By \Cref{prp:17}(ii)--(iii), $G^pM_{h + n} = M_{h + n}$ for $p, n \in \mathbb{N}$ with $p \ge n$.
+    By \Cref{prp:17}(ii),(iv), $G^pM_{h + n} = M_{h + n}$ for $p, n \in \mathbb{N}$ with $p \ge n$.
     By \eqref{eq:47}, $\alpha_M^p(G^pM_{h + n}) = 0$ for $p, n \in \mathbb{N}$ with $p \ge n + 1$.
     By \Cref{prp:17}(i), $G^{-1}M_{h + n} = 0$ for $n \in \mathbb{N}$.
     By \eqref{eq:47}, for $n \in \mathbb{N}$,
@@ -4517,7 +4550,7 @@ This is also valid for vertex algebras because all the definitions are compatibl
                              &= \dim(G^nM_{h + n}) \\
                              &= \dim(M_{h + n}).
     \end{align*}
-  \item This follows from \Cref{prp:18} and by replacing $p$ by $n - p$ in the following computation.
+  \item This follows from \Cref{prp:19} and by replacing $p$ by $n - p$ in the following computation.
     \begin{align*}
       \ch_{\gr^G(M)}(t^{-1}, tq) &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^{-p}(tq)^{h + n} \\
                                  &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^{h + n - p}q^{h + n} \\
@@ -4525,6 +4558,41 @@ This is also valid for vertex algebras because all the definitions are compatibl
                                  &= t^h\ch_{\gr_F(M)}(t, q). \qedhere
     \end{align*}
   \end{enumerate}
+\end{proof}
+
+\begin{proposition}
+  \label{prp:21}
+  Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module, and let $(B_p)_{p \in \mathbb{N}}$ be a family of mutually disjoint sets such that $B_p \subseteq F_pM$, and all elements of $B_p$ are homogeneous for $p \in \mathbb{N}$.
+  Then $\{v + F_{p + 1}M \mid v \in B_p\}$ spans (resp.\ is a basis of) $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$ (resp.\ $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B_k$ is linearly independent).
+  In particular, if $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B_k$ is linearly independent, then $\{v + F_{p + 1}M \mid p \in \mathbb{N}, v \in B_p\}$ is a basis of $\gr_F(M)$.
+\end{proposition}
+
+\begin{proof}
+  To begin with, we prove that $\{v + F_{p + 1}M \mid v \in B_p\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$.
+  We now assume that $\{v + F_{p + 1}M \mid v \in B_p\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
+  Let $p, n \in \mathbb{N}$, and let $v \in F_pM_{h + n}$.
+  By hypothesis, there is $v_{p, 1}, \dots, v_{p, k_p} \in B_p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ such that $v + F_{p + 1}M = c_{p, 1}(v_{p, 1} + F_{p + 1}M) + \dots + c_{p, k_p}(v_{p, k_p} + F_{p + 1}M)$.
+  This means that $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in F_{p +1}M$.
+  By applying the projection $M \twoheadrightarrow M_{h + n}$, we may assume that $v_{p, 1}, \dots ,v_{p, k_p} \in M_{h + n}$.
+  Therefore $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in F_{p +1}M_{h + n}$.
+  Continuing this way, we find for $m \in \mathbb{Z}_+$, $v_{p + 1, 1}, \dots, v_{p + 1, k_{p + 1}} \in B_{p + 1}$, $c_{p + 1, 1}, \dots, c_{p + 1, k_{p + 1}} \in \mathbb{C}$, \dots, $v_{p + m, 1}, \dots, v_{p + m, k_{p + m}} \in B_{p + m}$, $c_{p + m, 1}, \dots, c_{p + m, k_{p + m}} \in \mathbb{C}$ such that $v - (c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{p + m, 1}v_{p + m, 1} + \dots + c_{p + m, k_{p + m}}v_{p + m, k_{p + m}}) \in F_{p + m + 1}M_{h + n}$.
+  By \Cref{prp:17}(i) and \Cref{prp:19}, $F_{p + m + 1}M_{h + n} = 0$ for $m \ge n - p$.
+  Hence, $v = c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{p + m, 1}v_{p + m, 1} + \dots + c_{p + m, k_{p + m}}v_{p + m, k_{p + m}}$ if $m$ is such that $m \ge n - p$, and $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$.
+  If $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, then clearly $\{v + F_{p + 1}M \mid v \in B_p\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
+
+  Finally, we prove that $\{v + F_{p + 1}M \mid v \in B_p\}$ is a basis of $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B_k$ is linearly independent.
+  We now assume that $\{v + F_{p + 1}M \mid v \in B_p\}$ is a basis of $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
+  By the last paragraph, $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$.
+  Let $n \in \mathbb{N}$.
+  If $c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0} + \dots + c_{n, 1}v_{n, 1} + \dots + c_{n, k_n}v_{n, k_n} = 0$, where $v_{0, 1}, \dots, v_{0, k_0} \in B_0$, $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$, \dots, $v_{n, 1}, \dots, v_{n, k_n} \in B_n$, $c_{n, 1}, \dots, c_{n, k_n} \in \mathbb{C}$, then $c_{0, 1}(v_{0, 1} + F_1M) + \dots + c_{0, k_0}(v_{0, k_0} + F_1M) = 0$.
+  By the linear independence of $\{v + F_1M \mid v \in B_0\}$, $c_{0, 1} = \dots = c_{0, k_0} = 0$.
+  Continuing this way, $c_{1, 1} = \dots = c_{1, k_1} = \dots = c_{n, 1} = \dots = c_{n, k_n} = 0$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent.
+  To end this proof, we assume that $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B_k$ is linearly independent.
+  By the last paragraph, $\{v + F_{p + 1}M \mid v \in B_p\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$.
+  Let $v_{p, 1}, \dots, v_{p, k_p} \in B_p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ be such that $c_{p, 1}(v_{p, 1} + F_{p + 1}M) + \dots + c_{p, k_p}(v_{p, k_p} + F_{p + 1}M) = 0$.
+  Then $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} \in F_{p + 1}M$, and $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} = c_{p + 1, 1}v_{p + 1, 1} + \dots +  c_{p + 1, k_{p + 1}}v_{p + 1, k_{p + 1}} + \dots + c_{p + m, 1}v_{p + m, 1} + \dots + c_{p + m, k_{p + m}}v_{p + m, k_{p + m}}$ for some $m \in \mathbb{Z}_+$, $v_{p + 1, 1}, \dots, v_{p + 1, k_{p + 1}} \in B_{p + 1}$, $c_{p + 1, 1}, \dots, c_{p + 1, k_{p + 1}} \in \mathbb{C}$, \dots, $v_{p + m, 1}, \dots, v_{p + m, k_{p + m}} \in B_{p + m}$, $c_{p + m, 1}, \dots, c_{p + m, k_{p + m}} \in \mathbb{C}$ because $\bigcup_{k \ge p + 1}B_k$ spans $F_{p + 1}M$.
+  By the linear independence of $\bigcup_{k \in \mathbb{N}}B_k$, $c_{p, 1} = \dots = c_{p, k_p} = 0$, and $\{v + F_{p + 1}M \mid v \in B_p\}$ is linearly independent.
 \end{proof}
 
 \begin{example}[$\gr^G(M(c, h))$]
@@ -4909,7 +4977,7 @@ The condition of $C_2$-cofiniteness on modules has several implications, as we w
   We pick a highest weight $(c, h)$.
   As in \Cref{exa:16}, we consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
   We consider $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k$ as a module over the Poisson algebra $\mathbb{C}[L_{-2}]$ with Poisson bracket given by $\{L_{-2}, L_{-1}^k\} = L_{-1}^{k + 1}$ for $k \in \mathbb{N}$.
-  By \Cref{prp:18}, \Cref{exa:15} and \Cref{exa:16}, we have the following isomorphism of modules over Poisson algebras
+  By \Cref{prp:19}, \Cref{exa:15} and \Cref{exa:16}, we have the following isomorphism of modules over Poisson algebras
   \begin{align*}
     R_{M(c, h)} &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k, \\
     \sigma^{M(c, h)}_0(L^{M(c, h)}_{-2}|c, h\rangle) &\mapsto L_{-2}, \\
@@ -4973,7 +5041,7 @@ When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
 \begin{example}[$JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)}$]
   \label{exa:22}
   We pick a highest weight $(c, h)$.
-  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{prp:18}, \Cref{exa:15}, \Cref{exa:16} and \Cref{exa:21},
+  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{prp:19}, \Cref{exa:15}, \Cref{exa:16} and \Cref{exa:21},
   \begin{align*}
     JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)} &\cong \mathbb{C}[L_{-2}, L_{-3}, \dots] \otimes_{\mathbb{C}[L_{-2}]} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \\
                                                  &\cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
@@ -5149,7 +5217,7 @@ For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$
 From the epimorphism of $V$-modules $\pi: M \twoheadrightarrow L$, we deduce the following four isomorphisms which are going to be used frequently implicitly.
 
 \begin{proposition}
-  \label{prp:20}
+  \label{prp:22}
   We have four (conformal) weight-preserving vector space isomorphisms:
   \begin{align*}
     M &\xrightarrow{\sim} \gr^G(M), \\
@@ -5739,7 +5807,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
 
 \begin{proof}[Proof of \Cref{thr:4}]
   Since we cannot apply Gröbner basis theory directly on the free module $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, we need to truncate somehow.
-  We have to keep in mind the isomorphisms given in \Cref{prp:20}.
+  We have to keep in mind the isomorphisms given in \Cref{prp:22}.
   For $N \in \mathbb{N}$, we define:
   \begin{align*}
     \gr^G(M)_{\le 1/2 + N} &= \sum_{n \le N}\gr^G(M)_{1/2 + n}, \\
@@ -5770,7 +5838,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
     \{u_{\lambda} + K \cap F_N \mid u_{\lambda} \in B_N\}
   \end{equation}
   is a vector space basis of $\gr^G(M)_{\le 1/2 + N}/K \cap F_N$.
-  Therefore, by \Cref{lmm:33}, isomorphism \eqref{eq:54} and the isomorphism between $\gr^G(L)_{1/2 + n}$ and $L_{1/2 + n}$ of \Cref{prp:20}, we have
+  Therefore, by \Cref{lmm:33}, isomorphism \eqref{eq:54} and the isomorphism between $\gr^G(L)_{1/2 + n}$ and $L_{1/2 + n}$ of \Cref{prp:22}, we have
   \begin{equation*}
     |B_N| = \sum_{n \le N}\dim(\gr^G(L)_{1/2 + n}) = \sum_{n \le N}\dim(L_{1/2 + n}) = \sum_{n \le N}|P(n)|.
   \end{equation*}
@@ -5795,7 +5863,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   However, by the definition of a Gröbner basis, there would then exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
   We see that the family of bases given by \eqref{eq:55} satisfies the property that each basis is a subset of the next.
-  This observation, together with the isomorphism between $L$ and $\gr^G(L)$ of \Cref{prp:20}, concludes the proof of \Cref{thr:4}.
+  This observation, together with the isomorphism between $L$ and $\gr^G(L)$ of \Cref{prp:22}, concludes the proof of \Cref{thr:4}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]
