@@ -290,8 +290,8 @@ For $p \in \mathbb{Z}$, we set
   \begin{enumerate}
   \item $G^pM = 0$ for $p < 0$;
   \item $G^0M \subseteq G^1M \subseteq \dots$;
-  \item $M_{h + n} \subseteq G^nM$ for $n \in \mathbb{Z}$;
   \item $M = \bigcup_{p \in \mathbb{N}}G^pM$;
+  \item $M_{h + n} \subseteq G^nM$ for $n \in \mathbb{Z}$;
   \item $a^M_{(n)}G^qM \subseteq G^{p + q}M$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{Z}$;
   \item $a^M_{(n)}G^qM \subseteq G^{p + q - 1}M$ for $p, q \in \mathbb{Z}$, $a \in G^pV$ and $n \in \mathbb{N}$;
   \item $L^M_0(G^pM) \subseteq G^pM$ and $L^M_{-1}(G^pM) \subseteq G^{p + 1}M$ for $p \in \mathbb{Z}$.
@@ -321,7 +321,7 @@ For $p, q \in \mathbb{N}$, $a \in G^pV$ and $u \in G^qM$, we set:
 where $\alpha_M^p: G^pM \to \gr^G(M)$ is the principal symbol map.
 The filtration $(G^pM)_{p \in \mathbb{Z}}$ is called the standard filtration of $M$.
 
-By \Cref{prp:2}(vii), we can define a diagonalizable operator $H^M \in \End(\gr^G(M))$ by setting $H^M(\alpha^p_M(u)) = \alpha^p_M(L^M_0u)$ for $p \in \mathbb{Z}$ and $u \in G^pM$.
+By \Cref{prp:2}(vii), we can define a diagonalizable operator $H^M \in \End(\gr^G(M))$ by setting $H^M(\alpha^p_M(u)) = \alpha^p_M(L^M_0u)$ for $p \in \mathbb{N}$ and $u \in G^pM$.
 
 For $p, n \in \mathbb{N}$, we set $G^pM_{h + n} = G^pM \cap M_{h + n}$.
 Then
@@ -341,7 +341,7 @@ We define the \emph{character} and the \emph{refined character of $\gr^G(M)$} (w
   \ch_{\gr^G(M)}(q) &= \sum_{n \in \mathbb{N}}\dim(\gr^G(M)_{h + n})q^{h + n} \in q^h\mathbb{C}[[q]], \\
   \ch_{\gr^G(M)}(t, q) &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^pq^{h + n} \in q^{h}\mathbb{C}[[t, q]].
 \end{align*}
-By \Cref{prp:2}(iv), we have
+By \Cref{prp:2}, we have
 \begin{equation*}
   \ch_M(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr^G(M)}(1, q).
 \end{equation*}
@@ -357,8 +357,18 @@ Therefore, we obtain a functor
   \gr^G: \{\text{$h + \mathbb{N}$-graded $(V, \omega)$-modules}\} \to \{\text{$h + \mathbb{N}$-graded $\gr^G(V)$-modules}\}.
 \end{equation*}
 
+We now state a general linear algebra proposition about bases of increasing filtrations of vector spaces.
+The proposition applies in particular to the standard filtration $(G^pM)_{p \in \mathbb{Z}}$ of a module $M$ over a vertex algebra, and the proof is straightforward.
+
 \begin{proposition}
   \label{prp:3}
+  Let $M$ be a vector space, let $(M^p)_{p \in \mathbb{Z}}$ be a family of subspaces of $M$ satisfying properties \emph{(i)--(iii)} of \Cref{prp:2}, and let $(B^p)_{p \in \mathbb{N}}$ be a increasing family of sets satisfying $B^p \subseteq M^p$ for $p \in \mathbb{N}$.
+  Then $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ spans (resp.\ is a basis of) $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $B^p$ spans (resp.\ is a basis of) $M^p$ for $p \in \mathbb{N}$ ($B^{-1} = \emptyset$).
+  In particular, if $\{v + M^{p - 1} \mid p \in \mathbb{N}, v \in B^p \setminus B^{p - 1}\}$ is a basis of $\gr(M) = \bigoplus_{p \in \mathbb{N}}M^p/M^{p - 1}$, then $\bigcup_{p \in \mathbb{N}}B^p$ is a basis of $M$.
+\end{proposition}
+
+\begin{proposition}
+  \label{prp:4}
   Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then the Li filtration (see \cite{li_abelianizing_2005}) and the standard filtration satisfy
   \begin{equation*}
@@ -381,7 +391,7 @@ Therefore, we obtain a functor
 \begin{remark}
   \label{rmk:3}
   We can relax the hypothesis of $L_0^M$ being diagonalizable.
-  It is possible to define the standard filtration for admissible modules (see \cite[Definition 3.3]{dong_twisted_1998}), and \Cref{prp:3} still holds.
+  It is possible to define the standard filtration for admissible modules (see \cite[Definition 3.3]{dong_twisted_1998}), and \Cref{prp:4} still holds.
 \end{remark}
 
 From now on, we take $V = \Vir^{1/2}$ (the universal Virasoro vertex algebra of central charge $1/2$) as the $\mathbb{N}$-graded vertex algebra with conformal vector $\omega = L_{-2}\vac$.
@@ -469,24 +479,6 @@ For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$
 \begin{equation*}
   p_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m}.
 \end{equation*}
-
-From the epimorphism of $V$-modules $\pi: M \twoheadrightarrow L$, we deduce the following four isomorphisms which are going to be used frequently implicitly.
-
-\begin{proposition}
-  \label{prp:4}
-  We have four (conformal) weight-preserving vector space isomorphisms:
-  \begin{align*}
-    M &\xrightarrow{\sim} \gr^G(M), \\
-    L_{\lambda}\vachalf &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}\vachalf), \\
-    \gr^G(M) &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k, \\
-    \alpha^{\len(\lambda)}(L_{\lambda}\vachalf) &\mapsto u_{\lambda}, \\
-    L &\xrightarrow{\sim} \gr^G(L), \\
-    L_{\lambda}(\vachalf + W) &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)), \\
-    \gr^G(L) &\xrightarrow{\sim} \gr^G(M)/K, \\
-    \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)) &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}\vachalf) + K,
-  \end{align*}
-  where $\lambda$ is a partition.
-\end{proposition}
 
 In this article, we will deal with polynomial algebras written as $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and free modules of the form $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ for some $N \in \mathbb{N}$.
 We will always use the degree reverse lexicographic order with $L_{-2} > L_{-3} > \dots > L_{-N}$ and TOP (term over position) with $L_{-1}^0 < L_{-1}^1 < \dots < L_{-1}^N$, see \cite[\S3.5]{adams_introduction_1994}.
@@ -971,7 +963,6 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
 
 \begin{proof}[Proof of \Cref{thr:4}]
   Since we cannot apply Gröbner basis theory directly on the free module $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, we need to truncate somehow.
-  We have to keep in mind the isomorphisms given in \Cref{prp:4}.
   For $N \in \mathbb{N}$, we define:
   \begin{align*}
     \gr^G(M)_{\le 1/2 + N} &= \sum_{n \le N}\gr^G(M)_{1/2 + n}, \\
@@ -1002,7 +993,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
     \{u_{\lambda} + K \cap F_N \mid u_{\lambda} \in B_N\}
   \end{equation}
   is a vector space basis of $\gr^G(M)_{\le 1/2 + N}/K \cap F_N$.
-  Therefore, by \Cref{lmm:6}, isomorphism \eqref{eq:7} and the isomorphism between $\gr^G(L)_{1/2 + n}$ and $L_{1/2 + n}$ of \Cref{prp:4}, we have
+  Therefore, by \Cref{lmm:6}, isomorphism \eqref{eq:7} and the equality $\dim(\gr^G(L)_{1/2 + n}) = \dim(L_{1/2 + n})$ for $n \in \mathbb{N}$, we have
   \begin{equation*}
     |B_N| = \sum_{n \le N}\dim(\gr^G(L)_{1/2 + n}) = \sum_{n \le N}\dim(L_{1/2 + n}) = \sum_{n \le N}|P(n)|.
   \end{equation*}
@@ -1027,7 +1018,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
   However, by the definition of a Gröbner basis, there would then exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
   We see that the family of bases given by \eqref{eq:8} satisfies the property that each basis is a subset of the next.
-  This observation, together with the isomorphism between $L$ and $\gr^G(L)$ of \Cref{prp:4}, concludes the proof of \Cref{thr:4}.
+  This observation and \Cref{prp:3} conclude the proof of \Cref{thr:4}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]

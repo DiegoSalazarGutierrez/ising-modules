@@ -2312,7 +2312,7 @@ With this notation, \eqref{eq:27} is equivalent to
   Then:
   \begin{enumerate}
   \item $a^M_nM_{\Delta} \subseteq M_{\Delta - n}$ for $a \in V$ homogeneous and $n \in \mathbb{Z} - \Delta_a$;
-  \item $\Delta_{a^M_{(n)}u} = \Delta_a + \Delta_u - n - 1$ for $a \in V$ homogeneous, $u \in M$ and $n \in \mathbb{Z}$;
+  \item $\Delta_{a^M_{(n)}u} = \Delta_a + \Delta_u - n - 1$ for $a \in V$ homogeneous, $u \in M$ homogeneous and $n \in \mathbb{Z}$;
   \item \emph{(Graded Borcherds identity)} For $a, b \in V$ homogeneous, $u \in M$, $m \in \mathbb{Z} - \Delta_a$, $k \in \mathbb{Z}- \Delta_b$ and $n \in \mathbb{Z}$,
     \begin{equation*}
       \sum_{j \in \mathbb{N}}(-1)^j\binom{n}{j}(a^M_{m + n - j}(b^M_{k + j - n}u) - (-1)^np(a, b)b^M_{k - j}(a^M_{m + j}u)) = \sum_{j \in \mathbb{N}}\binom{m + \Delta_a - 1}{j}(a_{(n + j)}b)^M_{m + k}u.
@@ -4023,7 +4023,7 @@ The unit is $\alpha^0(\vac)$.
 The filtration $(G^pV)_{p \in \mathbb{Z}}$ is called the \emph{standard filtration of $V$}.
 By \Cref{prp:15} ahead, the standard filtration does not depend on the choice of the strong generators of $V$.
 
-By \Cref{prp:14}(vii), we can define an operator $H \in \End(\gr^G(V))$ as $H(\alpha^p(a)) = \alpha^p(Ha)$ for $p \in \mathbb{Z}$ and $a \in G^pV$.
+By \Cref{prp:14}(vii), we can define an operator $H \in \End(\gr^G(V))$ as $H(\alpha^p(a)) = \alpha^p(Ha)$ for $p \in \mathbb{N}$ and $a \in G^pV$.
 For $p \in \mathbb{Z}$ and $n \in \mathbb{N}$, we define $G^pV_n = G^pV \cap V_n$.
 Since $H(G^pV) \subseteq G^pV$ for $p \in \mathbb{Z}$, \Cref{lmm:9} implies that
 \begin{equation*}
@@ -4046,7 +4046,7 @@ In fact, more is true.
 
 We have the natural vector space isomorphisms
 \begin{equation*}
-  \alpha^p(G^pV_n) \cong G^pV_n/G^{p - 1}V_n \quad \text{for $p, n \in \mathbb{Z}$}
+  \alpha^p(G^pV_n) \cong G^pV_n/G^{p - 1}V_n \quad \text{for $p, n \in \mathbb{N}$}
 \end{equation*}
 and the refined grading
 \begin{equation}
@@ -4092,21 +4092,6 @@ Therefore, we obtain a functor
   That is probably not intended, and also the proof of \cite[Proposition 2.6.1]{arakawa_remark_2012} does not work for $\tfrac{1}{r_0}\mathbb{N}$-graded vertex algebras.
   But the hypothesis $V_0 = \mathbb{C}\vac$ can be removed, just as Arakawa wrote.
 \end{remark}
-
-\begin{theorem}
-  \label{thr:53}
-  Let $V$ be an $\mathbb{N}$-graded vertex algebra with $\dim(V_n) < \infty$ for $n \in \mathbb{N}$.
-  Then:
-  \begin{enumerate}
-  \item $\bigcap_{p \in \mathbb{N}}F_pV = 0$;
-  \item $\ch_V(q) = \ch_{\gr_F(V)}(q) = \ch_{\gr^G(V)}(q) = \ch_{\gr_F(V)}(1, q) = \ch_{\gr^G(V)}(1, q)$;
-  \item $\ch_{\gr^G(V)}(t^{-1}, tq) = \ch_{\gr_F(V)}(t, q)$.
-  \end{enumerate}
-\end{theorem}
-
-\begin{proof}
-  See the proof of \Cref{prp:20} ahead.
-\end{proof}
 
 \begin{example}[$\gr^G(\Vir^c)$]
   \label{exa:14}
@@ -4293,7 +4278,7 @@ Therefore, the operator $H^M \in \End(\gr_F(M))$ is diagonalizable with $\gr_F(M
 In fact, more is true.
 
 \begin{theorem}
-  \label{thr:54}
+  \label{thr:53}
   This diagonalizable operator $H^M$ is a Hamiltonian of $\gr_F(M)$.
 \end{theorem}
 
@@ -4316,6 +4301,42 @@ By \eqref{eq:46}, when $\dim(M)_{\Delta} < \infty$ for $\Delta \in \mathbb{C}$, 
   \ch_{\gr_F(M)}(t, q) = \sum_{\substack{p \in \mathbb{N} \\ \Delta \in \mathbb{C}}}\dim(\sigma_p(F_pM_{\Delta}))t^pq^{\Delta}.
 \end{equation*}
 
+\begin{lemma}
+  \label{lmm:25}
+  Let $V$ be an $\mathbb{N}$-graded vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $V$-module.
+  Then:
+  \begin{enumerate}
+  \item $F_pM_{h + n} = 0$ for $p, n \in \mathbb{N}$ with $p > n$;
+  \item $\bigcap_{p \in \mathbb{N}}F_pM = 0$;
+  \item If $\dim(M_{h + n}) < \infty$ for $n \in \mathbb{N}$, then $\ch_M(q) = \ch_{\gr_F(M)}(q) = \ch_{\gr_F(M)}(1, q)$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}\leavevmode
+  \begin{enumerate}
+  \item We just saw we can use homogeneous elements to define $F_pM$.
+    By \Cref{thr:26}(ii),
+    \begin{equation*}
+      \Delta_{a^{1M}_{(-n_1 - 1)}\dots a^{sM}_{(-n_s - 1)}u} = \Delta_{a^1} + \dots + \Delta_{a^s} + \Delta_u + n_1 + \dots + n_s \ge h + n_1 + \dots + n_s.
+    \end{equation*}
+    Thus, if $p, n \in \mathbb{N}$ with $p > n$, then the elements $a^{1M}_{(-n_1 - 1)}\dots a^{sM}_{(-n_s - 1)}u$ spanning $F_pM$ have conformal weight greater than $h + n$, and this implies that $F_pM_{h + n} = 0$.
+  \item By \eqref{eq:44} and (i),
+    \begin{equation*}
+      \bigcap_{p \in \mathbb{N}}F_pM = \sum_{n \in \mathbb{N}}\left(\left(\bigcap_{p \in \mathbb{N}}F_p\right) \cap M_{h + n}\right) = \sum_{n \in \mathbb{N}}\left(\bigcap_{p \in \mathbb{N}}F_pM_{h + n}\right) = \sum_{n \in \mathbb{N}}0 = 0.
+    \end{equation*}
+  \item The latter equality follows from the definition of $\gr_F(M)_{\Delta}$ and $\ch_{\gr_F(M)}(t, q)$.
+    To prove $\ch_M(q) = \ch_{\gr_F(M)}(q)$, we have to prove $\dim(M_{h + n}) = \dim(\gr_F(M)_{h + n})$ for $n \in \mathbb{N}$.
+    By definition, $\gr_F(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\sigma^M_p(F_pM_{h + n})$ for $n \in \mathbb{N}$.
+    By \eqref{eq:45}, \Cref{prp:16}(i), and (i), for $n \in \mathbb{N}$,
+    \begin{align*}
+      \dim(\gr_F(M)_{h + n}) &= \sum_{p \in \mathbb{N}}\dim(\sigma^M_p(F_pM_{h + n})) \\
+                             &= \sum_{p = 0}^n(\dim(F_pM_{h + n}) - \dim(F_{p + 1}M_{h + n})) \\
+                             &= \dim(F_0M_{h + n}) \\
+                             &= \dim(M_{h + n}). \qedhere
+    \end{align*}
+  \end{enumerate}
+\end{proof}
+
 If $f: M_1 \to M_2$ is a homomorphism of $V$-modules, then
 \begin{align*}
   \gr_F(f): \gr_F(M_1) &\to \gr_F(M_2), \\
@@ -4327,6 +4348,41 @@ Therefore, we obtain a functor
 \begin{equation*}
   \gr_F: \{\text{(graded) $V$-modules}\} \to \{\text{(graded) $\gr_F(V)$-modules}\}.
 \end{equation*}
+
+\begin{proposition}
+  \label{prp:17}
+  Let $V$ be an $\mathbb{N}$-graded vertex algebra, let $M$ be an $h + \mathbb{N}$-graded $V$-module, and let $(B_p)_{p \in \mathbb{N}}$ be a decreasing family of sets such that $B_p \subseteq F_pM$, and all elements of $B_p$ are homogeneous for $p \in \mathbb{N}$.
+  Then $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ spans (resp.\ is a basis of) $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $B_p$ spans (resp.\ is a basis of) $F_pM$ for $p \in \mathbb{N}$.
+  In particular, if $\{\sigma_p^M(v) \mid p \in \mathbb{N}, v \in B_p \setminus B_{p + 1}\}$ is a basis of $\gr_F(M)$, then $B_0$ is a basis of $M$.
+\end{proposition}
+
+\begin{proof}
+  To begin with, we prove that $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $B_p$ spans $F_pM$ for $p \in \mathbb{N}$.
+  We now assume that $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
+  Let $p, n \in \mathbb{N}$, and let $v \in F_pM_{h + n}$.
+  By hypothesis, there is $v_{p, 1}, \dots, v_{p, k_p} \in B_p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ such that $v + F_{p + 1}M = c_{p, 1}(v_{p, 1} + F_{p + 1}M) + \dots + c_{p, k_p}(v_{p, k_p} + F_{p + 1}M)$.
+  This means that $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in F_{p +1}M$.
+  By applying the projection $M \twoheadrightarrow M_{h + n}$, we may assume that $v_{p, 1}, \dots ,v_{p, k_p} \in M_{h + n}$.
+  Therefore $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in F_{p +1}M_{h + n}$.
+  Continuing this way, we find for $m \in \mathbb{Z}_+$, $v_{p + 1, 1}, \dots, v_{p + 1, k_{p + 1}} \in B_{p + 1}$, $c_{p + 1, 1}, \dots, c_{p + 1, k_{p + 1}} \in \mathbb{C}$, \dots, $v_{p + m, 1}, \dots, v_{p + m, k_{p + m}} \in B_{p + m}$ and $c_{p + m, 1}, \dots, c_{p + m, k_{p + m}} \in \mathbb{C}$ such that $v - (c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{p + m, 1}v_{p + m, 1} + \dots + c_{p + m, k_{p + m}}v_{p + m, k_{p + m}}) \in F_{p + m + 1}M_{h + n}$.
+  By \Cref{lmm:25}(i), $F_{p + m + 1}M_{h + n} = 0$ for $m \ge n - p$.
+  Hence, $v = c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{p + m, 1}v_{p + m, 1} + \dots + c_{p + m, k_{p + m}}v_{p + m, k_{p + m}}$ if $m$ is such that $m \ge n - p$, and $B_p$ spans $F_pM$ for $p \in \mathbb{N}$.
+  If $B_p$ spans $F_pM$ for $p \in \mathbb{N}$, then clearly $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
+
+  Finally, we prove that $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ is a basis of $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $B_p$ is a basis of $F_pM$ for $p \in \mathbb{N}$.
+  We now assume that $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ is a basis of $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
+  By the last paragraph, $B_p$ spans $F_pM$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$.
+  If $c_1v_1 + \dots + c_kv_k + d_1w_1 + \dots + d_rw_r = 0 = 0$, where $v_1, \dots, v_k \in B_p \setminus B_{p + 1}$, $w_1, \dots, w_r \in B_{p + 1}$ and $c_1, \dots, c_k, d_1, \dots, d_r \in \mathbb{C}$, then $c_1(v_1 + F_{p + 1}M) + \dots + c_k(v_k + F_{p + 1}M) = 0$.
+  By the linear independence of $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$, $c_1 = \dots = c_k = 0$.
+  Continuing this way, $d_1 = \dots = d_r = 0$, and $B_p$ is linearly independent.
+  To end this proof, we assume that $B_p$ is a basis of $F_pM$ for $p \in \mathbb{N}$.
+  By the last paragraph, $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$.
+  Let $v_1, \dots, v_k \in B_p \setminus B_{p + 1}$ and $c_1, \dots, c_k \in \mathbb{C}$ be such that $c_1(v_1 + F_{p + 1}M) + \dots + c_k(v_k + F_{p + 1}M) = 0$.
+  Then $c_1v_1 + \dots + c_kv_k \in F_{p + 1}M$, and $c_1v_1 + \dots + c_kv_k = d_1w_1 + \dots + d_rw_r$ for some for some $w_1, \dots, w_r \in B_{p + 1}$ and $d_1, \dots, d_r \in \mathbb{C}$ because $B_{p + 1}$ spans $F_{p + 1}M$.
+  By the linear independence of $B_p$, $c_1 = \dots = c_k = 0$, and $\{v + F_{p + 1}M \mid v \in B_p \setminus B_{p + 1}\}$ is linearly independent.
+\end{proof}
 
 We now introduce a definition not given by Li in \cite{li_vertex_2004}.
 Let $V$ be an $\mathbb{N}$-graded conformal vertex algebra with conformal vector $\omega$, let $(a^i)_{i \in I}$ be a family of homogeneous strong generators of $V$, and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
@@ -4341,7 +4397,7 @@ For $p \in \mathbb{Z}$, we set
 \end{equation*}
 
 \begin{proposition}
-  \label{prp:17}
+  \label{prp:18}
   The filtration $(G^pM)_{p \in \mathbb{Z}}$ satisfies:
   \begin{enumerate}
   \item $G^pM = 0$ for $p < 0$;
@@ -4376,9 +4432,9 @@ For $p, q \in \mathbb{N}$, $a \in G^pV$ and $u \in G^qM$, we set:
 \end{align*}
 where $\alpha_M^p: G^pM \to \gr^G(M)$ is the principal symbol map.
 The filtration $(G^pM)_{p \in \mathbb{Z}}$ is called the standard filtration of $M$.
-By \Cref{prp:19} ahead, the standard filtration does not depend on the choice of the strong generators of $V$.
+By \Cref{prp:20} ahead, the standard filtration does not depend on the choice of the strong generators of $V$.
 
-By \Cref{prp:17}(vii), we can define an operator $H^M \in \End(\gr^G(M))$ as $H^M(\alpha_M^p(u)) = \alpha_M^p(L^M_0u)$ for $p \in \mathbb{Z}$ and $u \in G^pM$.
+By \Cref{prp:18}(vii), we can define an operator $H^M \in \End(\gr^G(M))$ as $H^M(\alpha_M^p(u)) = \alpha_M^p(L^M_0u)$ for $p \in \mathbb{N}$ and $u \in G^pM$.
 For $p \in \mathbb{Z}$ and $n \in \mathbb{N}$, we define $G^pM_{h + n} = G^pM \cap M_{h + n}$.
 Since $L_0^M(G^pM) \subseteq G^pM$ for $p \in \mathbb{Z}$, \Cref{lmm:9} implies that
 \begin{equation*}
@@ -4391,7 +4447,7 @@ Therefore, the operator $H^M \in \End(\gr^G(M))$ is diagonalizable with $\gr^G(M
 In fact, more is true.
 
 \begin{theorem}
-  \label{thr:55}
+  \label{thr:54}
   This diagonalizable operator $H^M$ is a Hamiltonian of $\gr^G(M)$.
 \end{theorem}
 
@@ -4425,40 +4481,43 @@ Therefore, we obtain a functor
   \gr^G: \{\text{$h + \mathbb{N}$-graded $(V, \omega)$-modules}\} \to \{\text{$h + \mathbb{N}$-graded $\gr^G(V)$-modules}\}.
 \end{equation*}
 
-\begin{proposition}
-  \label{prp:18}
-  Let $M$ be a vector space, let $(M^p)_{p \in \mathbb{Z}}$ be a family of subspaces of $M$ satisfying properties \emph{(i)--(ii)} of \Cref{prp:17}, and let $(B^p)_{p \in \mathbb{N}}$ be a mutually disjoint family of sets satisfying $B^p \subseteq M^p$ for $p \in \mathbb{N}$.
-  Then $\{v + M^{p - 1} \mid v \in B^p\}$ spans (resp.\ is a basis of) $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$ (resp.\ $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent).
-  In particular, if $M = \bigcup_{p \in \mathbb{N}}M^p$, $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent, then $\{v + M^{p - 1} \mid p \in \mathbb{N}, v \in B^p\}$ is a basis of $\gr(M) = \bigoplus_{p \in \mathbb{N}}M^p/M^{p - 1}$.
-\end{proposition}
-
-\begin{proof}
-  To begin with, we prove that $\{v + M^{p - 1} \mid v \in B^p\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$.
-  We now assume that $\{v + M^{p - 1} \mid v \in B^p\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
-  Let $p \in \mathbb{N}$, and let $v \in M^p$.
-  By hypothesis, there is $v_{p, 1}, \dots, v_{p, k_p} \in B^p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ such that $v + M^{p - 1} = c_{p, 1}(v_{p, 1} + M^{p - 1}) + \dots + c_{p, k_p}(v_{p, k_p} + M^{p - 1})$.
-  This means that $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in M^{p - 1}$.
-  Continuing this way, we find $v_{p - 1, 1}, \dots, v_{p - 1, k_{p - 1}} \in B^{p - 1}$, $c_{p - 1, 1}, \dots, c_{p - 1, k_{p - 1}} \in \mathbb{C}$, \dots, $v_{0, 1}, \dots, v_{0, k_0} \in B^0$, $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$ such that $v - (c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0}) \in M^{-1} = 0$.
-  Therefore, $v = c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0}$, and $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$.
-  If $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, then clearly $\{v + M^{p - 1} \mid v \in B^p\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
-
-  Finally, we prove that $\{v + M^{p - 1} \mid v \in B^p\}$ is a basis of $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent.
-  We now assume that $\{v + M^{p - 1} \mid v \in B^p\}$ is a basis of $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
-  By the last paragraph, $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$.
-  Let $p \in \mathbb{N}$.
-  If $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0} = 0$, where $v_{p, 1}, \dots, v_{p, k_p} \in B^p$, $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$, \dots, $v_{0, 1}, \dots, v_{0, k_0} \in B^0$, $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$, then $c_{p, 1}(v_{p, 1} + M^{p - 1}) + \dots + c_{p, k_p}(v_{p, k_p} + M^{p - 1}) = 0$.
-  By the linear independence of $\{v + M^{p - 1} \mid v \in B^p\}$, $c_{p, 1} = \dots = c_{p, k_p} = 0$.
-  Continuing this way, $c_{p - 1, 1} = \dots = c_{p - 1, k_{p - 1}} = \dots = c_{0, 1} = \dots = c_{0, k_0} = 0$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent.
-  To end this proof, we assume that $\bigcup_{k \le p}B^k$ spans $M^p$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent.
-  By the last paragraph, $\{v + M^{p - 1} \mid v \in B^p\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
-  Let $p \in \mathbb{N}$.
-  Let $v_{p, 1}, \dots, v_{p, k_p} \in B^p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ be such that $c_{p, 1}(v_{p, 1} + M^{p - 1}) + \dots + c_{p, k_p}(v_{p, k_p} + M^{p - 1}) = 0$.
-  Then $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} \in M^{p - 1}$, and $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} = c_{p - 1, 1}v_{p - 1, 1} + \dots +  c_{p - 1, k_{p - 1}}v_{p - 1, k_{p - 1}} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0}$ for some $v_{p - 1, 1}, \dots, v_{p - 1, k_{p - 1}} \in B^{p - 1}$, $c_{p - 1, 1}, \dots, c_{p - 1, k_{p - 1}} \in \mathbb{C}$, \dots, $v_{0, 1}, \dots, v_{0, k_0} \in B^0$, $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$ because $\bigcup_{k \le p - 1}B^k$ spans $M^{p - 1}$.
-  By the linear independence of $\bigcup_{k \in \mathbb{N}}B^k$, $c_{p, 1} = \dots = c_{p, k_p} = 0$, and $\{v + M^{p - 1} \mid v \in B^p\}$ is linearly independent.
-\end{proof}
+We now state a general linear algebra proposition about bases of increasing filtrations of vector spaces.
+The proposition applies in particular to the standard filtration $(G^pM)_{p \in \mathbb{Z}}$ of a module $M$ over a vertex algebra, and the proof is straightforward.
 
 \begin{proposition}
   \label{prp:19}
+  Let $M$ be a vector space, let $(M^p)_{p \in \mathbb{Z}}$ be a family of subspaces of $M$ satisfying properties \emph{(i)--(ii)} of \Cref{prp:18}, and let $(B^p)_{p \in \mathbb{N}}$ be a increasing family of sets satisfying $B^p \subseteq M^p$ for $p \in \mathbb{N}$.
+  Then $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ spans (resp.\ is a basis of) $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $B^p$ spans (resp.\ is a basis of) $M^p$ for $p \in \mathbb{N}$ ($B^{-1} = \emptyset$).
+  In particular, if $M = \bigcup_{p \in \mathbb{N}}M^p$ and $\{v + M^{p - 1} \mid p \in \mathbb{N}, v \in B^p \setminus B^{p - 1}\}$ is a basis of $\gr(M) = \bigoplus_{p \in \mathbb{N}}M^p/M^{p - 1}$, then $\bigcup_{p \in \mathbb{N}}B^p$ is a basis of $M$.
+\end{proposition}
+
+\begin{proof}
+  To begin with, we prove that $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $B^p$ spans $M^p$ for $p \in \mathbb{N}$.
+  We now assume that $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$, and let $v \in M^p$.
+  By hypothesis, there is $v_{p, 1}, \dots, v_{p, k_p} \in B^p \setminus B^{p - 1}$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ such that $v + M^{p - 1} = c_{p, 1}(v_{p, 1} + M^{p - 1}) + \dots + c_{p, k_p}(v_{p, k_p} + M^{p - 1})$.
+  This means that $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in M^{p - 1}$.
+  Continuing this way, we find $v_{p - 1, 1}, \dots, v_{p - 1, k_{p - 1}} \in B^{p - 1}$, $c_{p - 1, 1}, \dots, c_{p - 1, k_{p - 1}} \in \mathbb{C}$, \dots, $v_{0, 1}, \dots, v_{0, k_0} \in B^0$ and $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$ such that $v - (c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0}) \in M^{-1} = 0$.
+  Therefore, $v = c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0}$, and $B^p$ spans $M^p$ for $p \in \mathbb{N}$.
+  If $B^p$ spans $M^p$ for $p \in \mathbb{N}$, then clearly $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
+
+  Finally, we prove that $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ is a basis of $M^p/M^{p - 1}$ for $p \in \mathbb{N}$ if and only if $B^p$ is a basis of $M^p$ for $p \in \mathbb{N}$.
+  We now assume that $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ is a basis of $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
+  By the last paragraph, $B^p$ spans $M^p$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$.
+  If $c_1v_1 + \dots + c_kv_k + d_1w_1 + \dots + d_rw_r = 0$, where $v_1, \dots, v_k \in B^p \setminus B^{p - 1}$, $w_1, \dots, w_r \in B^{p - 1}$ and $c_1, \dots, c_k, d_1, \dots, d_r \in \mathbb{C}$, then $c_1(v_1 + M^{p - 1}) + \dots + c_k(v_k + M^{p - 1}) = 0$.
+  By the linear independence of $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$, $c_1 = \dots = c_k= 0$.
+  Continuing this way, we prove $d_1 = \dots = d_r = 0$, and $B^p$ is linearly independent.
+  To end this proof, we assume that $B^p$ is a basis of $M^p$ for $p \in \mathbb{N}$.
+  By the last paragraph, $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ spans $M^p/M^{p - 1}$ for $p \in \mathbb{N}$.
+  Let $p \in \mathbb{N}$.
+  Let $v_1, \dots, v_k \in B^p$ and $c_1, \dots, c_k \in \mathbb{C}$ be such that $c_1(v_1 + M^{p - 1}) + \dots + c_k(v_k + M^{p - 1}) = 0$.
+  Then $c_1v_1 + \dots + c_kv_k \in M^{p - 1}$, and $c_1v_1 + \dots + c_kv_k = d_1w_1 + \dots + d_rw_r$ for some $w_1, \dots, w_r \in B^{p - 1}$ and $d_1, \dots, d_r \in \mathbb{C}$ because $B^{p - 1}$ spans $M^{p - 1}$.
+  By the linear independence of $B^p$, $c_1 = \dots = c_k = 0$, and $\{v + M^{p - 1} \mid v \in B^p \setminus B^{p - 1}\}$ is linearly independent.
+\end{proof}
+
+\begin{proposition}
+  \label{prp:20}
   Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then the Li filtration and the standard filtration satisfy
   \begin{equation*}
@@ -4491,7 +4550,7 @@ Therefore, we obtain a functor
   We now assume $p \ge 1$ and $F_qM_{h + n} \subseteq G^{n - q}M_{h + n}$ for $q < p$ and $n \in \mathbb{N}$.
   We pick an element $a^{i_1M}_{(-n_1 - 1)}u$ from the spanning set of $F_pM_{h + n}$ in property (c) above, with $i_1 \in I$, $n_1 \in \mathbb{Z}_+$ and $u \in F_{p - n_1}M_{\Delta_u}$.
   By the induction hypothesis, we know that $u \in G^{\Delta_u - h - p + n_1}M_{\Delta_u}$, and also $a \in V_{\Delta_{a^{i_1}}} \subseteq G^{\Delta_{a^{i_1}}}V$.
-  Therefore, by \Cref{prp:17}(v), $a^{i_1M}_{(-n_1 - 1)}u \in G^{\Delta_{a^{i_1}} + \Delta_u - h - p + n_1}M = G^{n - p}M$.
+  Therefore, by \Cref{prp:18}(v), $a^{i_1M}_{(-n_1 - 1)}u \in G^{\Delta_{a^{i_1}} + \Delta_u - h - p + n_1}M = G^{n - p}M$.
 
   We now prove the inclusion $G^{n - p}M_{h + n} \subseteq F_pM_{h + n}$.
   We pick an element $a^{i_1M}_{(-n_1 - 1)}\dots a^{i_sM}_{(-n_s - 1)}u$ from the spanning set of $G^{n - p}M_{h + n}$, where $u \in M_{\Delta_u}, s, n_1, \dots, n_s \in \mathbb{N}, i_1, \dots, i_s \in I$ and $\Delta_{a^{i_1}} + \dots + \Delta_{a^{i_s}} + \Delta_u - h \le n - p$.
@@ -4501,56 +4560,36 @@ Therefore, we obtain a functor
   We verify that we obtain an isomorphism $\gr_F(M) \xrightarrow{\sim} \gr^G(M)$ directly from the definitions (cf.\ \Cref{prp:15}).
 \end{proof}
 
-\Cref{prp:19} translates into an identity of the refined characters of $M$, as the following proposition shows.
+\Cref{prp:20} translates into an identity of the refined characters of $M$, as the following proposition shows.
 This is also valid for vertex algebras because all the definitions are compatible.
 
 \begin{proposition}
-  \label{prp:20}
+  \label{prp:21}
   Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, and let $M$ be an ordinary $h + \mathbb{N}$-graded $(V, \omega)$-module.
   Then:
   \begin{enumerate}
-  \item $\bigcap_{p \in \mathbb{N}}F_pM = 0$;
-  \item $\ch_M(q) = \ch_{\gr_F(M)}(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr_F(M)}(1, q) = \ch_{\gr^G(M)}(1, q)$;
+  \item $\ch_M(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr^G(M)}(1, q)$;
   \item $\ch_{\gr^G(M)}(t^{-1}, tq) = t^h\ch_{\gr_F(M)}(t, q)$.
   \end{enumerate}
 \end{proposition}
 
 \begin{proof}\leavevmode
   \begin{enumerate}
-  \item First, we note that $G^{n - p}M_{h + n} = 0$ for $p, n \in \mathbb{N}$ with $p \ge n$ by \Cref{prp:17}(i).
-    By \eqref{eq:44} and \Cref{prp:19},
-    \begin{equation*}
-      \bigcap_{p \in \mathbb{N}}F_pM = \sum_{n \in \mathbb{N}}\left(\left(\bigcap_{p \in \mathbb{N}}F_p\right) \cap M_{h + n}\right) = \sum_{n \in \mathbb{N}}\left(\bigcap_{p \in \mathbb{N}}F_pM_{h + n}\right) = \sum_{n \in \mathbb{N}}\bigcap_{p \in \mathbb{N}}G^{n - p}M_{h + n} = 0.
-    \end{equation*}
-  \item First, we prove $\ch_M(q) = \ch_{\gr_F(M)}(q) = \ch_{\gr_F(M)}(1, q)$.
-    The latter equality follows from the definition of $\gr_F(M)_{\Delta}$ and $\ch_{\gr_F(M)}(t, q)$.
-    To prove $\ch_M(q) = \ch_{\gr_F(M)}(q)$, we have to prove $\dim(M_{h + n}) = \dim(\gr_F(M)_{h + n})$ for $n \in \mathbb{N}$.
-    By definition, $\gr_F(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\sigma^M_p(F_pM_{h + n})$ for $n \in \mathbb{N}$.
-    By \Cref{prp:17}(i) and \Cref{prp:19}, $F_pM_{h + n} = 0$ for $n \in \mathbb{N}$ and $p > n$.
-    This implies $\sigma^M_p(F_pM_{h + n}) = 0$ for $n \in \mathbb{N}$ and $p > n$.
-    By \eqref{eq:45} and \Cref{prp:16}(i), for $n \in \mathbb{N}$,
-    \begin{align*}
-      \dim(\gr_F(M)_{h + n}) &= \sum_{p \in \mathbb{N}}\dim(\sigma^M_p(F_pM_{h + n})) \\
-                             &= \sum_{p \in \mathbb{N}}(\dim(F_pM_{h + n}) - \dim(F_{p + 1}M_{h + n})) \\
-                             &= \dim(F_0M_{h + n}) \\
-                             &= \dim(M_{h + n}).
-    \end{align*}
-
-    It remains prove $\ch_M(q) = \ch_{\gr^G(M)}(q) = \ch_{\gr^G(M)}(1, q)$.
-    The latter equality follows from the definition of $\gr^G(M)_{h + n}$ and $\ch_{\gr^G(M)}(t, q)$.
+  \item The latter equality follows from the definition of $\gr^G(M)_{h + n}$ and $\ch_{\gr^G(M)}(t, q)$.
     To prove $\ch_M(q) = \ch_{\gr^G(M)}(q)$, we have to prove $\dim(M_{h + n}) = \dim(\gr^G(M)_{h + n})$ for $n \in \mathbb{N}$.
     By definition, $\gr^G(M)_{h + n} = \bigoplus_{p \in \mathbb{N}}\alpha_M^p(G^pM_{h + n})$ for $n \in \mathbb{N}$.
-    By \Cref{prp:17}(ii),(iv), $G^pM_{h + n} = M_{h + n}$ for $p, n \in \mathbb{N}$ with $p \ge n$.
-    By \eqref{eq:47}, $\alpha_M^p(G^pM_{h + n}) = 0$ for $p, n \in \mathbb{N}$ with $p \ge n + 1$.
-    By \Cref{prp:17}(i), $G^{-1}M_{h + n} = 0$ for $n \in \mathbb{N}$.
-    By \eqref{eq:47}, for $n \in \mathbb{N}$,
+    By \Cref{prp:18}(ii),(iv), $G^pM_{h + n} = M_{h + n}$ for $p, n \in \mathbb{N}$ with $p \ge n$.
+    This observation together with \eqref{eq:47} implies that $\alpha_M^p(G^pM_{h + n}) = 0$ for $p, n \in \mathbb{N}$ with $p \ge n + 1$.
+    By \Cref{prp:18}(i), $G^{-1}M_{h + n} = 0$ for $n \in \mathbb{N}$.
+    Again by \eqref{eq:47}, $\dim(\alpha_M^p(G^pM_{h + n})) = \dim(G^pM_{h + n}) - \dim(G^{p - 1}M_{h + n})$ for $p, n \in \mathbb{N}$.
+    We now do the summation.
     \begin{align*}
       \dim(\gr^G(M)_{h + n}) &= \sum_{p \in \mathbb{N}}\dim(\alpha_M^p(G^pM_{h + n})) \\
                              &= \sum_{p = 0}^n(\dim(G^pM_{h + n}) - \dim(G^{p - 1}M_{h + n})) \\
                              &= \dim(G^nM_{h + n}) \\
                              &= \dim(M_{h + n}).
     \end{align*}
-  \item This follows from \Cref{prp:19} and by replacing $p$ by $n - p$ in the following computation.
+  \item This follows from \Cref{prp:20} and by replacing $p$ by $n - p$ in the following computation.
     \begin{align*}
       \ch_{\gr^G(M)}(t^{-1}, tq) &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^{-p}(tq)^{h + n} \\
                                  &= \sum_{p, n \in \mathbb{N}}\dim(\alpha^p_M(G^pM_{h + n}))t^{h + n - p}q^{h + n} \\
@@ -4558,41 +4597,6 @@ This is also valid for vertex algebras because all the definitions are compatibl
                                  &= t^h\ch_{\gr_F(M)}(t, q). \qedhere
     \end{align*}
   \end{enumerate}
-\end{proof}
-
-\begin{proposition}
-  \label{prp:21}
-  Let $(V, \omega)$ be an $\mathbb{N}$-graded conformal vertex algebra, let $M$ be an $h + \mathbb{N}$-graded $(V, \omega)$-module, and let $(B_p)_{p \in \mathbb{N}}$ be a family of mutually disjoint sets such that $B_p \subseteq F_pM$, and all elements of $B_p$ are homogeneous for $p \in \mathbb{N}$.
-  Then $\{v + F_{p + 1}M \mid v \in B_p\}$ spans (resp.\ is a basis of) $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$ (resp.\ $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B_k$ is linearly independent).
-  In particular, if $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B_k$ is linearly independent, then $\{v + F_{p + 1}M \mid p \in \mathbb{N}, v \in B_p\}$ is a basis of $\gr_F(M)$.
-\end{proposition}
-
-\begin{proof}
-  To begin with, we prove that $\{v + F_{p + 1}M \mid v \in B_p\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$.
-  We now assume that $\{v + F_{p + 1}M \mid v \in B_p\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
-  Let $p, n \in \mathbb{N}$, and let $v \in F_pM_{h + n}$.
-  By hypothesis, there is $v_{p, 1}, \dots, v_{p, k_p} \in B_p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ such that $v + F_{p + 1}M = c_{p, 1}(v_{p, 1} + F_{p + 1}M) + \dots + c_{p, k_p}(v_{p, k_p} + F_{p + 1}M)$.
-  This means that $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in F_{p +1}M$.
-  By applying the projection $M \twoheadrightarrow M_{h + n}$, we may assume that $v_{p, 1}, \dots ,v_{p, k_p} \in M_{h + n}$.
-  Therefore $v - (c_{p, 1}v_{p, 1} + \dots +  c_{p, k_p}v_{p, k_p}) \in F_{p +1}M_{h + n}$.
-  Continuing this way, we find for $m \in \mathbb{Z}_+$, $v_{p + 1, 1}, \dots, v_{p + 1, k_{p + 1}} \in B_{p + 1}$, $c_{p + 1, 1}, \dots, c_{p + 1, k_{p + 1}} \in \mathbb{C}$, \dots, $v_{p + m, 1}, \dots, v_{p + m, k_{p + m}} \in B_{p + m}$, $c_{p + m, 1}, \dots, c_{p + m, k_{p + m}} \in \mathbb{C}$ such that $v - (c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{p + m, 1}v_{p + m, 1} + \dots + c_{p + m, k_{p + m}}v_{p + m, k_{p + m}}) \in F_{p + m + 1}M_{h + n}$.
-  By \Cref{prp:17}(i) and \Cref{prp:19}, $F_{p + m + 1}M_{h + n} = 0$ for $m \ge n - p$.
-  Hence, $v = c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} + \dots + c_{p + m, 1}v_{p + m, 1} + \dots + c_{p + m, k_{p + m}}v_{p + m, k_{p + m}}$ if $m$ is such that $m \ge n - p$, and $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$.
-  If $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, then clearly $\{v + F_{p + 1}M \mid v \in B_p\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
-
-  Finally, we prove that $\{v + F_{p + 1}M \mid v \in B_p\}$ is a basis of $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$ if and only if $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B_k$ is linearly independent.
-  We now assume that $\{v + F_{p + 1}M \mid v \in B_p\}$ is a basis of $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
-  By the last paragraph, $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$.
-  Let $n \in \mathbb{N}$.
-  If $c_{0, 1}v_{0, 1} + \dots + c_{0, k_0}v_{0, k_0} + \dots + c_{n, 1}v_{n, 1} + \dots + c_{n, k_n}v_{n, k_n} = 0$, where $v_{0, 1}, \dots, v_{0, k_0} \in B_0$, $c_{0, 1}, \dots, c_{0, k_0} \in \mathbb{C}$, \dots, $v_{n, 1}, \dots, v_{n, k_n} \in B_n$, $c_{n, 1}, \dots, c_{n, k_n} \in \mathbb{C}$, then $c_{0, 1}(v_{0, 1} + F_1M) + \dots + c_{0, k_0}(v_{0, k_0} + F_1M) = 0$.
-  By the linear independence of $\{v + F_1M \mid v \in B_0\}$, $c_{0, 1} = \dots = c_{0, k_0} = 0$.
-  Continuing this way, $c_{1, 1} = \dots = c_{1, k_1} = \dots = c_{n, 1} = \dots = c_{n, k_n} = 0$, and $\bigcup_{k \in \mathbb{N}}B^k$ is linearly independent.
-  To end this proof, we assume that $\bigcup_{k \ge p}B_k$ spans $F_pM$ for $p \in \mathbb{N}$, and $\bigcup_{k \in \mathbb{N}}B_k$ is linearly independent.
-  By the last paragraph, $\{v + F_{p + 1}M \mid v \in B_p\}$ spans $F_pM/F_{p + 1}M$ for $p \in \mathbb{N}$.
-  Let $p \in \mathbb{N}$.
-  Let $v_{p, 1}, \dots, v_{p, k_p} \in B_p$ and $c_{p, 1}, \dots, c_{p, k_p} \in \mathbb{C}$ be such that $c_{p, 1}(v_{p, 1} + F_{p + 1}M) + \dots + c_{p, k_p}(v_{p, k_p} + F_{p + 1}M) = 0$.
-  Then $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} \in F_{p + 1}M$, and $c_{p, 1}v_{p, 1} + \dots + c_{p, k_p}v_{p, k_p} = c_{p + 1, 1}v_{p + 1, 1} + \dots +  c_{p + 1, k_{p + 1}}v_{p + 1, k_{p + 1}} + \dots + c_{p + m, 1}v_{p + m, 1} + \dots + c_{p + m, k_{p + m}}v_{p + m, k_{p + m}}$ for some $m \in \mathbb{Z}_+$, $v_{p + 1, 1}, \dots, v_{p + 1, k_{p + 1}} \in B_{p + 1}$, $c_{p + 1, 1}, \dots, c_{p + 1, k_{p + 1}} \in \mathbb{C}$, \dots, $v_{p + m, 1}, \dots, v_{p + m, k_{p + m}} \in B_{p + m}$, $c_{p + m, 1}, \dots, c_{p + m, k_{p + m}} \in \mathbb{C}$ because $\bigcup_{k \ge p + 1}B_k$ spans $F_{p + 1}M$.
-  By the linear independence of $\bigcup_{k \in \mathbb{N}}B_k$, $c_{p, 1} = \dots = c_{p, k_p} = 0$, and $\{v + F_{p + 1}M \mid v \in B_p\}$ is linearly independent.
 \end{proof}
 
 \begin{example}[$\gr^G(M(c, h))$]
@@ -4708,7 +4712,7 @@ The \emph{associated variety of $V$}, denoted by $X_V$, and the \emph{singular s
 \end{align*}
 
 \begin{lemma}[{\cite[Corollary 4.3]{li_abelianizing_2005}}]
-  \label{lmm:25}
+  \label{lmm:26}
   Let $V$ be a vertex algebra.
   As a differential algebra, $\gr_F(V)$ is generated by $R_V$, i.e.,
   \begin{equation*}
@@ -4729,14 +4733,14 @@ Because $R_V$ is a (graded) Poisson algebra, we can equip $JR_V$ with the level 
 From now on, $JR_V$ will be considered as a (graded) vertex Poisson algebra.
 
 \begin{lemma}
-  \label{lmm:26}
+  \label{lmm:27}
   Let $V$ be a (graded) vertex algebra.
   The (graded) differential algebra homomorphism $\phi_V: JR_V \to \gr_F(V)$ defined above is surjective and is actually a (graded) vertex Poisson algebra homomorphism.
   Thus, $SS(V)$ is isomorphic to a closed subscheme of $JX_V$.
 \end{lemma}
 
 \begin{proof}
-  The homomorphism $\phi_V$ is surjective by \Cref{lmm:25}.
+  The homomorphism $\phi_V$ is surjective by \Cref{lmm:26}.
   The fact that $\phi_V$ is a (graded) vertex Poisson algebra homomorphism is explained in \cite[Proposition 2.5.1]{arakawa_remark_2012}.
 \end{proof}
 
@@ -4789,7 +4793,7 @@ In the theory of $\mathbb{N}$-graded vertex algebras, the equivalent of this is 
 Fortunately, these two concepts are related, as the following theorem shows.
 
 \begin{theorem}
-  \label{thr:56}
+  \label{thr:55}
   Let $S \subseteq V$ be a subset of homogeneous elements of an $\mathbb{N}$-graded vertex algebra $V$.
   The following are equivalent:
   \begin{enumerate}
@@ -4824,7 +4828,7 @@ Fortunately, these two concepts are related, as the following theorem shows.
                                      &= \sigma_{n + m}((n!a_{(-n - 1)}\vac)_{(-1)}(m!b_{(-m - 1)}\vac)) \\
                                      &= n!m!\sigma_{n + m}(a_{(-n - 1)}b_{(-m - 1)}\vac).
   \end{align*}
-  By \Cref{lmm:25},
+  By \Cref{lmm:26},
   \begin{equation*}
     \gr_F(V) = \mathbb{C}\left[\bigcup_{n \in \mathbb{N}}T^n(R_V)\right] = \mathbb{C}\left[\bigcup_{n \in \mathbb{N}}T^n(\mathbb{C}[\sigma_0(S)])\right] = \mathbb{C}\left[\bigcup_{n \in \mathbb{N}}T^n(\sigma_0(S))\right].
   \end{equation*}
@@ -4855,7 +4859,7 @@ Fortunately, these two concepts are related, as the following theorem shows.
 
 \begin{remark}
   \label{rmk:46}
-  For a generalization of \Cref{thr:56} assuming $V$ is a lower truncated $\mathbb{Z}$-graded vertex algebra, see \cite[Theorem 4.8]{li_abelianizing_2005}.
+  For a generalization of \Cref{thr:55} assuming $V$ is a lower truncated $\mathbb{Z}$-graded vertex algebra, see \cite[Theorem 4.8]{li_abelianizing_2005}.
 \end{remark}
 
 \begin{remark}
@@ -4889,11 +4893,11 @@ Fortunately, these two concepts are related, as the following theorem shows.
   From the definition of the Zhu $C_2$-algebra, we see that $R_V$ is isomorphic to $\mathbb{C}[t]/(t^2)$ as an algebra, and the latter is generated by the single element $t + (t^2)$.
   However, $V$ cannot be finitely strongly generated because it has uncountable dimension, and we get (iii).
 
-  From this example, we see that the assumption of $V$ being $\mathbb{N}$-graded cannot be removed in \Cref{thr:56}, although we can assume that $V$ is lower truncated $\mathbb{Z}$-graded.
+  From this example, we see that the assumption of $V$ being $\mathbb{N}$-graded cannot be removed in \Cref{thr:55}, although we can assume that $V$ is lower truncated $\mathbb{Z}$-graded.
 \end{remark}
 
 \begin{theorem}
-  \label{thr:57}
+  \label{thr:56}
   Let $V$ be a vertex algebra such that $R_V$ is finitely generated.
   Then the following are equivalent:
   \begin{enumerate}
@@ -4916,8 +4920,8 @@ Fortunately, these two concepts are related, as the following theorem shows.
     Since $\dim(X_V) = 0$, every prime ideal is maximal.
     Thus, $X_V$ is discrete.
   \item[(iii)$\implies$(ii)] Clear.
-  \item[(ii)$\implies$(iv)] By \Cref{thr:63}, $\dim(JX_V) = 0$.
-    By \Cref{lmm:26}, $\dim(SS(V)) = 0$.
+  \item[(ii)$\implies$(iv)] By \Cref{thr:62}, $\dim(JX_V) = 0$.
+    By \Cref{lmm:27}, $\dim(SS(V)) = 0$.
   \item[(iv)$\implies$(ii)] This follows by considering the projection onto the $0$-th component $\gr_F(V) \twoheadrightarrow R_V$ which shows that $\dim(R_V) \le \dim(\gr_F(V))$.
   \end{description}
 
@@ -4935,14 +4939,14 @@ Fortunately, these two concepts are related, as the following theorem shows.
 Thus, $C_2$-cofinite vertex algebras can be regarded as a generalization of finite-dimensional finitely generated algebras.
 
 \begin{theorem}[{\cite[Theorem 4.5]{abe_rationality_2003}}]
-  \label{thr:58}
+  \label{thr:57}
   Let $V$ be a conical conformal vertex algebra.
   Then $V$ is regular if and only if $V$ is $C_2$-cofinite and rational.
 \end{theorem}
 
 \begin{example}
   \label{exa:20}
-  By \Cref{exa:12}, \Cref{exa:16} and \Cref{thr:58}, $\Vir_{p, q}$ is regular for $p, q \ge 2$ relatively prime integers.
+  By \Cref{exa:12}, \Cref{exa:16} and \Cref{thr:57}, $\Vir_{p, q}$ is regular for $p, q \ge 2$ relatively prime integers.
 \end{example}
 
 Let $V$ be a vertex algebra, and let $M$ be a module over $V$.
@@ -4977,7 +4981,7 @@ The condition of $C_2$-cofiniteness on modules has several implications, as we w
   We pick a highest weight $(c, h)$.
   As in \Cref{exa:16}, we consider $\mathbb{C}[L_{-2}]$ as the polynomial algebra in one variable $L_{-2}$, and we equip it with the trivial Poisson bracket.
   We consider $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k$ as a module over the Poisson algebra $\mathbb{C}[L_{-2}]$ with Poisson bracket given by $\{L_{-2}, L_{-1}^k\} = L_{-1}^{k + 1}$ for $k \in \mathbb{N}$.
-  By \Cref{prp:19}, \Cref{exa:15} and \Cref{exa:16}, we have the following isomorphism of modules over Poisson algebras
+  By \Cref{prp:20}, \Cref{exa:15} and \Cref{exa:16}, we have the following isomorphism of modules over Poisson algebras
   \begin{align*}
     R_{M(c, h)} &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k, \\
     \sigma^{M(c, h)}_0(L^{M(c, h)}_{-2}|c, h\rangle) &\mapsto L_{-2}, \\
@@ -5007,7 +5011,7 @@ The \emph{associated variety of $M$}, denoted by $X_M$, and the \emph{singular s
 \end{align*}
 
 \begin{theorem}[{\cite[Lemma 4.2]{li_abelianizing_2005}}]
-  \label{thr:59}
+  \label{thr:58}
   Let $V$ be a vertex algebra, and let $M$ be a $V$-module.
   As a $\gr_F(V)$-module without the Poisson structure, $\gr_F(M)$ is generated by $R_M$, i.e.,
   \begin{equation*}
@@ -5028,12 +5032,12 @@ By the universal property of $\inc: R_M \hookrightarrow JR_V \otimes_{R_V} R_M$ 
 \end{equation*}
 
 \begin{lemma}
-  \label{lmm:27}
+  \label{lmm:28}
   The (graded) $JR_V$-module homomorphism $\phi_M: JR_V \otimes_{R_V} R_M \to \gr_F(M)$ defined above is surjective.
 \end{lemma}
 
 \begin{proof}
-  The assertion follows from \Cref{lmm:26} and \Cref{thr:59}.
+  The assertion follows from \Cref{lmm:27} and \Cref{thr:58}.
 \end{proof}
 
 When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
@@ -5041,7 +5045,7 @@ When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
 \begin{example}[$JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)}$]
   \label{exa:22}
   We pick a highest weight $(c, h)$.
-  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{prp:19}, \Cref{exa:15}, \Cref{exa:16} and \Cref{exa:21},
+  The Verma module $M(c, h)$ is always classically free as a $\Vir^c$-module because by \Cref{prp:20}, \Cref{exa:15}, \Cref{exa:16} and \Cref{exa:21},
   \begin{align*}
     JR_{\Vir^c} \otimes_{R_{\Vir^c}} R_{M(c, h)} &\cong \mathbb{C}[L_{-2}, L_{-3}, \dots] \otimes_{\mathbb{C}[L_{-2}]} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}]L_{-1}^k \\
                                                  &\cong \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k \\
@@ -5050,7 +5054,7 @@ When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
 \end{example}
 
 \begin{theorem}
-  \label{thr:60}
+  \label{thr:59}
   Let $V$ be a vertex operator algebra, let $M$ be an admissible $V$-module, and let $T \subseteq M$ be a subset of homogeneous elements of $M$.
   The following are equivalent:
   \begin{enumerate}
@@ -5081,7 +5085,7 @@ When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
 \end{proof}
 
 \begin{theorem}
-  \label{thr:61}
+  \label{thr:60}
   Let $V$ be a vertex algebra such that $R_V$ is finitely generated, let $M$ be a $V$-module, and we assume that $R_M$ is a finitely generated $R_V$-module.
   Then the following are equivalent:
   \begin{enumerate}
@@ -5098,11 +5102,11 @@ When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
 \end{theorem}
 
 \begin{proof}
-  The proof of \Cref{thr:57} works with minor modifications.
+  The proof of \Cref{thr:56} works with minor modifications.
 \end{proof}
 
 \begin{theorem}
-  \label{thr:62}
+  \label{thr:61}
   Let $V$ be a $C_2$-cofinite conical conformal vertex algebra.
   Then:
   \begin{enumerate}
@@ -5134,7 +5138,7 @@ When $\phi_M$ is an isomorphism, we say $M$ is \emph{classically free}.
   \end{enumerate}
 \end{proof}
 
-By \Cref{thr:62}, when $V$ is a $C_2$-cofinite conical conformal vertex algebra, to find all irreducibles in the category of $V$-modules, it is enough to find all irreducibles in the category of admissible $V$-modules.
+By \Cref{thr:61}, when $V$ is a $C_2$-cofinite conical conformal vertex algebra, to find all irreducibles in the category of $V$-modules, it is enough to find all irreducibles in the category of admissible $V$-modules.
 By \Cref{exa:16}, the Ising model $\Vir_{3, 4} = \Vir_{1/2}$ satisfies these conditions.
 
 \section{PBW basis of $L(1/2, 1/2)$ and its refined character}
@@ -5214,24 +5218,6 @@ For a partition $\lambda = [\lambda_1, \dots, \lambda_m]$ with $\lambda_m \ge 2$
   p_{\lambda} = L_{-\lambda_1}\dots L_{-\lambda_m}.
 \end{equation*}
 
-From the epimorphism of $V$-modules $\pi: M \twoheadrightarrow L$, we deduce the following four isomorphisms which are going to be used frequently implicitly.
-
-\begin{proposition}
-  \label{prp:22}
-  We have four (conformal) weight-preserving vector space isomorphisms:
-  \begin{align*}
-    M &\xrightarrow{\sim} \gr^G(M), \\
-    L_{\lambda}\vachalf &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}\vachalf), \\
-    \gr^G(M) &\xrightarrow{\sim} \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k, \\
-    \alpha^{\len(\lambda)}(L_{\lambda}\vachalf) &\mapsto u_{\lambda}, \\
-    L &\xrightarrow{\sim} \gr^G(L), \\
-    L_{\lambda}(\vachalf + W) &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)), \\
-    \gr^G(L) &\xrightarrow{\sim} \gr^G(M)/K, \\
-    \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)) &\mapsto \alpha^{\len(\lambda)}(L_{\lambda}\vachalf) + K,
-  \end{align*}
-  where $\lambda$ is a partition.
-\end{proposition}
-
 In this thesis, we will deal with polynomial algebras written as $\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]$ and free modules of the form $\bigoplus_{n \le N}\mathbb{C}[L_{-2}, L_{-3}, \dots, L_{-N}]L_{-1}^n$ for some $N \in \mathbb{N}$.
 We will always use the degree reverse lexicographic order with $L_{-2} > L_{-3} > \dots > L_{-N}$ and TOP (term over position) with $L_{-1}^0 < L_{-1}^1 < \dots < L_{-1}^N$, see \cite[\S3.5]{adams_introduction_1994}.
 Let $u \in \bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$.
@@ -5250,7 +5236,7 @@ For $a, b, c, d \in \mathbb{N}$, we define
 The following lemma will be used frequently to verify series identities.
 
 \begin{lemma}
-  \label{lmm:28}
+  \label{lmm:29}
   The series $f_{a, b, c, d}(t, q)$ satisfies:
   \begin{enumerate}
   \item $t^mq^nf_{a, b, c, d}(t, q) = f_{a, b, c + n, d + m}(t, q)$ for $m, n \in \mathbb{N}$;
@@ -5313,7 +5299,7 @@ Likewise, we define $P_{>6, 5, 3}$, $P_{6, 5, 3}$, $p_{>6, 5, 3}(t, q)$, $p_{6, 
 It turns out that $P$ decomposes as a disjoint union of these smaller objects, and we can find recurrence relations between them to find our desired formula for $p(t, q)$.
 
 \begin{lemma}
-  \label{lmm:29}
+  \label{lmm:30}
   The formal power series $p_{>2}(t, q)$ is given by
   \begin{equation*}
     p_{>2}(t, q) = f_{3, 2, 0, 0}(t, q).
@@ -5340,7 +5326,7 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
     p_{6, 5, 3}(t, q) &= t^2q^3p_{5, 4}(tq^{1/2}, q), &p_{6, 5, 3}(0, 0) &= 0, \\
     p_{4, 3}(t, q) &= t^2q^3p_{4, 4}(tq^{1/2}, q) + t^2q^2p_{>5, 4}(tq^{1/2}, q), &p_{4, 3}(0, 0) &= 0.
   \end{align*}
-  The solution to these equations is unique if it exists, and we can verify using \Cref{lmm:28} that:
+  The solution to these equations is unique if it exists, and we can verify using \Cref{lmm:29} that:
   \begin{align*}
     p_{>4}(t, q) &= f_{6, 4, 0, 0}(t, q), &p_{>5, 4}(t, q) &= f_{9, 5, 4, 2}(t, q), \\
     p_{5, 4}(t, q) &= f_{13, 6, 9, 4}(t, q), &p_{4, 4}(t, q) &= f_{12, 6, 8, 4}(t, q), \\
@@ -5348,7 +5334,7 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
     p_{6, 5, 3}(t, q) &= f_{15, 7, 14, 6}(t, q), &p_{4, 3}(t, q) &= f_{11, 5, 7, 4}(t, q),
   \end{align*}
   is a solution to these equations.
-  We derive the formula $p_{>2}(t, q) = f_{3, 2, 0, 0}(t, q)$ again from \Cref{lmm:28}.
+  We derive the formula $p_{>2}(t, q) = f_{3, 2, 0, 0}(t, q)$ again from \Cref{lmm:29}.
 
   The recurrences follow from the following eight bijections for $m, n \in \mathbb{N}$.
   \begin{align*}
@@ -5430,7 +5416,7 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
 \end{proof}
 
 \begin{lemma}
-  \label{lmm:30}
+  \label{lmm:31}
   The formal power series $p_{>2, 1}(t, q)$ is given by
   \begin{equation*}
     p_{>2, 1}(t, q) = f_{5, 2, 1, 1}(t, q).
@@ -5463,7 +5449,7 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
     P_{5, 3, 1}(n, 2m + 1) &\xrightarrow{\sim} P_{>6, 5, 3}(n - 1, 2m), \\
     \lambda &\mapsto [\lambda_1, \dots, \lambda_m],
   \end{align*}
-  from which, together with the proof of \Cref{lmm:29}, we get:
+  from which, together with the proof of \Cref{lmm:30}, we get:
   \begin{align*}
     p_{>4, 1}(t, q) &= tqp_{>4}(t, q) = f_{6, 4, 1, 1}(t, q), \\
     p_{>5, 4, 1}(t, q) &= tqp_{>5, 4}(t, q) = f_{9, 5, 5, 3}(t, q), \\
@@ -5471,11 +5457,11 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
     p_{>5, 3, 1}(t, q) &= tqp_{>5, 3}(t, q) = f_{8, 5, 4, 3}(t, q), \\
     p_{5, 3, 1}(t, q) &= tqp_{>6, 5, 3}(t, q) = f_{11, 6, 9, 5}(t, q).
   \end{align*}
-  The formula for $p_{>2, 1}(t, q)$ then follows from \Cref{lmm:28}.
+  The formula for $p_{>2, 1}(t, q)$ then follows from \Cref{lmm:29}.
 \end{proof}
 
 \begin{lemma}
-  \label{lmm:31}
+  \label{lmm:32}
   The formal power series $p_{>2, 1, 1}(t, q)$ is given by
   \begin{equation*}
     p_{>3, 1, 1}(t, q) = f_{6, 3, 2, 2}(t, q).
@@ -5496,16 +5482,16 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
     P_{4, 1, 1}(n, 2m + 2) &\xrightarrow{\sim} P_{>5, 4, 1}(n - 1, 2m + 1), \\
     \lambda &\mapsto [\lambda_1, \dots, \lambda_m, 1],
   \end{align*}
-  from which, together with the proof of \Cref{lmm:30}, we get:
+  from which, together with the proof of \Cref{lmm:31}, we get:
   \begin{align*}
     p_{>4, 1, 1}(t, q) &= tqp_{>4, 1}(t, q) = f_{6, 4, 2, 2}(t, q), \\
     p_{4, 1, 1}(t, q) &= tqp_{>5, 4, 1}(t, q) = f_{9, 5, 6, 4}(t, q).
   \end{align*}
-  The formula for $p_{>3, 1, 1}(t, q)$ then follows from \Cref{lmm:28}.
+  The formula for $p_{>3, 1, 1}(t, q)$ then follows from \Cref{lmm:29}.
 \end{proof}
 
 \begin{lemma}
-  \label{lmm:32}
+  \label{lmm:33}
   The formal power series $p(t, q)$ is given by
   \begin{equation*}
     p(t, q) = f_{3, 2, 0, 0}(t, q) + f_{5, 2, 1, 1}(t, q) + f_{6, 3, 2, 2}(t, q).
@@ -5517,11 +5503,11 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
   \begin{equation*}
     P = P_{>2} \cup P_{>2, 1} \cup P_{>3, 1, 1}
   \end{equation*}
-  together with \Cref{lmm:29}, \Cref{lmm:30} and \Cref{lmm:31}.
+  together with \Cref{lmm:30}, \Cref{lmm:31} and \Cref{lmm:32}.
 \end{proof}
 
 \begin{lemma}
-  \label{lmm:33}
+  \label{lmm:34}
   The formal power series $p(q)$ satisfies
   \begin{equation*}
     \ch_{L}(q) = q^{1/2}p(q).
@@ -5529,7 +5515,7 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
 \end{lemma}
 
 \begin{proof}
-  This follows from \Cref{lmm:32} by setting $t = 1$ and \cite[Theorem 4]{andrews_singular_2022} together with \Cref{lmm:28}.
+  This follows from \Cref{lmm:33} by setting $t = 1$ and \cite[Theorem 4]{andrews_singular_2022} together with \Cref{lmm:29}.
 \end{proof}
 
 \subsection{Computing leading monomials}
@@ -5538,7 +5524,7 @@ It turns out that $P$ decomposes as a disjoint union of these smaller objects, a
 We recall that we have defined $V = \Vir^{1/2}$, $M = M(1/2, 1/2)$ and $L = L(1/2, 1/2)$.
 
 \begin{lemma}
-  \label{lmm:34}
+  \label{lmm:35}
   Let $\lambda = [\lambda_1, \dots, \lambda_m]$ be a partition with $\lambda_m \ge 2$ or $\lambda = \emptyset$, and we consider $M$ as a module over $V$.
   Then
   \begin{equation*}
@@ -5563,7 +5549,7 @@ For $k \in \mathbb{N}$, we call
 the insertion of $\gr^G(V)$ into the $k$-th component of $\gr^G(M)$.
 
 \begin{lemma}
-  \label{lmm:35}
+  \label{lmm:36}
   Let $a \in G^pV$ for some $p \in \mathbb{N}$.
   Then $a_{(-1)}\vachalf \in G^pM$ and
   \begin{equation*}
@@ -5572,7 +5558,7 @@ the insertion of $\gr^G(V)$ into the $k$-th component of $\gr^G(M)$.
 \end{lemma}
 
 \begin{proof}
-  The result follows immediately from \Cref{lmm:34}.
+  The result follows immediately from \Cref{lmm:35}.
 \end{proof}
 
 We have a natural quotient map
@@ -5588,7 +5574,7 @@ Applying the functor $\gr^G$, we obtain an epimorphism of $\mathbb{N}$-graded ve
 We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singular_2022}, and we recall the definition of $K$ given in \eqref{eq:52}.
 
 \begin{lemma}
-  \label{lmm:36}
+  \label{lmm:37}
   We have the inclusion
   \begin{equation*}
     \iota_0(I) \subseteq K.
@@ -5623,12 +5609,12 @@ We set $I = \ker(\gr^G(\pi_0))$, following the notation of \cite{andrews_singula
     K = \sum_{p \in \mathbb{N}}\alpha^p(W \cap G^pM).
   \end{equation*}
   Let $\alpha^p(a) \in I$ with $a \in U(\Vir)\{a_{3, 4}\} \cap G^pV$.
-  By \Cref{lmm:35} and \eqref{eq:53}, we have $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
+  By \Cref{lmm:36} and \eqref{eq:53}, we have $a_{(-1)}\vachalf \in W \cap G^pM$ and also $\iota_0(\alpha^p(a)) = \alpha^p(a_{(-1)}\vachalf) \in K$, finishing the proof.
 \end{proof}
 
 \begin{remark}
   \label{rmk:48}
-  The proof of \Cref{lmm:36} also works for other values of $c = c_{p, q}$ and $h = h_{m, n}$ as in \Cref{thr:44}.
+  The proof of \Cref{lmm:37} also works for other values of $c = c_{p, q}$ and $h = h_{m, n}$ as in \Cref{thr:44}.
 \end{remark}
 
 We need to compute all leading monomials of elements of $K$.
@@ -5711,7 +5697,7 @@ We set
   K' = (u^K_{[2]}, u^K_{[1, 1, 1]}, u^K_{[3, 1, 1]}, u^K_{[3, 3]}, u^K_{[4, 3, 1]}, u^K_{[4, 4, 1]}, u^K_{[5, 4, 1, 1]}, u^K_{[6, 5, 3, 1]}, \iota_0(I))_{\psn},
 \end{equation*}
 where $\psn$ denotes the Poisson submodule generated by the given subset.
-By \Cref{lmm:36}, \Cref{rmk:50} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
+By \Cref{lmm:37}, \Cref{rmk:50} and the fact that $K$ is a vertex Poisson submodule (not just a submodule), we have
 \begin{equation*}
   K' \subseteq K.
 \end{equation*}
@@ -5741,7 +5727,7 @@ Let $\overline{R}$ be the set of partitions containing some partition of $R$, i.
 \end{equation*}
 
 \begin{lemma}
-  \label{lmm:37}
+  \label{lmm:38}
   For $\lambda \in \overline{R}$, there exists $u \in K'$ such that $\lm(u) = u_{\lambda}$.
 \end{lemma}
 
@@ -5767,7 +5753,7 @@ The following lemma says our set of partitions $R$ is special.
 If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
 
 \begin{lemma}
-  \label{lmm:38}
+  \label{lmm:39}
   There is an alternative description for $P$, namely
   \begin{equation*}
     P = \{\lambda \mid \text{for $\eta \in \overline{R}$, $u_{\eta} \nmid u_{\lambda}$}\}.
@@ -5807,7 +5793,6 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
 
 \begin{proof}[Proof of \Cref{thr:4}]
   Since we cannot apply Gröbner basis theory directly on the free module $\bigoplus_{k \in \mathbb{N}}\mathbb{C}[L_{-2}, L_{-3}, \dots]L_{-1}^k$, we need to truncate somehow.
-  We have to keep in mind the isomorphisms given in \Cref{prp:22}.
   For $N \in \mathbb{N}$, we define:
   \begin{align*}
     \gr^G(M)_{\le 1/2 + N} &= \sum_{n \le N}\gr^G(M)_{1/2 + n}, \\
@@ -5838,7 +5823,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
     \{u_{\lambda} + K \cap F_N \mid u_{\lambda} \in B_N\}
   \end{equation}
   is a vector space basis of $\gr^G(M)_{\le 1/2 + N}/K \cap F_N$.
-  Therefore, by \Cref{lmm:33}, isomorphism \eqref{eq:54} and the isomorphism between $\gr^G(L)_{1/2 + n}$ and $L_{1/2 + n}$ of \Cref{prp:22}, we have
+  Therefore, by \Cref{lmm:34}, isomorphism \eqref{eq:54} and \Cref{prp:21}(i), we have
   \begin{equation*}
     |B_N| = \sum_{n \le N}\dim(\gr^G(L)_{1/2 + n}) = \sum_{n \le N}\dim(L_{1/2 + n}) = \sum_{n \le N}|P(n)|.
   \end{equation*}
@@ -5847,7 +5832,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   \begin{equation*}
     \overline{B_N} = \{u_{\lambda} \mid \text{$\Delta(\lambda) \le N$ and for $\eta \in \overline{R}$, $u_{\eta} \nmid u_{\lambda}$}\}.
   \end{equation*}
-  By \Cref{lmm:38}, we also have
+  By \Cref{lmm:39}, we also have
   \begin{equation*}
     \overline{B_N} = \{u_{\lambda} \mid \text{$\Delta(\lambda) \le N$ and $\lambda \in P$}\}.
   \end{equation*}
@@ -5859,11 +5844,11 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
   On the other hand, $B_N \subseteq \overline{B_N}$.
   This is because if $u_{\lambda} \in B_N$ and $\eta \in \overline{R}$, then $u_{\eta} \nmid u_{\lambda}$, as we now show.
   Suppose, for the sake of contradiction, that $u_{\eta} \mid u_{\lambda}$.
-  By \Cref{lmm:37}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$.
+  By \Cref{lmm:38}, there would exist $u \in K' \cap F_N \subseteq K \cap F_N$ such that $\lm(u) = u_{\eta}$.
   However, by the definition of a Gröbner basis, there would then exist $v \in G_N$ such that $\lm(v) \mid \lm(u)$, implying $\lm(v) \mid u_{\lambda}$, a contradiction.
   As both $B_N$ and $\overline{B_N}$ are finite sets and $|B_N| = |\overline{B_N}|$, we get $B_N = \overline{B_N}$.
   We see that the family of bases given by \eqref{eq:55} satisfies the property that each basis is a subset of the next.
-  This observation, together with the isomorphism between $L$ and $\gr^G(L)$ of \Cref{prp:22}, concludes the proof of \Cref{thr:4}.
+  This observation and \Cref{prp:19} conclude the proof of \Cref{thr:4}.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thr:3}]
@@ -5873,7 +5858,7 @@ If $R$ were $\{[4, 2]\}$, for example, the following lemma would not be true.
     \alpha^{\len(\lambda)}(L_{\lambda}(\vachalf + W)) \in \alpha^{\len(\lambda)}(G^{\len(\lambda)}L_{1/2 + \Delta(\lambda)}).
   \end{equation*}
   Thus, when calculating the refined character of $\gr^G(L)$, $\Delta(\lambda)$ is incremented by $1/2$.
-  Therefore, $\ch_{\gr^G(L)}(t, q) = q^{1/2}p(t, q)$ and together with \Cref{lmm:32}, we conclude the proof of \Cref{thr:3}.
+  Therefore, $\ch_{\gr^G(L)}(t, q) = q^{1/2}p(t, q)$ and together with \Cref{lmm:33}, we conclude the proof of \Cref{thr:3}.
 \end{proof}
 
 \begin{corollary}
@@ -5999,7 +5984,7 @@ A \emph{Poisson algebra} is an algebra $A$ together with two operations $\bullet
 The operation $\{\bullet, \bullet\}$ is called \emph{Poisson bracket}.
 
 \begin{lemma}
-  \label{lmm:39}
+  \label{lmm:40}
   A Poisson algebra $A$ also satisfies the right Leibniz rule
   \begin{equation*}
     \{ab, c\} = a\{b, c\} + b\{a, c\} \quad \text{for $a, b, c \in A$}.
@@ -6062,7 +6047,7 @@ A \emph{module over $A$} is an $A$-module $M$ in the usual associative sense equ
 
 \begin{remark}
   \label{rmk:53}
-  We probably cannot prove the right Leibniz rule from the Left Leibniz rule for modules like in \Cref{lmm:39} because we do not have anticommutativity for modules.
+  We probably cannot prove the right Leibniz rule from the Left Leibniz rule for modules like in \Cref{lmm:40} because we do not have anticommutativity for modules.
   Some authors only require the left Leibniz rule for modules, but here we also want the right Leibniz rule (see \cite{caressa_examples_2003}).
 \end{remark}
 
@@ -6156,7 +6141,7 @@ The \emph{jet scheme of an affine scheme of finite type $X = \Spec(R)$} is defin
 \end{remark}
 
 \begin{theorem}[{\cite{ein_jet_2008}}]
-  \label{thr:63}
+  \label{thr:62}
   Let $R$ be a finitely generated algebra.
   Then $\dim(R) = 0$ if and only if $\dim(JR) = 0$.
 \end{theorem}
@@ -6200,7 +6185,7 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
 \end{equation*}
 
 \begin{lemma}
-  \label{lmm:40}
+  \label{lmm:41}
   The formal power series $p_{>2}(t, q)$ is given by
   \begin{equation*}
     p_{>2}(t, q) = f_{2, 2, 0, 0}(t, q).
@@ -6228,7 +6213,7 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
     p_{6, 4, 3}(t, q) &= t^2q^3p_{4, 4}(tq^{1/2}, q), &p_{6, 4, 3}(0, 0) &= 0, \\
     p_{3, 3}(t, q) &= t^2q^3p_{>6, 4, 3}(tq^{1/2}, q) + t^2q^2p_{>5, 3}(tq^{1/2}, q), &p_{3, 3}(0, 0) &= 0.
   \end{align*}
-  The solution to these equations is unique if it exists, and we can verify using \Cref{lmm:28} that:
+  The solution to these equations is unique if it exists, and we can verify using \Cref{lmm:29} that:
   \begin{align*}
     p_{>4}(t, q) &= f_{6, 4, 0, 0}(t, q), &p_{>5, 4}(t, q) &= f_{9, 5, 4, 2}(t, q), \\
     p_{5, 4}(t, q) &= f_{13, 6, 9, 4}(t, q), &p_{4, 4}(t, q) &= f_{12, 6, 8, 4}(t, q), \\
@@ -6238,7 +6223,7 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
     p_{6, 4, 3}(t, q) &= f_{14, 7, 13, 6}(t, q), &p_{3, 3}(t, q) &= f_{10, 5, 6, 4}(t, q),
   \end{align*}
   is a solution to these equations.
-  We derive the formula $p_{>2}(t, q) = f_{2, 2, 0, 0}(t, q)$ again from \Cref{lmm:28}.
+  We derive the formula $p_{>2}(t, q) = f_{2, 2, 0, 0}(t, q)$ again from \Cref{lmm:29}.
 
   The recurrences follow from the following twelve bijections for $m, n \in \mathbb{N}$:
   \begin{align*}
@@ -6314,7 +6299,7 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
 \end{proof}
 
 \begin{lemma}
-  \label{lmm:41}
+  \label{lmm:42}
   The formal power series $p_{>2, 1}(t, q)$ is given by
   \begin{equation*}
     p_{>2, 1}(t, q) = f_{4, 2, 1, 1}(t, q).
@@ -6363,7 +6348,7 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
     P_{6, 5, 3, 1}(n, 2m + 1) &\xrightarrow{\sim} P_{6, 5, 3}(n - 1, 2m), \\
     \lambda &\mapsto [\lambda_1, \dots, \lambda_m],
   \end{align*}
-  from which, together with the proof of \Cref{lmm:40}, we get:
+  from which, together with the proof of \Cref{lmm:41}, we get:
   \begin{align*}
     p_{>4, 1}(t, q) &= tqp_{>4}(t, q) = f_{6, 4, 1, 1}(t, q), \\
     p_{>5, 4, 1}(t, q) &= tqp_{>5, 4}(t, q) = f_{9, 5, 5, 3}(t, q), \\
@@ -6375,11 +6360,11 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
     p_{8, 7, 5, 3, 1}(t, q) &= tqp_{8, 7, 5, 3}(t, q) = f_{19, 9, 24, 9}(t, q), \\
     p_{6, 5, 3, 1}(t, q) &= tqp_{6, 5, 3}(t, q) = f_{15, 7, 15, 7}(t, q).
   \end{align*}
-  The formula for $p_{>2, 1}(t, q)$ then follows from \Cref{lmm:28}.
+  The formula for $p_{>2, 1}(t, q)$ then follows from \Cref{lmm:29}.
 \end{proof}
 
 \begin{lemma}
-  \label{lmm:42}
+  \label{lmm:43}
   The formal power series $p_{>2, 1, 1}(t, q)$ is given by
   \begin{equation*}
     p_{>2, 1, 1}(t, q) = f_{9, 4, 5, 4}(t, q) + f_{5, 3, 2, 2}(t, q).
@@ -6416,7 +6401,7 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
     P_{7, 5, 3, 1, 1}(n, 2m + 2) &\xrightarrow{\sim} P_{>8, 7, 5, 3, 1}(n - 1, 2m + 1), \\
     \lambda &\mapsto [\lambda_1, \dots, \lambda_m, 1],
   \end{align*}
-  from which, together with the proof of \Cref{lmm:41}, we get:
+  from which, together with the proof of \Cref{lmm:42}, we get:
   \begin{align*}
     p_{>4, 1, 1}(t, q) &= tqp_{>4, 1}(t, q) = f_{6, 4, 2, 2}(t, q), \\
     p_{>5, 4, 1, 1}(t, q) &= tqp_{>5, 4, 1}(t, q) = f_{9, 5, 6, 4}(t, q), \\
@@ -6425,11 +6410,11 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
     p_{>7, 5, 3, 1, 1}(t, q) &= tqp_{>7, 5, 3, 1}(t, q) = f_{12, 7, 10, 6}(t, q), \\
     p_{7, 5, 3, 1, 1}(t, q) &= tqp_{>8, 7, 5, 3, 1}(t, q) = f_{15, 8, 17, 8}(t, q).
   \end{align*}
-  The formula for $p_{>2, 1, 1}(t, q)$ then follows from \Cref{lmm:28}.
+  The formula for $p_{>2, 1, 1}(t, q)$ then follows from \Cref{lmm:29}.
 \end{proof}
 
 \begin{lemma}
-  \label{lmm:43}
+  \label{lmm:44}
   The formal power series $p_{>3, 1, 1, 1}(t, q)$ is given by
   \begin{equation*}
     p_{>3, 1, 1, 1}(t, q) = f_{7, 3, 3, 3}(t, q).
@@ -6450,7 +6435,7 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
     P_{4, 1, 1, 1}(n, 2m + 3) &\xrightarrow{\sim} P_{3, 3}(n - 1, 2m + 2), \\
     \lambda &\mapsto [\lambda_1, \dots, \lambda_{m - 1}, 3, 3],
   \end{align*}
-  from which, together with the proof of \Cref{lmm:40} and \Cref{lmm:28}, we get:
+  from which, together with the proof of \Cref{lmm:41} and \Cref{lmm:29}, we get:
   \begin{align*}
     p_{>4, 1, 1, 1}(t, q) &= tp_{>4, 3}(t, q) \\
                           &= t(p_{6, 5, 3}(t, q) + p_{8, 7, 5, 3}(t, q) + p_{>8, 7, 5, 3}(t, q) + p_{>7, 5, 3}(t, q) + p_{>5, 3}(t, q)) \\
@@ -6458,11 +6443,11 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
                           &= f_{7, 4, 3, 3}(t, q), \\
     p_{4, 1, 1, 1}(t, q) &= tqp_{3, 3}(t, q) = f_{10, 5, 7, 5}(t, q).
   \end{align*}
-  The formula for $p_{>3, 1, 1, 1}(t, q)$ then follows from \Cref{lmm:28}.
+  The formula for $p_{>3, 1, 1, 1}(t, q)$ then follows from \Cref{lmm:29}.
 \end{proof}
 
 \begin{lemma}
-  \label{lmm:44}
+  \label{lmm:45}
   The formal power series $p(t, q)$ is given by
   \begin{equation*}
     p(t, q) = f_{1, 1, 0, 0}(t, q) + f_{4, 2, 1, 1}(t, q) + f_{7, 3, 3, 3}(t, q).
@@ -6474,7 +6459,7 @@ The maximal proper subrepresentation of $M(1/2, 1/16)$ is generated by the singu
   \begin{equation*}
     P = P_{>2} \cup P_{>2, 1} \cup P_{>2, 1, 1} \cup P_{>3, 1, 1, 1}
   \end{equation*}
-  together with \Cref{lmm:40}, \Cref{lmm:41}, \Cref{lmm:42}, \Cref{lmm:43} and \Cref{lmm:28}.
+  together with \Cref{lmm:41}, \Cref{lmm:42}, \Cref{lmm:43}, \Cref{lmm:44} and \Cref{lmm:29}.
 \end{proof}
 
 The partitions $[2]$, $[1, 1, 1, 1]$, $[3, 1, 1, 1]$, $[3, 3, 1]$, $[4, 3, 1]$, $[4, 4, 1, 1]$, $[5, 4, 1, 1, 1]$, $[5, 5, 1, 1, 1]$, $[6, 5, 3, 1, 1]$, $[6, 6, 3, 1, 1]$, $[7, 6, 4, 1, 1, 1]$ and $[8, 7, 5, 3, 1, 1]$ are pivots of the matrices $A^W_2$, $A^W_4$, $A^W_6$, $A^W_7$, $A^W_8$, $A^W_{10}$, $A^W_{12}$, $A^W_{13}$, $A^W_{16}$, $A^W_{17}$, $A^W_{20}$ and $A^W_{25}$ respectively, see \cite[ising-modules-1-16.ipynb]{sagemath2}.
